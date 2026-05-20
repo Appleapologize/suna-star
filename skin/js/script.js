@@ -1,3 +1,6 @@
+let recipeData = []; 
+let dict = {}; 
+
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
     if (!themeToggleBtn) return;
