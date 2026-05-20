@@ -1,0 +1,238 @@
+@charset "utf-8";
+:root{
+--timeline-color:purple;/*타임라인 전체적인 색상*/
+--title-text-color:white;/*좌측 설명란색상*/
+  /*타임라인 내부 박스 배경*/
+--left-background-color:black;/*좌측 칸의 색*/
+--right-background-color:white;/*우측 칸의 색*/
+  
+/*내부 박스의 제목 테두리*/  
+--left-text-border-color:white;/*좌측 제목의 테두리*/
+--right-text-border-color:white;/*우측 제목의 테두리*/
+  /*캐릭터 이름의 텍스트 색상*/
+--left-title-color:#c21515;
+--right-title-color:#45ffcd;
+  
+  /*제목의 테두리 두께*/
+--text-border-weight-top-right :2px;/*우측 좌측 함께 들어갑니다.*/
+--text-border-weight-bottom-left:-2px;/*우측 좌측 함께 들어갑니다. 마이너스로 넣어주세요*/
+  
+/*상세설명 텍스트 색상*/
+--left-text-color:white;/*좌측 하단의 상세설명 텍스트 색상*/
+--right-text-color:#242424;/*우측 하단의 상세설명 텍스트 색상*/
+}
+
+
+#timeline{  margin: 0 auto;}
+#timeline-title{text-align:center;
+               display:flex;
+               width:100%;
+               margin:10px;}
+
+#timeline-title .left-title{background:red;
+                           width:50%;
+                           margin:0 10 0 0;}
+#timeline-title .right-title{background:green;
+                            width:50%;
+                            margin:0 0 0 10;}
+@media only screen and (max-width: 700px) {#timeline-title{display:none;}}
+
+/*타임라인 css*/
+#conference-timeline {
+  position: relative;
+  max-width: 920px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#conference-timeline .timeline-start,
+#conference-timeline .timeline-end {
+  display: table;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: var(--timeline-color);
+  padding: 15px 23px;
+  color: var(--title-text-color);
+  max-width: 100;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 20PX;
+}
+
+/*타임라인 선*/
+#conference-timeline .conference-center-line {
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  margin-left: -2px;
+  background: var(--timeline-color);
+  z-index: -1;
+}
+@media only screen and (max-width: 700px) {
+  #conference-timeline .conference-center-line {width: 10px;  margin-left: 0;left: 10;}
+}
+
+#conference-timeline .conference-timeline-content {
+  padding-top: 67px;
+  padding-bottom: 67px;
+}
+.timeline-article {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 20px 0;
+  padding: 10px;
+}
+.timeline-article .content-left-container,
+.timeline-article .content-right-container {
+  max-width: 44%;
+  width: 100%;
+}
+
+.timeline-article .content-left,
+.timeline-article .content-right {
+  position: relative;
+  width: auto;
+  border: 1px solid #ddd;
+  background-color: var(--title-text-color);
+  padding: 10px;
+  MARGIN: 20 0 0 0;
+}
+
+.timeline-article .content-left .timeline-who{color:var(--left-title-color);}
+.timeline-article .content-right .timeline-who{color:var(--right-title-color);}
+
+.timeline-article .content-left{background:var(--left-background-color);}
+.timeline-article .content-left h1{text-shadow: var(--text-border-weight-bottom-left) 0px var(--left-text-border-color), /*상단*/
+                                                  0px var(--text-border-weight-top-right) var(--left-text-border-color), /*우측*/
+                                                  var(--text-border-weight-top-right) 0px var(--left-text-border-color), /*하단*/
+                                                  0px var(--text-border-weight-bottom-left) var(--left-text-border-color);/*좌측*/}
+.timeline-article .content-left p {color:var(--left-text-color);}
+
+.timeline-article .content-right {background:var(--right-background-color);}
+.timeline-article .content-right h1 {text-shadow: var(--text-border-weight-bottom-left) 0px var(--right-text-border-color), /*상단*/
+                                                  0px var(--text-border-weight-top-right) var(--right-text-border-color), /*우측*/
+                                                  var(--text-border-weight-top-right) 0px var(--right-text-border-color), /*하단*/
+                                                  0px var(--text-border-weight-bottom-left) var(--right-text-border-color);/*좌측*/}
+.timeline-article .content-right p{color:var(--right-text-color);}
+
+                                
+
+.timeline-article p {
+  margin: 0 0 0 ;
+  padding: 0;
+  font-weight: 400;
+  color: #242424;
+  font-size: 14px;
+  line-height: 24px;
+  position: relative;
+  display:none;
+}
+
+.timeline-article h1 {
+  font-weight: bold;
+  font-size: 44px;
+  max-width:90vw;
+  color: var(--timeline-color);
+  margin:0;
+  cursor:pointer !important;
+}
+.timeline-article .content-left-container {
+  float: left;
+  text-align:right;
+}
+.timeline-article .content-right-container {
+  float: right;
+  text-align:left;
+}
+
+.timeline-article .meta-date {
+  width: auto;
+  height: 62px;
+  color: var(--title-text-color);
+}
+
+.timeline-article .meta-date .date,
+.timeline-article .meta-date .month {
+  display: block;
+  text-align: center;
+  color: var(--title-text-color);
+  font-weight: 900;
+  border-radius: 20PX;
+  background: var(--timeline-color);
+  width: FIT-CONTENT;
+  max-width: 50vw;
+  MIN-WIDTH: 65PX;
+    height: 62px;
+    margin: 0 auto;
+  justify-content: center;
+    align-items: center;
+    display: flex;
+  PADDING: 10PX;
+}
+.timeline-article h1.timeline-who{cursor:pointer;}
+
+@media only screen and (max-width: 700px) {
+  .timeline-article .meta-date {WIDTH: fit-content;}
+.timeline-article .meta-date .date,
+.timeline-article .meta-date .month {
+    margin: 0 0 0 10;
+}}
+
+@media only screen and (max-width: 700px) {
+.timeline-article .meta-date .month {
+  font-size: 18px;
+  line-height: 10px;
+width: FIT-CONTENT;
+max-width: 95vw;}
+}
+/*===== // Vertical Timeline =====*/
+
+/*===== Resonsive Vertical Timeline =====*/
+@media only screen and (max-width: 700px) {
+  #conference-timeline .timeline-start,
+  #conference-timeline .timeline-end {
+    margin: 0 10;
+  }
+  #conference-timeline .conference-center-line {
+    margin-left: 0;
+    left: 50px;
+  }
+  .timeline-article .meta-date {
+    margin-left: 0;
+    left: 20px;
+  }
+  
+  .timeline-article .content-left-container,
+  .timeline-article .content-right-container {
+    max-width: 100%;
+    width: auto;
+    float: none;
+    margin-left: 110px;
+    min-height: 53px;
+    text-align:left;
+  }
+  .timeline-article .content-left-container {
+    margin-bottom: 20px;
+  }
+  .timeline-article .content-left,
+  .timeline-article .content-right {
+    padding: 10px 25px;
+    min-height: 65px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .timeline-article p {
+    margin: 0;
+  }
+  .timeline-article p span.article-number {
+    display: none;
+  }
+  
+}
+/*===== // Resonsive Vertical Timeline =====*/
+  

@@ -1,0 +1,12 @@
+#story
+
+.story .content{
+  background: var(--sub-color);
+}
+.story{
+margin:50px 0;
+}
+.content{
+  padding: 10px;
+  border-radius: 10px;
+}

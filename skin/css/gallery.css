@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+
+:root{ --gallery-box-color:white;/*작은 박스 배경 색*/
+       --gallery-box-shadow:0 4px 8px rgba(0, 0, 0, 0.1); /* 작은박스 그림자*/
+       --gallery-box-between:1em;/*작은 박스 사이간격*/
+       --dark-gallery-box-shadow:0 4px 8px rgba(255, 255, 255, 0.1); /* 작은박스 그림자*/}
+
+body:has(#gallery-notice){display: block;}
+
+        #masonry-gallery {
+            column-count: 4;
+            column-gap: var(--gallery-box-between);
+            max-width: 100vw;
+            margin: 1em auto;
+          padding:10px;
+            align-items:center; /*flex-start; /* 자식 요소들을 위쪽에 정렬 */
+        }
+
+/* 이미지 슬라이더 */
+
+.slider {
+  overflow:hidden;
+  width: 100%;
+  position: relative;
+  box-shadow:var(--gallery-box-shadow);
+  border-radius: 10px;
+}
+
+.slides {
+width:100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+
+}
+
+.slides .gallery-img {
+  flex: 0 0 100%;
+  box-sizing: border-box; /* padding과 border를 포함하여 크기 계산 */
+  overflow: hidden; /* div가 잘리지 않도록 설정 */
+  margin: 0; /* 필요시 마진 제거 */
+  box-shadow:none;
+}
+
+.gallery-img img {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+button{
+  position: absolute;
+  top: 50%;
+  border-radius: 10px 0 0 10px;
+  transform: translateY(-50%);
+  background-color: rgba(115, 115, 115, 0.6);
+  opacity:0.5;
+  COLOR:WHITE;
+  opacity:1;
+  border: none;
+  padding: 10px;
+  min-width: fit-content;
+}
+
+.prev {
+  left: 0px;
+  border-radius: 0 10px 10px 0px;
+
+}
+
+.next {
+  right: 0px;
+
+}
+
+/* 갤러리 */
+        .gallery-img {
+            background: var(--gallery-box-color);
+            margin-bottom: var(--gallery-box-between);
+            border-radius:10px;
+            padding: 1em;
+            break-inside: avoid;
+            overflow: hidden; /* 아이템 잘림 방지 */
+            box-shadow: var(--gallery-box-shadow); /* 그림자 조정 */
+            flex: 0 0 auto;  width: 100%;
+        }
+
+        .gallery-img img {
+            border-radius:10px;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery-img h3 {margin: 0.5em 0 0.2em;
+}
+
+        .gallery-img p {margin: 0;}
+
+        /* 화면 크기에 따라 flex 속성을 조정하여 반응형 레이아웃 구현 */
+
+        @media (max-width: 1200px) {
+          #masonry-gallery {column-count: 3;/* 3열 레이아웃 */}
+        }
+
+        @media (max-width: 900px) {
+          #masonry-gallery {column-count:2; /* 2열 레이아웃 */}
+        }
+
+        @media (max-width: 600px) {
+          #masonry-gallery {column-count: 1;/* 1열 레이아웃 */}
+        button{padding: 10px;
+               font-size: xx-large;}
+        }
+h1,
+h4, h2{text-align:center;
+  margin: 0 10px;
+    padding: 0;}
+
+h1{color:red;
+  font-weight:bold;
+  padding:20px 0 10px 0;}
+h4, h2 {padding-bottom:20px;}/* 이미지 비율 유지 */
+
+/*-------- ------------------------------- 다 크 모 드 ------------- ----------------*/
+
+
+/* 이미지 슬라이더 */
+
+.theme--dark .slider {
+  box-shadow:var(--dark-module-bg-color);
+}
+
+
+.theme--dark button{
+  COLOR:WHITE;
+}
+
+/* 갤러리 */
+        .theme--dark .gallery-img {
+            background: var(--dark-module-bg-color);
+        }

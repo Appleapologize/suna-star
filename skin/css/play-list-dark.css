@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+.theme--dark hr.main-top{
+border-color: var(--dark-text-color);
+}
+
+
+.theme--dark hr.main-ce{
+  border: 0;
+  border-bottom: 2px dashed var(--dark-text-color);
+  background: var(--dark-main-color);
+}
+.theme--dark hr.play-list
+{
+    border-left: 5px dashed var(--dark-text-color);
+    background: var(--dark-module-bg-color);
+}
+
+.theme--dark .pl-frame{
+  border-color:var(--dark-text-color);
+  background:var(--dark-module-bg-color);
+}
+
+.theme--dark .pl-img, .theme--dark .pl-profile-img img, .theme--dark .pl-profile iframe, .theme--dark .pl-profile-img iframe{
+  border:2px solid var(--dark-text-color);
+}
+
+.theme--dark .pl-text p{
+  color:#dedede;
+}
+
+.pl-right-frame .pl-text summary:before {
+    text-shadow: -3px 0px 4px #a8f7de, 0px 3px 4px #a8f7de, 3px 0px 4px #a8f7de, 0px -3px 4px #a8f7de;
+}
+
+
+.theme--dark .module .pl-frame{
+  background:#313133;
+}

@@ -1,0 +1,108 @@
+:root {}
+
+
+.module{
+  padding: 0px;
+}
+#talk{
+  width: 100%;
+  height: 100%;  
+}
+#talk-all{
+    width: 100%;
+    height: auto;  
+  padding:var(--box-padding);
+}
+#top *, #bottom *{
+  color:white !important;
+  text-align: center;
+}
+#top, #bottom{
+text-align: center;  
+  display: flex;
+  height: 40px;  
+  background-color:black;  
+  position: relative;
+  text-align: center;
+}
+#top div{
+  width:100%;
+  padding: 10px var(--box-padding);
+  text-align: center;   
+}
+.talk-day{
+  display: block;
+}
+.talk-day .day{
+  color: white;
+  PADDING: 10PX 15PX;
+  BACKGROUND: RGBA(0, 0, 0, 0.3);
+  BORDER-RADIUS: 30PX;
+  WIDTH: fit-content;
+  MARGIN: AUTO;
+}
+.talk-back{
+  background-color: #d3b5ff;
+}
+
+.left-ch, .right-ch{
+  width: fit-content;  
+  min-width:50%;
+  max-width:100%;
+  background-color: var(--module-bg-color);
+  padding: 10px;
+  margin:10px 5px;
+  border-radius: 20px;
+  display: flex;
+}
+
+.right-ch{
+  float:right;
+  text-align: right;
+}
+
+.ch-name{
+  font-size: 20px;
+}
+.left-ch-img, .right-ch-img{
+  width:100px;
+  height: 100px;
+  background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FEapvP%2FbtsJhErwIk3%2FT0MMYREgH5HpksK8191AdK%2Fimg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.left-talk-text, .right-talk-text{}
+.left-talk-text .ch-name:before{
+  content: "가아라";
+}
+
+.right-talk-text .ch-name:before{
+    content: "레이";
+}
+.right-ch-img{
+  background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxbUz1%2FbtsJgeU59Yl%2Ft2qz6cYNsuKM6Yfb5Zk6Ak%2Fimg.png');  
+}
+
+.left-talk-text, .right-talk-text{
+  width: calc(100% - 105px);  
+  margin-left: 5px;  
+}
+.right-talk-text{
+  margin-left: 0px;
+  margin-right: 5px;  
+}
+img{
+  width: 40px;
+object-fit:cover;
+}
+
+p.jes{
+  color:rgba(199,199,199,1.0) ;
+}
+#bottom{
+  
+}
+/*다크모드*/
+.theme--dark

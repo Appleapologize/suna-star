@@ -1,0 +1,560 @@
+@charset "utf-8";
+
+:root{
+  /*색상 변경 란*/
+  --noah-color: #42f5ce; /*드림주 색상*/
+  /*--gaara-color: red;*//*저는 가아라랑 같이 사용할 생각으로 둔 거에요 이걸 주석처리를 지우면 이제 가아라 색이 나오는 거죠*/
+  --border-wiki-line:1px solid;
+  --border-wiki-gray-color:#ccc;
+  --wiki-line-background-color:#eee;
+  --wiki-blacktray-color:#ddd;
+  --wiki-main-text-color:#000000;  /*검정색*/
+  --wiki-text-white-color:#ffffff; /*흰색*/
+}
+
+/*목차와 프로필 칸 좌우로 두기 및 모바일에서는 세로로 두기*/
+#profile-index{float:left;
+width:50%;}
+#profile-top div{display:inline-block;
+                 width:50%;}
+
+
+table{width: 100%;
+      height:auto;}
+tbody{width:100%;}
+tr{width:100%;
+  height:auto;}
+td{height:auto;
+  text-align: center;
+  padding: 2px 5px;}
+
+.text1 {font-size: 15px;
+        line-height: 1.5;
+       }
+a.index{color:#0275d8;
+ text-decoration: none;}
+a{color:#0275d8;
+ text-decoration: none;}
+a sup{color:#0275d8;}
+
+a:hover,
+  focus {color: #ff85d4;
+        text-decoration:underline;} /*태그 및 링크 색상(주석 옆의 숫자들 색상)*/
+
+span{color:var(--wiki-main-text-color);
+    text-align:start;}
+
+p{text-align: left;}
+
+h2{border-bottom: var(--border-wiki-line) var(--border-wiki-gray-color);
+  margin: 1.2em 0 0.7em;
+  padding-bottom: 5px;}
+h2 span{color: #666; 
+        float: left; 
+        font-size: .9em; 
+        font-weight: 400; 
+        line-height: 1em; 
+        margin: 0.1em 0.4em 0 0.2em; 
+        text-align: left; 
+        width: 0.9em;}
+
+/*분류표*/
+h3.classification{width:auto; 
+                  height:auto;
+                  border: var(--border-wiki-line) var(--border-wiki-gray-color); 
+                  border-radius: 4px; 
+                  font-size: .9rem; 
+                  font-weight: normal; 
+                  line-height: 1.5; 
+                  margin: 0 0 1em; 
+                  padding: 0.2rem 0.5rem}
+
+div.profile{width:100%;
+            border-line:none;
+            display:block;}
+
+/*목차 스타일*/
+table.index{border-collapse: collapse;
+            /*display: inline-block;*/
+            width: auto;
+            heigh: auto; 
+            background:none;
+            margin: 0 0 20px 5px; 
+            line-height: 180%;}
+
+
+table.index tr{padding: 0 20px;
+               width:55%;}
+
+table.index tr td.index {margin-left: 5px; 
+                         padding: 12px 20px 18px 20px; 
+                         font-size: .95rem; 
+                         line-height: 1.5;
+                        text-align:left;}
+
+span.index-title{font-size: 1.25em; 
+                 margin-left: -5px;}
+
+a.index{padding-left: 20px;}
+a.iindex{padding-left: 40px;}
+
+/*프로필 표*/
+th{background:var(--gaara-color, var(--gaara-color, var(--noah-color)));
+  border-bottom:1px solid var(--wiki-text-white-color);
+  width:100;
+  white-space: nowrap;}
+td {border-bottom:1px solid var(--border-wiki-gray-color) !important;}
+ /*프로필 상단 이름 란 1번*/
+  table.profile{border: 2px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
+                border-collapse: collapse; 
+                text-align:center;
+                /*display:inline-block;*/
+                font-size: 14.4px; 
+                line-height: 1.5; 
+                margin-bottom: 16px;}
+
+  table.profile tr.profile-name {text-align:center; 
+                                 height: 60px; 
+                                 background-color: var(--gaara-color, var(--gaara-color, var(--noah-color))); 
+                                 width: 164.884%;
+                                  border:1px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));}
+  table.profile tr.profile-name td{background-color: var(--gaara-color, var(--gaara-color, var(--noah-color)));
+                     padding: 5px 10px;
+                    border: 2px solid var(--gaara-color, var(--gaara-color, var(--noah-color))); 
+                      }
+  tr.profile-name td span{ color:var(--wiki-main-text-color);
+                           font-size: 20px;
+                          text-align:center;
+                         font-weight:bold;}
+
+/*내부 표*/
+
+
+
+
+
+ /*루비문자 색상.*/
+tr.profile-name td span.ruby{font-size: 13px;
+          line-height: 180%;
+          color: var(--wiki-text-white-color);}
+
+  
+
+
+/*프로필 상단 이름 란 2번(성우 추가)*/
+#country{border-right:1px solid var(--border-wiki-gray-color);
+         border-bottom: 1px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
+         width:10%;}
+
+#country figure{padding:0;
+               margin:0;}
+
+#country figure img{width:10%;
+                    padding:0;
+                    margin:0; 
+                    border:1px solid var(--border-wiki-gray-color);
+                   }
+
+td.country{border-right:1px solid var(--border-wiki-gray-color);
+               border-bottom: none !important;
+         width:10%;}
+
+td.country:last-child{border-bottom:1px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));}
+
+td.country figure{padding:0;
+               margin:0;}
+
+td.country figure img{width:10%;
+                    padding:0;
+                    margin:0; 
+                    border:1px solid var(--border-wiki-gray-color);
+                   }
+
+.profile-2 td{border-bottom: none !important;
+             text-align:left;}
+
+th.voice{border:none;}
+
+/*프로필 스포일러란*/
+
+
+
+
+  /*프로필 이미지*/
+table.profile tr td.profil-img{background-color:var(--wiki-text-white-color);
+                padding: 5px 10px; 
+                border: 1px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
+                }
+table.profile tr td.profil-img figure.profile-img{max-width: 100%;
+                       display: flex; 
+                       flex-direction: column; 
+                       align-items: center;}
+
+  
+
+  
+/*임무 횟수 표*/
+#mission{border-collapse: collapse;
+        border:2px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));}
+#mission th{width:17%;
+           padding:10px 0;
+           border:1px solid var(--wiki-text-white-color);}
+#mission th.mission-table-title{padding:20px;}
+#mission td{border:1px solid var(--border-wiki-gray-color);}
+/*패러미터*/
+#parameters{border-collapse: collapse;
+           border:2px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
+           margin-bottom:10px;
+           width:100%;}
+#parameters th{width: 10%;
+               padding: 10px 0;
+              border: 1px solid var(--wiki-text-white-color);}
+#parameters td {text-align:center;
+               border:1px solid var(--border-wiki-gray-color);
+               padding:0;}
+
+
+
+/*BORRDER 순서: 위, 오른쪽, 아래, 왼쪽*/
+
+/*갤러리*/
+#gallery{border-collapse: collapse;
+         width: 100%; 
+         height: 387px;
+         margin:0 0 20px 0;
+        text-align:start;
+        border:3px solid var(--gaara-color, var(--noah-color));}
+#gallery th {width:33%;
+             border:1px solid var(--wiki-text-white-color);
+             height: 20px;
+            }
+#gallery td {width:33%;
+            border:1px solid var(--border-wiki-gray-color);
+            height: 331px;}
+
+
+/*접고 피는 때의 스타일*/
+summary::-webkit-details-marker{display;none}
+summary { list-style: none;}
+
+summary.text1{list-style-type:none;
+             text-align:left;}
+
+details > summary:first-of-type {
+    list-style: none;
+}
+
+details[open] > summary:first-of-type {
+    list-style-type: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+    list-style-type: none;
+}
+
+details:open summary {
+  list-style: none;
+  opacity: 1;
+}
+
+summary.text1 {list-style: none;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/*그 외의 스포일러 접고 피기*/
+details.spoiler{
+  background: var(--sub-color);
+  padding-left: 10px;
+  margin: 5px 0 10px 0;
+  border-radius: 20px;
+  /* justify-items: center; */
+  align-content: center;
+}
+
+details.spoiler summary{font-weight:bold;
+                       margin:10px 0;
+                       color:#fc6603;}
+details.spoiler summary h4{color:#fc6603;}
+
+/* 0.큰 타이틀*/
+details summary h2.one-title{font-size: 1.8em;}
+details:open summary h2.one-title{opacity: 1;}
+details:not([open]) summary h2.one-title{opacity: 0.5;}
+details h2.one-title span{margin: 0.2em 0.4em 0 0.2em;}
+
+/* 0.0 타이틀*/
+details summary h2.two-title {opacity: 1;
+                             font-size: 1.6em;}
+details:not([open]) summary h2.two-title{opacity: 0.5;}
+
+/* 0.0.0 타이틀*/
+details summary h2.three-title{font-size: 1.4em;}
+details:not([open]) summary h2.three-title{opacity: 0.5;}
+
+/*스포일러 경고창*/
+#spoiler-coution{text-align:center;
+              font-size: 15px;
+              line-height: 1.5;
+              border-collapse: collapse;
+              background:var(--wiki-text-white-color);
+              border: var(--border-wiki-line) var(--wiki-blacktray-color); 
+              height: auto;}
+
+#spoiler-coution td{ text-align: start;
+                border-top: 5px solid orange; 
+                padding: 12px;}
+
+#spoiler-coution td span{font-size: 1.3em;
+                          }
+#spoiler-coution td a{font-size: 1.3em;}
+/*대사 1줄*/
+
+table.text-one-line{border-collapse: collapse; 
+                    width: auto; 
+                    max-width:63vw;
+                    word-break:keep-all;
+                    margin: 1em 0;
+                    }
+
+table.text-one-line tr td{width: 100%;
+                          border: 2px dashed var(--border-wiki-gray-color); 
+                          border-left: 5px solid var(--gaara-color, var(--gaara-color, var(--noah-color))); 
+                          background: var(--wiki-line-background-color); 
+                          padding: 1em; 
+                          line-height: 160%;
+                         /*font-size: 15px;*/
+                         line-height: 1.5;
+                         text-align: start;}
+/*대사 2줄*/
+table.text-two-line{border-collapse: collapse; 
+                    width: auto; 
+                    max-width:63vw;
+                    margin: 1em 0;}
+table.text-two-line tr{height: auto;
+                    max-width:63vw;
+                    word-break:keep-all;} 
+table.text-two-line tr td{width: 100%;
+                          border: 2px dashed var(--border-wiki-gray-color); 
+                          border-left: 5px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
+                          background: var(--wiki-line-background-color); 
+                          padding: 1em;
+                          text-align:start;
+                          line-height: 160%;
+                         /*font-size: 15px;*/
+                         line-height: 1.5;}
+
+table.text-two-line td hr{border: 0; 
+                          border-top: 0.0625rem solid var(--border-wiki-gray-color); 
+                          margin: 0.5em 0;}
+
+
+.dialogue {
+  display: flex; /* 이름과 대사를 가로로 배치 */
+}
+
+.character-name {
+  margin-right: 5px; /* 이름과 대사 사이 간격 */
+  white-space: nowrap; /* 이름 줄바꿈 방지 */
+}
+
+/*순서 나타내기*/
+.ol-number{padding:30px 30px 30px 30px;
+          border:1px solid var(--border-wiki-gray-color);}
+.ol-number li{list-style:decimal;
+          padding:0;
+             margin:0;
+             background:none;}
+
+ul.mark-on-ul{
+  padding:20px;
+  display: block;
+  list-style-type: disc;
+   background:none;
+}
+ul.mark-on-ul li{
+  display: list-item;
+  list-style:disclosure-closed;
+  background:none;
+  margin:0 0 20px 0;
+}
+
+ul.mark-on-ul li b{margin:0 0 5px 0;}
+
+/*주석 란*/
+div.footnote{display:block;
+             text-align:left;
+             border-top: var(--border-wiki-line) var(--border-wiki-gray-color);
+            border-radius:0;
+            margin:10px;
+            padding:10px;}
+
+
+a + p.text1{display:none;}
+/* 말풍선 스타일 */
+.tooltip {
+  margin:10px;  
+  position: absolute;
+  background-color: var(--wiki-text-white-color); /* 배경색 */
+  color: var(--wiki-main-text-color); /* 글자색 */
+  padding: 10px;
+  font-size: 14px;
+  border: 2px solid var(--border-wiki-gray-color);
+  border-radius: 8px;
+  display: none; /* 기본적으로 숨김 */
+  z-index: 200;
+  max-width:201px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /*transform: translateY(0); /* 수직 위치를 맞추기 위해 translate 사용 
+  transform: translateX(5px);*/
+   transform:translate(-52%, -105%);
+}
+
+button.tooltip-close{
+    background: transparent;
+    color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 5px;
+    text-align: right;
+}
+
+button.tooltip-close:hover{color:#bdbdbd;}
+
+@media screen and (max-width: 767px){
+  button.tooltip-close{
+   width: 100%;
+   position: relative;
+   text-align: center;
+   background: #bdbdbd;
+   border-radius: 0;
+   margin: 10px 0 0;
+   padding: 5px; 
+  }
+button.tooltip-close:hover{background:#7a7a7a;
+                          color:white;}  
+}
+
+/*말풍선 꼬리*/
+.tooltip:after{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: var(--border-wiki-gray-color);
+	border-bottom: 0;
+	margin-left: -20px;
+	margin-bottom: -20px;}
+
+.tooltip-number {
+  font-weight: bold;
+  color:#0275d8; /* 번호 색상 */
+  margin-bottom: 5px; /* 번호와 내용 간격 */
+}
+
+.tooltip-content {
+  color: #555; /* 내용 색상 */
+  font-size: 12px; /* 내용 크기 */
+}
+
+.tooltip-divider{
+  border: 0;
+  height: 3px;
+  background-color: var(--gaara-color, var(--gaara-color, var(--noah-color))); /* hr의 배경색 */
+  margin: 5px 0; /* hr과 내용 사이의 간격 */
+}
+
+div.footnote .text1 {margin:5;
+                    display:block;}
+
+
+
+@media screen and (max-width: 767px){
+  #profile-index{}
+#profile-top div{display:block;width:100%;}
+
+table.index{width:100%;}
+table.profile{width:100%;}
+
+#parameters{font-size:10px;}
+
+  table.text-one-line{max-width:80vw;}
+  table.text-one-line tr td{max-width:80ivw;}
+  
+  table.text-two-line{max-width:80vw;}
+  table.text-two-line tr{max-width:80vw;}
+  table.text-two-line td hr{max-width:80vw;}
+
+   div.footnote .text1 {margin:5 0;} 
+
+/*말풍선 꼬리*/
+.tooltip:after {
+	border: 0px solid transparent;
+	border-top-color: var(--border-wiki-gray-color);}
+
+.tooltip-number {
+  font-weight: bold;
+  font-size: 20px; /* 내용 크기 */
+}
+
+.tooltip-content {
+  font-size: 15px; /* 내용 크기 */
+}
+
+
+/*레이더 차트*/
+
+/* 차트 컨테이너 스타일 */
+.chart-container{
+  display:inline-grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+/* 캔버스 기본 스타일 */
+#radarChart {
+  width: 100% !important;
+  height:auto !important;
+  padding: 10px;
+}
+
+
+/*바 차트*/
+#barChart {
+  width: 100% !important;
+  height:auto !important;
+  padding: 10px;  
+}
+
+/* 범례 스타일 */
+
+
+.chart-legend .dataset-1 { background-color: rgba(255, 99, 132, 0.7); }
+.chart-legend .dataset-2 { background-color: rgba(54, 162, 235, 0.7); }
+.chart-legend .dataset-3 { background-color: rgba(153, 102, 255, 0.7); }
+
+@media screen and (max-width: 767px){
+  .chart-container{display:ruby;}
+
+  /* 캔버스 기본 스타일 */
+#radarChart {
+margin:30px 0 10px 0;
+}
+
+
+/*바 차트*/
+#barChart {
+margin:10px 0 0 0;
+}
+}

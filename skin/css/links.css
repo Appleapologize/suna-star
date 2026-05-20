@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+
+#links button, #links a {
+    display: inline-block;
+    max-width: 45vw;
+    padding: 0;
+    background-color: var(--clear);
+    margin: var(--banner-gap) auto;
+}
+
+#links a:hover {
+    filter: contrast(30%) brightness(150%);
+}
+
+#links .banner-module.self {
+    display: grid;
+    gap: var(--box-gap);
+    grid-template-columns: 1fr 2fr;
+}
+
+#links .banner-module.self .banner-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#links .banner-module.self img {
+    width: auto;
+}
+
+#links .banner-module.self button {
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--point-color);
+    margin: var(--banner-gap) auto;
+    padding: 10px 20px;
+}
+
+#links .banner-module.self button:hover {
+    background-color: var(--point-sub-color);
+}
+
+#links .banner-module.group .banner-title {
+    margin: 0;
+}
+
+
+
+@media screen and (max-width: 639px) {
+	#links .banner-module.self {
+        grid-template-columns: auto;
+    }
+}
+
+/*추가 css*/
+:root{
+
+}
+
+a:has(.tooltip){
+  text-decoration:none;
+}
+
+a:has(.tooltip):hover{
+  filter: unset !important;
+}
+
+a:has(.tooltip):hover img{
+  filter: contrast(30%) brightness(150%);
+  cursor: pointer !important;
+}
+
+.tooltip{
+  visibility:hidden;
+  position: relative;
+  top: -5px;
+  width: fit-content;
+  margin: 0 auto;
+  z-index:1;
+}
+.tooltip p{
+  position: relative;  
+  margin:0;
+  background:var(--sub-color); 
+  padding: 10px;
+  border-radius: 10px;  
+}
+
+.tooltip p:after{
+  content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top-color: var(--sub-color);
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -10px;
+	margin-bottom: -10px;
+}
+
+#links .banner-module a:hover .tooltip{
+  visibility:visible;
+}
+
+  /*다크모드*/
+  html.theme--dark .tooltip p{
+  background:var(--dark-sub-color); 
+
+}
+
+  html.theme--dar .tooltip p:after{
+	border-top-color: var(--dark-sub-color);
+}
+
+@media screen and (max-width: 639px) {
+    .tooltip p{
+  font-size:10px; 
+  }
+  
+  .tooltip p:after{
+    border: 15px solid transparent;
+    border-top-color: var(--sub-color);  
+    margin-bottom: -10px;  
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;  
+  }  
+
+    /*다크모드*/
+  html.theme--dark .tooltip p:after
+  {
+    border-top-color: var(--dark-sub-color); 
+  }
+
+}
