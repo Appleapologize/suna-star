@@ -140,7 +140,7 @@ button, a.button {
 }
 
 button:hover, a:hover {
-    cursor: var(--over-cursor) !important;
+    cursor: var(--over-cursor), pointer !important;
 }
 
 button.prev, button.next{
