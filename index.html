@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="skin/css/style.css">
     <title>사막의 별이 가장 밝게 빛나는 법이지</title>
 </head>
-<body>
-<div class="custom-cursor"></div>    
+<body>  
 <div class="head">
     <h1 id="head-title">사막의 별이 가장 밝게 빛나는 법이지</h1>
 <!-- 모드 변경 버튼 -->
@@ -127,50 +126,6 @@
     </footer>
 
 <script src="./skin/js/script.js" defer></script>  
- <script>
-  const cursor = document.querySelector('.custom-cursor');
-
-  window.addEventListener('mousemove', (e) => {
-    // 1. 커스텀 커서 상자를 마우스 좌표로 이동시킵니다.
-    cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-
-    // 🌟 [핵심] 브라우저 창 전체 너비와 현재 마우스 X축 위치 계산
-    const windowWidth = window.innerWidth;
-    const isOverScrollbar = e.clientX >= windowWidth - 25; // 오른쪽 끝 25px 영역(스크롤바 영역) 진입 감지
-
-    if (isOverScrollbar) {
-      // 마우스가 우측 스크롤바 영역에 있으면 전체 화면의 기본 마우스를 강제로 안 보이게 숨깁니다.
-      document.documentElement.style.setProperty('cursor', 'none', 'important');
-      document.body.style.setProperty('cursor', 'none', 'important');
-    } else {
-      // 다시 웹페이지 안쪽으로 돌아오면 원래 설정으로 복구합니다.
-      document.documentElement.style.removeProperty('cursor');
-      document.body.style.removeProperty('cursor');
-    }
-
-    // 2. 마우스 포인터 밑에 있는 요소를 찾아서 CSS cursor 속성을 감지합니다.
-    const target = document.elementFromPoint(e.clientX, e.clientY);
-    
-    if (target) {
-      const computedCursor = window.getComputedStyle(target).cursor;
-      
-      // url() 형태가 아닌 일반 텍스트나 포인터 속성만 가져와서 클래스/데이터 주입
-      if (computedCursor && !computedCursor.includes('url(')) {
-        cursor.setAttribute('data-type', computedCursor);
-      } else {
-        cursor.setAttribute('data-type', 'default');
-      }
-    } else {
-      // target이 null인 경우 (스크롤바 영역 등) 기본 커서 모양 유지
-      cursor.setAttribute('data-type', 'default');
-    }
-  });
-
-  // 마우스가 아예 브라우저 창 밖(창 제목 표시줄이나 모니터 다른 곳)으로 나가면 커스텀 커서도 깔끔히 숨김
-  document.addEventListener('mouseleave', () => {
-    cursor.setAttribute('data-type', 'none');
-  });
-</script>
 
     
 </body>
