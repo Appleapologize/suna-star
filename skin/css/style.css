@@ -68,12 +68,16 @@
 * {
 	box-sizing: border-box; 
 	word-break: keep-all;
-  	cursor: var(--default-cursor), auto;	
   }
 
 html, body{
-    width:100%;
+    width:100vw;
+    max-width: 100% !important;	
 	height:100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important; /* 오른쪽으로 화면이 미세하게 밀리는 현상 방지 */	
+  	cursor: var(--default-cursor), auto;		
 }
 
 body {
