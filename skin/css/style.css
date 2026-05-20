@@ -460,29 +460,47 @@ footer p.bold{
   border-radius: 6px;
 }
 
-html, body, a, button, [role="button"] {
-  cursor: none !important;
-}
-
-/* 1. 기본 커서 상태 (화살표 default 이미지) */
+/* [공통 기본 스타일] */
 .custom-cursor {
   width: 32px;
   height: 32px;
-  background-image: var(--default-cursor); /* 🌟 기본 화살표 이미지 경로 */
-  background-size: contain;
-  background-repeat: no-repeat;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999999;
   pointer-events: none;
+  background-size: contain;
+  background-repeat: no-repeat;
   transform: translate3d(-50%, -50%, 0);
   will-change: transform;
+  
+  /* 기본 상태 (default / auto) 일 때 기본 이미지 */
+  background-image: var(--default-cursor)); 
 }
 
-/* 2. 링크나 버튼 위에 올라갔을 때 상태 (손가락 pointer 이미지) */
-.custom-cursor.is-pointer {
-  background-image: var(--over-cursor); /* 🌟 링크 위에 올려둘 손가락 이미지 경로 */
-  /* 필요하다면 pointer 이미지의 중심점 유격을 맞추기 위해 transform을 다르게 조절해도 됩니다. */
+/* [상태별 이미지 분기] 원하는 상태를 계속 추가할 수 있습니다! */
+.custom-cursor[data-type="pointer"] {
+  background-image: var(--over-cursor);
+}
+
+.custom-cursor[data-type="text"] {
+  background-image: url('images/cursor-text.png');
+}
+
+.custom-cursor[data-type="wait"] {
+  background-image: url('images/cursor-wait.png');
+}
+
+.custom-cursor[data-type="grab"] {
+  background-image: url('images/cursor-grab.png');
+}
+
+.custom-cursor[data-type="not-allowed"] {
+  background-image: url('images/cursor-not-allowed.png');
+}
+
+/* none 상태일 때는 커스텀 커서 자체를 숨김 */
+.custom-cursor[data-type="none"] {
+  display: none;
 }
 
