@@ -13,6 +13,11 @@
 	--border-radius-m:8px;
 	--border-radius-l:12px;
 	--li-marker:"➤  "; /*띄어쓰기도 그대로 들어감 주의*/
+    /* -------- -------- -------- -------- 마우스 커서 설정 (PC 전용) -------- -------- -------- -------- */
+        --default-cursor: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcwXft5%2FbtsMB4uW9qM%2FVokNPKYRdWlYr3iN7T65kk%2Fimg.png');
+        /* 기본 마우스 커서로 사용할 이미지 주소를 넣습니다. */
+        --over-cursor: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpIKCH%2FbtsMC9a6QiP%2FJaf37WTd2kDVN0LxXh3CaK%2Fimg.png');
+        /* 버튼 위에 마우스를 올렸을 때 사용할 이미지 주소를 넣습니다. */	
 
 
 /* -------- -------- -------- -------- 라이트 모드 색상 설정 -------- -------- -------- -------- */
@@ -69,6 +74,9 @@ html, body{
     width:100%;
 	height:100%;
 }
+html *{
+  cursor: var(--default-cursor), auto;
+}
 
 body {
     background-color: var(--background-color);
@@ -90,9 +98,26 @@ ul, li{
 	list-style:none;
 }
 
+
+
 /*---------메뉴 버튼----------*/
 nav{
 
+}
+
+button, a.button {
+    display: inline-block;
+    cursor: var(--over-cursor) !important;
+    text-align: center;
+    font-weight: bold;
+}
+
+button:hover, a:hover {
+    cursor: var(--over-cursor) !important;
+}
+
+button.prev, button.next{
+  white-space: nowrap;
 }
 
 /*---------글이 보이는 곳----------*/
@@ -349,17 +374,52 @@ footer p.bold{
 
 
 /* 💡 핵심: 질문자님의 HTML 구조(.sub, .ssub)를 기본적으로 숨깁니다 */
-.sub, .ssub { display: none; list-style: none; padding-left: 15px; margin: 0; }
+.sub, .ssub { 
+	display: none; 
+	list-style: none; 
+	padding-left: 15px; 
+	margin: 0; 
+}
 
 /* 1단계: 대메뉴 버튼 스타일 */
-.button { width: 100%; text-align: left; background: #333; color: white; border: none; padding: 10px; cursor: pointer; font-weight: bold; border-radius: 4px; display: block; text-decoration: none; box-sizing: border-box; }
+.button { 
+	width: var(--width-100); 
+	text-align: left; 
+	background: #333; 
+	color: white; 
+	border: none;
+	padding: 10px; 
+	cursor: pointer; 
+	font-weight: bold; 
+	border-radius: 4px; 
+	display: block; 
+	text-decoration: none; 
+	box-sizing: border-box; 
+}
 
 /* 2단계: 중메뉴 버튼 스타일 */
-.btn-sub { width: 100%; text-align: left; background: #e0e0e0; border: none; padding: 8px 8px 8px 15px; cursor: pointer; border-radius: 4px; font-size: 14px; display: block; text-decoration: none; color: black; }
+.btn-sub { 
+	width:var(--width-100); 
+	text-align: left; 
+	background: #e0e0e0; 
+	border: none; 
+	padding: 8px 8px 8px 15px; 
+	cursor: pointer; 
+	border-radius: var(--border-radius-xs); 
+	font-size: 14px; 
+	display: block; 
+	color: black; 
+}
 
 /* 3단계: 소메뉴 스타일 */
-.btn-sub-sub { padding: 6px 6px 6px 25px; cursor: pointer; background: #fff; font-size: 13px; border-radius: 4px; display: block; text-decoration: none; color: black; }
-.btn-sub-sub:hover { background: #cee3ff; }
+.btn-sub-sub { 
+	padding: 6px 6px 6px 25px; 
+	cursor: pointer; 
+	background: #fff; font-size: 13px;
+	border-radius: 4px; display: block; text-decoration: none; color: black; }
+.btn-sub-sub:hover { 
+	background: #cee3ff; 
+}
 
 /* 💡 핵심: 자바스크립트가 open 클래스를 붙이면 화면에 보입니다 */
 .sub.open, .ssub.open { display: block; }
