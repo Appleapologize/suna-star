@@ -81,6 +81,11 @@ a{
 	text-decoration:none;
 }
 
+#main-wrapper{
+	width:var(--width-100);
+	display:flex;
+}
+
 ul, li{
 	list-style:none;
 }
