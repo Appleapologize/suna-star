@@ -375,10 +375,14 @@ footer p.bold{
 
 /* 💡 핵심: 질문자님의 HTML 구조(.sub, .ssub)를 기본적으로 숨깁니다 */
 .sub, .ssub { 
-	display: none; 
-	list-style: none; 
-	padding-left: 15px; 
-	margin: 0; 
+  display: block;          /* display: none 대신 block을 써야 애니메이션이 먹힙니다 */
+  max-height: 0;           /* 높이를 0으로 만들어 숨깁니다 */
+  overflow: hidden;        /* 넘치는 하위 메뉴 글자들을 가립니다 */
+  opacity: 0;              /* 투명하게 만듭니다 */
+  transition: max-height 0.4s ease, opacity 0.3s ease; /* 0.4초 동안 부드럽게 변형 */
+  list-style: none;
+  padding-left: 15px;
+  margin: 0;
 }
 
 /* 1단계: 대메뉴 버튼 스타일 */
@@ -395,6 +399,12 @@ footer p.bold{
 	display: block; 
 	text-decoration: none; 
 	box-sizing: border-box; 
+}
+
+/* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
+ul li:hover > .sub {
+  max-height: 300px;       /* 하위 메뉴들이 다 보일 수 있는 충분한 높이 지정 */
+  opacity: 1;              /* 선명하게 보임 */
 }
 
 /* 2단계: 중메뉴 버튼 스타일 */
@@ -421,5 +431,20 @@ footer p.bold{
 	background: #cee3ff; 
 }
 
-/* 💡 핵심: 자바스크립트가 open 클래스를 붙이면 화면에 보입니다 */
-.sub.open, .ssub.open { display: block; }
+/* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
+ul li:hover > .sub {
+  max-height: 300px;       /* 하위 메뉴들이 다 보일 수 있는 충분한 높이 지정 */
+  opacity: 1;              /* 선명하게 보임 */
+}
+
+/* 3. 중메뉴(li)에 마우스를 올렸을 때(hover) 손자 메뉴(.ssub) 펼치기 */
+.sub li:hover > .ssub {
+  max-height: 200px;       /* 하위 메뉴들이 다 보일 수 있는 충분한 높이 지정 */
+  opacity: 1;              /* 선명하게 보임 */
+}
+
+/* 💡 [기존 코드 유지 보완] 클릭했을 때 열리는 자바스크립트 기능도 같이 작동하도록 보장 */
+.sub.open, .ssub.open {
+  max-height: 300px !important;
+  opacity: 1 !important;
+}
