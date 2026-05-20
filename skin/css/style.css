@@ -209,7 +209,7 @@ ul li:hover > .sub {
     width: var(--width-100);
 }
 
-#theme-toggle-btn : hover {
+#theme-toggle-btn:hover *, .theme-icon-button:hover *{
 cursor: var(--over-cursor), pointer;
 }
 
@@ -238,7 +238,6 @@ cursor: var(--over-cursor), pointer;
 .theme-icon-button:active {
     transform: scale(0.95);
 }
-
 /* 모드 변경 버튼 애니메이션*/
 .feather-sun-moon {
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
