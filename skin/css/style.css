@@ -389,7 +389,9 @@ footer p.bold{
 }
 
 @media (max-width: 1024px) {
-	
+	.theme-icon-button{
+		top: calc(var(--padding-in-body) + 30px);
+	}
  
   /* 메뉴 토글 버튼 스타일 및 화면 좌측 상단 고정 */
     .menu-toggle-btn {
