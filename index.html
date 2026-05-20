@@ -7,6 +7,7 @@
     <title>사막의 별이 가장 밝게 빛나는 법이지</title>
 </head>
 <body>
+<div class="custom-cursor"></div>    
 <div class="head">
     <h1 id="head-title">사막의 별이 가장 밝게 빛나는 법이지</h1>
 <!-- 모드 변경 버튼 -->
@@ -125,6 +126,32 @@
         <p>© 2026 Appleapologize. All rights reserved.</p>
     </footer>
 
-<script src="./skin/js/script.js" defer></script>    
+<script src="./skin/js/script.js" defer></script>  
+ <script>
+const cursor = document.querySelector('.custom-cursor');
+
+// 1. 마우스 좌표 실시간 추적
+window.addEventListener('mousemove', (e) => {
+  cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+});
+
+// 2. pointer 커서가 먹혀야 하는 인터랙티브 요소들 정의
+// (a태그, button태그, 좌측 메뉴 등 커서가 바뀌길 원하시는 요소를 다 적어줍니다)
+const interactiveElements = document.querySelectorAll('a, button, .menu-item, [role="button"]');
+
+interactiveElements.forEach((el) => {
+  // 마우스가 요소 위로 올라가면 손가락 이미지 클래스 추가!
+  el.addEventListener('mouseenter', () => {
+    cursor.classList.add('is-pointer');
+  });
+  
+  // 마우스가 요소 밖으로 나가면 다시 화살표(기본) 이미지로 복구!
+  el.addEventListener('mouseleave', () => {
+    cursor.classList.remove('is-pointer');
+  });
+});
+
+  </script>
+    
 </body>
 </html>
