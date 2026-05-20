@@ -114,6 +114,10 @@ a{
 	padding:0 var(--padding-in-body)
 }
 
+#head-title{
+	text-align:center;
+}
+
 button, a.button {
     display: inline-block;
     text-align: center;
