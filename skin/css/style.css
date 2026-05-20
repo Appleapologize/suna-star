@@ -12,6 +12,7 @@
 	--border-radius-s:6px;
 	--border-radius-m:8px;
 	--border-radius-l:12px;
+	--container-padding:10px; /*글 나오는 곳 사방(전체) 여백*/
 	--padding-in-body:40px;
 	--li-marker:"➤  "; /*띄어쓰기도 그대로 들어감 주의*/
     /* -------- -------- -------- -------- 마우스 커서 설정 (PC 전용) -------- -------- -------- -------- */
@@ -85,6 +86,24 @@ body {
     background-color: var(--background-color);
 	color:var(--text-color);
 }
+
+/* 전체 스크롤바 영역 설정 */
+::-webkit-scrollbar {
+  width: 12px; /* 스크롤바 너비 */
+}
+
+/* 스크롤바 배경(트랙) 설정 */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05); /* 투명하거나 원하는 배경색 */
+}
+
+
+/* 스크롤바 움직이는 바(막대) 설정 */
+::-webkit-scrollbar-thumb {
+  background: #ccc; /* 스크롤바 막대 색상 */
+  border-radius: 6px;
+}
+
 
 a{
 	text-decoration:none;
@@ -203,6 +222,7 @@ ul li:hover > .sub {
     border: 5px dotted red;
     border-radius: var(--border-radius-l);
     background: var(--card-background-color);	
+	padding: var(--container-padding);
 }
 
 
@@ -285,7 +305,7 @@ ul li:hover > .sub {
 
 /* 마스크 서클을 우측 상단 밖으로 치워두어 완전한 원형 유지 */
 [data-theme="light"] .mask-circle {
-    cx: 24;
+    cx: 25;
     cy: 4;
 }
 
@@ -320,7 +340,10 @@ ul li:hover > .sub {
     cy: 8;
 }
 
-
+/*-------------모듈 전체----------*/
+ .module {
+	 
+ }
 
 
 /*-------------footer----------*/
@@ -448,21 +471,5 @@ footer p.bold{
     }
 }
 
-/* 전체 스크롤바 영역 설정 */
-::-webkit-scrollbar {
-  width: 12px; /* 스크롤바 너비 */
-}
 
-/* 스크롤바 배경(트랙) 설정 */
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05); /* 투명하거나 원하는 배경색 */
-}
-
-
-
-/* 스크롤바 움직이는 바(막대) 설정 */
-::-webkit-scrollbar-thumb {
-  background: #ccc; /* 스크롤바 막대 색상 */
-  border-radius: 6px;
-}
 
