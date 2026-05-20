@@ -209,8 +209,12 @@ ul li:hover > .sub {
     width: var(--width-100);
 }
 
-#theme-toggle-btn:hover *, .theme-icon-button:hover *{
-cursor: var(--over-cursor), pointer;
+#theme-toggle-btn, #theme-toggle-btn * {
+  cursor: var(--default-cursor), auto !important;
+}
+
+#theme-toggle-btn:hover *, #theme-toggle-btn *:hover {
+cursor: var(--over-cursor), pointer !important;
 }
 
 /* 모드 변경 버튼 기본 스타일 */
