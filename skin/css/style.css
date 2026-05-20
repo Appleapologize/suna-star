@@ -209,9 +209,12 @@ ul li:hover > .sub {
     width: var(--width-100);
 }
 
+#theme-toggle-btn : hover {
+cursor: var(--over-cursor), pointer;
+}
+
 /* 모드 변경 버튼 기본 스타일 */
 .theme-icon-button {
-	cursor: var(--over-cursor), pointer;
     position: absolute;      /* .head를 기준으로 절대 위치 설정 */
     top: 30px;
     right: 15px;           /* .head의 패딩 값에 맞춰 우측 끝에 배치 */
