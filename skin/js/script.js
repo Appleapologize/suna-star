@@ -10,6 +10,11 @@ function addQueryString(fileName) {
 
 // [핵심] 사이트가 켜지자마자 가장 먼저 실행되는 구간
 document.addEventListener("DOMContentLoaded", () => {
+    // 🔒 마우스 우클릭(컨텍스트 메뉴)만 차단
+    document.addEventListener('contextmenu', (event) => {
+        event.preventDefault();
+    });
+
     // 1. 테마 설정 (다크모드)
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
     if (themeToggleBtn) {
@@ -44,11 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// 구글 시트 데이터 로드 함수 연동
-if (typeof loadSheetData === "function") {
-    window.onload = loadSheetData;
-}
-
 // 모바일 메뉴 토글 함수
 function toggleMobileMenu() {
     const btn = document.getElementById('menu-toggle-btn');
@@ -72,7 +72,6 @@ function toggleMenu(event, targetId) {
 }
 
 // [기능 2] 외부 HTML 파일을 읽어와서 특정 div에 집어넣는 함수 (쿼리스트링 연동 규격 추가)
-// html 내 메뉴 링크(a태그) 호출부 예시: onclick="loadPage(event, 'pages/cook.html')"
 function loadPage(event, relativePath, addHistory = true) {
     if (event) {
         if (typeof event.preventDefault === 'function') event.preventDefault();
