@@ -128,28 +128,35 @@
 
 <script src="./skin/js/script.js" defer></script>  
  <script>
-const cursor = document.querySelector('.custom-cursor');
+<script>
+  const cursor = document.querySelector('.custom-cursor');
 
-// 1. 마우스 좌표 실시간 추적
-window.addEventListener('mousemove', (e) => {
-  cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-});
+  window.addEventListener('mousemove', (e) => {
+    // 1. 마우스 좌표 실시간 이동 (스크롤바 영역까지 커버)
+    cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
 
-// 2. pointer 커서가 먹혀야 하는 인터랙티브 요소들 정의
-// (a태그, button태그, 좌측 메뉴 등 커서가 바뀌길 원하시는 요소를 다 적어줍니다)
-const interactiveElements = document.querySelectorAll('a, button, .menu-item, [role="button"]');
-
-interactiveElements.forEach((el) => {
-  // 마우스가 요소 위로 올라가면 손가락 이미지 클래스 추가!
-  el.addEventListener('mouseenter', () => {
-    cursor.classList.add('is-pointer');
+    // 2. 마우스 포인터 바로 밑에 있는 실제 요소 찾아내기
+    const target = document.elementFromPoint(e.clientX, e.clientY);
+    
+    if (target) {
+      // 3. 해당 요소에 적용된 CSS의 실제 'cursor' 속성 값 읽어오기
+      const computedCursor = window.getComputedStyle(target).cursor;
+      
+      // 4. 읽어온 값(예: 'pointer', 'text' 등)을 커서의 data-type 속성으로 주입
+      // 만약 특별한 값이 없거나 url() 주소 형식이라면 기본값(default)으로 처리
+      if (computedCursor && !computedCursor.includes('url(')) {
+        cursor.setAttribute('data-type', computedCursor);
+      } else {
+        cursor.setAttribute('data-type', 'default');
+      }
+    }
   });
-  
-  // 마우스가 요소 밖으로 나가면 다시 화살표(기본) 이미지로 복구!
-  el.addEventListener('mouseleave', () => {
-    cursor.classList.remove('is-pointer');
+
+  // 마우스가 브라우저 창 밖으로 완전히 나갔을 때 커서 숨기기
+  document.addEventListener('mouseleave', () => {
+    cursor.setAttribute('data-type', 'none');
   });
-});
+</script>
 
   </script>
     
