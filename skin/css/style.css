@@ -69,7 +69,6 @@
 
 * {
 	box-sizing: border-box; 
-	word-break: keep-all;
   }
 
 html, body{
@@ -105,6 +104,7 @@ body {
 }
 
 
+
 a{
 	text-decoration:none;
 	cursor:var(--over-cursor), pointer;
@@ -112,6 +112,17 @@ a{
 
 .head{
 	padding:0 var(--padding-in-body)
+}
+
+button, a.button {
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+	word-break: keep-all;
+}
+
+button:hover, a:hover {
+    cursor: var(--over-cursor), pointer !important;
 }
 
 #main-wrapper{
@@ -157,16 +168,6 @@ nav{
 	text-decoration: none; 
 	box-sizing: border-box; 
 	white-space: nowrap;	
-}
-
-button, a.button {
-    display: inline-block;
-    text-align: center;
-    font-weight: bold;
-}
-
-button:hover, a:hover {
-    cursor: var(--over-cursor), pointer !important;
 }
 
 /* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
@@ -345,7 +346,10 @@ ul li:hover > .sub {
 	 
  }
 
-
+img {
+	width: var(--width-100);
+    object-fit: cover;
+}
 /*-------------footer----------*/
 footer *{
 	margin:0;
