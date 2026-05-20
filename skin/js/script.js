@@ -1,6 +1,7 @@
 let recipeData = []; 
 let dict = {}; 
 
+// [핵심] 사이트가 켜지자마자 가장 먼저 실행되는 구간
 document.addEventListener("DOMContentLoaded", () => {
     // 1. 테마 설정 (다크모드)
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
@@ -17,12 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 💡 [수정] 무한 루프 에러 방지 및 첫 화면(home.html) 로드
+    // 💡 처음 로드되었을 때 .container 안에 home.html이 보이도록 강제 호출
     const fakeEvent = { 
         preventDefault: function() {}, 
         stopPropagation: function() {} 
     };
-    // 메인 홈 화면을 안전하게 로드합니다.
     loadPage(fakeEvent, 'pages/home.html');
 });
 
@@ -46,24 +46,23 @@ function toggleMobileMenu() {
 
 // [기능 1] 다중 드롭다운 메뉴를 열고 닫는 함수
 function toggleMenu(event, targetId) {
-    if (event) event.stopPropagation(); // 부모 메뉴 클릭 시 전파 방지
+    if (event) event.stopPropagation(); 
     const targetMenu = document.getElementById(targetId);
     if (targetMenu) {
         targetMenu.classList.toggle('open');
     }
 }
 
-// [기능 2] iframe 없이 외부 HTML 파일을 읽어와서 div에 집어넣는 함수
+// [기능 2] iframe 없이 외부 HTML 파일을 읽어와서 특정 div에 집어넣는 함수
 function loadPage(event, relativePath) {
     if (event) {
         if (typeof event.preventDefault === 'function') event.preventDefault();
         if (typeof event.stopPropagation === 'function') event.stopPropagation();
     }
 
-    // 💡 [핵심 수정] 깃허브 서브디렉토리 주소 문제 완벽 해결 로직
-    // 주소창의 base path(/suna-star/)를 자동으로 계산하여 절대적인 주소로 fetch 요청을 보냅니다.
+    // 깃허브 배포 서버의 하위 경로(/suna-star/)를 자동으로 계산하여 절대적인 주소로 변환합니다.
     const baseUrl = window.location.pathname.endsWith('/') ? window.location.pathname : window.location.pathname + '/';
-    const cleanPath = relativePath.replace(/^\.\//, ''); // 앞에 붙은 ./ 제거
+    const cleanPath = relativePath.replace(/^\.\//, ''); 
     const finalUrl = window.location.origin + baseUrl + cleanPath;
 
     fetch(finalUrl)
@@ -74,17 +73,16 @@ function loadPage(event, relativePath) {
             return response.text();
         })
         .then(htmlData => {
-            const contentArea = document.getElementById('container');
+            // 💡 [핵심 수정] id대신 질문자님의 class="container" 요소를 정확히 찾아내서 주입합니다.
+            const contentArea = document.querySelector('.container');
             if (contentArea) {
-                contentArea.innerHTML = htmlData; // div 공간에 내용 주입
-                
-                // 💡 추가 팁: 내용물을 바꾼 후 스크롤을 맨 위로 올려줍니다.
+                contentArea.innerHTML = htmlData; // container 공간에 home.html 내용 주입
                 window.scrollTo(0, 0); 
             }
         })
         .catch(error => {
             console.error("Fetch Error:", error);
-            const contentArea = document.getElementById('container');
+            const contentArea = document.querySelector('.container');
             if (contentArea) {
                 contentArea.innerHTML = `<p style="color:red; padding:20px; font-weight:bold;">⚠️ 에러 발생: ${error.message}<br><span style="font-size:12px; color:#666;">요청 주소: ${finalUrl}</span></p>`;
             }
