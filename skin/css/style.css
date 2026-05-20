@@ -348,8 +348,6 @@ nav{
 }
 
 
-nav {  display: flex; width: 220px; background: #f4f4f4; padding: 15px; border-radius: 8px; }
-
 /* 💡 핵심: 질문자님의 HTML 구조(.sub, .ssub)를 기본적으로 숨깁니다 */
 .sub, .ssub { display: none; list-style: none; padding-left: 15px; margin: 0; }
 
@@ -365,6 +363,3 @@ nav {  display: flex; width: 220px; background: #f4f4f4; padding: 15px; border-r
 
 /* 💡 핵심: 자바스크립트가 open 클래스를 붙이면 화면에 보입니다 */
 .sub.open, .ssub.open { display: block; }
-
-/* 내용 표시 공간 */
-#content-area { flex: 1; padding: 20px; border: 2px dashed #ccc; border-radius: 8px; min-height: 300px; }
