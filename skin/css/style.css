@@ -68,14 +68,12 @@
 * {
 	box-sizing: border-box; 
 	word-break: keep-all;
+  	cursor: var(--default-cursor), auto;	
   }
 
 html, body{
     width:100%;
 	height:100%;
-}
-html *, body *{
-  cursor: var(--default-cursor), auto;
 }
 
 body {
