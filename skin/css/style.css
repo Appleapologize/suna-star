@@ -460,6 +460,10 @@ footer p.bold{
   border-radius: 6px;
 }
 
+html, body, a, button, [role="button"] {
+  cursor: none !important;
+}
+
 /* 1. 기본 커서 상태 (화살표 default 이미지) */
 .custom-cursor {
   width: 32px;
