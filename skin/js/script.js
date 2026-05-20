@@ -74,7 +74,7 @@ function loadPage(event, relativePath) {
             return response.text();
         })
         .then(htmlData => {
-            const contentArea = document.getElementById('content-area');
+            const contentArea = document.getElementById('container');
             if (contentArea) {
                 contentArea.innerHTML = htmlData; // div 공간에 내용 주입
                 
@@ -84,7 +84,7 @@ function loadPage(event, relativePath) {
         })
         .catch(error => {
             console.error("Fetch Error:", error);
-            const contentArea = document.getElementById('content-area');
+            const contentArea = document.getElementById('container');
             if (contentArea) {
                 contentArea.innerHTML = `<p style="color:red; padding:20px; font-weight:bold;">⚠️ 에러 발생: ${error.message}<br><span style="font-size:12px; color:#666;">요청 주소: ${finalUrl}</span></p>`;
             }
