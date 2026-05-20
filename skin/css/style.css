@@ -451,4 +451,21 @@ footer p.bold{
     }
 }
 
+/* 전체 스크롤바 영역 설정 */
+::-webkit-scrollbar {
+  width: 12px; /* 스크롤바 너비 */
+}
+
+/* 스크롤바 배경(트랙) 설정 */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05); /* 투명하거나 원하는 배경색 */
+  cursor: url('images/cursor.png'), auto; /* 🌟 스크롤바 배경에도 커서 적용 */
+}
+
+/* 스크롤바 움직이는 바(막대) 설정 */
+::-webkit-scrollbar-thumb {
+  background: #ccc; /* 스크롤바 막대 색상 */
+  border-radius: 6px;
+  cursor: url('images/cursor.png'), auto; /* 🌟 스크롤바 막대 위에도 커서 적용 */
+}
 
