@@ -1,6 +1,13 @@
 let recipeData = []; 
 let dict = {}; 
 
+// 쿼리스트링을 주소창에 추가하는 함수
+function addQueryString(fileName) {
+    const url = new URL(window.location);
+    url.searchParams.set('pageName', fileName); // 파일 이름만 쿼리스트링에 추가
+    window.history.pushState({ pageName: fileName }, '', url); // state에 pageName 저장
+}
+
 // [핵심] 사이트가 켜지자마자 가장 먼저 실행되는 구간
 document.addEventListener("DOMContentLoaded", () => {
     // 1. 테마 설정 (다크모드)
@@ -18,12 +25,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 💡 처음 로드되었을 때 .container 안에 home.html이 보이도록 강제 호출
-    const fakeEvent = { 
-        preventDefault: function() {}, 
-        stopPropagation: function() {} 
-    };
-    loadPage(fakeEvent, 'pages/home.html');
+    // 2. 주소창의 쿼리스트링 파라미터 확인 후 해당 페이지 로드 (없으면 기본값 home.html)
+    const params = new URLSearchParams(window.location.search);
+    const pageName = params.get('pageName') || 'home.html';
+    
+    // 초기 로드 시 쿼리스트링 정보를 가지고 loadPage 호출 (addHistory 파라미터는 false로 설정하여 기록 중복 방지)
+    loadPage(null, `pages/${pageName}`, false);
+
+    // 3. 브라우저 뒤로가기 / 앞으로가기 할 때 .container 내용도 함께 연동
+    window.addEventListener('popstate', function(event) {
+        if (event.state && event.state.pageName) {
+            loadPage(null, `pages/${event.state.pageName}`, false);
+        } else {
+            const currentParams = new URLSearchParams(window.location.search);
+            const currentPage = currentParams.get('pageName') || 'home.html';
+            loadPage(null, `pages/${currentPage}`, false);
+        }
+    });
 });
 
 // 구글 시트 데이터 로드 함수 연동
@@ -53,12 +71,16 @@ function toggleMenu(event, targetId) {
     }
 }
 
-// [기능 2] iframe 없이 외부 HTML 파일을 읽어와서 특정 div에 집어넣는 함수
-function loadPage(event, relativePath) {
+// [기능 2] 외부 HTML 파일을 읽어와서 특정 div에 집어넣는 함수 (쿼리스트링 연동 규격 추가)
+// html 내 메뉴 링크(a태그) 호출부 예시: onclick="loadPage(event, 'pages/cook.html')"
+function loadPage(event, relativePath, addHistory = true) {
     if (event) {
         if (typeof event.preventDefault === 'function') event.preventDefault();
         if (typeof event.stopPropagation === 'function') event.stopPropagation();
     }
+
+    // 파일 이름 추출 (예: 'pages/home.html' -> 'home.html')
+    const fileName = relativePath.split('/').pop();
 
     // 깃허브 배포 서버의 하위 경로(/suna-star/)를 자동으로 계산하여 절대적인 주소로 변환합니다.
     const baseUrl = window.location.pathname.endsWith('/') ? window.location.pathname : window.location.pathname + '/';
@@ -73,11 +95,15 @@ function loadPage(event, relativePath) {
             return response.text();
         })
         .then(htmlData => {
-            // 💡 [핵심 수정] id대신 질문자님의 class="container" 요소를 정확히 찾아내서 주입합니다.
             const contentArea = document.querySelector('.container');
             if (contentArea) {
-                contentArea.innerHTML = htmlData; // container 공간에 home.html 내용 주입
+                contentArea.innerHTML = htmlData; // container 공간에 html 내용 주입
                 window.scrollTo(0, 0); 
+
+                // 사용자가 메뉴를 '직접 클릭'해서 페이지를 바꾼 경우에만 주소창 역사(History)에 기록 추가
+                if (addHistory) {
+                    addQueryString(fileName);
+                }
             }
         })
         .catch(error => {
