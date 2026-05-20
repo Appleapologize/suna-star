@@ -12,6 +12,7 @@
 	--border-radius-s:6px;
 	--border-radius-m:8px;
 	--border-radius-l:12px;
+	--padding-in-body:40px;
 	--li-marker:"➤  "; /*띄어쓰기도 그대로 들어감 주의*/
     /* -------- -------- -------- -------- 마우스 커서 설정 (PC 전용) -------- -------- -------- -------- */
         --default-cursor: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcwXft5%2FbtsMB4uW9qM%2FVokNPKYRdWlYr3iN7T65kk%2Fimg.png');
@@ -76,23 +77,28 @@ html, body{
 	height:100%;
     margin: 0 !important;
     padding: 0 !important;
-    overflow-x: hidden !important; /* 오른쪽으로 화면이 미세하게 밀리는 현상 방지 */		
+    overflow-x: hidden !important; /* 오른쪽으로 화면이 미세하게 밀리는 현상 방지 */
+	cursor:var(--default-cursor), auto !important;
 }
 
 body {
     background-color: var(--background-color);
 	color:var(--text-color);
-    margin: 0px;
-    padding: 0px;
 }
 
 a{
 	text-decoration:none;
+	cursor:var(--over-cursor), pointer;
+}
+
+.head{
+	padding:0 var(--padding-in-body)
 }
 
 #main-wrapper{
 	width:var(--width-100);
 	display:flex;
+	padding:0 var(--padding-in-body);
 }
 
 ul, li{
@@ -212,9 +218,9 @@ ul li:hover > .sub {
 
 /* 모드 변경 버튼 기본 스타일 */
 .theme-icon-button {
-    position: absolute;      /* .head를 기준으로 절대 위치 설정 */
+    position: absolute;/* 절대 위치 설정 */
     top: 30px;
-    right: 15px;           /* .head의 패딩 값에 맞춰 우측 끝에 배치 */
+    right: calc(var(--padding-in-body) + 15px);/* 우측 끝에 배치 */
     flex-shrink: 0;            
     width: 44px;
     height: 44px;
