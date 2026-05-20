@@ -76,8 +76,7 @@ html, body{
 	height:100%;
     margin: 0 !important;
     padding: 0 !important;
-    overflow-x: hidden !important; /* 오른쪽으로 화면이 미세하게 밀리는 현상 방지 */	
-  	cursor: var(--default-cursor), auto;		
+    overflow-x: hidden !important; /* 오른쪽으로 화면이 미세하게 밀리는 현상 방지 */		
 }
 
 body {
@@ -168,7 +167,7 @@ ul li:hover > .sub {
 /* 3단계: 소메뉴 스타일 */
 .btn-sub-sub { 
 	padding: 6px 6px 6px 25px; 
-	cursor: pointer; 
+	cursor: var(--over-cursor) pointer; 
 	background: #fff; font-size: 13px;
 	border-radius: 4px; display: block; text-decoration: none; color: black; }
 .btn-sub-sub:hover { 
@@ -209,14 +208,6 @@ ul li:hover > .sub {
     margin: 20px auto 0 auto;
     padding: 0 40px;
     width: var(--width-100);
-}
-
-#theme-toggle-btn, #theme-toggle-btn * {
-  cursor: var(--default-cursor), auto !important;
-}
-
-#theme-toggle-btn:hover *, #theme-toggle-btn *:hover {
-cursor: var(--over-cursor), pointer !important;
 }
 
 /* 모드 변경 버튼 기본 스타일 */
@@ -459,7 +450,6 @@ footer p.bold{
 /* 스크롤바 배경(트랙) 설정 */
 ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.05); /* 투명하거나 원하는 배경색 */
-  cursor: var(--default-cursor), auto; /* 🌟 스크롤바 배경에도 커서 적용 */
 }
 
 
@@ -468,6 +458,27 @@ footer p.bold{
 ::-webkit-scrollbar-thumb {
   background: #ccc; /* 스크롤바 막대 색상 */
   border-radius: 6px;
-  cursor: var(--over-cursor), pointer; /* 🌟 스크롤바 막대 위에도 커서 적용 */
+}
+
+/* 1. 기본 커서 상태 (화살표 default 이미지) */
+.custom-cursor {
+  width: 32px;
+  height: 32px;
+  background-image: var(--default-cursor); /* 🌟 기본 화살표 이미지 경로 */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+
+/* 2. 링크나 버튼 위에 올라갔을 때 상태 (손가락 pointer 이미지) */
+.custom-cursor.is-pointer {
+  background-image: var(--over-cursor); /* 🌟 링크 위에 올려둘 손가락 이미지 경로 */
+  /* 필요하다면 pointer 이미지의 중심점 유격을 맞추기 위해 transform을 다르게 조절해도 됩니다. */
 }
 
