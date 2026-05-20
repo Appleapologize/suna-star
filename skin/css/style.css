@@ -228,6 +228,13 @@ footer p.bold{
 	font-weight: bolder;
 }
 
+
+/*-------------모바일에서만 보이는 메뉴 버튼----------*/
+/* PC 환경에서는 모바일용 UI 요소를 숨김 */
+.menu-toggle-btn {
+    display: none;
+}
+
 @media (max-width: 1024px) {
  
   /* 메뉴 토글 버튼 스타일 및 화면 좌측 상단 고정 */
