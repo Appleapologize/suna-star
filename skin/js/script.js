@@ -19,3 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.onload = loadSheetData;
 
+function toggleMobileMenu() {
+    const btn = document.getElementById('menu-toggle-btn');
+    const drawer = document.getElementById('mobile-drawer');
+    
+    if (btn && drawer) {
+        btn.classList.toggle('active');
+        drawer.classList.toggle('active');
+    }
+}
+
