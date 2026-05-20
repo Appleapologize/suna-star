@@ -324,3 +324,25 @@ footer p.bold{
         background: color-mix(in srgb, var(--background-color) 85%, transparent);
     }
 }
+
+
+nav {  display: flex; width: 220px; background: #f4f4f4; padding: 15px; border-radius: 8px; }
+
+/* 💡 핵심: 질문자님의 HTML 구조(.sub, .ssub)를 기본적으로 숨깁니다 */
+.sub, .ssub { display: none; list-style: none; padding-left: 15px; margin: 0; }
+
+/* 1단계: 대메뉴 버튼 스타일 */
+.button { width: 100%; text-align: left; background: #333; color: white; border: none; padding: 10px; cursor: pointer; font-weight: bold; border-radius: 4px; display: block; text-decoration: none; box-sizing: border-box; }
+
+/* 2단계: 중메뉴 버튼 스타일 */
+.btn-sub { width: 100%; text-align: left; background: #e0e0e0; border: none; padding: 8px 8px 8px 15px; cursor: pointer; border-radius: 4px; font-size: 14px; display: block; text-decoration: none; color: black; }
+
+/* 3단계: 소메뉴 스타일 */
+.btn-sub-sub { padding: 6px 6px 6px 25px; cursor: pointer; background: #fff; font-size: 13px; border-radius: 4px; display: block; text-decoration: none; color: black; }
+.btn-sub-sub:hover { background: #cee3ff; }
+
+/* 💡 핵심: 자바스크립트가 open 클래스를 붙이면 화면에 보입니다 */
+.sub.open, .ssub.open { display: block; }
+
+/* 내용 표시 공간 */
+#content-area { flex: 1; padding: 20px; border: 2px dashed #ccc; border-radius: 8px; min-height: 300px; }
