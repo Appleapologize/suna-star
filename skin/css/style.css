@@ -100,7 +100,7 @@ body {
 /* 스크롤바 움직이는 바(막대) 설정 */
 ::-webkit-scrollbar-thumb {
   background: #ccc; /* 스크롤바 막대 색상 */
-  border-radius: 6px;
+  border-radius: var(--border-radius-s);
 }
 
 
@@ -404,7 +404,7 @@ footer p.bold{
         z-index: 9999 !important;
         width: 44px;
         height: 44px;
-        border-radius: var(--btn-border-radius-m);
+        border-radius: var(--border-radius-m);
         border: 1px solid var(--line-color);
         background: var(--card-background-color);
         color: var(--text-color);
