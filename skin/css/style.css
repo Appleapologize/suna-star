@@ -8,10 +8,10 @@
 /* style.css */
 :root {
     --width-100:100%;
-	--btn-border-radius-xs:4px;
-	--btn-border-radius-s:6px;
-	--btn-border-radius-m:8px;
-	--btn-border-radius-l:12px;
+	--border-radius-xs:4px;
+	--border-radius-s:6px;
+	--border-radius-m:8px;
+	--border-radius-l:12px;
 	--li-marker:"➤  "; /*띄어쓰기도 그대로 들어감 주의*/
 
 
@@ -66,7 +66,8 @@
   }
 
 html, body{
-    width:var(--width-100);
+    width:100vw;
+	height:100vh;
 }
 
 body {
@@ -81,7 +82,13 @@ a{
 }
 
 
-
+/*---------글이 보이는 곳----------*/
+.container{
+    width: var(--width-100);
+    border: 5px dotted red;
+    border-radius: var(--border-radius-l);
+    background: var(--card-background-color);	
+}
 
 
 /*---------다크모드 버튼----------*/
