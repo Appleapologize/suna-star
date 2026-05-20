@@ -87,9 +87,7 @@ ul, li{
 
 /*---------메뉴 버튼----------*/
 nav{
-	display: flex;
-    width: var(--width-100);
-    justify-content: center;
+
 }
 
 /*---------글이 보이는 곳----------*/
@@ -254,10 +252,6 @@ footer p.bold{
 }
 
 @media (max-width: 1024px) {
-nav{
-	display:block;
-}
-
 	
  
   /* 메뉴 토글 버튼 스타일 및 화면 좌측 상단 고정 */
