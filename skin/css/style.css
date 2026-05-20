@@ -130,21 +130,17 @@ nav{
 	display: block; 
 	text-decoration: none; 
 	box-sizing: border-box; 
+	white-space: nowrap;	
 }
 
 button, a.button {
     display: inline-block;
-    cursor: var(--over-cursor), pointer !important;
     text-align: center;
     font-weight: bold;
 }
 
 button:hover, a:hover {
     cursor: var(--over-cursor), pointer !important;
-}
-
-button.prev, button.next{
-  white-space: nowrap;
 }
 
 /* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
@@ -215,6 +211,7 @@ ul li:hover > .sub {
 
 /* 모드 변경 버튼 기본 스타일 */
 .theme-icon-button {
+	cursor: var(--over-cursor), pointer;
     position: absolute;      /* .head를 기준으로 절대 위치 설정 */
     top: 30px;
     right: 15px;           /* .head의 패딩 값에 맞춰 우측 끝에 배치 */
