@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="../skin/css/style.css">
+<link rel="stylesheet" href="../skin/css/links.css">
+<link rel="stylesheet" href="../skin/css/style-dark.css">
+<script defer src="../skin/js/dark-mode.js"></script>
+<script defer src="../skin/js/dark-mode-load-sub.js"></script>
+<link rel="stylesheet" href="./skin/css/custom.css">
+<script type="text/javascript" defer src="../skin/js/cursor-effect.js"></script>
+
+<div id="links">
+
+  <div class="banner-module self module">
+        <div class="banner-img"><img src="../data/suna-star banner.png" style="max-width:200px" id="myBanner" alt="사막의_별이_가장_밝게_빛나는_법이지"></div>
+        <div class="banner-text">
+            <p>자유롭게 복사해보세요.</p>
+            <button class="copy" onclick="copy('img');">배너 이미지 주소만 복사</button>
+            <button class="copy" onclick="copy('url');">현재 사이트 주소만 복사</button>
+            <button class="copy" onclick="copy('tag');">배너 태그 전체 복사</button>
+            <script>
+                function copy(type) {
+                    let copyUrl = '';
+                    let imgSrc = document.getElementById('myBanner').src;
+                    let domain = window.location.protocol+'//'+window.location.hostname;
+                    let siteTitle = top.document.title;
+                    let bannerTag = '<a href="'+domain+'" target="_blank"><img src="'+imgSrc+'" alt="'+siteTitle+'" style="width:100%; height:auto;"></a>';
+
+                    if(type == 'img') {
+                        copyUrl = imgSrc;
+                    } else if (type == 'url') {
+                        copyUrl = domain;
+                    } else {
+                        copyUrl = bannerTag;
+                    }
+
+                    window.navigator.clipboard.writeText(copyUrl).then(() => {
+                        alert("클립보드에 복사되었습니다. 원하는 곳에 붙여넣기 하세요.");
+                    });
+                }
+            </script>
+        </div>
+    </div>
+    <div class="banner-module module">
+      <!--<h3 class="banner-title">배너 그룹 이름</h3>-->
+        <a href="https://kkn5.naru.pub/" target="_blank">
+            <div class="tooltip">
+              <p>#폼님</p>
+            </div>          
+          <img src="https://r2.naru.pub/kkn5/kkn5banner.png" alt="#폼님_사이트" /> 
+        </a>
+        <a href="https://habyeol0118.tistory.com/pages/index" target="_blank">
+            <div class="tooltip">
+              <p>#하별님</p>
+            </div>          
+          <img src="https://tistory1.daumcdn.net/tistory/6814992/skin/images/banner.png" alt="#하별님_사이트" style="width:200px; height:40px;"/> 
+        </a>      
+    </div>    
+  
+<iframe src="./footer.html" class="footer-frame" frameborder="0" style="width: 100%;"></iframe>

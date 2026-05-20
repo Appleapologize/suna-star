@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="../skin/css/style.css">
+<link rel="stylesheet" href="../skin/css/custom.css">
+<link rel="stylesheet" href="../skin/css/wigte.css">
+<link rel="stylesheet" href="../skin/css/style-dark.css">
+<script defer src="../skin/js/dark-mode.js"></script>
+<script defer src="../skin/js/dark-mode-load-sub.js"></script>
+<script type="text/javascript" defer src="../skin/js/cursor-effect.js"></script>
+
+<div id="time-and-day">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+
+  
+    <div id="d-day-wejet">
+        <h2>우리가 함께한지</h2>
+        <h1 id="dday-result" style="color:white;"></h1>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            calculateDays();
+        });
+    
+        function calculateDays() {
+            const startDate = new Date("2020-12-25");
+            const today = new Date();
+    
+            const differenceInTime = today - startDate;
+            const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
+    
+            document.getElementById("dday-result").textContent = `${differenceInDays.toLocaleString()}일`;
+        }
+    </script>
+
+
+    <div class="time-clock"></div>
+    <script>
+        const clock = document.querySelector("div.time-clock");
+        function getClock() {
+            const d = new Date();
+            const h = String(d.getHours()).padStart(2, "0");
+            const m = String(d.getMinutes()).padStart(2, "0");
+            const s = String(d.getSeconds()).padStart(2, "0");
+            clock.innerHTML = `${h}<span class="blink">:</span>${m}<span class="blink">:</span>${s}`;
+        }
+
+        function toggleBlink() {
+            const colons = document.querySelectorAll(".blink");
+            colons.forEach(colon => {
+                colon.style.visibility = colon.style.visibility === "hidden" ? "visible" : "hidden";
+            });}
+
+        getClock();
+        setInterval(getClock, 1000); // 매초 시간 업데이트
+        setInterval(toggleBlink, 500); // 깜빡임 업데이트
+    </script>
+</div>

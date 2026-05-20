@@ -1,0 +1,260 @@
+<link rel="stylesheet" href="../skin/css/style.css">
+<link rel="stylesheet" href="../skin/css/style-dark.css">
+<link rel="stylesheet" href="../skin/css/guest.css">
+<script defer src="../skin/js/dark-mode.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="text/javascript" defer src="../skin/js/cursor-effect.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<div id="guest">
+  <div class="text-module module">
+
+      <h1>방명록</h1>
+
+    <form id="guest-form">
+      
+      <!-- 방명록 작성자명 입력란 -->
+      <div>
+      <div class="guest-list-name">
+        <input type="text" id="guest-name" placeholder="이름을 입력해주세요"/>
+      </div>
+      <!-- 방명록 전송 버튼 -->
+        <button type="button" id="guest-submit">Send</button>  
+      </div>
+      <!-- 방명록 내용 입력란 -->
+      <div class="guest-list-content">
+        <textarea id="guest-content" placeholder="내용을 입력해주세요"></textarea>
+      </div>
+    </form>
+</div>
+          <div class="guest-li text-module module noti">
+          <div class="guest-nm-date">
+            <div class="guest-list-name">Suna-Star <span class="notice">주의</span></div>
+            <div class="guest-list-created-at">2024년 12월 24일 오후 02:02</div>
+          </div>
+          <div class="guest-list-content">비공개 기능과 삭제 기능은 구현되어있지 않습니다.
+          <br>방명록 삭제는 디엠이나 멘션 부탁드립니다.
+          </div>
+    <hr class="comment-form">
+      <div class="comment">
+        <li>
+          <div class="guest-nm-date">
+            <div class="guest-list-name">Suna-Star</div>
+            <div class="guest-list-created-at">2025년 01월 06일 오전 11:49</div>
+          </div>
+          <div class="guest-list-content">참고로 댓글은 이렇게 작성됩니다.</div>
+        </li>
+       </div>  
+        </div>
+      <div id="guest-list" ></div> 
+
+<script type="module">
+// Firebase 초기화
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-analytics.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+
+// Firebase 설정
+const firebaseConfig = {
+  apiKey: "AIzaSyAvLCnV2Vnb55JdCnz8T3XGwfK436HKZ7o",
+  authDomain: "suna-star-guest.firebaseapp.com",
+  projectId: "suna-star-guest",
+  storageBucket: "suna-star-guest.firebasestorage.app",
+  messagingSenderId: "905123913657",
+  appId: "1:905123913657:web:55244f54e7c0cdca7aa068",
+  measurementId: "G-L9EPK8DD0L",
+};
+
+// Firebase 초기화
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getFirestore(app);
+
+// guests 컬렉션 참조
+const guestRef = collection(db, "guests");
+
+// 최신순 정렬
+const q = query(guestRef, orderBy("created_at", "desc"));
+
+// 방명록 작성
+async function sendGuest() {
+  const nameInput = document.querySelector("#guest-name");
+  const contentInput = document.querySelector("#guest-content");
+  const name = nameInput.value.trim();
+  const content = contentInput.value.trim();
+
+  if (!name || !content) {
+    alert("이름과 내용을 모두 입력해주세요.");
+    return;
+  }
+
+  try {
+    await addDoc(guestRef, {
+      name: name,
+      content: content,
+      created_at: new Date(),
+    });
+
+    console.log("방명록 작성 완료");
+    nameInput.value = "";
+    contentInput.value = "";
+    await getGuestList();
+  } catch (error) {
+    console.error("방명록 작성 중 오류 발생:", error);
+  }
+}
+
+// 댓글 작성
+async function sendComment(guestId) {
+  const commentNameInput = document.querySelector(`#comment-name-${guestId}`);
+  const commentContentInput = document.querySelector(`#comment-content-${guestId}`);
+  const name = commentNameInput.value.trim();
+  const content = commentContentInput.value.trim();
+
+  if (!name || !content) {
+    alert("댓글 작성자의 이름과 내용을 입력해주세요.");
+    return;
+  }
+
+  try {
+    const commentRef = collection(db, `guests/${guestId}/comments`);
+    await addDoc(commentRef, {
+      name: name,
+      content: content,
+      created_at: new Date(),
+    });
+
+    console.log("댓글 작성 완료");
+    commentNameInput.value = "";
+    commentContentInput.value = "";
+    await getComments(guestId);
+  } catch (error) {
+    console.error("댓글 작성 중 오류 발생:", error);
+  }
+}
+
+// 댓글 불러오기
+async function getComments(guestId) {
+  try {
+    const commentRef = collection(db, `guests/${guestId}/comments`);
+    const commentQuery = query(commentRef, orderBy("created_at", "asc"));
+    const commentList = await getDocs(commentQuery);
+
+    let html = `<ul>`;
+    commentList.forEach((doc) => {
+      const data = doc.data();
+      const date = new Date(data.created_at.toDate());
+      const ampm = date.getHours() >= 12 ? "오후" : "오전";
+      const hours = (date.getHours() % 12 || 12).toString().padStart(2, "0");
+      const minutes = date.getMinutes().toString().padStart(2, "0");
+      const myDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${ampm} ${hours}:${minutes}`;
+
+      html += `
+      <div class="comment">
+        <li>
+          <div class="guest-nm-date">
+            <div class="guest-list-name">${data.name}</div>
+            <div class="guest-list-created-at">${myDate}</div>
+          </div>
+          <div class="guest-list-content">${data.content}</div>
+        </li>
+      </div> 
+      `;
+    });
+    html += `</ul>`;
+
+    document.querySelector(`#comments-${guestId}`).innerHTML = html;
+  } catch (error) {
+    console.error("댓글 불러오기 중 오류 발생:", error);
+  }
+}
+
+// 댓글 입력 폼 생성
+function createCommentForm(guestId) {
+  return `
+  <hr class="comment-form">  
+  <div class="comment-toggle">
+    <button class="toggle-comment-form" data-guest-id="${guestId}"><i class="fa-solid fa-comment-dots"></i></button>
+    <div class="comment-form" id="comment-form-${guestId}" style="display: none;">
+    <div>
+       <div class="guest-list-name">
+        <input type="text" id="comment-name-${guestId}" placeholder="이름을 입력해주세요">
+        </div>
+      <button id="comment-submit-${guestId}">Send</button>
+      </div>      
+      <textarea id="comment-content-${guestId}" placeholder="내용을 입력해주세요"></textarea>
+    </div>
+
+    <div id="comments-${guestId}" class="comments-list"></div>
+  </div>
+  `;
+}
+
+// 방명록 불러오기
+async function getGuestList() {
+  try {
+    let html = ``;
+    const guestList = await getDocs(q);
+
+    guestList.forEach((doc) => {
+      const guestId = doc.id;
+      const data = doc.data();
+      const date = new Date(data.created_at.toDate());
+      const ampm = date.getHours() >= 12 ? "오후" : "오전";
+      const hours = (date.getHours() % 12 || 12).toString().padStart(2, "0");
+      const minutes = date.getMinutes().toString().padStart(2, "0");
+      const myDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${ampm} ${hours}:${minutes}`;
+
+      html += `
+        <div class="guest-li text-module module">
+          <div class="guest-nm-date">
+            <div class="guest-list-name">${data.name}</div>
+            <div class="guest-list-created-at">${myDate}</div>
+          </div>
+          <div class="guest-list-content">${data.content}</div>
+          ${createCommentForm(guestId)}
+        </div>
+      `;
+
+      getComments(guestId);
+    });
+
+    document.querySelector("#guest-list").innerHTML = html;
+  } catch (error) {
+    console.error("방명록 목록 불러오기 중 오류 발생:", error);
+  }
+}
+
+// 댓글 입력 폼 토글 이벤트 처리
+document.addEventListener("click", (event) => {
+  if (event.target && event.target.classList.contains("toggle-comment-form")) {
+    const guestId = event.target.dataset.guestId;
+    const commentForm = document.querySelector(`#comment-form-${guestId}`);
+
+    if (commentForm.style.display === "none") {
+      commentForm.style.display = "block";
+    } else {
+      commentForm.style.display = "none";
+    }
+  } else if (event.target && event.target.id.startsWith("comment-submit-")) {
+    const guestId = event.target.id.replace("comment-submit-", "");
+    sendComment(guestId);
+  }
+});
+
+// 방명록 작성 버튼 이벤트 처리
+document.querySelector("#guest-submit").addEventListener("click", sendGuest);
+
+// 페이지 로드 시 방명록 불러오기
+getGuestList();
+</script>
+
+</div>
