@@ -460,6 +460,17 @@ footer p.bold{
   border-radius: 6px;
 }
 
+
+html, body {
+  cursor: none !important;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  cursor: none !important;
+}
+
 /* [공통 기본 스타일] */
 .custom-cursor {
   width: 32px;
