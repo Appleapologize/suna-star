@@ -1,13 +1,13 @@
-// gallery.js 파일 내부
+//././skin/js/gallery.js 내부 수정
 function initGallery() {
-    console.log("갤러리 슬라이드 초기화 시작");
+    console.log("갤러리 스크립트 실행됨");
     
-    // 슬라이드 관련 기존 코드들을 모두 이 함수 안으로 넣으세요!
-    const slides = document.querySelectorAll('.slide-item');
-    let currentSlide = 0;
+    // 기존에 만드셨던 슬라이드 제어 변수 및 쿼리셀렉터들이 이 중괄호 안으로 들어와야 합니다!
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
     
-    // 예: 슬라이드 작동 로직...
-    if (slides.length > 0) {
-        // 슬라이드 타이머 실행 코드 등등
-    }
+    // 만약 자동 슬라이드(Interval) 기능이 있다면 전역에 저장
+    window.galleryInterval = setInterval(() => {
+         // 슬라이드 작동 로직...
+    }, 3000);
 }
