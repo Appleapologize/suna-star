@@ -1,7 +1,10 @@
 @charset "utf-8";
 :root{
   --guest-comment-backcolor:rgba(125, 227, 245,1);
-  --dark-guest-comment-backcolor:rgba(49, 26, 84,1);
+}
+
+[data-theme="dark"] {
+  --guest-comment-backcolor::rgba(49, 26, 84,1);
 }
 
 input, textarea
@@ -141,32 +144,6 @@ hr.comment-form{
 .toggle-comment-form i{
   color:white;
 }
-/*다크모드*/
-html.theme--dark #guest .guest-li{
-  background:var(--dark-sub-color);
-}
-
-html.theme--dark .guest-list-created-at{
-  color:rgba(255,255,255,0.8);
-}
-
-html.theme--dark input, html.theme--dark textarea
-{ border:1px solid white;
-  background:var(--dark-main-color);
-}
-
-html.theme--dark .noti{
-  border-color: white;
-}
-
-html.theme--dark .comment li{
-  background:var(--dark-guest-comment-backcolor) !important;
-}
-
-html.theme--dark .comment-form{ 
-  background-color: var(--dark-guest-comment-backcolor);
-}
-
 
 @media only screen and (max-width: 700px) {
   .toggle-comment-form{
