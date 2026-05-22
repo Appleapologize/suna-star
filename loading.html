@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <style>
+      :root{
+              --loading-glass-topbbotm-color:black;
+              --loading-glass-topbbotm-border:5px;
+              --loading-glass-inner-color:#def;
+              --loading-glass-inner-shadow-color:white;
+              --loading-sand-color:red;
+              --loading-anime-time: 1s;
+              --loading-glass-size:20px;
+            }
+            
+            /* 화면 전체를 채우는 스타일 */
+            #loading {
+              background-color: rgb(255, 255, 255);
+              opacity: 0.5;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100vw;
+              height: 100vh;
+              z-index: 9999; /* 다른 요소 위에 표시 */
+            }
+
+            /* 모래시계 애니메이션 */
+            .hourglass {
+              background-color: rgb(255, 255, 255);
+              opacity: 1;
+              animation: flip var(--loading-anime-time) ease-in-out infinite;
+              border-bottom: solid var(--loading-glass-topbbotm-border) var(--loading-glass-topbbotm-color);
+              border-top: solid var(--loading-glass-topbbotm-border) var(--loading-glass-topbbotm-color);
+              left: 50%;
+              margin-left: -6vmin;
+              margin-top: -11vmin;
+              padding: 0 1vmin;
+              position: fixed;
+              top: 50%;
+            }
+            .hourglass .top, .bottom {
+              background-color: var(--loading-glass-inner-color);
+              box-shadow: 0 0 1vmin 1vmin var(--loading-glass-inner-shadow-color) inset;
+              height: var(--loading-glass-size);
+              overflow: hidden;
+              position: relative;
+              width: var(--loading-glass-size);
+            }
+            .hourglass .top {
+              border-radius: 0 0 50% 50%;
+            }
+            .hourglass .top:before {
+              animation: top var(--loading-anime-time) linear infinite;
+              background-color: var(--loading-sand-color);
+              border-radius: 50%;
+              content: "";
+              display: block;
+              height: var(--loading-glass-size);
+              left: 0;
+              position: absolute;
+              top: 0;
+              transform: translateY(50%);
+              width: var(--loading-glass-size);
+            }
+            /* 더 많은 애니메이션 스타일 */
+            /* 중략 */
+            /* 로딩창 */
+    </style>
+  </head>
+  <body>
+    <div id="loading">
+      <div class="hourglass">
+        <div class="top"></div>
+        <div class="bottom"></div>
+      </div>
+    </div>
+  </body>
+</html>
