@@ -84,8 +84,9 @@ function loadPage(event, relativePath, addHistory = true) {
 
     const fileName = relativePath.split('/').pop(); // 예: guest.html
     const pageKey = fileName.split('.')[0];         // 예: guest
-    const baseUrl = window.location.pathname.endsWith('/') ? window.location.pathname : window.location.pathname + '/';
-    const finalUrl = window.location.origin + baseUrl + 'pages/' + fileName;
+
+    // GitHub Pages 경로 버그 방지 고정 주소
+    const finalUrl = window.location.origin + '/suna-star/pages/' + fileName;
 
     fetch(finalUrl)
         .then(response => {
@@ -100,24 +101,35 @@ function loadPage(event, relativePath, addHistory = true) {
                 contentArea.innerHTML = htmlData; 
                 window.scrollTo(0, 0); 
 
-                // ───────────────────────────────────────────────
-                // [추가된 구간] 동적 CSS 로드 시스템
-                // ───────────────────────────────────────────────
-                // 이미 해당 페이지의 CSS가 생성되어 있는지 ID로 확인 후 없으면 생성
+                // 1. [이전 페이지 청소] 기존에 추가되었던 동적 CSS 및 JS 제거
+                document.querySelectorAll('link[id^="dynamic-css-"]').forEach(el => el.remove());
+                document.querySelectorAll('script[id^="dynamic-js-"]').forEach(el => el.remove());
+
+                // 2. [동적 CSS 로드]
                 const cssId = `dynamic-css-${pageKey}`;
                 if (!document.getElementById(cssId)) {
-                    // 메인 index.html이 실행되는 루트 위치 기준 경로 설정
                     const link = document.createElement('link');
                     link.id = cssId;
                     link.rel = 'stylesheet';
-                    link.href = `./skin/css/${pageKey}.css`; 
-                    
-                    // 파일이 실제로 존재하는지 체크 후 로드 에러 시 자동 소멸 (예: home.css가 없을 때 에러 방지)
+                    link.href = `/suna-star/skin/css/${pageKey}.css`; 
                     link.onerror = () => link.remove(); 
-                    
                     document.head.appendChild(link);
                 }
-                // ───────────────────────────────────────────────
+
+                // 3. [핵심: 동적 JS 로드] HTML이 완전히 들어간 뒤 스크립트 실행 구조 빌드
+                const jsId = `dynamic-js-${pageKey}`;
+                if (!document.getElementById(jsId)) {
+                    const script = document.createElement('script');
+                    script.id = jsId;
+                    
+                    // 폴더 구조가 skin/js/guest.js 규칙이라고 가정했을 때의 경로 설정
+                    script.src = `/suna-star/skin/js/${pageKey}.js`; 
+                    
+                    // 파일이 없으면 콘솔 에러 방지를 위해 태그 자동 제거
+                    script.onerror = () => script.remove(); 
+                    
+                    document.body.appendChild(script);
+                }
 
                 if (addHistory) {
                     addQueryString(fileName);
@@ -132,3 +144,4 @@ function loadPage(event, relativePath, addHistory = true) {
             }
         });
 }
+
