@@ -3,15 +3,15 @@ let dict = {};
 let player; // YouTube 플레이어 객체 전역 변수 선언
 let currentIndex = 0; // 현재 곡 인덱스 추적
 
-// 💡 1. 유튜브 API 스크립트 주입 규칙 교정 (표준 주소 연결)
+// 1. 유튜브 API 스크립트 표준 주입 (에러 방지)
 let tag = document.createElement('script');
 tag.src = "https://youtube.com";
-let firstScriptTag = document.getElementsByTagName('script')[0];
+let firstScriptTag = document.getElementsByTagName('script');
 if (firstScriptTag && firstScriptTag.parentNode) {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
 
-// 쿼리스트링을 주소창에 추가하는 함수
+// 쿼리스트링을 주소창에 추가하는 함수 (파일명만 안전하게 기록)
 function addQueryString(fileName) {
     const url = new URL(window.location);
     url.searchParams.set('pageName', fileName); 
@@ -20,7 +20,7 @@ function addQueryString(fileName) {
 
 // [핵심] 사이트가 처음 부팅되자마자 실행되는 통합 구간
 document.addEventListener("DOMContentLoaded", () => {
-    // 🔒 마우스 우클릭(컨텍스트 메뉴) 차단
+    // 🔒 마우스 우클릭 차단
     document.addEventListener('contextmenu', (event) => {
         event.preventDefault();
     });
@@ -40,10 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 💡 [요구사항 반영] svg class="text-logo" 요소를 찾아서 홈 화면 연결
+    // 💡 [요구사항] text-logo SVG 클릭 시 홈 화면 연결
     const textLogoSvg = document.querySelector('.text-logo');
     if (textLogoSvg) {
-        textLogoSvg.style.cursor = 'pointer'; // 포인터 커서 보장
+        textLogoSvg.style.cursor = 'pointer'; 
         textLogoSvg.addEventListener('click', (event) => {
             loadPage(event, 'pages/home.html'); 
         });
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pageName = params.get('pageName') || 'home.html';
     loadPage(null, `pages/${pageName}`, false);
 
-    // 브라우저 뒤로가기 / 앞으로가기 할 때 내용 연동 제어
+    // 브라우저 뒤로가기 / 앞으로가기 처리
     window.addEventListener('popstate', function(event) {
         if (event.state && event.state.pageName) {
             loadPage(null, `pages/${event.state.pageName}`, false);
@@ -70,16 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
 function toggleMobileMenu() {
     const btn = document.getElementById('menu-toggle-btn');
     const drawer = document.getElementById('mobile-drawer');
-    
     if (btn && drawer) {
         btn.classList.toggle('active');
         drawer.classList.toggle('active');
     }
 }
 
-// ================= 메뉴 관련 js =================
-
-// [기능 1] 다중 드롭다운 메뉴를 열고 닫는 함수
+// 다중 드롭다운 메뉴 제어
 function toggleMenu(event, targetId) {
     if (event) event.stopPropagation(); 
     const targetMenu = document.getElementById(targetId);
@@ -88,17 +85,19 @@ function toggleMenu(event, targetId) {
     }
 }
 
-// [기능 2] 외부 HTML 파일을 읽어와서 .container에 집어넣는 함수
+// 💡 [경로 버그 수정] 안전하게 HTML 조각을 읽어와서 .container에 주입하는 함수
 function loadPage(event, relativePath, addHistory = true) {
     if (event) {
         if (typeof event.preventDefault === 'function') event.preventDefault();
         if (typeof event.stopPropagation === 'function') event.stopPropagation();
     }
 
+    // 파일 이름만 순수하게 추출 (예: 'pages/home.html' -> 'home.html')
     const fileName = relativePath.split('/').pop();
+    
+    // 중복으로 pages/ 가 붙는 현상을 원천 방지하기 위한 정제 주소 설계
     const baseUrl = window.location.pathname.endsWith('/') ? window.location.pathname : window.location.pathname + '/';
-    const cleanPath = relativePath.replace(/^\.\//, '').replace(/^\//, ''); 
-    const finalUrl = window.location.origin + baseUrl + cleanPath;
+    const finalUrl = window.location.origin + baseUrl + 'pages/' + fileName;
 
     fetch(finalUrl)
         .then(response => {
@@ -129,10 +128,8 @@ function loadPage(event, relativePath, addHistory = true) {
 
 // ================= 🎵 유튜브 BGM 제어 엔진 =================
 
-// YouTube Iframe API가 준비되면 호출되는 함수
 function onYouTubeIframeAPIReady() {
     let playlistId = 'PLrWUB4lPqAdRnSyYg7aTXG5On7jbuUqoO'; 
-    
     if (document.getElementById('bgm')) {
         player = new YT.Player('bgm', {
             playerVars: {
