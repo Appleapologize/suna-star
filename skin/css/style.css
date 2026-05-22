@@ -206,6 +206,19 @@ body {
     background-color: var(--background-color);
 	color:var(--text-color);
 }
+
+::selection {
+    background-color: var( --select);
+    color: var( --select-color);
+}
+
+body:has(#container) {
+    background:
+    center / cover no-repeat var(--bg-img),
+    left top / auto repeat var(--main-color) var(--bg-pattern);
+}
+
+
 /*-------스크롤바 스타일--------*/
 /* 전체 스크롤바 영역 설정 */
 ::-webkit-scrollbar {
@@ -394,7 +407,7 @@ ul li:hover > .sub {
   opacity: 1 !important;
 }
 /*---------글이 보이는 곳----------*/
-.container{
+#container{
     width: var(--width-100);
     border: 5px dotted red;
     border-radius: var(--border-radius-l);
