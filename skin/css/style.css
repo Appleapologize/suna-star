@@ -37,10 +37,6 @@
   /*화면에 잘리면 줄을 바꿀지 말지*/
   --word-break-:  normal;/*keep-all*/
     /* -------- -------- -------- 모듈 박스 설정 -------- -------- -------- */
-        --pc-module-width: 70%;
-        /* PC버전의 모듈박스 너비크기를 지정합니다. */
-        --mobile-module-width: 100%;
-        /* 모바일 버전의 모듈박스 너비크기를 지정합니다. 기본값 100% 추천 */
         --module-opacity: 100%;
         /* 모듈박스의 투명도를 지정합니다. 0에서 100까지의 값을 %로 입력합니다. 단, 내용도 투명해집니다. (반투명 권장 : 98~99%) */
         --module-round: 15px;
@@ -97,8 +93,6 @@
 	
     /* 버튼 텍스트 색상을 지정합니다. */	
 	--btn-text-color: #fff;
-    /* 모듈 배경 색상을 지정합니다. */
-	--module-bg-color: #fff;
     /* 스크롤바의 커스텀 색상을 지정합니다. */
 	--scroll-color1: #ffed89;
 	--scroll-color2: #c3eeff;
@@ -174,7 +168,7 @@
     --point-sub-color: #8c0000;
 	
     /* 모듈 배경 색상을 지정합니다. */
-	--module-bg-color: #131314;
+	--card-background-color: #131314;
     /* 스크롤바의 커스텀 색상을 지정합니다. */
 	--scroll-color1: black;
 	--scroll-color2: white;
@@ -598,8 +592,8 @@ img {
 }
 
 .module {
-    max-width: var(--pc-module-width);
-    background-color: var(--module-bg-color);
+    max-width: var(--width-100);
+    background-color: var(--card-background-color);
     box-shadow: var(--box-shadow-color);
     padding: var(--box-padding);
     margin: var(--box-gap) auto;
