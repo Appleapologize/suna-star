@@ -273,7 +273,6 @@ ul li:hover > .sub {
 /* 모드 변경 버튼 기본 스타일 */
 .theme-icon-button {
     position: absolute;/* 절대 위치 설정 */
-    top: 30px;
     right: calc(var(--padding-in-body) + 15px);/* 우측 끝에 배치 */
     flex-shrink: 0;            
     width: 44px;
@@ -568,7 +567,7 @@ footer p.bold{
 
 @media (max-width: 1024px) {
 	.theme-icon-button{
-		top: calc(var(--padding-in-body) + 30px);
+		top: calc(var(--padding-in-body) - 30px);
 	}
  
   /* 메뉴 토글 버튼 스타일 및 화면 좌측 상단 고정 */
