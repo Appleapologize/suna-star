@@ -3,7 +3,7 @@ let dict = {};
 let player; // YouTube 플레이어 객체 전역 변수 선언
 let currentIndex = 0; // 현재 곡 인덱스 추적
 
-// 1. 유튜브 API 스크립트 표준 주입 (에러 방지)
+// 1. 유튜브 API 스크립트 표준 주입
 let tag = document.createElement('script');
 tag.src = "https://youtube.com";
 let firstScriptTag = document.getElementsByTagName('script');
@@ -11,7 +11,7 @@ if (firstScriptTag && firstScriptTag.parentNode) {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }
 
-// 쿼리스트링을 주소창에 추가하는 함수 (파일명만 안전하게 기록)
+// 쿼리스트링을 주소창에 추가하는 함수
 function addQueryString(fileName) {
     const url = new URL(window.location);
     url.searchParams.set('pageName', fileName); 
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 💡 [요구사항] text-logo SVG 클릭 시 홈 화면 연결
+    // text-logo SVG 클릭 시 홈 화면 연결
     const textLogoSvg = document.querySelector('.text-logo');
     if (textLogoSvg) {
         textLogoSvg.style.cursor = 'pointer'; 
@@ -64,6 +64,16 @@ document.addEventListener("DOMContentLoaded", () => {
             loadPage(null, `pages/${currentPage}`, false);
         }
     });
+
+    // 💡 [자동 재생 정책 대응] 브라우저가 음악을 차단하므로, 사용자가 화면 어디든 첫 클릭을 하는 순간 음소거를 해제하고 재생을 시도합니다.
+    document.body.addEventListener('click', function initialPlay() {
+        if (player && typeof player.playVideo === 'function') {
+            player.unMute(); // 음소거 해제
+            player.playVideo(); // 재생 시도
+            // 한 번만 실행되도록 이벤트를 스스로 제거합니다.
+            document.body.removeEventListener('click', initialPlay);
+        }
+    }, { once: true });
 });
 
 // 모바일 메뉴 토글 함수
@@ -85,17 +95,14 @@ function toggleMenu(event, targetId) {
     }
 }
 
-// 💡 [경로 버그 수정] 안전하게 HTML 조각을 읽어와서 .container에 주입하는 함수
+// 외부 HTML을 불러와서 .container에 주입하는 함수
 function loadPage(event, relativePath, addHistory = true) {
     if (event) {
         if (typeof event.preventDefault === 'function') event.preventDefault();
         if (typeof event.stopPropagation === 'function') event.stopPropagation();
     }
 
-    // 파일 이름만 순수하게 추출 (예: 'pages/home.html' -> 'home.html')
     const fileName = relativePath.split('/').pop();
-    
-    // 중복으로 pages/ 가 붙는 현상을 원천 방지하기 위한 정제 주소 설계
     const baseUrl = window.location.pathname.endsWith('/') ? window.location.pathname : window.location.pathname + '/';
     const finalUrl = window.location.origin + baseUrl + 'pages/' + fileName;
 
@@ -126,7 +133,7 @@ function loadPage(event, relativePath, addHistory = true) {
         });
 }
 
-// ================= 🎵 유튜브 BGM 제어 엔진 =================
+// ================= 🎵 유튜브 BGM 제어 엔진 (보내주신 본래 양식 100% 최적화) =================
 
 function onYouTubeIframeAPIReady() {
     let playlistId = 'PLrWUB4lPqAdRnSyYg7aTXG5On7jbuUqoO'; 
@@ -150,7 +157,9 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-    event.target.stopVideo(); 
+    // 💡 첫 진입 시 브라우저 정책 우회를 위해 음소거 후 바로 재생 대기 상태로 만듭니다.
+    event.target.mute();
+    event.target.playVideo();
 }
 
 function onPlayerStateChange(event) {
@@ -184,6 +193,7 @@ function bgm(action) {
 
     if (action == 'play') {
         if (player && player.playVideo) {
+            player.unMute(); // 💡 수동 재생 클릭 시 음소거를 확실히 풀어줍니다.
             player.playVideo(); 
             if (status) status.setAttribute("value", "play");
             updateVideoTitle(); 
