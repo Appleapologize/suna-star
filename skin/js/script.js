@@ -95,53 +95,54 @@ function loadPage(event, relativePath, addHistory = true) {
             }
             return response.text();
         })
-        .then(htmlData => {
+ .then(htmlData => {
             const contentArea = document.querySelector('#container');
             if (contentArea) {
                 contentArea.innerHTML = htmlData; 
                 window.scrollTo(0, 0); 
 
-                // 1. [이전 페이지 청소] 기존에 추가되었던 동적 CSS 및 JS 제거
-                document.querySelectorAll('link[id^="dynamic-css-"]').forEach(el => el.remove());
-                document.querySelectorAll('script[id^="dynamic-js-"]').forEach(el => el.remove());
-
-                // 2. [동적 CSS 로드]
+                // 1. [안전장치] 이전 페이지가 돌려놓은 슬라이드/애니메이션 타이머가 있다면 메인 스크립트 전역 변수 등에서 클리어해줘야 합니다.
+                // 2. 동적 CSS 로드
                 const cssId = `dynamic-css-${pageKey}`;
                 if (!document.getElementById(cssId)) {
                     const link = document.createElement('link');
-                    link.id = cssId;
-                    link.rel = 'stylesheet';
+                    link.id = cssId; link.rel = 'stylesheet';
                     link.href = `/suna-star/skin/css/${pageKey}.css`; 
                     link.onerror = () => link.remove(); 
                     document.head.appendChild(link);
                 }
 
-                // 3. [핵심: 동적 JS 로드] HTML이 완전히 들어간 뒤 스크립트 실행 구조 빌드
+                // 3. 동적 JS 로드 및 실행 타이밍 제어
                 const jsId = `dynamic-js-${pageKey}`;
-                if (!document.getElementById(jsId)) {
-                    const script = document.createElement('script');
+                let script = document.getElementById(jsId);
+                
+                if (!script) {
+                    script = document.createElement('script');
                     script.id = jsId;
-                    
-                    // 폴더 구조가 skin/js/guest.js 규칙이라고 가정했을 때의 경로 설정
                     script.src = `/suna-star/skin/js/${pageKey}.js`; 
-                    
-                    // 파일이 없으면 콘솔 에러 방지를 위해 태그 자동 제거
                     script.onerror = () => script.remove(); 
                     
+                    // 파일이 완전히 로드된 후 초기화 함수 실행
+                    script.onload = () => {
+                        executePageInit(pageKey);
+                    };
                     document.body.appendChild(script);
+                } else {
+                    // 이미 불러와져 있던 스크립트라면 바로 초기화 함수만 재실행
+                    executePageInit(pageKey);
                 }
 
-                if (addHistory) {
-                    addQueryString(fileName);
-                }
+                if (addHistory) { addQueryString(fileName); }
             }
         })
-        .catch(error => {
-            console.error("Fetch Error:", error);
-            const contentArea = document.querySelector('#container');
-            if (contentArea) {
-                contentArea.innerHTML = `<p style="color:red; padding:20px; font-weight:bold;">⚠️ 에러 발생: ${error.message}<br><span style="font-size:12px; color:#666;">요청 주소: ${finalUrl}</span></p>`;
-            }
-        });
+
+// 파일별 초기화 함수를 매핑해서 실행해주는 헬퍼 함수 (loadPage 바깥에 추가)
+function executePageInit(pageKey) {
+    if (pageKey === 'gallery' && typeof initGallery === 'function') {
+        initGallery();
+    }
+    // 추후 방명록 기능 초기화가 필요하다면 여기에 추가 가능
+    // if (pageKey === 'guest' && typeof initGuest === 'function') { initGuest(); }
 }
+
 
