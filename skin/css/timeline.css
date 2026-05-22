@@ -59,6 +59,8 @@
   text-align: center;
   margin: 0 auto;
   border-radius: 20PX;
+  z-index: 1;
+  position: relative;
 }
 
 /*타임라인 선*/
