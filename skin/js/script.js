@@ -94,7 +94,7 @@ function loadPage(event, relativePath, addHistory = true) {
             return response.text();
         })
         .then(htmlData => {
-            const contentArea = document.querySelector('.container');
+            const contentArea = document.querySelector('#container');
             if (contentArea) {
                 contentArea.innerHTML = htmlData; 
                 window.scrollTo(0, 0); 
@@ -106,7 +106,7 @@ function loadPage(event, relativePath, addHistory = true) {
         })
         .catch(error => {
             console.error("Fetch Error:", error);
-            const contentArea = document.querySelector('.container');
+            const contentArea = document.querySelector('#container');
             if (contentArea) {
                 contentArea.innerHTML = `<p style="color:red; padding:20px; font-weight:bold;">⚠️ 에러 발생: ${error.message}<br><span style="font-size:12px; color:#666;">요청 주소: ${finalUrl}</span></p>`;
             }
