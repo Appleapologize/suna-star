@@ -98,45 +98,48 @@ function loadPage(event, relativePath, addHistory = true) {
         .then(htmlData => {
             const contentArea = document.querySelector('#container');
             if (contentArea) {
+                // [💥 대청소 구간] 새로운 페이지를 그리기 전 기존에 들어있던 동적 CSS와 JS 태그를 완전히 제거합니다.
+                // 다른 페이지로 이동했을 때 BGM이 제자리로 돌아오지 않는 현상을 해결합니다.
+                document.querySelectorAll('link[id^="dynamic-css-"]').forEach(el => el.remove());
+                document.querySelectorAll('script[id^="dynamic-js-"]').forEach(el => el.remove());
+                
+                // 만약 갤러리 자동 슬라이드가 켜져있었다면 타이머 폭주 방지를 위해 클리어
+                if (window.galleryInterval) {
+                    clearInterval(window.galleryInterval);
+                    window.galleryInterval = null;
+                }
+
+                // 2. 새로운 HTML 화면에 바인딩
                 contentArea.innerHTML = htmlData; 
                 window.scrollTo(0, 0); 
 
-                // 2. 동적 CSS 로드
+                // 3. 동적 CSS 로드
                 const cssId = `dynamic-css-${pageKey}`;
-                if (!document.getElementById(cssId)) {
-                    const link = document.createElement('link');
-                    link.id = cssId; 
-                    link.rel = 'stylesheet';
-                    link.href = `/suna-star/skin/css/${pageKey}.css`; 
-                    link.onerror = () => link.remove(); 
-                    document.head.appendChild(link);
-                }
+                const link = document.createElement('link');
+                link.id = cssId; 
+                link.rel = 'stylesheet';
+                link.href = `/suna-star/skin/css/${pageKey}.css`; 
+                link.onerror = () => link.remove(); 
+                document.head.appendChild(link);
 
-                // 3. 동적 JS 로드 및 실행 타이밍 제어
+                // 4. 동적 JS 로드 및 실행 타이밍 제어
                 const jsId = `dynamic-js-${pageKey}`;
-                let script = document.getElementById(jsId);
+                const script = document.createElement('script');
+                script.id = jsId;
+                script.src = `/suna-star/skin/js/${pageKey}.js`; 
+                script.onerror = () => script.remove(); 
                 
-                if (!script) {
-                    script = document.createElement('script');
-                    script.id = jsId;
-                    script.src = `/suna-star/skin/js/${pageKey}.js`; 
-                    script.onerror = () => script.remove(); 
-                    
-                    // 파일이 완전히 로드된 후 초기화 함수 실행
-                    script.onload = () => {
-                        executePageInit(pageKey);
-                    };
-                    document.body.appendChild(script);
-                } else {
-                    // 이미 불러와져 있던 스크립트라면 바로 초기화 함수만 재실행
+                // 파일 다운로드가 완벽히 끝나서 브라우저가 읽었을 때 실행 보장
+                script.onload = () => {
                     executePageInit(pageKey);
-                }
+                };
+                document.body.appendChild(script);
 
                 if (addHistory) { 
                     addQueryString(fileName); 
                 }
             }
-        }) // 이 부분 닫는 중괄호가 빠져있던 것을 복구했습니다.
+        })
         .catch(error => {
             console.error("Fetch Error:", error);
             const contentArea = document.querySelector('#container');
