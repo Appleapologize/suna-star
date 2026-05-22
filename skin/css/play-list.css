@@ -29,6 +29,7 @@
     color: var(--disable-color);
     background-color: var(--clear);
     min-width: 0;
+    border: none;      
 }
 
 #bgmVisual {
