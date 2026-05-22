@@ -82,7 +82,8 @@ function loadPage(event, relativePath, addHistory = true) {
         if (typeof event.stopPropagation === 'function') event.stopPropagation();
     }
 
-    const fileName = relativePath.split('/').pop();
+    const fileName = relativePath.split('/').pop(); // 예: guest.html
+    const pageKey = fileName.split('.')[0];         // 예: guest
     const baseUrl = window.location.pathname.endsWith('/') ? window.location.pathname : window.location.pathname + '/';
     const finalUrl = window.location.origin + baseUrl + 'pages/' + fileName;
 
@@ -98,6 +99,25 @@ function loadPage(event, relativePath, addHistory = true) {
             if (contentArea) {
                 contentArea.innerHTML = htmlData; 
                 window.scrollTo(0, 0); 
+
+                // ───────────────────────────────────────────────
+                // [추가된 구간] 동적 CSS 로드 시스템
+                // ───────────────────────────────────────────────
+                // 이미 해당 페이지의 CSS가 생성되어 있는지 ID로 확인 후 없으면 생성
+                const cssId = `dynamic-css-${pageKey}`;
+                if (!document.getElementById(cssId)) {
+                    // 메인 index.html이 실행되는 루트 위치 기준 경로 설정
+                    const link = document.createElement('link');
+                    link.id = cssId;
+                    link.rel = 'stylesheet';
+                    link.href = `./skin/css/${pageKey}.css`; 
+                    
+                    // 파일이 실제로 존재하는지 체크 후 로드 에러 시 자동 소멸 (예: home.css가 없을 때 에러 방지)
+                    link.onerror = () => link.remove(); 
+                    
+                    document.head.appendChild(link);
+                }
+                // ───────────────────────────────────────────────
 
                 if (addHistory) {
                     addQueryString(fileName);
