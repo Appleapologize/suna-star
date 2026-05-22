@@ -80,6 +80,7 @@
 
 /* -------- -------- -------- -------- 라이트 모드 색상 및 이미지 설정 -------- -------- -------- -------- */
     --background-color: #f0f4f8;
+    --sub-background-color: #f0f4f8;	
     --title-color:#fff; /*제목 글자 색상*/
 	--title-shadow-color:#ccc;
     --card-background-color: #fff;  
@@ -154,6 +155,7 @@
 /* -------- -------- -------- -------- 다크 모드 색상 설정 -------- -------- -------- -------- */
 [data-theme="dark"] {
     --background-color: black;    
+    --sub-background-color: #3d4354;		
     --title-color:  #ffffff;                       
     --title-shadow-color: #334155;                
     --card-background-color: #232733;     
