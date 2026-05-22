@@ -63,6 +63,11 @@ width:100%;
   min-width: fit-content;
 }
 
+.slider button:hover{
+    background-color: var(--point-color);
+    color: var(--btn-text-color);
+}
+
 .prev {
   left: 0px;
   border-radius: 0 10px 10px 0px;
