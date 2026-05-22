@@ -167,8 +167,6 @@
     --point-color: #ff9494;
     --point-sub-color: #8c0000;
 	
-    /* 모듈 배경 색상을 지정합니다. */
-	--card-background-color: #131314;
     /* 스크롤바의 커스텀 색상을 지정합니다. */
 	--scroll-color1: black;
 	--scroll-color2: white;
