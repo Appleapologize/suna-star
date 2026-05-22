@@ -416,10 +416,12 @@ ul li:hover > .sub {
     font-size: 14px;
     display: block;
     color: var(--btn-text-color);
+    text-align: center;		
 }
 
 .btn-sub:hover{
     background: var(--btn-sub-hover-color);	
+    color: var(--btn-text-color);	
 }
 
 /* 3단계: 소메뉴 스타일 */
@@ -668,7 +670,7 @@ img {
 }
 
 .text-module {
-    width: var(--text-module-width);
+    width: var(--width-100);
 }
 
 .diary-module {
