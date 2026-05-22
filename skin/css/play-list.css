@@ -1,5 +1,15 @@
 @charset "utf-8";
 :root{
+
+      /* -------- -------- -------- -------- BGM 설정 -------- -------- -------- -------- */
+        --bgm-play-img: url('../bgm-play.gif');/*../bgm-play.png*/
+        --bgm-stop-img: url('../bgm-stop.gif');
+        /* 배경 재생 상태 이미지를 각각 지정합니다. */
+        --bgm-img-width: 32px;
+        --bgm-img-height: 32px;
+        /* 배경 재생 상태 이미지의 크기를 지정합니다. */
+
+  
   /*  설명 글자 사이즈 */
   --p-font-size:x-small;
   
@@ -39,6 +49,64 @@
   /*close 별*/
   --star-close-cont:'✦';
 }
+
+
+#bgmBtn {
+    position: static;
+    display: flex;
+    bottom: var(--box-gap);
+    justify-content: center;
+    margin:10px 0;
+}
+
+#bgmBtn button {
+    padding: 0;
+    color: var(--disable-color);
+    background-color: var(--clear);
+    min-width: 0;
+}
+
+#bgmVisual {
+    width: var(--bgm-img-width);
+    height: var(--bgm-img-height);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-image: var(--bgm-play-img);
+    margin:auto 0;
+}
+
+#bgmBtn #bgmStatus[value="stop"] ~ #bgmVisual {
+    background-image: var(--bgm-stop-img);
+}
+
+#bgmBtn button {
+    padding: 0;
+    margin: 0 3px;
+    color: var(--disable-color);
+    background-color: var(--clear);
+    min-width: 0;
+}
+
+#bgmBtn #bgmStatus[value="play"] ~ .play {
+    color: var(--good-color);
+}
+
+#bgmBtn #bgmStatus[value="stop"] ~ .stop {
+    color: var(--bad-color);
+}
+
+#bgmBtn #bgmStatus[value="prev"] ~ .prev {
+    color: var(--bad-color);
+}
+
+#bgmBtn #bgmStatus[value="next"] ~ .next {
+    color: var(--bad-color);
+}
+
+#bgm {
+    display: none;
+}
+
 
 .pl-left-frame .pl-text summary:after, .pl-right-frame .pl-text summary:after, 
 #pl-one-frame .pl-text summary:after{
