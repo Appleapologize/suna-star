@@ -70,7 +70,7 @@
   left: 50%;
   margin-left: -2px;
   background: var(--timeline-color);
-  z-index: -1;
+  z-index: 0;
 }
 @media only screen and (max-width: 700px) {
   #conference-timeline .conference-center-line {width: 10px;  margin-left: 0;left: 10;}
