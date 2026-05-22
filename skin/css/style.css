@@ -246,7 +246,7 @@
 
         /* -------- -------- -------- 모듈 개별 설정 -------- -------- -------- */
             --dark-pair-bg-gradient: linear-gradient(0deg, rgba(255,255,255,1) 40%, rgba(255,255,255,0) 100%);
-            /* 페어 모듈의 배경 그라데이션 농도를 조절합니다. *
+            /* 페어 모듈의 배경 그라데이션 농도를 조절합니다. */
 }
 
 html *{
@@ -273,7 +273,7 @@ cursor: var(--default-cursor), auto !important;
     color: var( --select-color);
 }
 
-body:has(#wrap) {
+body:has(.container) {
     background:
     center / cover no-repeat var(--bg-img),
     left top / auto repeat var(--main-color) var(--bg-pattern);
@@ -285,13 +285,13 @@ body:has(#wrap) {
 /* ------------------------------------------------- */
 
 /* -----사용자 선택 뷰 스타일 : PC에서 가운데에 작게, 크기제한 스타일 (2중 택 1) */
-html:has(#wrap) {
+html:has(.container) {
     background:
     center / cover no-repeat var(--limit-img),
     left top / auto repeat var(--main-color) var(--limit-pattern);
 }
 
-body:has(#wrap) {
+body:has(.container) {
     width: var(--limit-width);
     height: var(--limit-height);
     margin: calc((100% - var(--limit-height)) / 5) auto 0;
@@ -299,8 +299,8 @@ body:has(#wrap) {
 }
 /* ------------------------------------------------- */
 
-body:has(#wrap),
-html:has(#wrap) {
+body:has(.container),
+html:has(.container) {
     overflow: hidden;
 }
 
@@ -308,7 +308,7 @@ body:has(nav) {
     display: flex;
 }
 
-#wrap {
+.container {
     height: 100%;
 }
 
@@ -667,7 +667,7 @@ nav #profile {
 }
 
 @media screen and (max-width: 639px) {
-    body:has(#wrap) {
+    body:has(.container) {
         width: 100%;
         height: 100%;
         margin: 0;
@@ -679,14 +679,24 @@ nav #profile {
       over-flow-x: hidden;
         flex-direction: column;
     }
-
+/*---------메뉴 버튼----------*/
     nav {
         width: 100%;
         height: 50px;
         flex-direction: row;
        padding:0 0 10px 0;
     }
-    
+
+	.sub, .ssub { 
+  display: block;          /* display: none 대신 block을 써야 애니메이션이 먹힙니다 */
+  max-height: 0;           /* 높이를 0으로 만들어 숨깁니다 */
+  overflow: hidden;        /* 넘치는 하위 메뉴 글자들을 가립니다 */
+  opacity: 0;              /* 투명하게 만듭니다 */
+  transition: max-height 0.4s ease, opacity 0.3s ease; /* 0.4초 동안 부드럽게 변형 */
+  list-style: none;
+  padding-left: 15px;
+  margin: 0;
+}
     
     .diary-module {
         grid-template-columns: auto;
