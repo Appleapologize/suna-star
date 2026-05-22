@@ -390,7 +390,7 @@ button, a.button {
 }
 
 button:hover, a:hover {
-    color: var(--point-sub-color);	
+    background-color: var(--point-sub-color);	
 }
 
 /* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
