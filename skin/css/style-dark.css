@@ -1,0 +1,309 @@
+@charset "utf-8";
+
+:root {
+    /* -------- -------- -------- -------- 전체 색상 설정 -------- -------- -------- -------- */
+        --dark-main-color: black;
+        --dark-sub-color: #5c4087;
+        /* 전반적인 색상을 지정합니다. */
+        --dark-point-color: #ff9494;
+        --dark-point-sub-color: #8c0000;
+        /* 주요 포인트 색상을 지정합니다. */
+        --dark-good-color: #47c88b;
+        /* 긍정 강조 색상을 지정합니다. */
+        --darkbad-color: #ff6351;
+        /* 부정 강조 색상을 지정합니다. */
+        --disable-color: #bbb;
+        /* 비활성 강조 색상을 지정합니다. */
+        --dark-shadow-color: rgba(255,255,255,.5);
+        /* 그림자 기본 색상을 지정합니다. 그림자를 사용하지 않으려면 값을 rgba(0,0,0,0)으로 변경하세요. */
+        --dark-btn-text-color: white;
+        /* 버튼 텍스트 색상을 지정합니다. */
+        --dark-module-bg-color: #131314;
+        /* 모듈 배경 색상을 지정합니다. */
+        --dark-scroll-color1: black;
+        --dark-scroll-color2: white;
+        /* 스크롤바의 커스텀 색상을 지정합니다. */
+        --dark-select: red;
+        --dark-select-color: white;
+        /* 드래그 색상 및 드래그 한 문구 색상을 지정합니다. */
+
+    /* -------- -------- -------- -------- 배경 이미지 설정 -------- -------- -------- -------- */
+        --dark-bg-img: url('');
+        /* 홈페이지 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
+        --dark-bg-pattern: url('');
+        /* 홈페이지 전체 배경화면에 패턴 배경을 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. main 색상보다 우선적입니다.*/
+        --dark-nav-img: url('');
+        /* 메뉴 네비게이션 영역에 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 sub 색상보다 우선적으로 깔리게 됩니다.*/
+        --dark-nav-pattern: url('');
+        /* 메뉴 네비게이션 영역에 패턴 배경을 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. sub 색상보다 우선적입니다.*/
+        --dark-limit-img: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FokY02%2FbtsKntxhLwz%2FwIz0gO7F8abrlyZcnLHEWK%2Fimg.jpg');/*../bg-img.png*/
+        /* 크기제한 스타일을 사용하는 경우, 가장 바깥 영역의 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
+        --dark-limit-pattern: url('');
+        /* 크기제한 스타일을 사용하는 경우, 가장 바깥 영역의 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
+
+
+    /* -------- -------- -------- -------- 글꼴 설정 -------- -------- -------- -------- */
+        --dark-text-color: #fff;
+        /* 홈페이지에서 기본적으로 사용할 폰트 크기 및 글꼴 색상을 지정합니다. */
+
+    /* -------- -------- -------- -------- 그 외 메뉴설정 -------- -------- -------- -------- */
+  
+       --dark-btn-sub-color:#ff9494;
+       --dark-btn-sub-hover-color:#8c0000;
+       --dark-btn-ssub-color:#ff9494;
+       --dark-btn-ssub-hover-color:#8c0000;
+      /* 서브메뉴 버튼 색상 지정 */
+  
+      --dark-btn-ssub-background:#5c4087;
+      /* 서브메뉴 버튼 배경 색상*/
+
+
+    /* -------- -------- -------- -------- 기타 설정 -------- -------- -------- -------- */
+        --dark-clear: transparent;
+        /* 투명값입니다. 컬러를 넣을 곳에 var(--dark-clear)로 호출하여 사용합니다. */
+        --border: 1px solid var(--dark-point-color);
+        /* 원하는 요소에 border: var(--border)로 작성하여 사용합니다. */
+        --dark-shadow: 0px 2px 10px -2px var(--dark-shadow-color);
+        /* 그림자 꾸밈요소의 기본 속성을 지정합니다. 원하는 요소에 box-shadow: var(--dark-shadow)로 작성하여 사용합니다.*/
+
+  /*디테일의 앞의 마크 색상*/
+  --dark-summary-mark-color:#fc6603;
+  /*디테일의 앞의 마크*/
+  --dark-summary-mark:"◆";
+
+        /* -------- -------- -------- 모듈 개별 설정 -------- -------- -------- */
+            --dark-pair-bg-gradient: linear-gradient(0deg, rgba(255,255,255,1) 40%, rgba(255,255,255,0) 100%);
+            /* 페어 모듈의 배경 그라데이션 농도를 조절합니다. */
+}
+
+
+
+.theme--dark, .theme--dark body{
+    scrollbar-color: var(--dark-scroll-color1) var(--dark-scroll-color2);
+}
+
+iframe .theme--dark::-webkit-scrollbar{
+  display:none;
+}
+
+
+.theme--dark ::selection {
+    background-color: var(--dark-select);
+    color: var(--dark-select-color);
+}
+
+.theme--dark body:has(#wrap) {
+    background:
+    center / cover no-repeat var(--dark-bg-img),
+    left top / auto repeat var(--dark-main-color) var(--dark-bg-pattern);
+}
+
+
+
+/* -----사용자 선택 뷰 스타일 : PC에서 꽉차게 (2중 택 1) */
+/* ------------------------------------------------- */
+
+/* -----사용자 선택 뷰 스타일 : PC에서 가운데에 작게, 크기제한 스타일 (2중 택 1) */
+.theme--dark:has(#wrap) {
+    background:
+    center / cover no-repeat var(--dark-limit-img),
+    left top / auto repeat var(--dark-main-color) var(--dark-limit-pattern);
+}
+/* ------------------------------------------------- */
+
+
+
+.theme--dark * {
+    color: var(--dark-text-color);
+}
+
+html.theme--dark img.small-img {
+    display: inline-block;
+  object-fit:contain;
+}
+
+
+html.theme--dark a {
+    background-color: var(--dark-clear);
+    color: var(--dark-point-color);
+}
+html.theme--dark a:hover {
+    color: var(--dark-point-sub-color);
+}
+
+html.theme--dark button, html.theme--dark a.button {
+    background-color: var(--dark-point-color);
+    color: var(--dark-btn-text-color);
+}
+
+html.theme--dark button:hover, html.theme--dark a.button:hover {
+    background-color: var(--dark-point-sub-color);
+}
+
+html.theme--dark #bgmBtn button {
+    background-color: var(--dark-clear);
+}
+
+html.theme--dark #bgmVisual {
+    background-image: var(--dark-bgm-play-img);
+}
+
+html.theme--dark #bgmBtn #bgmStatus[value="stop"] ~ html.theme--dark #bgmVisual {
+    background-image: var(--dark-bgm-stop-img);
+}
+
+html.theme--dark #bgmBtn button {
+    background-color: var(--dark-clear);
+}
+
+html.theme--dark #bgmBtn #bgmStatus[value="play"] ~ html.theme--dark .play {
+    color: var(--dark-good-color);
+}
+
+html.theme--dark #bgmBtn html.theme--dark #bgmStatus[value="stop"] ~ html.theme--dark .stop {
+    color: var(--dark-bad-color);
+}
+
+html.theme--dark #bgmBtn html.theme--dark #bgmStatus[value="prev"] ~ html.theme--dark .prev {
+    color: var(--dark-bad-color);
+}
+
+html.theme--dark #bgmBtn html.theme--dark #bgmStatus[value="next"] ~ html.theme--dark .next {
+    color: var(--dark-bad-color);
+}
+
+
+html.theme--dark nav {
+    background:
+    center / contain no-repeat var(--dark-nav-img),
+    left top / auto repeat var(--dark-sub-color) var(--dark-nav-pattern);
+}
+html.theme--dark #videoTitle {
+    color: var(--dark-text-color);
+    background: var(--dark-main-color);
+}
+/* ------------------------------------------------- */
+
+.theme--dark  .module{background-color: var(--dark-module-bg-color);
+  box-shadow: var(--dark-shadow);}
+
+html.theme--dark div.text-module {
+    background-color: var(--dark-module-bg-color);
+    box-shadow: var(--dark-shadow);
+}
+
+
+html.theme--dark .pair-module .pair-bg-screen {
+    background: var(--dark-pair-bg-gradient);
+}
+
+html.theme--dark .diary-module .date {
+    color: var(--dark-point-sub-color);
+}
+
+
+
+
+html.theme--dark .banner-module {
+    background-color: var(--dark-clear);
+    box-shadow: var(--dark-clear);
+}
+
+html.theme--dark .banner-module.self {
+    background-color: var(--dark-module-bg-color);
+    box-shadow: var(--dark-shadow);
+}
+
+/* 서브 메뉴 버튼 시작 */
+
+html.theme--dark li{
+background:
+    center / contain no-repeat var(--dark-nav-img),
+    left top / auto repeat var(--dark-sub-color) var(--dark-nav-pattern);
+ 
+  }
+
+
+html.theme--dark div.navmenu ul.sub li ul.ssub {
+  color: var(--dark-point-color);
+}
+
+html.theme--dark div.navmenu ul li ul.sub {
+  background:
+    center / contain no-repeat var(--dark-nav-img),
+    left top / auto repeat var(--dark-sub-color) var(--dark-nav-pattern);    
+ }
+
+html.theme--dark a.btn-sub{ 
+    background-color: var(--dark-btn-sub-color);
+    color: var(--dark-btn-text-color);
+}
+
+html.theme--dark a.btn-sub:hover{
+  background-color:var(--dark-btn-sub-hover-color);
+               }
+
+html.theme--dark a.btn-sub-sub{
+  background-color: var(--dark-btn-ssub-color);
+  color: var(--dark-btn-text-color);
+}
+
+html.theme--dark a.btn-sub-sub:hover{ 
+  background-color:var(--dark-btn-ssub-hover-color);
+}
+
+/* 서브메뉴 버튼 끝 */
+/*다크 모드 버튼 시작*/
+
+.dark-mode-toggle {
+  border: 0;
+   cursor: var(--over-cursor), pointer !important;
+  position: absolute;
+  right: 15vw;
+  align-content: center;
+  background:transparent !important;
+}
+
+.dark-mode-toggle:hover{  opacity: .6;}
+
+.dark-mode-toggle__icon {
+  width: 30px;
+  color: var(--dark-btn-text-color);
+  transition: color .2s linear;
+}
+
+.dark-mode-toggle__icon *{
+  color: #a6c1ee;
+   cursor: var(--over-cursor), pointer !important;
+}
+
+.dark-mode-toggle__icon:hover {
+  color: var(--dark-btn-text-color);
+}
+
+.dark-mode-toggle__icon--moon {
+  opacity: 1;
+  transition: opacity .2s linear, color .2s linear;
+}
+
+.dark-mode-toggle__icon--moon:hover {
+  opacity: .6;
+}
+
+.dark-mode-toggle__rays {
+  transition: opacity .2s linear .2s;
+}
+
+.dark-mode-toggle__icon--moon .dark-mode-toggle__rays {
+  transition: opacity .2s linear;
+  opacity: 0;
+}
+
+.dark-mode-toggle__cut-out {
+  transition: transform .5s cubic-bezier(0.54,-0.42, 0.29, 1.3);
+}
+
+.dark-mode-toggle__icon--moon .dark-mode-toggle__cut-out {
+  transform: translateX(-30%);
+  transition: transform .5s cubic-bezier(0.21, 0.17, 0.43, 1.43);
+}
