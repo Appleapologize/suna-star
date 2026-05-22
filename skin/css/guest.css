@@ -82,7 +82,7 @@ textarea{
   display:flex;
   width:var(--width-100);
   height: 40px;  
-  color:rgba(153,153,153,0.8);
+  color:var(--text-color);
 }
 
 .guest-list-name, .guest-list-created-at{
@@ -90,7 +90,7 @@ textarea{
 }
 
 .guest-list-created-at{
-  color:rgba(153,153,153,0.8);
+  color:var(--text-color);
   text-align:right;
   word-break: break-word;
 }
