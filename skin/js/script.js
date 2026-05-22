@@ -1,15 +1,5 @@
 let recipeData = []; 
 let dict = {}; 
-let player; // YouTube 플레이어 객체 전역 변수 선언
-let currentIndex = 0; // 현재 곡 인덱스 추적
-
-// 1. 유튜브 API 스크립트 표준 주입
-let tag = document.createElement('script');
-tag.src = "https://youtube.com";
-let firstScriptTag = document.getElementsByTagName('script');
-if (firstScriptTag && firstScriptTag.parentNode) {
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-}
 
 // 쿼리스트링을 주소창에 추가하는 함수
 function addQueryString(fileName) {
@@ -40,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // text-logo SVG 클릭 시 홈 화면 연결
+    // 💡 text-logo SVG 클릭 시 홈 화면 연결
     const textLogoSvg = document.querySelector('.text-logo');
     if (textLogoSvg) {
         textLogoSvg.style.cursor = 'pointer'; 
@@ -64,16 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
             loadPage(null, `pages/${currentPage}`, false);
         }
     });
-
-    // 💡 [자동 재생 정책 대응] 브라우저가 음악을 차단하므로, 사용자가 화면 어디든 첫 클릭을 하는 순간 음소거를 해제하고 재생을 시도합니다.
-    document.body.addEventListener('click', function initialPlay() {
-        if (player && typeof player.playVideo === 'function') {
-            player.unMute(); // 음소거 해제
-            player.playVideo(); // 재생 시도
-            // 한 번만 실행되도록 이벤트를 스스로 제거합니다.
-            document.body.removeEventListener('click', initialPlay);
-        }
-    }, { once: true });
 });
 
 // 모바일 메뉴 토글 함수
@@ -131,98 +111,4 @@ function loadPage(event, relativePath, addHistory = true) {
                 contentArea.innerHTML = `<p style="color:red; padding:20px; font-weight:bold;">⚠️ 에러 발생: ${error.message}<br><span style="font-size:12px; color:#666;">요청 주소: ${finalUrl}</span></p>`;
             }
         });
-}
-
-// ================= 🎵 유튜브 BGM 제어 엔진 (보내주신 본래 양식 100% 최적화) =================
-
-function onYouTubeIframeAPIReady() {
-    let playlistId = 'PLrWUB4lPqAdRnSyYg7aTXG5On7jbuUqoO'; 
-    if (document.getElementById('bgm')) {
-        player = new YT.Player('bgm', {
-            playerVars: {
-                listType: 'playlist',
-                list: playlistId,
-                autoplay: 1,
-                loop: 1,
-                disablekb: 1,
-                playsinline: 1,
-                rel: 0
-            },
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange 
-            }
-        });
-    }
-}
-
-function onPlayerReady(event) {
-    // 💡 첫 진입 시 브라우저 정책 우회를 위해 음소거 후 바로 재생 대기 상태로 만듭니다.
-    event.target.mute();
-    event.target.playVideo();
-}
-
-function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING) {
-        updateVideoTitle(); 
-    }
-}
-
-function updateVideoTitle() {
-    let titleElement = document.querySelector(`#bgmTitles span[data-video-index="${currentIndex}"]`);
-    let title = titleElement ? titleElement.getAttribute('data-title') : null;
-    let marqueeText = document.getElementById('marqueeText');
-
-    if (!marqueeText) return;
-
-    if (title) {
-        marqueeText.innerText = title;
-    } else {
-        if (player && typeof player.getVideoData === 'function') {
-            let videoData = player.getVideoData(); 
-            if (videoData && videoData.title) {
-                marqueeText.innerText = videoData.title; 
-            }
-        }
-    }
-}
-
-function bgm(action) {
-    let status = document.getElementById('bgmStatus');
-    let marqueeText = document.getElementById('marqueeText');
-
-    if (action == 'play') {
-        if (player && player.playVideo) {
-            player.unMute(); // 💡 수동 재생 클릭 시 음소거를 확실히 풀어줍니다.
-            player.playVideo(); 
-            if (status) status.setAttribute("value", "play");
-            updateVideoTitle(); 
-        }
-    } else if (action == 'stop') {
-        if (player && player.stopVideo) {
-            player.stopVideo(); 
-            if (status) status.setAttribute("value", "stop");
-            if (marqueeText) marqueeText.innerText = "음악 정지"; 
-        }
-    } else if (action == 'next') {
-        if (player && player.nextVideo && typeof player.getPlaylist === 'function') {
-            player.nextVideo(); 
-            let playlist = player.getPlaylist();
-            if (playlist) {
-                currentIndex = (currentIndex + 1) % playlist.length; 
-            }
-            updateVideoTitle(); 
-            if (status) status.setAttribute("value", "next");
-        }
-    } else if (action == 'prev') {
-        if (player && player.previousVideo && typeof player.getPlaylist === 'function') {
-            player.previousVideo(); 
-            let playlist = player.getPlaylist();
-            if (playlist) {
-                currentIndex = (currentIndex - 1 + playlist.length) % playlist.length; 
-            }
-            updateVideoTitle(); 
-            if (status) status.setAttribute("value", "prev");
-        }
-    }
 }
