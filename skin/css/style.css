@@ -159,7 +159,7 @@
     --title-color:  #ffffff;                       
     --title-shadow-color: #334155;                
     --card-background-color: #232733;     
-    --box-shadow-color: rgba(0, 0, 0, 0.3);        
+    --box-shadow-color: rgb(255 255 255 / 30%);        
     --line-color:  #475569;       
 	--text-color:#E0E0E0;
 
