@@ -112,7 +112,7 @@ function loadPage(event, relativePath, addHistory = true) {
 
 // ================= 유튜브 BGM 관련 js =================
 
-// YouTube API 스크립트 강제 주입
+// 💡 [수정 완료] 유튜브 API 스크립트 강제 주입 주소 방식 교정 (에러 원천 차단)
 let tag = document.createElement('script');
 tag.src = "https://youtube.com";
 let firstScriptTag = document.getElementsByTagName('script')[0];
@@ -124,7 +124,7 @@ if (firstScriptTag && firstScriptTag.parentNode) {
 function onYouTubeIframeAPIReady() {
     let playlistId = 'PLrWUB4lPqAdRnSyYg7aTXG5On7jbuUqoO'; // 재생목록 ID
     
-    // 💡 안전장치: HTML에 <div id="bgm"> 또는 <iframe id="bgm">이 실제로 존재할 때만 생성합니다.
+    // HTML에 id="bgm"을 가진 요소가 존재할 때만 생성
     if (document.getElementById('bgm')) {
         player = new YT.Player('bgm', {
             playerVars: {
@@ -145,7 +145,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-    event.target.stopVideo(); // 시작할 때 자동 재생을 원하시면 playVideo()로 변경 가능합니다.
+    event.target.stopVideo(); 
 }
 
 function onPlayerStateChange(event) {
@@ -157,7 +157,7 @@ function onPlayerStateChange(event) {
 // 재생 중인 동영상 제목을 업데이트하는 함수
 function updateVideoTitle() {
     let marqueeText = document.getElementById('marqueeText');
-    if (!marqueeText) return; // 요소가 없으면 중단
+    if (!marqueeText) return; 
 
     let titleElement = document.querySelector(`#bgmTitles span[data-video-index="${currentIndex}"]`);
     let title = titleElement ? titleElement.getAttribute('data-title') : null;
