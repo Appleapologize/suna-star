@@ -119,6 +119,7 @@ button, a.button {
     text-align: center;
     font-weight: bold;
 	word-break: keep-all;
+	border: none;
 }
 
 button:hover, a:hover {
