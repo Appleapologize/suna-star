@@ -740,8 +740,7 @@ img {
 
 @media screen and (max-width: 639px) {
 	.module {
-        max-width: var(--mobile-module-width);
-        margin: var(--box-gap);
+        max-width: var(--width-100);
     }
 }
 
