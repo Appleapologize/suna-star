@@ -54,7 +54,6 @@
 #bgmBtn {
     position: static;
     display: flex;
-    bottom: var(--box-gap);
     justify-content: center;
     margin:10px 0;
 }
