@@ -293,6 +293,10 @@ a{
 	cursor:var(--over-cursor), pointer;
 }
 
+a:hover{
+    color: var(--point-sub-color);
+}
+
 #head{
 	padding:0 var(--padding-in-body)
 }
@@ -389,7 +393,7 @@ button, a.button {
 	word-break: keep-all;
 }
 
-button:hover, a:hover {
+button:hover, a.button:hover {
     background-color: var(--point-sub-color);	
 }
 
