@@ -107,6 +107,28 @@
     display: none;
 }
 
+#videoTitle {
+    width: 40%;
+    flex: 0 0 auto;
+    position: relative;
+    color: #333;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 10px;
+    background: white;
+    border-radius: 30px;
+}
+
+#marqueeText {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-left 15s linear infinite;
+}
+#playlist{display:none;}
+@keyframes scroll-left {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
 
 .pl-left-frame .pl-text summary:after, .pl-right-frame .pl-text summary:after, 
 #pl-one-frame .pl-text summary:after{
@@ -348,3 +370,6 @@ border-bottom: 5px dashed var(--dash-color);
   letter-spacing: 3px;  
 }  
 }
+@media screen and (max-width: 639px){#videoTitle {width: 60%;}}
+#videoTitle p {padding: 0;
+               margin: 5px;}
