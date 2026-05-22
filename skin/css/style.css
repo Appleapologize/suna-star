@@ -15,10 +15,10 @@
 	--border-radius-s:6px;
 	--border-radius-m:8px;
 	--border-radius-l:12px;
-	--container-padding:10px; /*글 나오는 곳 사방(전체) 여백*/
-
-	--padding-in-body:40px;
 	
+	--container-padding:10px; /*글 나오는 곳 사방(전체) 여백*/
+	--padding-in-body:40px;
+	--padding-menu:10px; /*메뉴 버튼 전체, 각 메뉴 여백*/
 	--box-padding: 20px;
     /* 영역 상자 내부의 상하좌우 여백크기를 지정합니다. */
     --box-gap: 20px;
@@ -121,7 +121,7 @@
 
 
     /* -------- -------- -------- 그 외 메뉴설정 -------- -------- -------- */
-         --btn-sub-color:#ff9494;
+       --btn-sub-color:#ff9494;
        --btn-sub-hover-color:#8c0000;
        --btn-ssub-color:#ff9494;
        --btn-ssub-hover-color:#8c0000;
@@ -357,6 +357,9 @@ svg.text-logo:hover #svgGroup {
 }
 
 /*---------메뉴 버튼----------*/
+#mobile-drawer{
+	padding:0 var(--padding-menu) 0 0;
+}
 nav{
 
 }
@@ -374,34 +377,26 @@ nav{
 
 /* 1단계: 대메뉴 버튼 스타일 */
 .button { 
-	width: var(--width-100); 
-	text-align: left; 
-	background: #333; 
-	color: white; 
-	border: none;
-	padding: 10px; 
-	cursor: pointer; 
-	font-weight: bold; 
-	border-radius: 4px; 
-	display: block; 
-	text-decoration: none; 
-	box-sizing: border-box; 
-	white-space: nowrap;	
+    width: var(--width-100);
+    text-align: center;
+    padding: 10px;
+    cursor: var(--over-cursor), pointer !important;	
+    font-weight: bold;
+    box-sizing: border-box;
+    white-space: nowrap;	
 }
 
 button, a.button {
     display: inline-block;
     border: 0;	
+    cursor: var(--over-cursor), pointer !important;	
     background-color: var(--point-color);
     color: var(--btn-text-color);
     border-radius: var(--button-round);	
-    text-align: center;
-    font-weight: bold;
 	word-break: keep-all;
 }
 
 button:hover, a:hover {
-    cursor: var(--over-cursor), pointer !important;
     color: var(--point-sub-color);	
 }
 
@@ -413,26 +408,38 @@ ul li:hover > .sub {
 
 /* 2단계: 중메뉴 버튼 스타일 */
 .btn-sub { 
-	width:var(--width-100); 
-	text-align: left; 
-	background: #e0e0e0; 
-	border: none; 
-	padding: 8px 8px 8px 15px; 
-	cursor: pointer; 
-	border-radius: var(--border-radius-xs); 
-	font-size: 14px; 
-	display: block; 
-	color: black; 
+    width: var(--width-100);
+    background: var(--btn-sub-color);
+    border: none;
+    padding: var(--padding-menu);
+    margin: var(--padding-menu) 0 var(--padding-menu) 0;
+    border-radius: var(--button-round);
+    font-size: 14px;
+    display: block;
+    color: var(--btn-text-color);
+}
+
+.btn-sub:hover{
+    background: var(--btn-sub-hover-color);	
 }
 
 /* 3단계: 소메뉴 스타일 */
 .btn-sub-sub { 
-	padding: 6px 6px 6px 25px; 
-	cursor: var(--over-cursor) pointer; 
-	background: #fff; font-size: 13px;
-	border-radius: 4px; display: block; text-decoration: none; color: black; }
+    padding: 6px 6px 6px 25px;
+    cursor: var(--over-cursor) pointer;
+    background: var(--btn-ssub-background);
+    font-size: 13px;
+    border-radius: 4px;
+    display: block;
+    text-decoration: none;
+    color: var(--btn-text-color);
+    padding: var(--padding-menu);
+    margin: var(--padding-menu) 0 var(--padding-menu) 0;
+    border-radius: var(--button-round);
+    text-align: center;	
+}
 .btn-sub-sub:hover { 
-	background: #cee3ff; 
+	background: var(--btn-ssub-hover-color); 
 }
 
 
