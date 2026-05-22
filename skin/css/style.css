@@ -86,6 +86,7 @@
     --box-shadow-color:rgba(0,0,0,0.05); /*card 그림자 색상*/
     --line-color:#eee; /*하단 라인 색상*/
 	--text-color:black;
+	--svgroup-stroke:#aa98ff; /*상단 로고(?) 평소 색상*/
 
 	/* 주요 포인트 색상을 지정합니다. */	
     --point-color: #ff9494;
@@ -332,7 +333,7 @@ svg.text-logo rect {
 }
 
 #svgGroup {
-    stroke: white;
+    stroke: var(--svgroup-stroke);
     stroke-width: 2.5px;
     fill: transparent;
     transition: fill 0.3s ease, stroke 0.3s ease
