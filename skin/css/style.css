@@ -300,7 +300,10 @@ a:hover{
 }
 
 #head{
-	padding:0 var(--padding-in-body)
+    position: sticky;
+    top: 0;
+    padding: 10px var(--padding-in-body);
+    background: linear-gradient(to bottom, var(--background-color) 30%, transparent 100%)
 }
 
 #main-wrapper{
