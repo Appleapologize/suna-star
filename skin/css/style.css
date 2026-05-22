@@ -137,51 +137,40 @@ ul, li{
 
 
 /*-------텍스트로고(svg) 스타일--------*/
-
-/* 1. 💡 로고를 감싸는 부모 박스를 가로폭 100%로 채우고 자식 요소를 무조건 정중앙 정렬 */
 #head-title {
-    display: flex !important;
-    justify-content: center !important; /* 어떤 해상도에서도 가로축 기준 무조건 정중앙 */
-    align-items: center !important;     /* 세로축 기준 무조건 정중앙 */
-    width: 100% !important;             /* 가로 공간을 꽉 차게 확장 */
-    position: relative !important;
-    margin: 30px auto !important;       /* 위아래 30px 마진 여백 확보 */
-    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--width-100);
+    position: relative;
+    margin: 5px auto;
 }
 
-/* 2. 💡 오리지널 드로잉 애니메이션 및 크기 사양 100% 보존 + 중앙 정렬 보완 */
 svg.text-logo {
-    display: block !important;
+    display: block;
     width: 200px;
     height: 40px;
-    margin: 5px auto !important;       /* 좌우 마진을 균등 분배하여 확실하게 정중앙 고정 */
-    stroke-dasharray: 1000;            /* 선의 길이를 지정 */
-    stroke-dashoffset: 1000;           /* 처음에는 선이 화면 밖에 있음 */
-    animation: drawPath 8s linear forwards; /* 애니메이션 적용 */
+    margin: 5px auto;       /* 정중앙 */
+    stroke-dasharray: 1000;            /* 선의 길이*/
+    stroke-dashoffset: 1000;  
+    animation: drawPath 8s linear forwards; /* 애니메이션 */
 }
 
-/* 3. 💡 오리지널 커서 세팅 및 카카오 별 커서 크기 제한 백업 연동 */
 svg.text-logo rect {
-    cursor: var(--over-cursor), pointer !important;
-    /* 만약 거대한 티스토리 별 커서의 32px 축소가 풀린다면 아래 줄 주석(//)을 풀고 쓰세요 */
-    /* cursor: url('https://daumcdn.net') 32 32, pointer !important; */
+    cursor: var(--over-cursor), pointer;
 }
 
-/* 4. 💡 오리지널 기본 흰색 테두리 및 투명 채우기 상태 100% 보존 */
 #svgGroup {
     stroke: white;
     stroke-width: 2.5px;
     fill: transparent;
-    transition: fill 0.3s ease, stroke 0.3s ease; /* 호버 시 부드럽게 변하도록 트랜지션만 추가 */
+    transition: fill 0.3s ease, stroke 0.3s ease
 }
-
-/* 5. 💡 오리지널 호버 그라데이션 주입 규칙 100% 보존 */
 svg.text-logo:hover #svgGroup {
-    stroke: url(#strokeGradient) !important;
-    fill: url(#fillGradient) !important;
+    stroke: url(#strokeGradient) ;
+    fill: url(#fillGradient);
 }
 
-/* 6. 💡 오리지널 경로 드로잉 키프레임 100% 보존 */
 @keyframes drawPath {
     to {
         stroke-dashoffset: 0;
