@@ -304,6 +304,7 @@ a:hover{
     top: 0;
     padding: 10px var(--padding-in-body);
     background: linear-gradient(to bottom, var(--background-color) 30%, transparent 100%)
+    z-index: 10000;	
 }
 
 #main-wrapper{
