@@ -1,12 +1,11 @@
 @charset "utf-8";
 
 
-:root{ --gallery-box-color:white;/*작은 박스 배경 색*/
-       --gallery-box-shadow:0 4px 8px rgba(0, 0, 0, 0.1); /* 작은박스 그림자*/
+:root{ --gallery-box-shadow:0 4px 8px var(--box-shadow-color); /* 작은박스 그림자*/
        --gallery-box-between:1em;/*작은 박스 사이간격*/
      }
 [data-theme="dark"] {
-       --gallery-box-shadow:0 4px 8px rgba(255, 255, 255, 0.1); /* 작은박스 그림자*/
+       --gallery-box-shadow:0 4px 8px var(--box-shadow-color); /* 작은박스 그림자*/
 }
 
 body:has(#gallery-notice){display: block;}
@@ -84,7 +83,7 @@ width:100%;
 
 /* 갤러리 */
         .gallery-img {
-            background: var(--gallery-box-color);
+            background: var(--sub-background-color);
             margin-bottom: var(--gallery-box-between);
             border-radius:10px;
             padding: 1em;
