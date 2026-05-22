@@ -16,7 +16,19 @@
 	--border-radius-m:8px;
 	--border-radius-l:12px;
 	--container-padding:10px; /*글 나오는 곳 사방(전체) 여백*/
+
 	--padding-in-body:40px;
+	
+	--box-padding: 20px;
+    /* 영역 상자 내부의 상하좌우 여백크기를 지정합니다. */
+    --box-gap: 20px;
+    /* 영역 상자간의 간격을 지정합니다. */
+    --limit-width: 80%;
+    /* 크기제한 스타일을 사용하는 경우, 제한할 너비크기를 지정합니다. */
+    --limit-height: 90%;
+	/* 크기제한 스타일을 사용하는 경우, 제한할 높이를 지정합니다. */
+    --limit-round: 15px;
+	
 	--li-marker:"➤  "; /*띄어쓰기도 그대로 들어감 주의*/
 	    /* -------- -------- -------- -------- 글꼴 설정 -------- -------- -------- -------- */
         --font: 'Pretendard-Regular', sans-serif;
@@ -226,6 +238,12 @@ html, body{
 	cursor:var(--default-cursor), auto !important;
 }
 
+html:has(#container) {
+    background:
+    center / cover no-repeat var(--limit-img),
+    left top / auto repeat var(--background-color) var(--limit-pattern);
+}
+
 body {
     background-color: var(--background-color);
 	color:var(--text-color);
@@ -239,7 +257,7 @@ body {
 body:has(#container) {
     background:
     center / cover no-repeat var(--bg-img),
-    left top / auto repeat var(--main-color) var(--bg-pattern);
+    left top / auto repeat var(--background-color) var(--bg-pattern);
 }
 
 
@@ -566,7 +584,7 @@ img {
 .module {
     max-width: var(--pc-module-width);
     background-color: var(--module-bg-color);
-    box-shadow: var(--shadow);
+    box-shadow: var(--box-shadow-color);
     padding: var(--box-padding);
     margin: var(--box-gap) auto;
     border-radius: var(--module-round);
@@ -688,8 +706,8 @@ img {
 }
 
 .banner-module.self {
-    background-color: var(--main-color);
-    box-shadow: var(--shadow);
+    background-color: var(--background-color);
+    box-shadow: var(--box-shadow-color);
 }
 
 @media screen and (max-width: 639px) {    
