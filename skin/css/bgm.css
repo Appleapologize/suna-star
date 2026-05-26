@@ -85,6 +85,12 @@
     border-radius: 30px;
 }
 
+#marqueeText{
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-left 15s linear infinite;      
+}
+
 @media screen and (max-width: 639px){#videoTitle {width: 60%;}}
 #videoTitle p {padding: 0;
                margin: 5px;}
