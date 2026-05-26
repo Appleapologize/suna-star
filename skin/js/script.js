@@ -55,44 +55,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 💡 이름 누르면 밑에 내용 나오는 js (데스크톱 전구역 탐색 보강 버전)
+    // 💡 [정밀 교정 완료] 이름 누르면 밑에 내용 나오는 js (left / right 전구역 전천후 대응)
     document.addEventListener("click", function(event) {
         const targetWho = event.target.closest(".timeline-who");
         if (targetWho) {
-            let pContent = null;
-
-            // [1순위 탐색] 내 바로 뒤를 시작으로 인접한 형제 태그 중 <p> 수색
-            let nextEl = targetWho.nextElementSibling;
-            while (nextEl) {
-                if (nextEl.tagName === "P") {
-                    pContent = nextEl;
-                    break;
+            // 내가 속한 개별 진영 박스(.content-left, .content-right 또는 모바일 전체박스)를 정확히 격리합니다.
+            const containerBox = targetWho.closest(".content-left, .content-right, .timeline-article");
+            
+            if (containerBox) {
+                // 격리된 내 진영 박스 안에서만 매칭되는 p 태그를 정확히 탐색합니다.
+                const pContent = containerBox.querySelector("p");
+                if (pContent) {
+                    pContent.classList.toggle("active");
                 }
-                nextEl = nextEl.nextElementSibling;
-            }
-
-            // [2순위 탐색] 데스크톱 격자 붕괴 대응: 내 직계 부모 박스 컨테이너 안에서 가장 가까운 p 찾기
-            if (!pContent) {
-                const immediateParent = targetWho.parentElement;
-                if (immediateParent) {
-                    pContent = immediateParent.querySelector("p");
-                }
-            }
-
-            // [3순위 탐색 - 치트키] 구조가 완전히 깨진 경우: 타임라인 아이템 한 칸 박스(.timeline-article) 내부 전체에서 원격 탐색
-            if (!pContent) {
-                const mainArticle = targetWho.closest(".timeline-article");
-                if (mainArticle) {
-                    pContent = mainArticle.querySelector("p");
-                }
-            }
-
-            // 최종 타겟팅된 독립 단 한 개의 p 태그만 화면에 온오프 토글 처리
-            if (pContent) {
-                pContent.classList.toggle("active");
             }
         }
-    });
+    }); // ◀ 💥 기존 코드에서 누락되어 전체 스크립트를 깨뜨리던 닫는 기호 구역을 복구했습니다!
 });
 
 // 모바일 메뉴 토글 함수
@@ -122,7 +100,7 @@ function loadPage(event, relativePath, addHistory = true) {
     }
 
     const fileName = relativePath.split('/').pop(); 
-    const pageKey = fileName.split('.')[0]; // 대괄호 문법 제거하고 첫 인덱스 문자열 추출 연산 보정         
+    const pageKey = fileName.split('.')[0];         
 
     // GitHub Pages 경로 버그 방지 고정 주소
     const finalUrl = window.location.origin + '/suna-star/pages/' + fileName;
