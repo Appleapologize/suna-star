@@ -895,10 +895,13 @@ footer p.bold{
     }
 
     .mobile-drawer ul{
-        position: relative;		
-		top:calc(var(--mobile-vwvh) + var(--mobile-position));
 		padding-left:var(--padding-menu);
 	}	
+
+	.menu-all{
+        position: relative;		
+	top:calc(var(--mobile-vwvh) + var(--mobile-position));
+}
 	
 	 /* 모바일에서는 마우스 오버 기능을 완전히 끕니다. */
     ul li:hover > .sub,
