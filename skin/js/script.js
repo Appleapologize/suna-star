@@ -55,16 +55,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 💡 이름 누르면 밑에 내용 나오는 js (타임라인 클릭 이벤트 위임)
+    // 💡 이름 누르면 밑에 내용 나오는 js (데스크톱 좌우 개별 차단 보강)
     document.addEventListener("click", function(event) {
         const targetWho = event.target.closest(".timeline-who");
         if (targetWho) {
-            const parentArticle = targetWho.closest(".timeline-article");
-            if (parentArticle) {
-                const pContent = parentArticle.querySelector("p");
-                if (pContent) {
-                    pContent.classList.toggle("active");
+            // 구조 변경: 무조건 클릭한 .timeline-who 바로 다음에 인접한 p 태그를 먼저 수색합니다.
+            let pContent = targetWho.nextElementSibling;
+            
+            // 만약 h1과 p 사이에 다른 무언가(시간 태그 등)가 들어가 있다면, 
+            // 부모 안에서 p를 찾되 큰 묶음이 아닌 '가장 인접한 개별 자식 영역' 내에서만 찾도록 우회합니다.
+            if (!pContent || pContent.tagName !== "P") {
+                const parentBlock = targetWho.parentElement;
+                if (parentBlock) {
+                    pContent = parentBlock.querySelector("p");
                 }
+            }
+            
+            // 최종 매칭된 하나의 p 태그만 정확하게 액티브 처리
+            if (pContent) {
+                pContent.classList.toggle("active");
             }
         }
     });
@@ -96,9 +105,7 @@ function loadPage(event, relativePath, addHistory = true) {
         if (typeof event.stopPropagation === 'function') event.stopPropagation();
     }
 
-    const fileName = relativePath.split('/').pop(); // 예: timeline.html
-    
-    // ★ [교정 완료] 대괄호 기호[0]를 정확하게 붙여 순수 파일 키워드 문자열만 안전하게 뽑아냅니다.
+    const fileName = relativePath.split('/').pop(); 
     const pageKey = fileName.split('.')[0];         
 
     // GitHub Pages 경로 버그 방지 고정 주소
@@ -134,7 +141,6 @@ function loadPage(event, relativePath, addHistory = true) {
                 link.rel = 'stylesheet';
                 link.href = window.location.origin + `/suna-star/skin/css/${pageKey}.css`; 
                 
-                // 만약 timeline.css가 없다면(404), timelineall.css를 찾아오도록 백업 예외처리
                 link.onerror = () => {
                     link.onerror = () => link.remove(); 
                     link.href = window.location.origin + `/suna-star/skin/css/timelineall.css`;
