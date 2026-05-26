@@ -19,7 +19,7 @@ function toggleVisibility(element) {
     }
 
     // [데스크톱 좌우 높이 실시간 동기화 구간]
-    var article = element.closest(".timeline-article");
+ /*   var article = element.closest(".timeline-article");
     if (article) {
         var leftBox = article.querySelector(".content-left");
         var rightBox = article.querySelector(".content-right");
@@ -45,6 +45,6 @@ function toggleVisibility(element) {
             if (leftBox) leftBox.style.setProperty("height", "auto", "important");
             if (rightBox) rightBox.style.setProperty("height", "auto", "important");
         }
-    }
+    }*/
 }
 </script>
