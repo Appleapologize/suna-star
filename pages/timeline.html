@@ -186,25 +186,24 @@
   
     </div>
       <div class="timeline-end">계속됨</div>
-
-          <!-- 이름 누르면 밑에 내용 나오는 js -->
-     <script>
-     document.addEventListener("DOMContentLoaded", () => {
-    // 모든 timeline-who 요소를 가져옵니다.
+  </section>
+</div>
+<!-- 이름 누르면 밑에 내용 나오는 js -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // 모든 timeline-who 요소를 선택합니다.
     const whoButtons = document.querySelectorAll(".timeline-who");
 
     whoButtons.forEach(button => {
         button.addEventListener("click", function() {
-            // 클릭한 이름 바로 다음에 오는 <p> 태그를 선택합니다.
+            // h1.timeline-who 바로 다음에 인접한 <p> 요소를 찾습니다.
             const pContent = this.nextElementSibling;
             
             if (pContent && pContent.tagName === "P") {
-                // p 태그에 active 클래스가 있으면 빼고, 없으면 넣습니다.
+                // active 클래스를 넣었다 뺐다 토글합니다. (CSS에서 display: block 시킴)
                 pContent.classList.toggle("active");
             }
         });
     });
 });
-    </script>
-  </section>
-</div>
+</script>
