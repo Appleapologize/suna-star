@@ -97,7 +97,8 @@ function loadPage(event, relativePath, addHistory = true) {
     }
 
     const fileName = relativePath.split('/').pop(); // 예: timeline.html
-    // ★ [교정] 뒤에 [0]을 붙여 정상적인 문자열(예: 'timeline')을 추출합니다.
+    
+    // ★ [교정 완료] 대괄호 기호[0]를 정확하게 붙여 순수 파일 키워드 문자열만 안전하게 뽑아냅니다.
     const pageKey = fileName.split('.')[0];         
 
     // GitHub Pages 경로 버그 방지 고정 주소
@@ -133,9 +134,9 @@ function loadPage(event, relativePath, addHistory = true) {
                 link.rel = 'stylesheet';
                 link.href = window.location.origin + `/suna-star/skin/css/${pageKey}.css`; 
                 
-                // 만약 timeline.css가 없다면(404), timelineall.css를 찾아오도록 예외처리
+                // 만약 timeline.css가 없다면(404), timelineall.css를 찾아오도록 백업 예외처리
                 link.onerror = () => {
-                    link.onerror = () => link.remove(); // 이마저도 없으면 태그 제거
+                    link.onerror = () => link.remove(); 
                     link.href = window.location.origin + `/suna-star/skin/css/timelineall.css`;
                 }; 
                 document.head.appendChild(link);
