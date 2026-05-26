@@ -785,9 +785,7 @@ footer p.bold{
 
 /*타블렛*/
 @media (max-width: 1100px) {
-	#container{
-    width: 85%;
-}
+
 }
 
 /*-------------모바일에서만 보이는 메뉴 버튼----------*/
@@ -797,9 +795,7 @@ footer p.bold{
 }
 
 @media (max-width: 1024px) {
-#container{
-    width: var(--width-100);
-}	
+
 	
 	.theme-icon-button{
 		top: calc(var(--padding-in-body) - 30px);
