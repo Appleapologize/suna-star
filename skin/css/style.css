@@ -804,7 +804,7 @@ footer p.bold{
         left: var(--mobile-position);/*좌측 상단 고정*/
         z-index: 9999 !important;
         width: var(--mobile-vwvh);
-        height: --mobile-vwvh;
+        height: var(--mobile-vwvh);
         border-radius: var(--border-radius-m);
         border: 1px solid var(--line-color);
         background: var(--card-background-color);
