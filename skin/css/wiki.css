@@ -575,5 +575,25 @@ margin:10px 0 0 0;
 }
 
 
+/* ========================================================
+   [최종 구현] details 가 닫혔을 때만 화살표 아이콘 180도 회전 
+   ======================================================== */
+
+/* 1. 평소 details 가 열려(open) 있을 때: 원래 순정 각도(0도)로 원위치 시킵니다. */
+details[open] summary .icon-inner,
+details[open] summary .ionicon,
+details[open] summary svg {
+  transform: rotate(0deg) !important;
+}
+
+/* 2. details 가 닫혀 있을 때 (open 속성이 사라졌을 때): 180도 부드럽게 회전시킵니다. */
+details:not([open]) summary .icon-inner,
+details:not([open]) summary .ionicon,
+details:not([open]) summary svg {
+  transform: rotate(180deg) !important;
+  transition: transform 0.3s ease; /* 접고 펼칠 때 스르륵 회전하는 애니메이션 효과 */
+  display: inline-block !important; /* 회전(transform) 명령이 물리적으로 정상 구동되도록 정렬 고정 */
+}
+
 
 
