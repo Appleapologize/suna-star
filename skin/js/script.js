@@ -55,23 +55,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 💡 이름 누르면 밑에 내용 나오는 js (데스크톱 좌우 개별 차단 보강)
+    // 💡 이름 누르면 밑에 내용 나오는 js (구조 파괴 대응형 최종 로직)
     document.addEventListener("click", function(event) {
         const targetWho = event.target.closest(".timeline-who");
         if (targetWho) {
-            // 구조 변경: 무조건 클릭한 .timeline-who 바로 다음에 인접한 p 태그를 먼저 수색합니다.
-            let pContent = targetWho.nextElementSibling;
-            
-            // 만약 h1과 p 사이에 다른 무언가(시간 태그 등)가 들어가 있다면, 
-            // 부모 안에서 p를 찾되 큰 묶음이 아닌 '가장 인접한 개별 자식 영역' 내에서만 찾도록 우회합니다.
-            if (!pContent || pContent.tagName !== "P") {
-                const parentBlock = targetWho.parentElement;
-                if (parentBlock) {
-                    pContent = parentBlock.querySelector("p");
+            let pContent = null;
+
+            // [추적 1순위] 내 바로 뒤에 p 태그가 인접해 있는가? (가장 확실)
+            let nextEl = targetWho.nextElementSibling;
+            while (nextEl) {
+                if (nextEl.tagName === "P") {
+                    pContent = nextEl;
+                    break;
+                }
+                nextEl = nextEl.nextElementSibling;
+            }
+
+            // [추적 2순위] 1순위로 못 찾았다면 내 직계 부모 박스를 기준으로 바로 하위의 p만 검색
+            if (!pContent) {
+                const immediateParent = targetWho.parentElement;
+                if (immediateParent) {
+                    pContent = immediateParent.querySelector("p");
                 }
             }
-            
-            // 최종 매칭된 하나의 p 태그만 정확하게 액티브 처리
+
+            // 최종 매칭된 타겟팅 p 태그만 active 클래스를 부드럽게 토글
             if (pContent) {
                 pContent.classList.toggle("active");
             }
