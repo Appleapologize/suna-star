@@ -890,10 +890,14 @@ footer p.bold{
     /* 메뉴 오픈 활성화 상태 */
     .mobile-drawer.active {
         left: 0;
-		top: calc(var(--mobile-vwvh) + var(--mobile-position));
+		top: 0;
         background: color-mix(in srgb, var(--background-color) 85%, transparent);
     }
 
+    .mobile-drawer ul{
+		top:calc(var(--mobile-vwvh) + var(--mobile-position));
+	}	
+	
 	 /* 모바일에서는 마우스 오버 기능을 완전히 끕니다. */
     ul li:hover > .sub,
     .sub li:hover > .ssub {
