@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // ★ [추가] 타임라인 클릭 이벤트 위임 처리 (페이지가 바뀌어도 언제나 안전하게 작동하도록 보장)
+/* 타임라인에서 이름 누르면 밑에 내용 나오는 js  */
     document.addEventListener("click", function(event) {
         const targetWho = event.target.closest(".timeline-who");
         if (targetWho) {
