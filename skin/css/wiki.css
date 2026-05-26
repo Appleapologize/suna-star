@@ -558,3 +558,14 @@ margin:30px 0 10px 0;
 margin:10px 0 0 0;
 }
 }
+
+
+
+@media screen and (max-width: 1100px){
+	#profile-top div #profile-index{
+		width:30%;
+	}
+	#profile-top div {
+		
+	}
+}
