@@ -196,14 +196,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     whoButtons.forEach(button => {
         button.addEventListener("click", function() {
-            // h1.timeline-who 바로 다음에 인접한 <p> 요소를 찾습니다.
-            const pContent = this.nextElementSibling;
+            // 1. 클릭한 버튼에서 가장 가까운 부모 박스(.timeline-article)를 먼저 찾습니다.
+            const parentArticle = this.closest(".timeline-article");
             
-            if (pContent && pContent.tagName === "P") {
-                // active 클래스를 넣었다 뺐다 토글합니다. (CSS에서 display: block 시킴)
-                pContent.classList.toggle("active");
+            if (parentArticle) {
+                // 2. 그 부모 박스 안에서 <p> 태그를 정밀 타겟팅합니다.
+                const pContent = parentArticle.querySelector("p");
+                
+                if (pContent) {
+                    // 3. active 클래스를 토글합니다.
+                    pContent.classList.toggle("active");
+                }
             }
         });
     });
 });
 </script>
+
