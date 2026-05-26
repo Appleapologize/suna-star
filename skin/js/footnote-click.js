@@ -1,6 +1,6 @@
-/* 위키 각주 시스템 및 반응형 말풍선 팝업 제어 스크립트 (최종형) */
+/* 위키 각주 시스템 및 반응형 말풍선 팝업 제어 스크립트 (최종 완결본) */
 
-// 메인 로더(script.js)가 페이지를 주입하자마자 이 연동 스위치를 강제로 원격 호출하여 404를 차단합니다.
+// 메인 로더(script.js)가 위키 페이지를 주입하는 순간 이 전역 연동 함수를 자동 실행합니다.
 window.setupMenuLinks = function() {
   initFootnoteSystem();
 };
@@ -14,7 +14,7 @@ function initFootnoteSystem() {
     return;
   }
 
-  // 중복 생성 방지 가드 (이미 화면 하단에 각주 리스트 p 태그들이 만들어졌다면 생성을 건너뜁니다)
+  // 하단 각주 목록 자동 생성 구간 (중복 생성 방지 가드)
   const alreadyGenerated = footnotesContainer.querySelector("p.text1");
   if (!alreadyGenerated) {
     footnoteLinks.forEach((a) => {
@@ -26,7 +26,6 @@ function initFootnoteSystem() {
 
       const currentNumber = footnoteCounter++;
       
-      // 비동기 환경에서도 확실하게 href와 일련번호 글자를 갈아끼웁니다.
       a.href = `#각주${currentNumber}`;
       a.name = `돌아가기${currentNumber}`;
       sup.textContent = `[${currentNumber}]`;
@@ -46,7 +45,7 @@ function initFootnoteSystem() {
     });
   }
 
-  // 본문에 말풍선(tooltip)이 존재하지 않는다면 즉시 즉석에서 자동 생성합니다.
+  // 본문에 말풍선(tooltip)이 존재하지 않는다면 즉시 자동 생성
   let tooltip = document.querySelector(".tooltip");
   if (!tooltip) {
     tooltip = document.createElement("div");
@@ -54,69 +53,74 @@ function initFootnoteSystem() {
     document.body.appendChild(tooltip);
   }
 
-  // 말풍선 팝업 바인딩 구간
+  // 말풍선 클릭 토글 및 위치 정렬 구간
   footnoteLinks.forEach((a, index) => {
     const sup = a.querySelector("sup");
     const p = a.nextElementSibling;
     const content = p ? p.textContent.replace(/^\[\d+\]\s*/, "").trim() : "";
 
-    // 직접 대입 방식으로 브라우저 메모리에 온클릭 회로를 연결합니다.
     a.onclick = function(e) {
       e.preventDefault();
       e.stopPropagation();
 
-      // 💡 [💥 NaN 해결 핵심 치트키]: 
-      // 기존 정규식 매칭이 실패하더라도, 생성 당시에 각 대괄호에 무조건 순서대로 부여된 
-      // 진짜 순수 숫자 배열 순서(index + 1)를 강제로 포착해 냄으로써 NaN 오류를 원천 차단합니다!
+      // 숫자가 NaN으로 뜨는 오류 완벽 방어 처리
       let currentNumber = index + 1;
-
-      // 만약 텍스트 안에서 글자를 직접 뜯어낼 수 있다면 2중 교차 검증을 수행합니다.
       if (sup && sup.textContent) {
-        const textNum = sup.textContent.replace(/[^0-9]/g, ""); // 대괄호 빼고 순수 숫자글자만 추출
+        const textNum = sup.textContent.replace(/[^0-9]/g, "");
         if (textNum) {
           currentNumber = parseInt(textNum, 10);
         }
       }
 
-      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      // CSS 파일 내 미디어 쿼리(767px) 조건과 완벽하게 일치하도록 화면 해상도 측정
+      const currentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      const isMobile = currentWidth <= 767;
+
       let tooltipContent;
 
-      // 데스크톱 구조 정의
-      tooltipContent = `
-        <button class="tooltip-close">X</button>
-        <div class="tooltip-number">${currentNumber}</div>
-        <hr class="tooltip-divider">
-        <div class="tooltip-content">${content}</div>
-      `;
-
-      // 모바일 조건에 따라 덮어쓰기
       if (isMobile) {
+        // 📱 모바일: 스크린샷 형태 그대로 하단 고정 바 구조 연출
         tooltipContent = `
           <div class="tooltip-number">${currentNumber}</div>
           <hr class="tooltip-divider">
           <div class="tooltip-content">${content}</div>
           <button class="tooltip-close">닫기</button>
         `;
+      } else {
+        // 💻 데스크톱: 우측 상단 X 버튼 방식 카드 연출
+        tooltipContent = `
+          <button class="tooltip-close">X</button>
+          <div class="tooltip-number">${currentNumber}</div>
+          <hr class="tooltip-divider">
+          <div class="tooltip-content">${content}</div>
+        `;
       }
 
       tooltip.innerHTML = tooltipContent;
 
-      // display: block을 먼저 켜야만 컴퓨터가 오차 없이 말풍선의 실제 크기를 정확히 계측합니다.
+      // 💥 display: block을 먼저 켜야 브라우저가 오차 없이 말풍선의 실제 높이(offsetHeight)를 잽니다.
       tooltip.style.display = "block";
 
-      // 스타일 및 위치 설정
       if (isMobile) {
+        // 모바일 스타일 고정 주입
         tooltip.style.position = "fixed";
         tooltip.style.bottom = "0px";
-        tooltip.style.left = "48vw";
-        tooltip.style.transform = "translateX(-51%)";
+        tooltip.style.left = "50vw";
+        tooltip.style.transform = "translateX(-50%)";
         tooltip.style.width = "calc(100vw - 30px)";
         tooltip.style.maxWidth = "100vw";
         tooltip.style.top = "auto";
       } else {
+        // 💻 데스크톱 스타일: 제공해주신 CSS 규칙과 100% 매칭
+        // CSS 169번째 줄의 transform: translate(-52%, -105%) 규칙이 완벽하게 발동하도록 유도합니다.
         const rect = sup.getBoundingClientRect();
         tooltip.style.position = "absolute";
-        tooltip.style.transform = "translate(-52%, -105%)"; // 기존 CSS 꼬리표 위치 규칙 정밀 계승
+        tooltip.style.bottom = "auto";
+        tooltip.style.transform = ""; // 빈 값으로 비워두어 CSS 파일 내의 원래 transform 효과를 순정 적용
+        tooltip.style.width = "";      // 모바일 고정너비 해제하여 CSS max-width: 201px이 먹히도록 초기화
+        tooltip.style.maxWidth = "";
+        
+        // 주석 번호(sup) 글자의 가로축 정중앙을 기준으로 absolute 오차를 자동 계산합니다.
         tooltip.style.left = `${rect.left + window.pageXOffset + rect.width / 2}px`;
         tooltip.style.top = `${rect.top + window.pageYOffset - 10}px`;
       }
@@ -133,14 +137,14 @@ function initFootnoteSystem() {
   });
 }
 
-// 안전 이중 가드: 메인 로더 없이 파일이 독단적으로 켜지거나 새로고침(F5) 될 때도 가동되도록 처리합니다.
+// 안전 이중 가드
 if (document.readyState !== "loading") {
   initFootnoteSystem();
 } else {
   document.addEventListener("DOMContentLoaded", initFootnoteSystem);
 }
 
-// 각주 번호 링크 클릭 시 부드럽게 스크롤로 가주는 기능
+// 하단 리스트 클릭 시 부드러운 스크롤 이동
 document.body.addEventListener("click", (event) => {
   const clickedElement = event.target;
   if (clickedElement.tagName === "A" && clickedElement.getAttribute("href")?.includes("#각주")) {
