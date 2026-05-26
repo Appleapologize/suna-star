@@ -12,6 +12,14 @@
   --wiki-text-white-color:#ffffff; /*흰색*/
 }
 
+[data-theme="dark"]{
+  --border-wiki-gray-color:#ccc;
+  --wiki-line-background-color:#4a4a52;
+  --wiki-blacktray-color:#ddd;
+  --wiki-main-text-color:#fff;  /*검정색*/
+  --wiki-text-white-color:#000000; /*흰색*/
+}
+
 /*목차와 프로필 칸 좌우로 두기 및 모바일에서는 세로로 두기*/
 #profile-index{
 	float:left;
