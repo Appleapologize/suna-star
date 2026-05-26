@@ -424,7 +424,7 @@ button.tooltip-close{
 
 button.tooltip-close:hover{color:#bdbdbd;}
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 1024px){
   button.tooltip-close{
    width: 100%;
    position: relative;
@@ -475,7 +475,7 @@ div.footnote .text1 {margin:5;
 
 
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 1024px){
   #profile-index{}
 #profile-top div{display:block;width:100%;}
 
@@ -544,7 +544,7 @@ table.profile{width:100%;}
 .chart-legend .dataset-2 { background-color: rgba(54, 162, 235, 0.7); }
 .chart-legend .dataset-3 { background-color: rgba(153, 102, 255, 0.7); }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 1024px){
   .chart-container{display:ruby;}
 
   /* 캔버스 기본 스타일 */
