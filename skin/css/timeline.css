@@ -23,19 +23,29 @@
 }
 
 
-#timeline{  margin: 0 auto;}
-#timeline-title{text-align:center;
-               display:flex;
-               width:100%;
-               margin:10px;}
+#timeline{
+  margin: 0 auto;
+}
 
-#timeline-title .left-title{background:red;
-                           width:50%;
-                           margin:0 10 0 0;}
-#timeline-title .right-title{background:green;
-                            width:50%;
-                            margin:0 0 0 10;}
-@media only screen and (max-width: 700px) {#timeline-title{display:none;}}
+#timeline-title{
+  text-align:center;
+  display:flex;
+  width:100%;
+  margin:10px
+               }
+
+#timeline-title .left-title{
+  background:red;
+  width:50%;
+  margin:0 10 0 0;}
+#timeline-title .right-title{
+  background:green;
+  width:50%;
+  margin:0 0 0 10;
+}
+@media only screen and (max-width: 700px) {
+  #timeline-title{display:none;}
+}
 
 /*타임라인 css*/
 #conference-timeline {
@@ -75,7 +85,9 @@
   z-index: -1;
 }*/
 @media only screen and (max-width: 700px) {
-  #conference-timeline .conference-center-line {width: 10px;  margin-left: 0;left: 10;}
+  #conference-timeline .conference-center-line {
+    width: 10px;  margin-left: 0;left: 10;
+  }
 }
 
 /* 기존 요소를 찾아서 아래 코드로 완전히 교체해 주세요 */
@@ -131,15 +143,25 @@
   MARGIN: 20 0 0 0;
 }
 
-.timeline-article .content-left .timeline-who{color:var(--left-title-color);}
-.timeline-article .content-right .timeline-who{color:var(--right-title-color);}
+.timeline-article .content-left .timeline-who{
+  color:var(--left-title-color);
+}
+.timeline-article .content-right .timeline-who{
+  color:var(--right-title-color);
+}
 
-.timeline-article .content-left{background:var(--left-background-color);}
-.timeline-article .content-left h1{text-shadow: var(--text-border-weight-bottom-left) 0px var(--left-text-border-color), /*상단*/
-                                                  0px var(--text-border-weight-top-right) var(--left-text-border-color), /*우측*/
-                                                  var(--text-border-weight-top-right) 0px var(--left-text-border-color), /*하단*/
-                                                  0px var(--text-border-weight-bottom-left) var(--left-text-border-color);/*좌측*/}
-.timeline-article .content-left p {color:var(--left-text-color);}
+.timeline-article .content-left{
+  background:var(--left-background-color);
+}
+.timeline-article .content-left h1{
+  text-shadow: var(--text-border-weight-bottom-left) 0px var(--left-text-border-color), /*상단*/
+                   0px var(--text-border-weight-top-right) var(--left-text-border-color), /*우측*/
+                   var(--text-border-weight-top-right) 0px var(--left-text-border-color), /*하단*/
+                   0px var(--text-border-weight-bottom-left) var(--left-text-border-color);/*좌측*/
+}
+.timeline-article .content-left p {
+  color:var(--left-text-color);
+                                  }
 
 .timeline-article .content-right {
   background:var(--right-background-color);
@@ -210,7 +232,9 @@
     display: flex;
   PADDING: 10PX;
 }
-.timeline-article h1.timeline-who{cursor:;}
+.timeline-article h1.timeline-who{
+  cursor:var(--over-cursor), pointer;
+}
 
 /* CSS 맨 아래에 복사해서 붙여넣으세요 */
 .timeline-article p.active {
