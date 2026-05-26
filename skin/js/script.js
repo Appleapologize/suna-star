@@ -54,6 +54,20 @@ document.addEventListener("DOMContentLoaded", () => {
             loadPage(null, `pages/${currentPage}`, false);
         }
     });
+
+    // ★ [추가] 타임라인 클릭 이벤트 위임 처리 (페이지가 바뀌어도 언제나 안전하게 작동하도록 보장)
+    document.addEventListener("click", function(event) {
+        const targetWho = event.target.closest(".timeline-who");
+        if (targetWho) {
+            const parentArticle = targetWho.closest(".timeline-article");
+            if (parentArticle) {
+                const pContent = parentArticle.querySelector("p");
+                if (pContent) {
+                    pContent.classList.toggle("active");
+                }
+            }
+        }
+    });
 });
 
 // 모바일 메뉴 토글 함수
@@ -82,8 +96,8 @@ function loadPage(event, relativePath, addHistory = true) {
         if (typeof event.stopPropagation === 'function') event.stopPropagation();
     }
 
-    const fileName = relativePath.split('/').pop(); // 예: guest.html
-    const pageKey = fileName.split('.')[0];         // 예: guest
+    const fileName = relativePath.split('/').pop(); // 예: timeline.html
+    let pageKey = fileName.split('.')[0];         // 예: timeline
 
     // GitHub Pages 경로 버그 방지 고정 주소
     const finalUrl = window.location.origin + '/suna-star/pages/' + fileName;
@@ -98,12 +112,10 @@ function loadPage(event, relativePath, addHistory = true) {
         .then(htmlData => {
             const contentArea = document.querySelector('#container');
             if (contentArea) {
-                // [💥 대청소 구간] 새로운 페이지를 그리기 전 기존에 들어있던 동적 CSS와 JS 태그를 완전히 제거합니다.
-                // 다른 페이지로 이동했을 때 BGM이 제자리로 돌아오지 않는 현상을 해결합니다.
+                // [💥 대청소 구간] 기존 동적 태그 제거
                 document.querySelectorAll('link[id^="dynamic-css-"]').forEach(el => el.remove());
                 document.querySelectorAll('script[id^="dynamic-js-"]').forEach(el => el.remove());
                 
-                // 만약 갤러리 자동 슬라이드가 켜져있었다면 타이머 폭주 방지를 위해 클리어
                 if (window.galleryInterval) {
                     clearInterval(window.galleryInterval);
                     window.galleryInterval = null;
@@ -113,12 +125,19 @@ function loadPage(event, relativePath, addHistory = true) {
                 contentArea.innerHTML = htmlData; 
                 window.scrollTo(0, 0); 
 
-                // 3. 동적 CSS 로드
+                // ★ [경로 교정] 만약 파일명이 timeline이면 실제 파일 서칭 키워드를 교정
+                let cssFileKey = pageKey;
+                let jsFileKey = pageKey;
+                if (pageKey === "timeline") {
+                    cssFileKey = "timelineall"; // 실제 서버에 설정된 css 파일명 매칭
+                }
+
+                // 3. 동적 CSS 로드 (경로 에러 완벽 차단용 절대경로 처리)
                 const cssId = `dynamic-css-${pageKey}`;
                 const link = document.createElement('link');
                 link.id = cssId; 
                 link.rel = 'stylesheet';
-                link.href = `/suna-star/skin/css/${pageKey}.css`; 
+                link.href = window.location.origin + `/suna-star/skin/css/${cssFileKey}.css`; 
                 link.onerror = () => link.remove(); 
                 document.head.appendChild(link);
 
@@ -126,10 +145,9 @@ function loadPage(event, relativePath, addHistory = true) {
                 const jsId = `dynamic-js-${pageKey}`;
                 const script = document.createElement('script');
                 script.id = jsId;
-                script.src = `/suna-star/skin/js/${pageKey}.js`; 
+                script.src = window.location.origin + `/suna-star/skin/js/${jsFileKey}.js`; 
                 script.onerror = () => script.remove(); 
                 
-                // 파일 다운로드가 완벽히 끝나서 브라우저가 읽었을 때 실행 보장
                 script.onload = () => {
                     executePageInit(pageKey);
                 };
@@ -153,5 +171,9 @@ function loadPage(event, relativePath, addHistory = true) {
 function executePageInit(pageKey) {
     if (pageKey === 'gallery' && typeof initGallery === 'function') {
         initGallery();
+    }
+    // timeline 관련 초기화 함수가 있다면 이곳에 연동
+    if (pageKey === 'timeline' && typeof setupMenuLinks === 'function') {
+        setupMenuLinks();
     }
 }
