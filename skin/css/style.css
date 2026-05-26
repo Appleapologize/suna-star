@@ -790,6 +790,10 @@ footer p.bold{
 }
 
 @media (max-width: 1024px) {
+#container{
+    width: var(--width-100);
+}	
+	
 	.theme-icon-button{
 		top: calc(var(--padding-in-body) - 30px);
 	}
