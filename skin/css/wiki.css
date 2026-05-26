@@ -15,8 +15,10 @@
 /*목차와 프로필 칸 좌우로 두기 및 모바일에서는 세로로 두기*/
 #profile-index{float:left;
 width:50%;}
-#profile-top div{display:inline-block;
-                 width:50%;}
+#profile-top div{
+	display:inline-block;
+   width:49.9%;
+}
 
 
 table{width: 100%;
@@ -506,7 +508,7 @@ table.profile{width:100%;}
 .tooltip-content {
   font-size: 15px; /* 내용 크기 */
 }
-
+}
 
 /*레이더 차트*/
 
@@ -561,11 +563,4 @@ margin:10px 0 0 0;
 
 
 
-@media screen and (max-width: 1100px){
-	#profile-top div #profile-index{
-		width:30%;
-	}
-	#profile-top div {
-		
-	}
-}
+
