@@ -250,6 +250,7 @@ html:has(#container) {
     background:
     center / cover no-repeat var(--limit-img),
     left top / auto repeat var(--background-color) var(--limit-pattern);
+	z-index:0;
 }
 
 body {
