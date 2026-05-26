@@ -1,6 +1,8 @@
-/* 위키 각주 시스템 및 반응형 말풍선 팝업 제어 스크립트 (최종형) */
+/* 위키 각주 시스템 및 반응형 말풍선 팝업 제어 스크립트 (최종 확정본) */
 
-// 💡 메인 로더(script.js)가 페이지를 주입하자마자 이 연동 스위치를 강제로 원격 호출하여 404를 차단합니다.
+// 💡 [💥 진짜 해결 마스터 키] 
+// 파일명이 매칭되지 않더라도 메인 로더(script.js)가 setupMenuLinks()를 부르는 즉시 
+// 이 함수가 가로채서 각주 엔진을 강제로 작동시킵니다!
 window.setupMenuLinks = function() {
   initFootnoteSystem();
 };
@@ -10,6 +12,7 @@ function initFootnoteSystem() {
   const footnoteLinks = document.querySelectorAll('a[href="#각주"][name="돌아가기"]');
   const footnotesContainer = document.querySelector("div.footnote");
 
+  // 현재 화면에 각주 대상들이 없으면 에러 없이 안전하게 종료합니다.
   if (!footnoteLinks.length || !footnotesContainer) {
     return;
   }
@@ -26,7 +29,7 @@ function initFootnoteSystem() {
 
       const currentNumber = footnoteCounter++;
       
-      // 비동기 환경에서도 확실하게 href와 일련번호 글자를 갈아끼웁니다.
+      // 💡 [숫자 강제 주입]: 비동기 환경에서도 확실하게 sup 태그 내부에 대괄호 숫자를 채워 넣습니다.
       a.href = `#각주${currentNumber}`;
       a.name = `돌아가기${currentNumber}`;
       sup.textContent = `[${currentNumber}]`;
@@ -46,7 +49,7 @@ function initFootnoteSystem() {
     });
   }
 
-  // 본문에 말풍선(tooltip)이 존재하지 않는다면 즉시 생성하고 있으면 재사용합니다.
+  // 본문에 말풍선(tooltip)이 존재하지 않는다면 즉시 즉석에서 자동 생성합니다.
   let tooltip = document.querySelector(".tooltip");
   if (!tooltip) {
     tooltip = document.createElement("div");
@@ -60,7 +63,7 @@ function initFootnoteSystem() {
     const p = a.nextElementSibling;
     const content = p ? p.textContent.replace(/^\[\d+\]\s*/, "").trim() : "";
 
-    // 직접 대입 방식으로 브라우저 메모리에 온클릭 회로를 연결합니다.
+    // 직접 대입 방식으로 브라우저 메모리에 온클릭 회로를 완벽하게 연결합니다.
     a.onclick = function(e) {
       e.preventDefault();
       e.stopPropagation();
@@ -92,7 +95,7 @@ function initFootnoteSystem() {
 
       tooltip.innerHTML = tooltipContent;
 
-      // display: block을 먼저 켜야만 컴퓨터가 오차 없이 말풍선의 실제 렌더링 너비를 정확히 잽니다.
+      // display: block을 먼저 켜야만 컴퓨터가 오차 없이 말풍선의 실제 크기를 정확히 계측합니다.
       tooltip.style.display = "block";
 
       // 스타일 및 위치 설정
@@ -107,7 +110,7 @@ function initFootnoteSystem() {
       } else {
         const rect = sup.getBoundingClientRect();
         tooltip.style.position = "absolute";
-        tooltip.style.transform = "translate(-52%, -105%)";
+        tooltip.style.transform = "translate(-52%, -105%)"; // 기존 CSS 꼬리표 위치 규칙 정밀 계승
         tooltip.style.left = `${rect.left + window.pageXOffset + rect.width / 2}px`;
         tooltip.style.top = `${rect.top + window.pageYOffset - 10}px`;
       }
@@ -124,7 +127,7 @@ function initFootnoteSystem() {
   });
 }
 
-// 안전 이중 가드: 완전 생 새로고침(F5)을 했을 때도 루프가 돌 수 있도록 처리합니다.
+// 💡 안전 이중 가드: 메인 로더 없이 파일이 독단적으로 켜지거나 새로고침(F5) 될 때도 가동되도록 처리합니다.
 if (document.readyState !== "loading") {
   initFootnoteSystem();
 } else {
