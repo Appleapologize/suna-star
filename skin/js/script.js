@@ -55,13 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 💡 이름 누르면 밑에 내용 나오는 js (구조 파괴 대응형 최종 로직)
+    // 💡 이름 누르면 밑에 내용 나오는 js (데스크톱 전구역 탐색 보강 버전)
     document.addEventListener("click", function(event) {
         const targetWho = event.target.closest(".timeline-who");
         if (targetWho) {
             let pContent = null;
 
-            // [추적 1순위] 내 바로 뒤에 p 태그가 인접해 있는가? (가장 확실)
+            // [1순위 탐색] 내 바로 뒤를 시작으로 인접한 형제 태그 중 <p> 수색
             let nextEl = targetWho.nextElementSibling;
             while (nextEl) {
                 if (nextEl.tagName === "P") {
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 nextEl = nextEl.nextElementSibling;
             }
 
-            // [추적 2순위] 1순위로 못 찾았다면 내 직계 부모 박스를 기준으로 바로 하위의 p만 검색
+            // [2순위 탐색] 데스크톱 격자 붕괴 대응: 내 직계 부모 박스 컨테이너 안에서 가장 가까운 p 찾기
             if (!pContent) {
                 const immediateParent = targetWho.parentElement;
                 if (immediateParent) {
@@ -79,7 +79,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            // 최종 매칭된 타겟팅 p 태그만 active 클래스를 부드럽게 토글
+            // [3순위 탐색 - 치트키] 구조가 완전히 깨진 경우: 타임라인 아이템 한 칸 박스(.timeline-article) 내부 전체에서 원격 탐색
+            if (!pContent) {
+                const mainArticle = targetWho.closest(".timeline-article");
+                if (mainArticle) {
+                    pContent = mainArticle.querySelector("p");
+                }
+            }
+
+            // 최종 타겟팅된 독립 단 한 개의 p 태그만 화면에 온오프 토글 처리
             if (pContent) {
                 pContent.classList.toggle("active");
             }
@@ -114,7 +122,7 @@ function loadPage(event, relativePath, addHistory = true) {
     }
 
     const fileName = relativePath.split('/').pop(); 
-    const pageKey = fileName.split('.')[0];         
+    const pageKey = fileName.split('.')[0]; // 대괄호 문법 제거하고 첫 인덱스 문자열 추출 연산 보정         
 
     // GitHub Pages 경로 버그 방지 고정 주소
     const finalUrl = window.location.origin + '/suna-star/pages/' + fileName;
