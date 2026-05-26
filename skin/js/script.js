@@ -83,8 +83,7 @@ function loadPage(event, relativePath, addHistory = true) {
     }
 
     const fileName = relativePath.split('/').pop(); 
-    // 문자열 조작 오차 방지를 위해 안전하게 분리
-    const pageKey = fileName.split('.')[0];         
+    const pageKey = fileName.split('.')[0]; // 문자열 결함 방지용 오차 보정         
 
     // GitHub Pages 경로 버그 방지 고정 주소
     const finalUrl = window.location.origin + '/suna-star/pages/' + fileName;
@@ -108,29 +107,45 @@ function loadPage(event, relativePath, addHistory = true) {
                     window.galleryInterval = null;
                 }
 
-                // 2. 새로운 HTML 화면에 바인딩
+                // 새로운 HTML 화면에 바인딩
                 contentArea.innerHTML = htmlData; 
                 window.scrollTo(0, 0); 
 
-                // 3. 동적 CSS 로드 (삼중 방어막: timeline 및 timelineall 대응)
+                // 💡 [💥 진짜 핵심 해결책]: 파일명이 100개로 늘어나도 일일이 지정할 필요 없는 완전 자동화 수식
+                let cssFileKey = pageKey;
+                let jsFileKey = pageKey;
+
+                // 주소창 파일 이름 뒤에 "-wiki"라는 단어가 붙어있다면, 무조건 공용 파일인 'wiki.css'와 'footnote-click.js'로 강제 우회시킵니다!
+                if (pageKey.indexOf("-wiki") !== -1) {
+                    cssFileKey = "wiki";
+                    jsFileKey = "footnote-click"; 
+                }
+
+                // 타임라인 페이지 세트 예외처리
+                if (pageKey === "timeline") {
+                    cssFileKey = "timelineall";
+                }
+
+                // 동적 CSS 로드
                 const cssId = `dynamic-css-${pageKey}`;
                 const link = document.createElement('link');
                 link.id = cssId; 
                 link.rel = 'stylesheet';
-                link.href = window.location.origin + `/suna-star/skin/css/${pageKey}.css`; 
-                
-                link.onerror = () => {
-                    link.onerror = () => link.remove(); 
-                    link.href = window.location.origin + `/suna-star/skin/css/timelineall.css`;
-                }; 
+                link.href = window.location.origin + `/suna-star/skin/css/${cssFileKey}.css`; 
+                link.onerror = () => link.remove(); 
                 document.head.appendChild(link);
 
-                // 4. 동적 JS 로드 및 실행 타이밍 제어
+                // 동적 JS 로드 및 실행 타이밍 제어
                 const jsId = `dynamic-js-${pageKey}`;
                 const script = document.createElement('script');
                 script.id = jsId;
-                script.src = window.location.origin + `/suna-star/skin/js/${pageKey}.js`; 
-                script.onerror = () => script.remove(); 
+                script.src = window.location.origin + `/suna-star/skin/js/${jsFileKey}.js`; 
+                
+                script.onerror = () => {
+                    script.remove();
+                    window.setupMenuLinks = function() {}; // 전역 ReferenceError 방어막
+                    executePageInit(pageKey);
+                }; 
                 
                 script.onload = () => {
                     executePageInit(pageKey);
@@ -156,7 +171,8 @@ function executePageInit(pageKey) {
     if (pageKey === 'gallery' && typeof initGallery === 'function') {
         initGallery();
     }
-    if (pageKey === 'timeline' && typeof setupMenuLinks === 'function') {
+    // 페이지 주소 이름에 관계없이 setupMenuLinks 함수가 로드되었다면 무조건 자동 실행!
+    if (typeof setupMenuLinks === 'function') {
         setupMenuLinks();
     }
 }
