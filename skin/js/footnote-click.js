@@ -69,7 +69,7 @@ function initFootnoteSystem() {
       e.stopPropagation(); // 선 레이어 등 다른 요소가 클릭을 뺏어가지 못하게 차단
 
       const currentNumber = parseInt(sup.textContent.match(/\[(\d+)\]/)[1]);
-      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      const isMobile = window.matchMedia("(max-width: 1024px)").matches;
 
       let tooltipContent;
 
