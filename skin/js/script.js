@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-/* 타임라인에서 이름 누르면 밑에 내용 나오는 js  */
+    // 💡 이름 누르면 밑에 내용 나오는 js (타임라인 클릭 이벤트 위임)
     document.addEventListener("click", function(event) {
         const targetWho = event.target.closest(".timeline-who");
         if (targetWho) {
@@ -97,7 +97,8 @@ function loadPage(event, relativePath, addHistory = true) {
     }
 
     const fileName = relativePath.split('/').pop(); // 예: timeline.html
-    let pageKey = fileName.split('.')[0];         // 예: timeline
+    // ★ [교정] 뒤에 [0]을 붙여 정상적인 문자열(예: 'timeline')을 추출합니다.
+    const pageKey = fileName.split('.')[0];         
 
     // GitHub Pages 경로 버그 방지 고정 주소
     const finalUrl = window.location.origin + '/suna-star/pages/' + fileName;
@@ -125,27 +126,25 @@ function loadPage(event, relativePath, addHistory = true) {
                 contentArea.innerHTML = htmlData; 
                 window.scrollTo(0, 0); 
 
-                // ★ [경로 교정] 만약 파일명이 timeline이면 실제 파일 서칭 키워드를 교정
-                let cssFileKey = pageKey;
-                let jsFileKey = pageKey;
-                if (pageKey === "timeline") {
-                    cssFileKey = "timelineall"; // 실제 서버에 설정된 css 파일명 매칭
-                }
-
-                // 3. 동적 CSS 로드 (경로 에러 완벽 차단용 절대경로 처리)
+                // 3. 동적 CSS 로드 (삼중 방어막: timeline 및 timelineall 대응)
                 const cssId = `dynamic-css-${pageKey}`;
                 const link = document.createElement('link');
                 link.id = cssId; 
                 link.rel = 'stylesheet';
-                link.href = window.location.origin + `/suna-star/skin/css/${cssFileKey}.css`; 
-                link.onerror = () => link.remove(); 
+                link.href = window.location.origin + `/suna-star/skin/css/${pageKey}.css`; 
+                
+                // 만약 timeline.css가 없다면(404), timelineall.css를 찾아오도록 예외처리
+                link.onerror = () => {
+                    link.onerror = () => link.remove(); // 이마저도 없으면 태그 제거
+                    link.href = window.location.origin + `/suna-star/skin/css/timelineall.css`;
+                }; 
                 document.head.appendChild(link);
 
                 // 4. 동적 JS 로드 및 실행 타이밍 제어
                 const jsId = `dynamic-js-${pageKey}`;
                 const script = document.createElement('script');
                 script.id = jsId;
-                script.src = window.location.origin + `/suna-star/skin/js/${jsFileKey}.js`; 
+                script.src = window.location.origin + `/suna-star/skin/js/${pageKey}.js`; 
                 script.onerror = () => script.remove(); 
                 
                 script.onload = () => {
@@ -172,7 +171,6 @@ function executePageInit(pageKey) {
     if (pageKey === 'gallery' && typeof initGallery === 'function') {
         initGallery();
     }
-    // timeline 관련 초기화 함수가 있다면 이곳에 연동
     if (pageKey === 'timeline' && typeof setupMenuLinks === 'function') {
         setupMenuLinks();
     }
