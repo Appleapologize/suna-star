@@ -23,7 +23,7 @@
    width:50%;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1100px) {
 
 	#profile-index{
 	width:45%;
@@ -488,8 +488,11 @@ div.footnote .text1 {margin:5;
 
 
 @media screen and (max-width: 1024px){
-  #profile-index{}
-#profile-top div{display:block;width:100%;}
+
+#profile-top div{
+	display:block;
+	width:100%;
+}
 
 table.index{width:100%;}
 table.profile{width:100%;}
