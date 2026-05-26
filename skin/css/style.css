@@ -606,7 +606,7 @@ ul li:hover > .sub {
 
 img {
 	width: var(--width-100);
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .module {
