@@ -582,6 +582,8 @@ margin:10px 0 0 0;
 /* 1. 평소 details 가 열려(open) 있을 때: 원래 순정 각도(0도)로 원위치 시킵니다. */
 details[open] h2.one-title span {
   transform: rotate(0deg) !important;
+  transition: transform 0.3s ease;
+  display: inline-block !important;	
 }
 
 /* 2. details 가 닫혀 있을 때 (open 속성이 사라졌을 때): 180도 부드럽게 회전시킵니다. */
