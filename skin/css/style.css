@@ -250,7 +250,6 @@ html:has(#container) {
     background:
     center / cover no-repeat var(--limit-img),
     left top / auto repeat var(--background-color) var(--limit-pattern);
-	z-index:0;
 }
 
 body {
@@ -483,6 +482,7 @@ ul li:hover > .sub {
     border-radius: var(--border-radius-l);
     background: var(--card-background-color);	
 	padding: var(--container-padding);
+	z-index:0;	
 }
 
 
