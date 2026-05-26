@@ -1,8 +1,6 @@
-/* 위키 각주 시스템 및 반응형 말풍선 팝업 제어 스크립트 (최종 확정본) */
+/* 위키 각주 시스템 및 반응형 말풍선 팝업 제어 스크립트 (최종형) */
 
-// 💡 [💥 진짜 해결 마스터 키] 
-// 파일명이 매칭되지 않더라도 메인 로더(script.js)가 setupMenuLinks()를 부르는 즉시 
-// 이 함수가 가로채서 각주 엔진을 강제로 작동시킵니다!
+// 메인 로더(script.js)가 페이지를 주입하자마자 이 연동 스위치를 강제로 원격 호출하여 404를 차단합니다.
 window.setupMenuLinks = function() {
   initFootnoteSystem();
 };
@@ -12,7 +10,6 @@ function initFootnoteSystem() {
   const footnoteLinks = document.querySelectorAll('a[href="#각주"][name="돌아가기"]');
   const footnotesContainer = document.querySelector("div.footnote");
 
-  // 현재 화면에 각주 대상들이 없으면 에러 없이 안전하게 종료합니다.
   if (!footnoteLinks.length || !footnotesContainer) {
     return;
   }
@@ -29,7 +26,7 @@ function initFootnoteSystem() {
 
       const currentNumber = footnoteCounter++;
       
-      // 💡 [숫자 강제 주입]: 비동기 환경에서도 확실하게 sup 태그 내부에 대괄호 숫자를 채워 넣습니다.
+      // 비동기 환경에서도 확실하게 href와 일련번호 글자를 갈아끼웁니다.
       a.href = `#각주${currentNumber}`;
       a.name = `돌아가기${currentNumber}`;
       sup.textContent = `[${currentNumber}]`;
@@ -58,21 +55,30 @@ function initFootnoteSystem() {
   }
 
   // 말풍선 팝업 바인딩 구간
-  footnoteLinks.forEach((a) => {
+  footnoteLinks.forEach((a, index) => {
     const sup = a.querySelector("sup");
     const p = a.nextElementSibling;
     const content = p ? p.textContent.replace(/^\[\d+\]\s*/, "").trim() : "";
 
-    // 직접 대입 방식으로 브라우저 메모리에 온클릭 회로를 완벽하게 연결합니다.
+    // 직접 대입 방식으로 브라우저 메모리에 온클릭 회로를 연결합니다.
     a.onclick = function(e) {
       e.preventDefault();
       e.stopPropagation();
 
-      const match = sup.textContent.match(/\[(\d+)\]/);
-      if (!match) return;
-      const currentNumber = parseInt(match);
-      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      // 💡 [💥 NaN 해결 핵심 치트키]: 
+      // 기존 정규식 매칭이 실패하더라도, 생성 당시에 각 대괄호에 무조건 순서대로 부여된 
+      // 진짜 순수 숫자 배열 순서(index + 1)를 강제로 포착해 냄으로써 NaN 오류를 원천 차단합니다!
+      let currentNumber = index + 1;
 
+      // 만약 텍스트 안에서 글자를 직접 뜯어낼 수 있다면 2중 교차 검증을 수행합니다.
+      if (sup && sup.textContent) {
+        const textNum = sup.textContent.replace(/[^0-9]/g, ""); // 대괄호 빼고 순수 숫자글자만 추출
+        if (textNum) {
+          currentNumber = parseInt(textNum, 10);
+        }
+      }
+
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
       let tooltipContent;
 
       // 데스크톱 구조 정의
@@ -127,7 +133,7 @@ function initFootnoteSystem() {
   });
 }
 
-// 💡 안전 이중 가드: 메인 로더 없이 파일이 독단적으로 켜지거나 새로고침(F5) 될 때도 가동되도록 처리합니다.
+// 안전 이중 가드: 메인 로더 없이 파일이 독단적으로 켜지거나 새로고침(F5) 될 때도 가동되도록 처리합니다.
 if (document.readyState !== "loading") {
   initFootnoteSystem();
 } else {
