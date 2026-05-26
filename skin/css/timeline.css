@@ -180,7 +180,7 @@
 
 /* 1. 기본적으로 타임라인 내의 모든 p 태그는 완전히 숨김 */
 .timeline-article p {
-  display: none !important;
+  display: none ;
 }
 
 /* 2. 자바스크립트로 인해 .active 클래스가 붙으면 무조건 화면에 표시 */
