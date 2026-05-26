@@ -188,28 +188,4 @@
       <div class="timeline-end">계속됨</div>
   </section>
 </div>
-<!-- 이름 누르면 밑에 내용 나오는 js -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    // 모든 timeline-who 요소를 선택합니다.
-    const whoButtons = document.querySelectorAll(".timeline-who");
-
-    whoButtons.forEach(button => {
-        button.addEventListener("click", function() {
-            // 1. 클릭한 버튼에서 가장 가까운 부모 박스(.timeline-article)를 먼저 찾습니다.
-            const parentArticle = this.closest(".timeline-article");
-            
-            if (parentArticle) {
-                // 2. 그 부모 박스 안에서 <p> 태그를 정밀 타겟팅합니다.
-                const pContent = parentArticle.querySelector("p");
-                
-                if (pContent) {
-                    // 3. active 클래스를 토글합니다.
-                    pContent.classList.toggle("active");
-                }
-            }
-        });
-    });
-});
-</script>
 
