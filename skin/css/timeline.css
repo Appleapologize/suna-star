@@ -141,26 +141,38 @@
                                                   0px var(--text-border-weight-bottom-left) var(--left-text-border-color);/*좌측*/}
 .timeline-article .content-left p {color:var(--left-text-color);}
 
-.timeline-article .content-right {background:var(--right-background-color);}
-.timeline-article .content-right h1 {text-shadow: var(--text-border-weight-bottom-left) 0px var(--right-text-border-color), /*상단*/
-                                                  0px var(--text-border-weight-top-right) var(--right-text-border-color), /*우측*/
-                                                  var(--text-border-weight-top-right) 0px var(--right-text-border-color), /*하단*/
-                                                  0px var(--text-border-weight-bottom-left) var(--right-text-border-color);/*좌측*/}
-.timeline-article .content-right p{color:var(--right-text-color);}
+.timeline-article .content-right {
+  background:var(--right-background-color);
+}
+.timeline-article .content-right h1 {
+  text-shadow: var(--text-border-weight-bottom-left) 0px var(--right-text-border-color), /*상단*/
+               0px var(--text-border-weight-top-right) var(--right-text-border-color), /*우측*/
+               var(--text-border-weight-top-right) 0px var(--right-text-border-color), /*하단*/
+                0px var(--text-border-weight-bottom-left) var(--right-text-border-color);/*좌측*/
+}
+.timeline-article .content-right p{
+  color:var(--right-text-color);
+                                  }
 
                                 
 
+/* 1. 기본적으로 타임라인 내의 모든 p 태그는 완전히 숨김 */
 .timeline-article p {
-  margin: 0 0 0 ;
-  padding: 0;
-  font-weight: 400;
-  color: #242424;
-  font-size: 14px;
-  line-height: 24px;
-  position: relative;
-  display:none;
+  display: none !important;
 }
 
+/* 2. 자바스크립트로 인해 .active 클래스가 붙으면 무조건 화면에 표시 */
+.timeline-article p.active {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+}
+
+/* 3. 누를 수 있는 버튼임을 인지하도록 마우스 포인터 손가락 모양으로 변경 */
+.timeline-who {
+  cursor: pointer !important;
+}
 .timeline-article h1 {
   font-weight: bold;
   font-size: 44px;
