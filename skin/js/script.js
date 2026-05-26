@@ -55,13 +55,30 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 💡 이름 누르면 밑에 내용 나오는 js (데스크톱 전구역 탐색 보강 버전)
+    // 💡 이름 누르면 밑에 내용 나오는 js (데스크톱 투명 가림막 먹통 현상 완벽 방어형)
     document.addEventListener("click", function(event) {
-        const targetWho = event.target.closest(".timeline-who");
+        // 1. 마우스가 클릭한 지점의 정확한 좌표(X, Y)를 추출합니다.
+        const x = event.clientX;
+        const y = event.clientY;
+        
+        // 2. 해당 좌표 레이어 상에 겹쳐 있는 모든 웹 요소를 배열로 싹 다 긁어옵니다. (투명 가림막 무력화)
+        const elementsAtPoint = document.elementsFromPoint(x, y);
+        
+        let targetWho = null;
+        
+        // 3. 겹쳐진 요소들 중에서 .timeline-who 클래스를 가진 진짜 목표물이 있는지 수색합니다.
+        for (let el of elementsAtPoint) {
+            if (el.closest(".timeline-who")) {
+                targetWho = el.closest(".timeline-who");
+                break;
+            }
+        }
+        
+        // 4. 목표 이름표를 찾았다면 주변 구조에 상관없이 내용(<p>)을 찾아 펼쳐줍니다.
         if (targetWho) {
             let pContent = null;
 
-            // [1순위 탐색] 내 바로 뒤를 시작으로 인접한 형제 태그 중 <p> 수색
+            // [1순위 수색] 바로 인접한 형제 태그 중 <p>를 추적
             let nextEl = targetWho.nextElementSibling;
             while (nextEl) {
                 if (nextEl.tagName === "P") {
@@ -71,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 nextEl = nextEl.nextElementSibling;
             }
 
-            // [2순위 탐색] 데스크톱 격자 붕괴 대응: 내 직계 부모 박스 컨테이너 안에서 가장 가까운 p 찾기
+            // [2순위 수색] 직계 부모 박스 틀 내부에서 <p>를 탐색
             if (!pContent) {
                 const immediateParent = targetWho.parentElement;
                 if (immediateParent) {
@@ -79,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            // [3순위 탐색 - 치트키] 구조가 완전히 깨진 경우: 타임라인 아이템 한 칸 박스(.timeline-article) 내부 전체에서 원격 탐색
+            // [3순위 수색] 타임라인 행 박스(.timeline-article) 구역을 통째로 털어서 <p> 타겟팅
             if (!pContent) {
                 const mainArticle = targetWho.closest(".timeline-article");
                 if (mainArticle) {
@@ -87,13 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            // 최종 타겟팅된 독립 단 한 개의 p 태그만 화면에 온오프 토글 처리
+            // 최종 매칭 완료된 p 태그의 클래스를 부드럽게 토글 온오프
             if (pContent) {
                 pContent.classList.toggle("active");
             }
         }
     });
-});
+
 
 // 모바일 메뉴 토글 함수
 function toggleMobileMenu() {
