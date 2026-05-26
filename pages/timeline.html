@@ -189,19 +189,22 @@
 
           <!-- 이름 누르면 밑에 내용 나오는 js -->
      <script>
-       document.addEventListener("DOMContentLoaded", function() {
-    const timelineHeadings = document.querySelectorAll("h1.timeline-who");
-    timelineHeadings.forEach(function(h1) {
-        h1.classList.add("timeline-who");
+     document.addEventListener("DOMContentLoaded", () => {
+    // 모든 timeline-who 요소를 가져옵니다.
+    const whoButtons = document.querySelectorAll(".timeline-who");
 
-        // onclick 이벤트 핸들러 추가
-        h1.setAttribute("onclick", "toggleVisibility(this)");
+    whoButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            // 클릭한 이름 바로 다음에 오는 <p> 태그를 선택합니다.
+            const pContent = this.nextElementSibling;
+            
+            if (pContent && pContent.tagName === "P") {
+                // p 태그에 active 클래스가 있으면 빼고, 없으면 넣습니다.
+                pContent.classList.toggle("active");
+            }
+        });
     });
 });
-        function toggleVisibility(element) {var p = element.nextElementSibling;
-            if (p.style.display === "none" || p.style.display === "") 
-            {p.style.display = "block";} 
-            else {p.style.display = "none";}}
     </script>
   </section>
 </div>
