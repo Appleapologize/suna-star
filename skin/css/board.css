@@ -15,9 +15,10 @@
                                  margin:10px;
                                  position: relative;}
 
-img{object-fit:cover;
+img{
+            object-fit:cover;
     position: absolute;
-   width:60;
+   width:60px;
 top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);}
