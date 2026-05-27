@@ -612,7 +612,7 @@ ul li:hover > .sub {
 /*-------------모듈 전체----------*/
 img {
 	width: var(--width-100);
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .module {
