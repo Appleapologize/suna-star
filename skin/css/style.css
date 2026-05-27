@@ -275,8 +275,8 @@ body {
 
 body:has(#container) {
     background:
-    center / cover no-repeat var(--bg-img),
-    left top / auto repeat var(--background-color) var(--bg-pattern);
+	left top / auto repeat var(--background-color) var(--bg-pattern),	
+    center / cover no-repeat var(--bg-img);
 }
 
 
@@ -319,6 +319,9 @@ a:hover{
     top: 0;
     padding: 10px var(--padding-in-body);
     background: linear-gradient(to bottom, var(--background-color) 30%, transparent 100%);
+    background: 
+        linear-gradient(to bottom, var(--background-color) 30%, transparent 100%),
+        var(--bg-img) center / cover no-repeat;
     z-index: 1;	
 }
 
