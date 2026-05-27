@@ -36,7 +36,7 @@ details.details-css summary::before{content: var(--summary-mark);color:var(--sum
 }
 
 .head{
-  background:var(--sub-color);
+  background:var(--background-color) ;
   padding: calc(var(--box-padding) / 2);
 }
 
