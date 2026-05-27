@@ -83,7 +83,6 @@ function loadPage(event, relativePath, addHistory = true) {
     }
 
     const fileName = relativePath.split('/').pop(); 
-    const pageKey = fileName.split('.')[0]; // 문자열 결함 방지용 오차 보정         
 
     // GitHub Pages 경로 버그 방지 고정 주소
     const finalUrl = window.location.origin + '/suna-star/pages/' + fileName;
@@ -98,59 +97,76 @@ function loadPage(event, relativePath, addHistory = true) {
         .then(htmlData => {
             const contentArea = document.querySelector('#container');
             if (contentArea) {
-                // [💥 대청소 구간] 기존 동적 태그 제거
-                document.querySelectorAll('link[id^="dynamic-css-"]').forEach(el => el.remove());
-                document.querySelectorAll('script[id^="dynamic-js-"]').forEach(el => el.remove());
+                // 1. [💥 진짜 대청소 구간] 기존에 추가되었던 동적 CSS 및 JS 완전 제거
+                document.querySelectorAll('.dynamic-blog-css, .dynamic-blog-js').forEach(el => el.remove());
                 
                 if (window.galleryInterval) {
                     clearInterval(window.galleryInterval);
                     window.galleryInterval = null;
                 }
 
-                // 새로운 HTML 화면에 바인딩
-                contentArea.innerHTML = htmlData; 
+                // 2. DOM Parser를 사용해 문자열 데이터를 가상 HTML 객체로 파싱
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlData, 'text/html');
+
+                // 3. 순수 본문 내용만 타겟 영역에 주입
+                contentArea.innerHTML = doc.body.innerHTML; 
                 window.scrollTo(0, 0); 
 
-                // 💡 [💥 진짜 핵심 해결책]: 파일명이 100개로 늘어나도 일일이 지정할 필요 없는 완전 자동화 수식
-                let cssFileKey = pageKey;
-                let jsFileKey = pageKey;
+                // 4. [🎨 CSS 동적 로드] fetch한 HTML 내에 수록된 모든 <link rel="stylesheet"> 추출
+                const cssLinks = doc.querySelectorAll('link[rel="stylesheet"]');
+                cssLinks.forEach(link => {
+                    const newLink = document.createElement('link');
+                    newLink.className = 'dynamic-blog-css'; // 대청소용 식별 클래스
+                    newLink.rel = 'stylesheet';
+                    
+                    let href = link.getAttribute('href');
+                    if (!href.startsWith('/') && !href.startsWith('http')) {
+                        newLink.href = window.location.origin + '/suna-star/skin/css/' + href;
+                    } else {
+                        newLink.href = href;
+                    }
 
-                // 주소창 파일 이름 뒤에 "-wiki"라는 단어가 붙어있다면, 무조건 공용 파일인 'wiki.css'와 'footnote-click.js'로 강제 우회시킵니다!
-                if (pageKey.indexOf("-wiki") !== -1) {
-                    cssFileKey = "wiki";
-                    jsFileKey = "footnote-click"; 
-                }
+                    newLink.onerror = () => newLink.remove();
+                    document.head.appendChild(newLink);
+                });
 
-                // 타임라인 페이지 세트 예외처리
-                if (pageKey === "timeline") {
-                    cssFileKey = "timelineall";
-                }
+                // 5. [⚙️ JS 동적 로드] fetch한 HTML 내에 수록된 모든 <script> 추출 및 순차 실행
+                const scripts = doc.querySelectorAll('script');
+                let scriptChain = Promise.resolve();
 
-                // 동적 CSS 로드
-                const cssId = `dynamic-css-${pageKey}`;
-                const link = document.createElement('link');
-                link.id = cssId; 
-                link.rel = 'stylesheet';
-                link.href = window.location.origin + `/suna-star/skin/css/${cssFileKey}.css`; 
-                link.onerror = () => link.remove(); 
-                document.head.appendChild(link);
+                scripts.forEach(script => {
+                    scriptChain = scriptChain.then(() => {
+                        return new Promise((resolve) => {
+                            const newScript = document.createElement('script');
+                            newScript.className = 'dynamic-blog-js'; // 대청소용 식별 클래스
+                            
+                            const src = script.getAttribute('src');
+                            if (src) {
+                                if (!src.startsWith('/') && !src.startsWith('http')) {
+                                    newScript.src = window.location.origin + '/suna-star/skin/js/' + src;
+                                } else {
+                                    newScript.src = src;
+                                }
+                                newScript.onload = () => resolve();
+                                newScript.onerror = () => {
+                                    newScript.remove();
+                                    resolve(); 
+                                };
+                            } else {
+                                newScript.textContent = script.textContent;
+                                resolve(); 
+                            }
+                            document.body.appendChild(newScript);
+                        });
+                    });
+                });
 
-                // 동적 JS 로드 및 실행 타이밍 제어
-                const jsId = `dynamic-js-${pageKey}`;
-                const script = document.createElement('script');
-                script.id = jsId;
-                script.src = window.location.origin + `/suna-star/skin/js/${jsFileKey}.js`; 
-                
-                script.onerror = () => {
-                    script.remove();
-                    window.setupMenuLinks = function() {}; // 전역 ReferenceError 방어막
+                // 6. 모든 스크립트 구동 완료 후 초기화 헬퍼 함수 실행 (버그 수정 완료)
+                scriptChain.then(() => {
+                    const pageKey = fileName.split('.')[0]; 
                     executePageInit(pageKey);
-                }; 
-                
-                script.onload = () => {
-                    executePageInit(pageKey);
-                };
-                document.body.appendChild(script);
+                });
 
                 if (addHistory) { 
                     addQueryString(fileName); 
