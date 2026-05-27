@@ -59,9 +59,11 @@ table.sns-board .date{
   z-index: -1;
 }
 
-@media (max-width: 600px) {.diary-text table{width:100%;}
-                           .sns-line{left: 10%;}
-        }
+@media (max-width: 600px) {
+  .diary-text table{
+    width:100%;
+}
+}
 
 
 
