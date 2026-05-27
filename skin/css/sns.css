@@ -1,27 +1,37 @@
 @charset "utf-8";
 
-.diary-text table{ border:1px solid black; 
+.diary-text table{ 
+  border:1px solid black; 
                    width:50%;
-                   border-collapse: collapse;}
+                   border-collapse: collapse;
+}
 
-.diary-text table tr td{padding:10px;
-                        border: 1px solid black;}
+.diary-text table tr td{
+  padding:10px;
+                        border: 1px solid black;
+}
 
 
-table.sns-board{width:100%;
-               border:none;}
-table.sns-board tr td{text-align:center;
+table.sns-board{
+  width:100%;
+               border:none;
+}
+table.sns-board tr td{
+  text-align:center;
                       border:none;
                        border-bottom:1px solid gray;
-                     width:20%;}
+                     width:20%;
+}
 
-table.sns-board tr th{text-align: left;
-                       border-bottom:1px solid gray;
-                      border-left:1px solid gray;
-                      border-right:1px solid gray;
-                     width:60%;
-                     padding:0 0 0 10px;
-                     overflow:hidden;}
+table.sns-board tr th{
+  text-align: left;
+  border-bottom:1px solid gray;
+  border-left:1px solid gray;
+  border-right:1px solid gray;
+  width:60%;
+  padding:0 0 0 10px;
+  overflow:hidden;
+                     }
 
 table.sns-board tr th a{
   text-decoration: none;
@@ -29,21 +39,25 @@ table.sns-board tr th a{
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  overflow: hidden;}
-
-table.sns-board .date{position: static;
+  overflow: hidden;
 }
-#board{position: relative;}
+
+table.sns-board .date{
+  position: static;
+}
+#board{
+  position: relative;
+      }
 
 .sns-line{
   position: absolute;
   width: 10px;/*sns 타임라인 선 두께*/
-  height: 100%;
-  top: 0;
-  left: 20%;
-  margin-left: -2px;
+  height: 99.8%;
+  top: calc(100px + var(--padding-in-body));
+  left: 15%;
   background: #ebebeb;/*sns 타임라인 선 색상*/
-  z-index: -1;}
+  z-index: -1;
+}
 
 @media (max-width: 600px) {.diary-text table{width:100%;}
                            .sns-line{left: 10%;}
@@ -72,7 +86,8 @@ div.goto {
     background-color: var(--goto-backcolor);
     border-radius:var(--goto-border-radius);
     padding: 10px 0px;
-    z-index: 1;}
+    z-index: 1;
+}
 
 div.goto a{display:block;}
 
