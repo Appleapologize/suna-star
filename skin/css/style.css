@@ -523,7 +523,7 @@ ul li:hover > .sub {
     justify-content: center;
     padding: 0;
     overflow: hidden;
-    box-shadow: 0 4px 6px var(--box-shadow-color);
+    box-shadow: var(--box-shadow);
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s;
 }
 
@@ -618,7 +618,7 @@ img {
 .module {
     max-width: var(--width-100);
     background-color: var(--card-background-color);
-    box-shadow: var(--box-shadow-color);
+    box-shadow: var(--box-shadow);
     padding: var(--box-padding);
     margin: var(--box-gap) auto;
     border-radius: var(--module-round);
@@ -741,8 +741,7 @@ img {
 
 .banner-module.self {
     background-color: var(--background-color);
-    box-shadow: var(--box-shadow-color);
-}
+    box-shadow: var(--box-shadow);
 
 @media screen and (max-width: 639px) {    
     
@@ -828,7 +827,7 @@ footer p.bold{
         background: var(--card-background-color);
         color: var(--text-color);
         cursor: pointer;
-        box-shadow: 0 4px 6px var(--box-shadow-color);
+        box-shadow: var(--box-shadow);
         padding: 0;
     }
 
@@ -888,7 +887,7 @@ footer p.bold{
         height: 100vh;
         z-index: 101;
         padding: 70px 20px 20px 20px;
-        box-shadow: 4px 0 15px var(--box-shadow-color);
+        box-shadow: var(--box-shadow);
         transition: left 0.3s ease-in-out;
         overflow-y: auto;
     }
