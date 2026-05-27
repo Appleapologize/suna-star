@@ -2,52 +2,6 @@
 <link rel="stylesheet" href="/suna-star/skin/css/sns.css">
 
 <div id="board">
-<div class="goto">
-<!--top버튼 나도 만들거다-->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
-<script type="text/javascript">
-$(function(){
-  $("#gotop").hide();
-  $(window).scroll(function(){
-    if($(this).scrollTop() > 60){$("#gotop").fadeIn();}
-    else{$("#gotop").fadeOut();}
-  });
-
-    $("#gotop").click(function(){
-    $("html, body").animate({ scrollTop: 0 }, 500); // 500ms 동안 스크롤 이동
-    return false;
-  });
-});
-</script>
-<a href="#" id="gotop" title="Top">
-  ▲
-  <!--<img src="./images/top1.png" onmouseover="this.src='./images/top2.png'" onmouseout="this.src='./images/top1.png'" border="0"/>-->
-</a>
-<!--탑(TOP)버튼 종료 -->
-
-<!--맨 밑으로 버튼-->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
-$(function(){
-  // 스크롤 이벤트 처리: 500px 이상 스크롤 시 버튼 표시
-  $(window).scroll(function(){
-    $("#gotobottom").fadeIn();
-  });
-
-  // '맨 밑으로 가기' 버튼 클릭 이벤트 추가
-  $("#gotobottom").click(function(){
-    $("html, body").animate({ scrollTop: $(document).height() }, 500); // 500ms 동안 스크롤 이동
-    return false;
-  });
-});
-</script>
-
-<!-- 버튼 코드 -->
-<a href="#" id="gotobottom" title="Bottom">
-  ▼
-</a>
-<!--맨 밑으로 버튼 종료 -->  
-</div>  
       <div class="sns-line"></div>
   <!--sns내용-->
       <div class="diary-module module">
@@ -1843,5 +1797,50 @@ $(function(){
         </div>
         </div>
 </div>
+<div class="goto">
+<!--top버튼 나도 만들거다-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
+<script type="text/javascript">
+$(function(){
+  $("#gotop").hide();
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 60){$("#gotop").fadeIn();}
+    else{$("#gotop").fadeOut();}
+  });
+
+    $("#gotop").click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 500); // 500ms 동안 스크롤 이동
+    return false;
+  });
+});
+</script>
+<a href="#" id="gotop" title="Top">
+  ▲
+  <!--<img src="./images/top1.png" onmouseover="this.src='./images/top2.png'" onmouseout="this.src='./images/top1.png'" border="0"/>-->
+</a>
+<!--탑(TOP)버튼 종료 -->
+
+<!--맨 밑으로 버튼-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  // 스크롤 이벤트 처리: 500px 이상 스크롤 시 버튼 표시
+  $(window).scroll(function(){
+    $("#gotobottom").fadeIn();
+  });
+
+  // '맨 밑으로 가기' 버튼 클릭 이벤트 추가
+  $("#gotobottom").click(function(){
+    $("html, body").animate({ scrollTop: $(document).height() }, 500); // 500ms 동안 스크롤 이동
+    return false;
+  });
+});
+</script>
+
+<!-- 버튼 코드 -->
+<a href="#" id="gotobottom" title="Bottom">
+  ▼
+</a>
+<!--맨 밑으로 버튼 종료 -->  
+</div>  
 <div class="sns-line"></div>
-<iframe src="./footer.html" class="footer-frame" frameborder="0" style="width: 100%;"></iframe>
