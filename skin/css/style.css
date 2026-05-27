@@ -161,6 +161,8 @@
 	/*footer 배경 유리 질감*/
 	--footer-back-color-glass: rgba(186, 230, 253, 0.4);
 	--footer-border-color-glass:rgba(255, 255, 255, 0.3);
+
+--box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);		
 }
 
 
