@@ -44,7 +44,14 @@
         --module-opacity: 100%;
         /* 모듈박스의 투명도를 지정합니다. 0에서 100까지의 값을 %로 입력합니다. 단, 내용도 투명해집니다. (반투명 권장 : 98~99%) */
         --module-round: 15px;
-        /* 모듈박스의 기본적인 테두리 둥글기 값을 지정합니다. */	
+        /* 모듈박스의 기본적인 테두리 둥글기 값을 지정합니다. */
+
+	/*박스 그림자*/
+	--box-shadow-X:3px; /*양수는 오른쪽, 음수는 왼쪽*/
+	--box-shadow-Y:-3px; /*양수는 위쪽, 음수는 아래쪽*/
+	--box-shadow-blur: 5px; 
+	--box-shadow-spread:5px;
+
 
 	/* -------- -------- 모듈 개별 설정 -------- -------- */
             --visual-module-width: auto;
@@ -154,6 +161,9 @@
 	/*footer 배경 유리 질감*/
 	--footer-back-color-glass: rgba(186, 230, 253, 0.4);
 	--footer-border-color-glass:rgba(255, 255, 255, 0.3);
+
+
+	--box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);			
 }
 
 /* -------- -------- -------- -------- 다크 모드 색상 설정 -------- -------- -------- -------- */
@@ -600,10 +610,6 @@ ul li:hover > .sub {
 }
 
 /*-------------모듈 전체----------*/
- .module {
-	 
- }
-
 img {
 	width: var(--width-100);
     object-fit: contain;
