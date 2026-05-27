@@ -161,10 +161,8 @@
 	/*footer 배경 유리 질감*/
 	--footer-back-color-glass: rgba(186, 230, 253, 0.4);
 	--footer-border-color-glass:rgba(255, 255, 255, 0.3);
-
-
-	--box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);			
 }
+
 
 /* -------- -------- -------- -------- 다크 모드 색상 설정 -------- -------- -------- -------- */
 [data-theme="dark"] {
@@ -238,7 +236,9 @@
     /* footer 배경 유리 질감 */
     --footer-back-color-glass: rgba(102, 107, 122, 0.7); 
     --footer-border-color-glass: rgba(255, 255, 255, 0.1);
-}
+
+--box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);			
+}	
 
 
 
@@ -788,18 +788,18 @@ footer p.bold{
 	font-weight: bolder;
 }
 
+
+/*-------------모바일에서만 보이는 메뉴 버튼----------*/
+/* PC 환경에서는 모바일용 UI 요소를 숨김 */
+#menu-toggle-btn {
+    display: none;
+}	
 /*타블렛*/
 @media (max-width: 1300px) {
 	#container {
 		width:91%;
 	}
 
-}
-
-/*-------------모바일에서만 보이는 메뉴 버튼----------*/
-/* PC 환경에서는 모바일용 UI 요소를 숨김 */
-#menu-toggle-btn {
-    display: none;
 }
 
 @media (max-width: 1024px) {
