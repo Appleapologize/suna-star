@@ -20,7 +20,7 @@
 	--mobile-vwvh:44px;
 	--mobile-position:15px;
 	
-	--container-padding:10px; /*글 나오는 곳 사방(전체) 여백*/
+	--container-padding:30px; /*글 나오는 곳 사방(전체) 여백*/
 	--padding-in-body:40px;
 	--padding-menu:10px; /*메뉴 버튼 전체, 각 메뉴 여백*/
 	--box-padding: 20px;
