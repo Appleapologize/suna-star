@@ -798,7 +798,7 @@ footer p.bold{
 
 /*-------------모바일에서만 보이는 메뉴 버튼----------*/
 /* PC 환경에서는 모바일용 UI 요소를 숨김 */
-.menu-toggle-btn {
+#menu-toggle-btn {
     display: none;
 }
 
@@ -812,7 +812,7 @@ footer p.bold{
 	}
  
   /* 메뉴 토글 버튼 스타일 및 화면 좌측 상단 고정 */
-    .menu-toggle-btn {
+    #menu-toggle-btn {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -831,7 +831,7 @@ footer p.bold{
         padding: 0;
     }
 
-    .menu-toggle-btn:hover{
+    #menu-toggle-btn:hover{
 		background: var(--theme-toggle-btn-back-color-hover);		
 	}	
 
@@ -857,7 +857,7 @@ footer p.bold{
     }
    
     /* 첫 번째 줄: 정중앙 배치 후 오른쪽 아래로 45도 회전 */
-    .menu-toggle-btn.active .hamburger-icon span:nth-child(1) {
+    #menu-toggle-btn.active .hamburger-icon span:nth-child(1) {
         position: absolute;
         top: 50%;
         margin-top: -1px;
@@ -865,12 +865,12 @@ footer p.bold{
     }
 
     /* 두 번째 줄: 숨김 */
-    .menu-toggle-btn.active .hamburger-icon span:nth-child(2) {
+    #menu-toggle-btn.active .hamburger-icon span:nth-child(2) {
         opacity: 0;
     }
 
     /* 세 번째 줄: 정중앙 배치 후 오른쪽 위로 45도 회전 */
-    .menu-toggle-btn.active .hamburger-icon span:nth-child(3) {
+    #menu-toggle-btn.active .hamburger-icon span:nth-child(3) {
         position: absolute;
         top: 50%;
         margin-top: -1px;
