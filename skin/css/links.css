@@ -73,6 +73,7 @@ a:has(.tooltip):hover img{
   background:var(--background-color); 
   padding: 10px;
   border-radius: 10px;  
+  color:var(--text-color);	
 }
 
 .tooltip p:after{
