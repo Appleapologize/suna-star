@@ -824,6 +824,14 @@ footer p.bold{
 }
 
 @media (max-width: 1024px) {
+	#head{
+		margin-bottom:0;
+	}
+	
+	#main-wrapper{
+		padding:0 ;
+		margin:0;
+	}
 	#container {
 		width:var(--width-100);
 	}
