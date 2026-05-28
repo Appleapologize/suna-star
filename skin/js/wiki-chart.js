@@ -61,7 +61,11 @@ document.addEventListener("DOMContentLoaded", function () {
         angleLines: { color: cssGridColor }, //
         pointLabels: {
           color: cssTextColor, //
-          font: { size: 11 } // 능력치 글자 크기를 살짝 줄여 공간 확보
+          font: { 
+            size: 12,        /* 글자 크기를 살짝 조절 */
+            weight: 'bold'   /* 모서리 글씨를 선명하게 */
+          }, 
+          padding: -8
         }
       },
     },
