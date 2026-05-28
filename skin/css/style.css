@@ -395,8 +395,9 @@ nav{
 	position: sticky;
     top: 140px;
     margin: 0 var(--padding-menu) 0 0;
-    background: 
-	color-mix(in srgb, var(--background-color) 85%, transparent);
+    background: color-mix(in srgb, var(--background-color) 30%, transparent);
+    -webkit-backdrop-filter: blur(var(--background-blur));
+    backdrop-filter: blur(var(--background-blur));	
     padding: 0 var(--padding-menu);
     height: fit-content;
     border-radius: var(--border-radius-l);
