@@ -31,18 +31,18 @@
 	width:50%;
 }
 
-table{
+#wiki table{
 	width: var(--width-100);
 	height:auto;
 }
-tbody{
+#wiki tbody{
 	width:var(--width-100);
 }
-tr{
+#wiki tr{
 	width:var(--width-100);
 	height:auto;
 }
-td{
+#wiki td{
 	height:auto;
 	text-align: center;
 	padding: 2px 5px;
@@ -56,15 +56,15 @@ a.index{
 	color:#0275d8;
 	text-decoration: none;
 }
-a{
+#wiki a{
 	color:#0275d8;
 	text-decoration: none;
 }
-a sup{
+#wiki a sup{
 	color:#0275d8;
 }
 
-a:hover,
+#wiki a:hover,
   focus {
 	color: #ff85d4;
 	text-decoration:underline;
@@ -75,7 +75,7 @@ span{
 	text-align:start;
 }
 
-p{
+#wiki p{
 	text-align: left;
 }
 
