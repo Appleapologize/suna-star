@@ -915,6 +915,19 @@ footer p.bold{
     }
 
     /* 모바일에서 메뉴 오픈 전: 왼쪽 화면 밖에서 대기) */
+#menu, 
+#menu aside, 
+#menu nav, 
+#menu .navmenu {
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    perspective: none !important;
+    will-change: auto !important;
+    /* 부모가 화면을 가리지 않도록 위치 성질만 기본으로 초기화 */
+    position: static !important; 
+}
+	
     .mobile-drawer {
         position: fixed;
         top: 0;
