@@ -603,31 +603,43 @@ div.footnote .text1 {
 /* 2. PC 차트 박스 규격을 정확히 320px로 단단히 밀봉 */
 .chart-container {
     display: inline-grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 15px;
+    grid-template-columns: 1fr 1fr !important; /* 좌우 반반 배치 */
+    gap: 25px;
     width: 100% !important;
     margin: 0 auto;
     position: relative;
     
-    /* Chart.js 계산 꼬임 방지를 위해 완벽히 높이 수치 잠금 */
+    /* 💡 가로가 넓어져도 세로 여백이 생기지 않도록 딱 320px로 가둡니다 */
     height: 320px !important;
     min-height: 320px !important;
     max-height: 320px !important;
     overflow: visible !important;
 }
 
-/* 3. 라이브러리가 주입하는 element.style(400px)을 CSS 권력으로 찍어 누름 */
-#radarChart,
-#barChart,
-.chart-container canvas {
-    display: block !important;
+.chart-box {
     width: 100% !important;
-    padding: 10px;
-    box-sizing: border-box !important;
-    
-    /* 부모 컨테이너가 지정한 320px 웅덩이 밖으로 절대 못 나가게 가둠 */
     height: 100% !important;
     max-height: 100% !important;
+    position: relative !important; /* 💡 Chart.js가 이 상자 크기 안에서만 계산하도록 만드는 핵심 기준점 */
+    overflow: hidden;
+}
+
+
+/* 3. 라이브러리가 주입하는 element.style(400px)을 CSS 권력으로 찍어 누름 */
+.chart-box canvas {
+    display: block !important;
+    width: 100% !important;  /* 자바스크립트가 넣은 1150px을 무시하고 100%로 강제 압착 */
+    max-width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    box-sizing: border-box !important; /* */
+    padding: 5px;
+}
+
+/* 5. [원형 차트 전용] 억지로 늘어나서 찌그러지지 않게 정비율 정렬 */
+#radarChart {
+    width: 100% !important; /* 가로 가득 채우지 말고 예쁜 동그라미 비율 사수 */
+    margin: 0 auto !important;
 }
 
 /* 범례 스타일 */
@@ -718,11 +730,18 @@ details:not([open]) h2.one-title span {
 
     /* 💡 모바일 화면 전용 차트 대형 리포맷 */
     .chart-container {
-        display: flex !important; /* 가로 분할 끄고 위아래 정렬 */
+        display: flex !important;    /* 세로 정렬 전환 */
         flex-direction: column !important;
-        height: auto !important; /* 모바일에선 세로 제한 해제 */
+        height: auto !important;     /* 모바일에선 고정 높이 해제 */
         max-height: none !important;
         gap: 30px !important;
+    }
+    .chart-box {
+        height: 280px !important;    /* 모바일 환경 맞춤형 세로 규격 */
+    }
+    .chart-box canvas {
+        width: 100% !important;
+        height: 100% !important;
     }
     #radarChart,
     #barChart,
@@ -735,75 +754,5 @@ details:not([open]) h2.one-title span {
     }
     #barChart {
         margin: 10px 0 0 0;
-    }
-}
-
-/* ==========================================================================
-   차트 레이아웃 최적화 (인라인 1150px 괴물 수치 및 유령 여백 완벽 박멸)
-   ========================================================================== */
-
-/* 1. 부모 테이블(#gallery) 고정 높이 완전히 해제 */
-#gallery, #gallery td {
-    height: auto !important; /* */
-}
-
-/* 2. PC 차트 전체 틀 설정 (높이를 320px로 단단히 제한) */
-.chart-container {
-    display: inline-grid !important;
-    grid-template-columns: 1fr 1fr !important; /* 좌우 반반 배치 */
-    gap: 25px;
-    width: 100% !important;
-    margin: 0 auto;
-    position: relative;
-    
-    /* 💡 가로가 넓어져도 세로 여백이 생기지 않도록 딱 320px로 가둡니다 */
-    height: 320px !important;
-    min-height: 320px !important;
-    max-height: 320px !important;
-    overflow: visible !important;
-}
-
-/* 3. ⭐ [핵심 추가] 자바스크립트의 무지성 크기 확장을 치료하는 감싸는 상자 */
-.chart-box {
-    width: 100% !important;
-    height: 100% !important;
-    max-height: 100% !important;
-    position: relative !important; /* 💡 Chart.js가 이 상자 크기 안에서만 계산하도록 만드는 핵심 기준점 */
-    overflow: hidden;
-}
-
-/* 4. 캔버스 그래픽들이 새로 만든 chart-box 웅덩이 밖으로 절대 못 나가게 포위 */
-.chart-box canvas {
-    display: block !important;
-    width: 100% !important;  /* 자바스크립트가 넣은 1150px을 무시하고 100%로 강제 압착 */
-    max-width: 100% !important;
-    height: 100% !important;
-    max-height: 100% !important;
-    box-sizing: border-box !important; /* */
-    padding: 5px;
-}
-
-/* 5. [원형 차트 전용] 억지로 늘어나서 찌그러지지 않게 정비율 정렬 */
-#radarChart {
-    width: 100% !important; /* 가로 가득 채우지 말고 예쁜 동그라미 비율 사수 */
-    margin: 0 auto !important;
-}
-
-
-/* 📱 모바일 화면 대응 (1024px 이하 타블렛 및 스마트폰) */
-@media screen and (max-width: 1024px) {
-    .chart-container {
-        display: flex !important;    /* 세로 정렬 전환 */
-        flex-direction: column !important;
-        height: auto !important;     /* 모바일에선 고정 높이 해제 */
-        max-height: none !important;
-        gap: 35px !important;
-    }
-    .chart-box {
-        height: 280px !important;    /* 모바일 환경 맞춤형 세로 규격 */
-    }
-    .chart-box canvas {
-        width: 100% !important;
-        height: 100% !important;
     }
 }
