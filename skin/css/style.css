@@ -8,6 +8,7 @@
 /* style.css */
 :root {
     --width-100:100%;
+	--background-blur:12px;/*유리 질감때 blur*/
     /* 버튼들의 기본적인 테두리 둥글기 값을 지정합니다 */
 	--button-round: 15px;
 	
@@ -318,11 +319,11 @@ a:hover{
     position: sticky;
     top: 0;
     padding: 10px var(--padding-in-body);
-    -webkit-backdrop-filter: blur(12px) !important;
-    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(var(--background-blur));
+    backdrop-filter: blur(var(--background-blur));
     background:
 	 linear-gradient(to bottom, color-mix(in srgb, var(--background-color) 65%, transparent) 0%, 
-        color-mix(in srgb, var(--background-color) 15%, transparent) 100%) !important;
+        color-mix(in srgb, var(--background-color) 15%, transparent) 100%);
     z-index: 1;
     margin-bottom: 20px;
 }
@@ -399,6 +400,7 @@ nav{
     padding: 0 var(--padding-menu);
     height: fit-content;
     border-radius: var(--border-radius-l);
+	z-index: 1;
 }
 
 .sub, .ssub { 
