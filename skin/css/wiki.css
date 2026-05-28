@@ -447,7 +447,7 @@ table.text-one-line{
 	border-collapse: collapse; 
 	width: auto; 
 	max-width:63vw;
-	word-break:keep-all;
+	word-break:normal;
 	margin: 1em 0;
 }
 
