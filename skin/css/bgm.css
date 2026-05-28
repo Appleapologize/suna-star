@@ -85,12 +85,6 @@
     border-radius: 30px;
 }
 
-@media (min-width: 768px) and (max-width: 1024px){
-      #videoTitle {
-            width: 60%;
-                  }
-                                    
-}
 #videoTitle p {
       padding: 0;
       margin: 5px;
@@ -108,4 +102,12 @@
 @keyframes scroll-left {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
+}
+
+
+@media (max-width: 1024px){
+      #videoTitle {
+            width: 60%;
+                  }
+                                    
 }
