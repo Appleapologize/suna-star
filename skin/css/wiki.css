@@ -750,7 +750,7 @@ details:not([open]) h2.one-title span {
 /* 2. PC 차트 전체 틀 설정 (높이를 320px로 단단히 제한) */
 .chart-container {
     display: inline-grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* 좌우 반반 배치 */
+    grid-template-columns: 1fr 1fr !important; /* 좌우 반반 배치 */
     gap: 25px;
     width: 100% !important;
     margin: 0 auto;
@@ -785,7 +785,7 @@ details:not([open]) h2.one-title span {
 
 /* 5. [원형 차트 전용] 억지로 늘어나서 찌그러지지 않게 정비율 정렬 */
 #radarChart {
-    width: auto !important; /* 가로 가득 채우지 말고 예쁜 동그라미 비율 사수 */
+    width: 100% !important; /* 가로 가득 채우지 말고 예쁜 동그라미 비율 사수 */
     margin: 0 auto !important;
 }
 
