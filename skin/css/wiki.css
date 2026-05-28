@@ -747,11 +747,11 @@ details:not([open]) h2.one-title span {
     #radarChart {
         margin: 20px 0 10px 0;
 		min-width: 50vw !important;
-		max-height: 50vh !important;
+		min-height: 50vh !important;
     }
     #barChart {
         margin: 10px 0 0 0;
         min-width: 40vw !important;		
-		max-height: 40vh !important;
+		min-height: 40vh !important;
     }
 }
