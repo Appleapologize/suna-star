@@ -20,6 +20,8 @@
 	/*모바일 모드에서만 나오는 버튼*/
 	--mobile-vwvh:44px;
 	--mobile-position:15px;
+
+	--mobile-top-position:140px;
 	
 	--container-padding:30px; /*글 나오는 곳 사방(전체) 여백*/
 	--padding-in-body:40px;
@@ -396,7 +398,7 @@ nav{
 
 #menu{
 	position: sticky;
-    top: 140px;
+    top: var(--mobile-top-position);
     margin: 0 var(--padding-menu) 0 0;
     background: color-mix(in srgb, var(--sub-background-color) 30%, transparent);
     -webkit-backdrop-filter: blur(var(--background-blur));
@@ -777,6 +779,8 @@ footer *{
 }
 
 footer{
+    display: flex;
+    flex-direction: column;	
 	padding: 20px;
     width: 100%;
     text-align: center;
@@ -927,7 +931,7 @@ footer p.bold{
     /* 메뉴 오픈 활성화 상태 */
     .mobile-drawer.active {
         left: 0;
-		top: 0;
+		top: calc(var(--mobile-top-position) * -1);
         background: color-mix(in srgb, var(--background-color) 30%, transparent);
         -webkit-backdrop-filter: blur(var(--background-blur));
         backdrop-filter: blur(var(--background-blur));		
