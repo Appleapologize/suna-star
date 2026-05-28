@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 5. Radar Chart 옵션
   const radarOptions = {
     ...commonOptions, //
+    maintainAspectRatio: true,
     scales: {
       r: {
         beginAtZero: true, //
