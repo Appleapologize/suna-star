@@ -51,7 +51,7 @@ div.time-clock {
 
 .blink {
           animation: blink 1s steps(2, start) infinite;
-          color: white;
+          color: var(--text-color);
         }
 
 @keyframes blink {
