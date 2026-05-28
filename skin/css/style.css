@@ -95,7 +95,7 @@
 
 /* -------- -------- -------- -------- 라이트 모드 색상 및 이미지 설정 -------- -------- -------- -------- */
     --background-color: #f0f4f8;
-    --sub-background-color: #f0f4f8;	
+    --sub-background-color: #adffff;	
     --title-color:#fff; /*제목 글자 색상*/
 	--title-shadow-color:#ccc;
     --card-background-color: #fff;  
@@ -163,7 +163,7 @@
 	--footer-back-color:#bae6fd;
 
 	/*footer 배경 유리 질감*/
-	--footer-back-color-glass: rgba(186, 230, 253, 0.4);
+	--footer-back-color-glass: rgba(173, 230, 253, 0.4);
 	--footer-border-color-glass:rgba(255, 255, 255, 0.3);
 
 --box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);		
@@ -325,8 +325,8 @@ a:hover{
     -webkit-backdrop-filter: blur(var(--background-blur));
     backdrop-filter: blur(var(--background-blur));
     background:
-	 linear-gradient(to bottom, color-mix(in srgb, var(--background-color) 65%, transparent) 0%, 
-        color-mix(in srgb, var(--background-color) 15%, transparent) 100%);
+	 linear-gradient(to bottom, color-mix(in srgb, var(--sub-background-color) 65%, transparent) 0%, 
+        color-mix(in srgb, var(--sub-background-color) 15%, transparent) 100%);
     z-index: 1;
     margin-bottom: var(--box-gap-out-margin);
 }
@@ -398,7 +398,7 @@ nav{
 	position: sticky;
     top: 140px;
     margin: 0 var(--padding-menu) 0 0;
-    background: color-mix(in srgb, var(--background-color) 30%, transparent);
+    background: color-mix(in srgb, var(--sub-background-color) 30%, transparent);
     -webkit-backdrop-filter: blur(var(--background-blur));
     backdrop-filter: blur(var(--background-blur));	
     padding: 0 var(--padding-menu);
