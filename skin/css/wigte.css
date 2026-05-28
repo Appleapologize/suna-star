@@ -6,60 +6,60 @@ html, body{
           background: center / contain no-repeat var(--nav-img), left top / auto repeat var(--sub-color) var(--nav-pattern);
            /*background-color: pink;
           background-image: url('https://blog.kakaocdn.net/dn/okY02/btsKntxhLwz/wIz0gO7F8abrlyZcnLHEWK/img.jpg');*/
-                  scrollbar-width: none; 
-        -ms-overflow-style: none;
+          scrollbar-width: none; 
+          -ms-overflow-style: none;
           }
 
-      #time-and-day {
-            text-align: center; /* 모든 내용 중앙 정렬 */
-        vertical-align:middle;
+#time-and-day {
+          text-align: center; /* 모든 내용 중앙 정렬 */
+          vertical-align:middle;
         }
 
-        #d-day-wejet {
-            padding: 0px;
-            display: inline-block;
-            text-align: center;
+#d-day-wejet {
+          padding: 0px;
+          display: inline-block;
+          text-align: center;
           vertical-align: middle;
           float:left;
           margin: 0 auto;
         }
 
-        #d-day-wejet h2,
-        #d-day-wejet h1 {
-           font-family: 'Nanum Pen Script', cursive;
-            font-weight: 400;
-            font-style: normal;
+#d-day-wejet h2,
+#d-day-wejet h1 {
+          font-family: 'Nanum Pen Script', cursive;
+          font-weight: 400;
+          font-style: normal;
           font-size:larger;
-            color: white;
-            margin: 0 5px; /* h1과 h2 사이 간격 */
-            display: inline-block; /* 가로 정렬 */
-            vertical-align: middle; /* 세로 정렬 */
-            text-shadow: -1px 0px black, 1px 0px black, 1px -1px black, -1px 1px black;
+          color: white;
+          margin: 0 5px; /* h1과 h2 사이 간격 */
+          display: inline-block; /* 가로 정렬 */
+          vertical-align: middle; /* 세로 정렬 */
+          text-shadow: -1px 0px black, 1px 0px black, 1px -1px black, -1px 1px black;
         }
 
 
-      div.time-clock {
-            font-family: "Jura", sans-serif;
-            color: black;
-        font-size:initial;
-            letter-spacing: 10px;
-            display: inline-block;
-        float:right;
-        padding:2px 0;
-        
+div.time-clock {
+          font-family: "Jura", sans-serif;
+          color: black;
+          font-size:initial;
+          letter-spacing: 10px;
+          display: inline-block;
+          float:right;
+          padding:2px 0;
         }
 
-        .blink {
-            animation: blink 1s steps(2, start) infinite;
-            color: white;
+.blink {
+          animation: blink 1s steps(2, start) infinite;
+          color: white;
         }
 
-        @keyframes blink {
-            0%, 100% {
-                opacity: 1;
-                color: white;
+@keyframes blink {
+          0%, 100% {
+          opacity: 1;
+          color: white;
             }
-            50% {opacity: 0;
-                color: transparent;
+          50% {
+          opacity: 0;
+          color: transparent;
             }
         }
