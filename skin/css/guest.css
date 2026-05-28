@@ -149,7 +149,7 @@ hr.comment-form{
   color:white;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .toggle-comment-form{
   padding: 5px 20px;
 }
