@@ -262,6 +262,7 @@ html, body{
 }
 
 html:has(#container) {
+	scrollbar-color: var(--scroll-color1) color-mix(in srgb, var(--background-color) 15%, transparent); 
     background:
     center / cover no-repeat var(--limit-img),
     left top / auto repeat var(--background-color) var(--limit-pattern);
@@ -292,15 +293,21 @@ body:has(#container) {
 
 /* 스크롤바 배경(트랙) 설정 */
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05); /* 투명하거나 원하는 배경색 */
+  background: color-mix(in srgb, var(--background-color) 15%, transparent); /* 투명하거나 원하는 배경색 */
 }
 
 /* 스크롤바 움직이는 바(막대) 설정 */
 ::-webkit-scrollbar-thumb {
-  background: var(--scroll-color1); /* 스크롤바 막대 색상 */
-  border-radius: var(--border-radius-s);
+    background-color: var(--scroll-color1);/* 스크롤바 막대 색상 */
+	border: 3.5px solid transparent;
+    background-clip: padding-box;
+    border-radius: 999px;
+    border-radius: var(--border-radius-m);
 }
 
+::-webkit-scrollbar-thumb:hover {
+    background-color: #ff9494; /* */
+}
 
 
 a{
