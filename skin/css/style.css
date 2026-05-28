@@ -293,7 +293,8 @@ body:has(#container) {
 
 /* 스크롤바 배경(트랙) 설정 */
 ::-webkit-scrollbar-track {
-  background: color-mix(in srgb, var(--background-color) 15%, transparent); /* 투명하거나 원하는 배경색 */
+	background:transparent;
+  /*background: color-mix(in srgb, var(--background-color) 15%, transparent); /* 투명하거나 원하는 배경색 */
 }
 
 /* 스크롤바 움직이는 바(막대) 설정 */
