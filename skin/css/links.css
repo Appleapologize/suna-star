@@ -70,7 +70,7 @@ a:has(.tooltip):hover img{
 .tooltip p{
   position: relative;  
   margin:0;
-  background:var(--sub-color); 
+  background:var(--background-color); 
   padding: 10px;
   border-radius: 10px;  
 }
@@ -83,7 +83,7 @@ a:has(.tooltip):hover img{
 	width: 0;
 	height: 0;
 	border: 10px solid transparent;
-	border-top-color: var(--sub-color);
+	border-top-color: var(--background-color);
 	border-bottom: 0;
 	border-left: 0;
 	margin-left: -10px;
@@ -106,7 +106,7 @@ a:has(.tooltip):hover img{
   
   .tooltip p:after{
     	border: 15px solid transparent;
-    	border-top-color: var(--sub-color);  
+    	border-top-color: var(--background-color);  
     	margin-bottom: -10px;  
    		border-bottom: 0;
     	border-left: 0;
