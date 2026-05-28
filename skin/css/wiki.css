@@ -622,12 +622,6 @@ div.footnote .text1 {
 
 
 
-table.index{
-	width:var(--width-100);
-}
-table.profile{
-	width:var(--width-100);
-			 }
 
 #parameters{
 	font-size:10px;
@@ -734,6 +728,14 @@ details:not([open]) h2.one-title span {
 
 
 @media (max-width: 1024px){
+table.index{
+	width:var(--width-100);
+}
+table.profile{
+	width:var(--width-100);
+			 }
+
+	
   button.tooltip-close{
    width: var(--width-100);
    position: relative;
