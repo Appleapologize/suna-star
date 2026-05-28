@@ -85,7 +85,7 @@
     border-radius: 30px;
 }
 
-@media screen and (max-width: 639px){
+@media (min-width: 768px) and (max-width: 1024px){
       #videoTitle {
             width: 60%;
                   }
