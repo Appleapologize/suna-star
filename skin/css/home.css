@@ -49,3 +49,7 @@ html.theme--dark .head{
   padding: 0 var(--box-padding) var(--box-padding) var(--box-padding);
   margin: var(--box-gap) auto;
 }
+
+.text-module:has(.head) .body {
+    text-align: center;
+}
