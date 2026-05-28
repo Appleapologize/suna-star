@@ -43,9 +43,6 @@
   width:50%;
   margin:0 0 0 10;
 }
-@media only screen and (max-width: 700px) {
-  #timeline-title{display:none;}
-}
 
 /*타임라인 css*/
 #conference-timeline {
@@ -84,11 +81,6 @@
   background: var(--timeline-color);
   z-index: -1;
 }*/
-@media only screen and (max-width: 700px) {
-  #conference-timeline .conference-center-line {
-    width: 10px;  margin-left: 0;left: 10;
-  }
-}
 
 /* 기존 요소를 찾아서 아래 코드로 완전히 교체해 주세요 */
 #conference-timeline .conference-timeline-content {
@@ -111,13 +103,6 @@
   z-index: 0; /* 선을 내용보다 뒤로 보냄 */
 }
 
-/* 모바일 700px 이하일 때 선 위치 조정 */
-@media only screen and (max-width: 700px) {
-  #conference-timeline .conference-timeline-content::before {
-    left: 50px; /* 좌측 마크 날짜 영역 옆으로 이동 */
-    margin-left: 0;
-  }
-}
 
 .timeline-article {
   width: 100%;
@@ -242,23 +227,38 @@
 }
 
 @media only screen and (max-width: 700px) {
-  .timeline-article .meta-date {WIDTH: fit-content;}
+  #timeline-title{
+    display:none;
+  }
+
+  #conference-timeline .conference-center-line {
+    width: 10px;  margin-left: 0;left: 10;
+  }  
+
+  /* 모바일 700px 이하일 때 선 위치 조정 */
+    #conference-timeline .conference-timeline-content::before {
+    left: 50px; /* 좌측 마크 날짜 영역 옆으로 이동 */
+    margin-left: 0;
+  }
+
+
+.timeline-article .meta-date {
+  width: fit-content;
+}
 .timeline-article .meta-date .date,
 .timeline-article .meta-date .month {
     margin: 0 0 0 10;
-}}
-
-@media only screen and (max-width: 700px) {
+}
+  
+/*===== // Vertical Timeline =====*/
 .timeline-article .meta-date .month {
   font-size: 18px;
   line-height: 10px;
 width: FIT-CONTENT;
-max-width: 95vw;}
-}
-/*===== // Vertical Timeline =====*/
+max-width: 95vw;
+}  
 
-/*===== Resonsive Vertical Timeline =====*/
-@media only screen and (max-width: 700px) {
+/*===== Resonsive Vertical Timeline =====*/  
   #conference-timeline .timeline-start,
   #conference-timeline .timeline-end {
     margin: 0 10;
@@ -290,6 +290,8 @@ max-width: 95vw;}
     min-height: 65px;
   }
 }
+
+/*===== // Resonsive Vertical Timeline =====*/
 @media only screen and (max-width: 400px) {
   .timeline-article p {
     margin: 0;
@@ -299,5 +301,4 @@ max-width: 95vw;}
   }
   
 }
-/*===== // Resonsive Vertical Timeline =====*/
   
