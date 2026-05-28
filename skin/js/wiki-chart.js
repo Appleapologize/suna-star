@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   // 1. 데이터 읽기
   const chartDataElement = document.getElementById("chart-data"); //
+  if (!chartDataElement) return; // 차트 데이터가 없으면 실행 중단 (안전장치)
+
   const datasets = Array.from(chartDataElement.getElementsByClassName("dataset")); //
   const labelsElement = chartDataElement.querySelector(".labels"); //
 
@@ -34,50 +36,49 @@ document.addEventListener("DOMContentLoaded", function () {
       legend: {
         position: "top", //
         labels: {
-          color: cssTextColor, // 내 CSS 글자색 적용
+          color: cssTextColor, //
+          boxWidth: 12,        /* 범례 아이콘 크기를 줄여 차트 공간 확보 */
+          padding: 10          /* 범례 아래 여백 줄이기 */
         },
       },
     },
   };
 
-  // 5. Radar Chart 옵션 (원형 차트 전용)
+  // 5. Radar Chart 옵션 (원형 차트 내부 여백 극강 조절판)
   const radarOptions = {
     ...commonOptions, //
-    maintainAspectRatio: true, // 💡 동그라미 모양 찌그러짐 방지를 위해 비율 유지 켬
+    maintainAspectRatio: true, // 💡 완벽한 동그라미 비율 유지 (찌그러짐 방지)
     layout: {
-      padding: { // 💡 차트 내부 유령 여백을 0으로 꽉 조여서 원형 차트 알맹이를 최대로 키움
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0
-      }
+      padding: 0 // 💡 도화지 자체 패딩 완전 초기화
     },
     scales: {
       r: {
         beginAtZero: true, //
         suggestedMax: 5, //
-        ticks: { color: cssTextColor }, //
+        ticks: { 
+          color: cssTextColor, //
+          backdropColor: 'transparent', /* 숫자 뒤 하얀 배경 제거 */
+          showLabelBackdrop: false
+        },
         grid: { color: cssGridColor }, //
         angleLines: { color: cssGridColor }, //
         pointLabels: {
           color: cssTextColor, //
           font: { 
-            size: 12,        /* 글자 크기를 살짝 조절 */
-            weight: 'bold'   /* 모서리 글씨를 선명하게 */
-          }, 
-          padding: -8
+            size: 11,
+            weight: 'bold'
+          },
+          // 💡 에러 없는 안전한 최소 여백(0) 설정으로 차트 크기 최대화
+          padding: 3 
         }
       },
     },
   };
 
-  // 6. Bar Chart 옵션 (막대 차트 전용)
+  // 6. Bar Chart 옵션 (막대 차트 유연화)
   const barOptions = {
     ...commonOptions, //
-    
-    // ⭐ [이게 빠져있었습니다!] 막대 차트는 부모 박스 가로/세로에 맞춰 유연하게 꽉 차도록 세팅합니다.
-    maintainAspectRatio: false, 
-    
+    maintainAspectRatio: false, // 💡 박스 크기에 맞게 꽉 차게 조절
     scales: {
       x: {
         ticks: { color: cssTextColor }, //
