@@ -383,7 +383,7 @@ svg.text-logo:hover #svgGroup {
 
 /*---------메뉴 버튼----------*/
 #mobile-drawer{
-	padding:0 var(--padding-menu) 0 0;
+	padding:0 var(--padding-menu);
 	text-align:center;
 	
 }
