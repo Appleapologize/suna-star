@@ -9,47 +9,27 @@
 }
 
 /*접고 피기*/
-details.details-css{padding:10px;
-        margin:5px 0 10px 0;}
-details.details-css summary{font-weight:bold;
+details.details-css{
+  padding:10px;
+        margin:5px 0 10px 0;
+}
+details.details-css summary{
+  font-weight:bold;
                 margin:10px 0;
-               display: block;}
-details.details-css summary::-webkit-details-marker { /* Safari 브라우저용 사용자 정의 스타일 */
-  content: var(--summary-mark);color:var(--summary-mark-color);margin-right:5px;
+               display: block;
+}
+details.details-css summary::-webkit-details-marker { 
+  /* Safari 브라우저용 사용자 정의 스타일 */
+  content: var(--summary-mark);
+  color:var(--summary-mark-color);
+  margin-right:5px;
 }
 
-details.details-css summary::before{content: var(--summary-mark);color:var(--summary-mark-color);margin-right:5px;}
-
-
-/*상단에 제목 넣기*/
-.text-module:has(.head){
-  padding:0;
-}
-
-.head h1,
-.head h2,
-.head h3,
-.head h4,
-.head h5{
-  margin:0;
-  color:white;
-}
-
-.head{
-  background:var(--background-color) ;
-  padding: calc(var(--box-padding) / 2);
+details.details-css summary::before{
+  content: var(--summary-mark);
+  color:var(--summary-mark-color);
+  margin-right:5px;
 }
 
 
-html.theme--dark .head{
-  background:var(--dark-sub-color);
-}
 
-.body{
-  padding: 0 var(--box-padding) var(--box-padding) var(--box-padding);
-  margin: var(--box-gap) auto;
-}
-
-.text-module:has(.head) .body {
-    text-align: center;
-}
