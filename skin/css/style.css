@@ -262,6 +262,7 @@ html, body{
 }
 
 html:has(#container) {
+	scrollbar-width: thin;
     background:
     center / cover no-repeat var(--limit-img),
     left top / auto repeat var(--background-color) var(--limit-pattern);
@@ -297,7 +298,7 @@ body:has(#container) {
 
 /* 스크롤바 움직이는 바(막대) 설정 */
 ::-webkit-scrollbar-thumb {
-  background: #ccc; /* 스크롤바 막대 색상 */
+  background: var(--scroll-color1); /* 스크롤바 막대 색상 */
   border-radius: var(--border-radius-s);
 }
 
