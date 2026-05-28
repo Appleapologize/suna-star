@@ -15,7 +15,7 @@
 }
 
 .head{
-  background:var(--background-color) ;
+  background:var(--sub-background-color) ;
   padding: calc(var(--box-padding) / 2);
 }
 
