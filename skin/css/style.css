@@ -318,10 +318,13 @@ a:hover{
     position: sticky;
     top: 0;
     padding: 10px var(--padding-in-body);
-    background: 
-        linear-gradient(to bottom, var(--background-color) 30%, transparent 100%),
-        (to bottom, var(--bg-img) 30%, transparent 100%);
-    z-index: 1;	
+    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(12px) !important;
+    background:
+	 linear-gradient(to bottom, color-mix(in srgb, var(--background-color) 65%, transparent) 0%, 
+        color-mix(in srgb, var(--background-color) 15%, transparent) 100%) !important;
+    z-index: 1;
+    margin-bottom: 20px;
 }
 
 #main-wrapper{
@@ -385,6 +388,17 @@ svg.text-logo:hover #svgGroup {
 }
 nav{
 
+}
+
+#menu{
+	position: sticky;
+    top: 140px;
+    margin: 0 var(--padding-menu) 0 0;
+    background: 
+	color-mix(in srgb, var(--background-color) 85%, transparent);
+    padding: 0 var(--padding-menu);
+    height: fit-content;
+    border-radius: var(--border-radius-l);
 }
 
 .sub, .ssub { 
