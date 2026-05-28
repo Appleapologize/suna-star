@@ -668,7 +668,7 @@ div.footnote .text1 {
 /* 차트 컨테이너 스타일 */
 .chart-container{
   display:inline-grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   width: 100% !important;
   height: 100% !important;
