@@ -447,7 +447,7 @@ table.text-one-line{
 	border-collapse: collapse; 
 	width: auto; 
 	max-width:63vw;
-	word-break:normal;
+	word-break:keep-all;
 	margin: 1em 0;
 }
 
@@ -471,7 +471,7 @@ table.text-two-line{
 table.text-two-line tr{
 	height: auto;
 	max-width:63vw;
-	word-break:keep-all;
+	word-break:normal;
 } 
 table.text-two-line tr td{
 	width: 100%;
