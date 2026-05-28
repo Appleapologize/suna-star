@@ -161,6 +161,11 @@ th{
 td {
 	border-bottom:1px solid var(--border-wiki-gray-color) !important;
 }
+
+img.profile{
+	object-fit:contain;
+}
+
  /*프로필 상단 이름 란 1번*/
   table.profile{
 	border: 2px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
