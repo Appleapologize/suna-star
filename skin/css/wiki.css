@@ -31,7 +31,7 @@
 	width:50%;
 }
 
-#wiki table{
+table{
 	width: var(--width-100);
 	height:auto;
 }
