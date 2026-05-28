@@ -665,10 +665,17 @@ div.footnote .text1 {
 
 /*레이더 차트*/
 
+/*  */
+#gallery,
+.chart-container {
+    height: auto !important;      /* 💡 고정된 387px을 풀고 내용물 높이에 맞게 늘어나도록 설정 */
+    min-height: 400px !important; /* 최소한 이 정도 높이는 확보해서 찌그러짐 방지 */
+}
+
 /* 차트 컨테이너 스타일 */
 .chart-container{
   display:inline-grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   width: 100% !important;
   height: 100% !important;
