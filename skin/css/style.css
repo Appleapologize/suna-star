@@ -831,7 +831,11 @@ footer p.bold{
 	.theme-icon-button{
 		top: calc(var(--padding-in-body) - 30px);
 	}
- 
+
+	#menu{
+		padding: 0;
+	}
+	
   /* 메뉴 토글 버튼 스타일 및 화면 좌측 상단 고정 */
     #menu-toggle-btn {
         display: flex;
@@ -917,7 +921,9 @@ footer p.bold{
     .mobile-drawer.active {
         left: 0;
 		top: 0;
-        background: color-mix(in srgb, var(--background-color) 85%, transparent);
+        background: color-mix(in srgb, var(--background-color) 30%, transparent);
+        -webkit-backdrop-filter: blur(var(--background-blur));
+        backdrop-filter: blur(var(--background-blur));		
     }
 
     .mobile-drawer ul{
