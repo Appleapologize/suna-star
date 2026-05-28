@@ -35,6 +35,9 @@ svg.text-logo:hover #svgGroup{stroke:url(#strokeGradient);
 
 .text-module .button{
       display: inline-block;
+      min-width: 0;
+      font-size: 2vw;
+      width: fit-content;        
 }
 
 .text-module .button-icon{
