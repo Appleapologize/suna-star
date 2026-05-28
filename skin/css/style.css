@@ -51,10 +51,10 @@
         /* 모듈박스의 기본적인 테두리 둥글기 값을 지정합니다. */
 
 	/*박스 그림자*/
-	--box-shadow-X:3px; /*양수는 오른쪽, 음수는 왼쪽*/
-	--box-shadow-Y:-3px; /*양수는 위쪽, 음수는 아래쪽*/
-	--box-shadow-blur: 5px; 
-	--box-shadow-spread:5px;
+	--box-shadow-X:1px; /*양수는 오른쪽, 음수는 왼쪽*/
+	--box-shadow-Y:-1px; /*양수는 위쪽, 음수는 아래쪽*/
+	--box-shadow-blur: 10px; 
+	--box-shadow-spread:1px;
 
 
 	/* -------- -------- 모듈 개별 설정 -------- -------- */
