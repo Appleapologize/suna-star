@@ -742,7 +742,7 @@ details:not([open]) h2.one-title span {
    차트 레이아웃 최적화 패치 (원형 사수 + 좌우/하단 여백 완전 제거)
    ========================================================================== */
 
-/* 1. 테이블 높이 제약 강제 해제 */
+/* 1. 테이블 고정 높이 제약 강제 해제 */
 #gallery, #gallery td {
     height: auto !important; /* */
 }
@@ -751,17 +751,17 @@ details:not([open]) h2.one-title span {
 .chart-container {
     display: inline-grid !important;
     
-    /* 💡 반반(1fr 1fr) 대신 원형 차트 방은 슬림하게 축소(auto), 막대 차트가 남는 옆 공간을 꽉 채움(1fr) */
+    /* 💡 반반 대신 왼쪽 원형 차트 방은 슬림하게 축소(auto), 막대 차트가 남는 옆 공간을 가득 채우기(1fr) */
     grid-template-columns: auto 1fr !important;
-    gap: 20px;
+    gap: 25px;
     width: 100% !important;
     margin: 0 auto;
     position: relative;
     
     /* 전체 세로 높이 밀봉 */
-    height: 360px !important;
-    min-height: 360px !important;
-    max-height: 360px !important;
+    height: 350px !important;
+    min-height: 350px !important;
+    max-height: 350px !important;
     overflow: visible !important;
 }
 
@@ -772,33 +772,33 @@ details:not([open]) h2.one-title span {
     box-sizing: border-box !important; /* */
 }
 
-/* 4. [원형 차트 전용] 억지로 늘리지 않고 1:1을 지키며 좌우 여백 삭제 */
+/* 4. [원형 차트 전용] 예쁜 동그라미를 유지하면서 쓸데없는 빈 방 공간 삭제 */
 #radarChart {
-    width: auto !important;          /* 억지 가로 100% 확장 방지 */
-    height: auto !important;         /* 억지 세로 확장 방지 */
-    max-height: 100% !important;     /* 부모 상자 크기를 넘지 않게 조율 */
-    margin: 0 auto !important;       /* 정중앙 정렬 */
+    width: auto !important;          
+    height: auto !important;         
+    max-height: 100% !important;     
+    margin: 0 auto !important;       
 }
 
-/* 5. [막대 차트 전용] 할당받은 공간에 가득 차게 늘리기 */
+/* 5. [막대 차트 전용] 남은 가로세로 공간에 꽉 차게 늘리기 */
 #barChart {
-    width: 100% !important;          /* 가로 꽉 채우기 */
-    height: 100% !important;         /* 세로 꽉 채우기 */
+    width: 100% !important;          
+    height: 100% !important;         
     max-height: 100% !important;
 }
 
 /* 📱 모바일 화면 대응 (1024px 이하) */
 @media screen and (max-width: 1024px) {
     .chart-container {
-        display: flex !important;    /* 위아래 배열 전환 */
+        display: flex !important;    
         flex-direction: column !important;
-        height: auto !important;     /* 고정 높이 해제 */
+        height: auto !important;     
         max-height: none !important;
         gap: 30px !important;
     }
     #radarChart, #barChart, .chart-container canvas {
         width: 100% !important;
-        height: 280px !important;    /* 모바일 맞춤용 높이 */
+        height: 280px !important;    
         max-height: 280px !important;
     }
 }
