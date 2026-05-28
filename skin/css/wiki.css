@@ -32,24 +32,24 @@
 }
 
 
-table{
+#wiki table{
 	width: 100%;
 	height:auto;
 }
-tbody{
+#wiki tbody{
 	width:100%;
 }
-tr{
+#wiki tr{
 	width:100%;
 	height:auto;
 }
-td{
+#wiki td{
 	height:auto;
 	text-align: center;
 	padding: 2px 5px;
 }
 
-.text1 {
+#wiki .text1 {
 	font-size: 15px;
 	line-height: 1.5;
        }
@@ -57,34 +57,34 @@ a.index{
 	color:#0275d8;
 	text-decoration: none;
 }
-a{
+#wiki a{
 	color:#0275d8;
 	text-decoration: none;
 }
-a sup{
+#wiki a sup{
 	color:#0275d8;
 }
 
-a:hover, focus {
+#wiki a:hover, focus {
 	color: #ff85d4; /*태그 및 링크 색상(주석 옆의 숫자들 색상)*/
 	text-decoration:underline;
 } 
 
-span{
+#wiki span{
 	color:var(--wiki-main-text-color);
     text-align:start;
 }
 
-p{
+#wiki p{
 	text-align: left;
 }
 
-h2{
+#wiki h2{
 	border-bottom: var(--border-wiki-line) var(--border-wiki-gray-color);
 	margin: 1.2em 0 0.7em;
 	padding-bottom: 5px;
 }
-h2 span{
+#wiki h2 span{
 	color: #666; 
 	float: left; 
 	font-size: .9em; 
@@ -96,7 +96,7 @@ h2 span{
 }
 
 /*분류표*/
-h3.classification{
+#wiki h3.classification{
 	width:auto; 
 	height:auto;
 	border: var(--border-wiki-line) var(--border-wiki-gray-color); 
@@ -108,14 +108,14 @@ h3.classification{
 	padding: 0.2rem 0.5rem;
 }
 
-div.profile{
+#wiki div.profile{
 	width:var(--width-100);
 	border-line:none;
 	display:block;
 }
 
 /*목차 스타일*/
-table.index{
+#wiki table.index{
 	border-collapse: collapse;
 	/*display: inline-block;*/
 	width: auto;
@@ -158,7 +158,7 @@ th{
 	width:100;
 	white-space: nowrap;
 }
-td {
+#wiki td {
 	border-bottom:1px solid var(--border-wiki-gray-color) !important;
 }
 
@@ -318,7 +318,7 @@ table.profile tr td.profil-img figure.profile-img{
 /*BORRDER 순서: 위, 오른쪽, 아래, 왼쪽*/
 
 /*갤러리*/
-#gallery{
+#wiki #gallery{
 	border-collapse: collapse;
 	width: var(--width-100); 
 	height: 387px;
@@ -326,12 +326,12 @@ table.profile tr td.profil-img figure.profile-img{
 	text-align:start;
 	border:3px solid var(--gaara-color, var(--noah-color));
 }
-#gallery th {
+#wiki #gallery th {
 	width:33%;
 	border:1px solid var(--wiki-text-white-color);
 	height: 20px;
             }
-#gallery td {
+#wiki #gallery td {
 	width:33%;
 	border:1px solid var(--border-wiki-gray-color);
 	height: 331px;
@@ -339,37 +339,37 @@ table.profile tr td.profil-img figure.profile-img{
 
 
 /*접고 피는 때의 스타일*/
-summary::-webkit-details-marker{
+#wiki summary::-webkit-details-marker{
 	display:none;
 }
-summary { 
+#wiki summary { 
 	list-style: none;
 }
 
-summary.text1{
+#wiki summary.text1{
 	list-style-type:none;
 	text-align:left;
 }
 
-details > summary:first-of-type {
+#wiki details > summary:first-of-type {
     list-style: none;
 }
 
-details[open] > summary:first-of-type {
+#wiki details[open] > summary:first-of-type {
 	list-style-type: none;
 }
 
-summary::-webkit-details-marker {
+#wiki summary::-webkit-details-marker {
 	display: none;
 	list-style-type: none;
 }
 
-details:open summary {
+#wiki details:open summary {
 	list-style: none;
 	opacity: 1;
 }
 
-summary.text1 {list-style: none;
+#wiki summary.text1 {list-style: none;
 	font-size: 15px;
 	line-height: 1.5;
 }
