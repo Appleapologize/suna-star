@@ -79,7 +79,7 @@ span{
 	text-align: left;
 }
 
-h2{
+#wiki h2{
 	border-bottom: var(--border-wiki-line) var(--border-wiki-gray-color);
 	margin: 1.2em 0 0.7em;
 	padding-bottom: 5px;
