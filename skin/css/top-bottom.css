@@ -39,7 +39,7 @@ div.goto a{display:block;}
 #gotop:hover, #gotobottom:hover
 {color:#6475b0;}
 
-@media screen and (max-width: 767px){
+@media (min-width: 768px) and (max-width: 1024px){
   div.goto {display: var(--goto-display);
     position: var(--goto-position);
     top: auto;
