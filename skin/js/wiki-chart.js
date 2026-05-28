@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const datasets = Array.from(chartDataElement.getElementsByClassName("dataset")); //
   const labelsElement = chartDataElement.querySelector(".labels"); //
 
-  // 2. 💡 [핵심] 내 CSS에 정의된 글자색(--text-color)을 실시간으로 긁어옵니다
+  // 2. 내 CSS에 정의된 글자색(--text-color)을 실시간으로 긁어옵니다
   const computedStyle = getComputedStyle(document.documentElement);
   const cssTextColor = computedStyle.getPropertyValue('--text-color').trim() || '#000000'; //
   
@@ -23,10 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
     })),
   };
 
-  // 4. 차트 공통 옵션 (글자색에 내 CSS 변수값 주입)
+  // 4. 차트 공통 옵션 설정
   const commonOptions = {
     responsive: true, //
-    maintainAspectRatio: false, // 💡 가로폭 넓어져도 세로가 무식하게 안 늘어나게 고정
     animation: {
       duration: 2000, //
       easing: "easeInOutBounce", //
@@ -35,18 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
       legend: {
         position: "top", //
         labels: {
-          color: cssTextColor, // 💡 내 CSS 글자색 적용!
+          color: cssTextColor, // 내 CSS 글자색 적용
         },
       },
     },
   };
 
-  // 5. Radar Chart 옵션
+  // 5. Radar Chart 옵션 (원형 차트 전용)
   const radarOptions = {
     ...commonOptions, //
-    maintainAspectRatio: true,
+    maintainAspectRatio: true, // 💡 동그라미 모양 찌그러짐 방지를 위해 비율 유지 켬
     layout: {
-      padding: {
+      padding: { // 💡 차트 내부 유령 여백을 0으로 꽉 조여서 원형 차트 알맹이를 최대로 키움
         top: 0,
         bottom: 0,
         left: 0,
@@ -57,42 +56,33 @@ document.addEventListener("DOMContentLoaded", function () {
       r: {
         beginAtZero: true, //
         suggestedMax: 5, //
-        ticks: {
-          color: cssTextColor, // 💡 내 CSS 글자색 적용!
-        },
-        grid: {
-          color: cssGridColor, // 💡 내 CSS 기반 연한 눈금선 적용!
-        },
-        angleLines: {
-          color: cssGridColor, // 방사형 중심선 색상
-        },
+        ticks: { color: cssTextColor }, //
+        grid: { color: cssGridColor }, //
+        angleLines: { color: cssGridColor }, //
         pointLabels: {
-          color: cssTextColor, // 외각 능력치 텍스트 색상
+          color: cssTextColor, //
+          font: { size: 11 } // 능력치 글자 크기를 살짝 줄여 공간 확보
         }
       },
     },
   };
 
-  // 6. Bar Chart 옵션
+  // 6. Bar Chart 옵션 (막대 차트 전용)
   const barOptions = {
     ...commonOptions, //
+    
+    // ⭐ [이게 빠져있었습니다!] 막대 차트는 부모 박스 가로/세로에 맞춰 유연하게 꽉 차도록 세팅합니다.
+    maintainAspectRatio: false, 
+    
     scales: {
       x: {
-        ticks: {
-          color: cssTextColor, // 💡 내 CSS 글자색 적용!
-        },
-        grid: {
-          color: cssGridColor,
-        },
+        ticks: { color: cssTextColor }, //
+        grid: { color: cssGridColor }, //
       },
       y: {
         beginAtZero: true, //
-        ticks: {
-          color: cssTextColor, //
-        },
-        grid: {
-          color: cssGridColor, //
-        },
+        ticks: { color: cssTextColor }, //
+        grid: { color: cssGridColor }, //
       },
     },
   };
