@@ -262,7 +262,6 @@ html, body{
 }
 
 html:has(#container) {
-	scrollbar-width: thin;
     background:
     center / cover no-repeat var(--limit-img),
     left top / auto repeat var(--background-color) var(--limit-pattern);
