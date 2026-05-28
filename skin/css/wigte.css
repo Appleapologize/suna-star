@@ -42,7 +42,7 @@
 
 div.time-clock {
           font-family: "Jura", sans-serif;
-          color: black;
+          color: var(--text-color);
           letter-spacing: 10px;
           display: inline-block;
           float:right;
