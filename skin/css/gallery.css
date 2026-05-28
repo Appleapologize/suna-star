@@ -129,22 +129,3 @@ h1{color:red;
   font-weight:bold;
   padding:20px 0 10px 0;}
 h4, h2 {padding-bottom:20px;}/* 이미지 비율 유지 */
-
-/*-------- ------------------------------- 다 크 모 드 ------------- ----------------*/
-
-
-/* 이미지 슬라이더 */
-
-.theme--dark .slider {
-  box-shadow:var(--dark-module-bg-color);
-}
-
-
-.theme--dark button{
-  COLOR:WHITE;
-}
-
-/* 갤러리 */
-        .theme--dark .gallery-img {
-            background: var(--dark-module-bg-color);
-        }
