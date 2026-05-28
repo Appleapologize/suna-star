@@ -99,7 +99,7 @@
     --title-color:#fff; /*제목 글자 색상*/
 	--title-shadow-color:#ccc;
     --card-background-color: #fff;  
-    --box-shadow-color:rgba(0,0,0,0.05); /*card 그림자 색상*/
+    --box-shadow-color:rgba(0,0,0,.5); /*card 그림자 색상*/
     --line-color:#eee; /*하단 라인 색상*/
 	--text-color:black;
 	--svgroup-stroke:#aa98ff; /*상단 로고(?) 평소 색상*/
@@ -172,12 +172,12 @@
 
 /* -------- -------- -------- -------- 다크 모드 색상 설정 -------- -------- -------- -------- */
 [data-theme="dark"] {
-    --background-color: black;    
-    --sub-background-color: #3d4354;		
+    --background-color: #17153B;    
+    --sub-background-color: #2E236C;		
     --title-color:  #ffffff;                       
     --title-shadow-color: #334155;                
     --card-background-color: #232733;     
-    --box-shadow-color: rgb(255 255 255 / 30%);        
+    --box-shadow-color: rgba(255,255,255,.5);        
     --line-color:  #475569;       
 	--text-color:#E0E0E0;
 
@@ -192,7 +192,7 @@
 	--scroll-color1: black;
 	--scroll-color2: white;
     /* 드래그 색상 및 드래그 한 문구 색상을 지정합니다. */	
-	--select: red;
+	--select: #C8ACD6;
 	--select-color: white;
   /* -------- -------- --------  배경 이미지 설정 -------- -------- -------- */
         --bg-img: url('');
