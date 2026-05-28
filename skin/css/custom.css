@@ -75,7 +75,6 @@ svg.text-logo:hover #svgGroup{
 .text-module .button{
         display: inline-block;
         min-width: 0;
-        font-size: 2vw;
         width: fit-content;        
 }
 
