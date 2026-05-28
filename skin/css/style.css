@@ -845,6 +845,7 @@ footer p.bold{
 	#menu{
 		padding: 0;
 		margin:0;
+		z-index:1000;
 	}
 	
   /* 메뉴 토글 버튼 스타일 및 화면 좌측 상단 고정 */
