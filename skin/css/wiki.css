@@ -739,66 +739,71 @@ details:not([open]) h2.one-title span {
 }
 
 /* ==========================================================================
-   차트 레이아웃 최적화 패치 (원형 사수 + 좌우/하단 여백 완전 제거)
+   차트 레이아웃 최적화 (인라인 1150px 괴물 수치 및 유령 여백 완벽 박멸)
    ========================================================================== */
 
-/* 1. 테이블 고정 높이 제약 강제 해제 */
+/* 1. 부모 테이블(#gallery) 고정 높이 완전히 해제 */
 #gallery, #gallery td {
     height: auto !important; /* */
 }
 
-/* 2. PC 차트 박스 컨테이너 */
+/* 2. PC 차트 전체 틀 설정 (높이를 320px로 단단히 제한) */
 .chart-container {
     display: inline-grid !important;
-    
-    /* 💡 반반 대신 왼쪽 원형 차트 방은 슬림하게 축소(auto), 막대 차트가 남는 옆 공간을 가득 채우기(1fr) */
-    grid-template-columns: auto 1fr !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* 좌우 반반 배치 */
     gap: 25px;
     width: 100% !important;
     margin: 0 auto;
     position: relative;
     
-    /* 전체 세로 높이 밀봉 */
-    height: 350px !important;
-    min-height: 350px !important;
-    max-height: 350px !important;
+    /* 💡 가로가 넓어져도 세로 여백이 생기지 않도록 딱 320px로 가둡니다 */
+    height: 320px !important;
+    min-height: 320px !important;
+    max-height: 320px !important;
     overflow: visible !important;
 }
 
-/* 3. 캔버스 공통 제어 */
-.chart-container canvas {
-    display: block !important;
-    padding: 5px;
-    box-sizing: border-box !important; /* */
-}
-
-/* 4. [원형 차트 전용] 예쁜 동그라미를 유지하면서 쓸데없는 빈 방 공간 삭제 */
-#radarChart {
-    width: auto !important;          
-    height: auto !important;         
-    max-height: 100% !important;     
-    margin: 0 auto !important;       
-}
-
-/* 5. [막대 차트 전용] 남은 가로세로 공간에 꽉 차게 늘리기 */
-#barChart {
-    width: 100% !important;          
-    height: 100% !important;         
+/* 3. ⭐ [핵심 추가] 자바스크립트의 무지성 크기 확장을 치료하는 감싸는 상자 */
+.chart-box {
+    width: 100% !important;
+    height: 100% !important;
     max-height: 100% !important;
+    position: relative !important; /* 💡 Chart.js가 이 상자 크기 안에서만 계산하도록 만드는 핵심 기준점 */
+    overflow: hidden;
 }
 
-/* 📱 모바일 화면 대응 (1024px 이하) */
+/* 4. 캔버스 그래픽들이 새로 만든 chart-box 웅덩이 밖으로 절대 못 나가게 포위 */
+.chart-box canvas {
+    display: block !important;
+    width: 100% !important;  /* 자바스크립트가 넣은 1150px을 무시하고 100%로 강제 압착 */
+    max-width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    box-sizing: border-box !important; /* */
+    padding: 5px;
+}
+
+/* 5. [원형 차트 전용] 억지로 늘어나서 찌그러지지 않게 정비율 정렬 */
+#radarChart {
+    width: auto !important; /* 가로 가득 채우지 말고 예쁜 동그라미 비율 사수 */
+    margin: 0 auto !important;
+}
+
+
+/* 📱 모바일 화면 대응 (1024px 이하 타블렛 및 스마트폰) */
 @media screen and (max-width: 1024px) {
     .chart-container {
-        display: flex !important;    
+        display: flex !important;    /* 세로 정렬 전환 */
         flex-direction: column !important;
-        height: auto !important;     
+        height: auto !important;     /* 모바일에선 고정 높이 해제 */
         max-height: none !important;
-        gap: 30px !important;
+        gap: 35px !important;
     }
-    #radarChart, #barChart, .chart-container canvas {
+    .chart-box {
+        height: 280px !important;    /* 모바일 환경 맞춤형 세로 규격 */
+    }
+    .chart-box canvas {
         width: 100% !important;
-        height: 280px !important;    
-        max-height: 280px !important;
+        height: 100% !important;
     }
 }
