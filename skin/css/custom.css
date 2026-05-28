@@ -42,7 +42,7 @@ svg.text-logo:hover #svgGroup{stroke:url(#strokeGradient);
   border-radius: 14px;
 }
 
-@media screen and (max-width: 639px){
+@media (min-width: 768px) and (max-width: 1024px){
   .text-module .button{
     margin-bottom:5px;
 }
