@@ -293,7 +293,9 @@ body:has(#container) {
 
 /* 스크롤바 배경(트랙) 설정 */
 ::-webkit-scrollbar-track {
-	background:transparent;
+	backdrop-filter: blur(40px);          /* 유리창 너머 흐림 효과 */
+-webkit-backdrop-filter: blur(10px);
+	background:transparent !important;
   /*background: color-mix(in srgb, var(--background-color) 15%, transparent); /* 투명하거나 원하는 배경색 */
 }
 
