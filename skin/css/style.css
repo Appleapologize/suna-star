@@ -823,7 +823,15 @@ footer p.bold{
 	#container {
 		width:var(--width-100);
 		border:none;
-		border-radius:none;
+		border-radius:0;
+        -webkit-backdrop-filter: blur(var(--background-blur));
+        backdrop-filter: blur(var(--background-blur));
+        background: 
+			linear-gradient(
+				to bottom, color-mix(in srgb, var(--background-color) 65%, transparent) 0%, 
+						   color-mix(in srgb, var(--background-color) 15%, transparent) 100%
+			);
+        margin-bottom: 0;		
 	}
 	
 	.theme-icon-button{
