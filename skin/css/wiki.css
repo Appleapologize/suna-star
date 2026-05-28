@@ -737,22 +737,19 @@ details:not([open]) h2.one-title span {
         gap: 30px !important;
     }
     .chart-box {
-        height: 280px !important;    /* 모바일 환경 맞춤형 세로 규격 */
+        height: auto !important;    /* 모바일 환경 맞춤형 세로 규격 */
     }
     .chart-box canvas {
         width: 100% !important;
         height: 100% !important;
     }
-    #radarChart,
-    #barChart,
-    .chart-container canvas {
-        height: 280px !important; /* 모바일 전용 쾌적한 세로 높이 개별 부여 */
-        max-height: 280px !important;
-    }
+
     #radarChart {
         margin: 20px 0 10px 0;
+		max-height: 50vh !important;
     }
     #barChart {
         margin: 10px 0 0 0;
+		max-height: 40vh !important;
     }
 }
