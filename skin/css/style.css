@@ -291,7 +291,7 @@ body:has(#container) {
 }
 
 
-/*======= 🛠️ 스크롤바 스타일 깔끔하게 정리 및 정상화 =======*/
+/*---- ---- 스크롤바 스타일 ---- ----*/
 
 /* 1. 스크롤바 전체 너비 정의 */
 body:has(#container)::-webkit-scrollbar {
@@ -301,7 +301,6 @@ body:has(#container)::-webkit-scrollbar {
 
 /* 2. 브라우저가 스크롤바 밑바닥에 까는 그림자까지 투명하게 밀어버려 흰색 칸 원천 삭제 */
 body:has(#container)::-webkit-scrollbar-track {
-    background: transparent !important;
     background-color: transparent !important;
     box-shadow: inset 0 0 0 transparent !important; /* 미세한 시스템 음영까지 완벽 투명화 */
 }
@@ -318,7 +317,8 @@ body:has(#container)::-webkit-scrollbar-thumb {
 
 /* 4. 마우스 올렸을 때 효과 */
 body:has(#container)::-webkit-scrollbar-thumb:hover {
-    filter: brightness(1.2); 
+    background-color: var(--scroll-color1) !important; 
+    filter: brightness(1.4) !important;
 }
 
 /* 5. 위아래 10px 투명 여백 버튼 완벽 마감 */
