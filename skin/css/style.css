@@ -263,17 +263,11 @@ html, body {
 html:has(#container) {
     /* [수정] 크롬이 스크롤바 맨 뒷자리를 하얗게 칠하지 못하도록 html의 기본 배경색을 투명하게 선언 */
     background-color: transparent !important;
-
-    background-image:
-    center / cover no-repeat var(--limit-img),
-    left top / auto repeat var(--background-color) var(--limit-pattern);
     overflow-x: hidden;
     overflow-y: scroll; 
 }
 
 body {
-    /* [수정] 이 부분이 html 스크롤바 영역까지 흰색으로 번지게 하므로 transparent로 변경 */
-    background-color: transparent !important;
     color: var(--text-color);
 }
 
