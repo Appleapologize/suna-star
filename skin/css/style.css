@@ -268,11 +268,6 @@ html:has(#container) {
 	overflow-y: scroll; 
 }
 
-
-html {
-	/*scrollbar-width: thin; */
-}
-
 body {
     background-color: var(--background-color);
 	color:var(--text-color);
