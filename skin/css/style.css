@@ -308,10 +308,10 @@ body:has(#container)::-webkit-scrollbar-track {
 /* 3. 막대 색상을 요청하신 --scroll-color1로 설정 */
 body:has(#container)::-webkit-scrollbar-thumb {
     background-color: var(--scroll-color1) !important; 
-    border-radius: 10px;
+    border-radius: calc(2.5vw - 6px);
     
     /* [오버레이 디자인 효과] 투명 테두리와 padding-box 조화로 막대만 우주 위에 붕 띄우기 */
-    border: calc((2.5vw - 6px) / 2) solid transparent !important;
+    border: calc((2.5vw - 6px) / 3) solid transparent !important;
     background-clip: padding-box !important;
 }
 
