@@ -342,17 +342,14 @@ body:has(#container)::-webkit-scrollbar-button{
     background-size: 10px 10px !important; /* 10px 크기 안에 꽉 차게 정렬 */	
 }
 
+/* [위쪽 버튼] url 내부를 크롬이 인식할 수 있는 내부 데이터 주소로 교체 */
 body:has(#container)::-webkit-scrollbar-button:vertical:start:decrement {
-    
-    /* [수정] 크롬 엔진 버그를 우회하기 위해 완벽히 인코딩된 화살표 이미지 주입 */
-    background-image: url("https://unpkg.com/ionicons@5.5.2/dist/svg/caret-up.svg") !important;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMjU2IDIzMGwtMTM2IDEzNmMtOS40IDkuNC0yNC42IDkuNC0zNCAwcy05LjQtMjQuNiAwLTM0bDE1My0xNTNjOS40LTkuNCAyNC42LTkuNCAzNCAwbDE1MyAxNTNjOS40IDkuNCA5LjQgMjQuNiAwIDM0cy0yNC42IDkuNC0zNCAwTDI1NiAyMzB6IiBmaWxsPSJjdXJyZW50Q29sb3IiLz48L3N2Zz4=") !important;
 }
 
-/* [아래쪽 버튼] 높이 10px 투명 유지 + var(--scroll-color1) 색상의 아래 화살표(▼) 강제 출력 */
+/* [아래쪽 버튼] url 내부를 크롬이 인식할 수 있는 내부 데이터 주소로 교체 */
 body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
-    
-    /* [수정] 크롬 엔진 버그를 우회하기 위해 완벽히 인코딩된 화살표 이미지 주입 */
-    background-image: url("https://unpkg.com/ionicons@5.5.2/dist/svg/caret-down.svg") !important;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMjU2IDI4MkwzOTIgMTQ2YzkuNC05LjQgMjQuNi05LjQgMzQgMHM5LjQgMjQuNiAwIDM0TDI3MyAzMzNjLTkuNCA5LjQtMjQuNiA5LjQtMzQgMEwxMDUgMjE0Yy05LjQtOS40LTkuNC0yNC42IDAtMzRzMjQuNi05LjQgMzQgMEwyNTYgMjgyeiIgZmlsbD0iY3VycmVudENvbG9yIi8+PC9zdmY+") !important;
 }
 
 
