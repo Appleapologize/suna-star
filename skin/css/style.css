@@ -257,42 +257,25 @@ html, body{
     max-width: 100%;	
     margin: 0;
     padding: 0;
-    /*overflow-x: hidden !important; /* 오른쪽으로 화면이 미세하게 밀리는 현상 방지 */
 	cursor:var(--default-cursor), auto !important;
 }
 
 html:has(#container) {
-	scrollbar-color: auto 
-	/*var(--scroll-color1) color-mix(in srgb, var(--background-color) 15%, transparent)*/;
-	scrollbar-gutter: stable both-edges; 
+	scrollbar-color: auto;
     background:
     center / cover no-repeat var(--limit-img),
     left top / auto repeat var(--background-color) var(--limit-pattern);
 	overflow-x: hidden;
 }
 
-html:has(#container)::-webkit-scrollbar-track {
-    background-color: transparent; 
-}
 
-html:has(#container)::-webkit-scrollbar-thumb {
-    /* 원래 질문하신 color-mix를 여기에 적용 (약 85% 불투명) */
-    background-color: color-mix(in srgb, var(--background-color) 85%, transparent); 
-    border-radius: 10px;
-    
-    /* 팁: 투명한 테두리를 주면 스크롤바가 배경에서 살짝 뜬 것처럼 예쁘게 연출됩니다 */
-    border: 3px solid transparent; 
-    background-clip: padding-box;
+html {
+	scrollbar-width: thin; 
 }
 
 body {
     background-color: var(--background-color);
 	color:var(--text-color);
-}
-
-::selection {
-    background-color: var( --select);
-    color: var( --select-color);
 }
 
 body:has(#container) {
@@ -301,34 +284,35 @@ body:has(#container) {
     center / cover no-repeat var(--bg-img);
 }
 
-
+::selection {
+    background-color: var( --select);
+    color: var( --select-color);
+}
 /*-------스크롤바 스타일--------*/
-/* 전체 스크롤바 영역 설정 
-::-webkit-scrollbar {
-  width: 12px; /* 스크롤바 너비 
+html::-webkit-scrollbar {
+    width: 12px; /* 스크롤바 너비 */
 }
 
-/* 스크롤바 배경(트랙) 설정 
-::-webkit-scrollbar-track {
-	backdrop-filter: blur(40px);          /* 유리창 너머 흐림 효과 
--webkit-backdrop-filter: blur(10px);
-	background:transparent !important;
-  /*background: color-mix(in srgb, var(--background-color) 15%, transparent); /* 투명하거나 원하는 배경색 
+/* 2. 스크롤바 배경(트랙)을 완전 투명하게 뚫어 뒤쪽 우주 배경이 비치게 만듦 */
+html::-webkit-scrollbar-track {
+    background: transparent !important;
 }
 
-/* 스크롤바 움직이는 바(막대) 설정 
-::-webkit-scrollbar-thumb {
-    background-color: var(--scroll-color1);/* 스크롤바 막대 색상 
-	border: 3.5px solid transparent;
+/* 스크롤바 막대를 유리처럼 불투명하게 제어 (85% 불투명) */
+html::-webkit-scrollbar-thumb {
+    /* 질문하신 color-mix를 여기에 적용 */
+    background-color: color-mix(in srgb, var(--background-color) 85%, transparent); 
+    
+    /* 투명 테두리와 padding-box 조합으로 막대가 공중에 뜬 유리처럼 연출 */
+    border: 3px solid transparent; 
     background-clip: padding-box;
-    border-radius: 999px;
-    border-radius: var(--border-radius-m);
+    border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background-color: #ff9494; /* 
-}*/
-
+/* 마우스 올렸을 때 효과 */
+html::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in srgb, var(--background-color) 95%, transparent);
+}
 
 a{
 	margin: 0;
