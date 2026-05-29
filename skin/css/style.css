@@ -261,7 +261,7 @@ html, body{
 }
 
 html:has(#container) {
-	scrollbar-width: thin; 
+	/*scrollbar-width: thin; */
   	background:
     center / cover no-repeat var(--limit-img),
     left top / auto repeat var(--background-color) var(--limit-pattern);
@@ -289,23 +289,29 @@ body:has(#container) {
     color: var( --select-color);
 }
 /*-------스크롤바 스타일--------*/
+/* 1. 스크롤바 전체 너비를 정의하고 뒷공간을 투명하게 선언 */
 html::-webkit-scrollbar {
-    width: 14px; 
+    width: 12px; /* 스크롤바가 너무 두껍지 않게 12px로 정돈 */
     background: transparent !important; 
 }
 
+/* 2. 스크롤바 배경(트랙)을 완전 투명화하여 html의 우주 배경이 투과되도록 처리 */
 html::-webkit-scrollbar-track {
     background-color: transparent !important;
     background: transparent !important;
 }
 
+/* 3. 막대 색상을 요청하신 --scroll-color1로 설정 */
 html::-webkit-scrollbar-thumb {
     background-color: var(--scroll-color1) !important; 
     border-radius: 10px;
-    border: 3.5px solid transparent; /* 테두리를 조금 더 넓혀 슬림하고 뜨게 조정 */
+    
+    /* 투명 테두리를 주어 스크롤바 막대만 우주 공간에 떠 있는 것처럼 세련되게 마감 */
+    border: 3px solid transparent; 
     background-clip: padding-box;
 }
 
+/* 4. 마우스 올렸을 때 막대 유지 */
 html::-webkit-scrollbar-thumb:hover {
     background-color: var(--scroll-color1) !important;
     filter: brightness(1.2); 
