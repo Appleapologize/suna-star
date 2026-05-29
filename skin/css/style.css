@@ -320,7 +320,7 @@ body:has(#container)::-webkit-scrollbar-thumb:hover {
     background-color: color-mix(in srgb, var(--sub-background-color) 60%, red) !important;
 }
 
-/* 5. 위아래 10px 투명 여백 버튼 완벽 마감 */
+/* 5. 위아래 10px 투명 여백 버튼 완벽 마감 
 body:has(#container)::-webkit-scrollbar-button:vertical:start:decrement {
     display: block !important;
     height: 10px !important;
@@ -330,6 +330,30 @@ body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
     display: block !important;
     height: 10px !important;
     background: transparent !important;
+}*/
+body:has(#container)::-webkit-scrollbar-button:vertical:start:decrement {
+    display: block !important;
+    height: 10px !important;
+    background: transparent !important;
+    
+    /* 선명한 내장 SVG 화살표 삽입 */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 24 24'><path d='M7 14l5-5 5 5H7z' fill='%23ff9494'/></svg>") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 10px !important; /* 10px 버튼 높이에 맞춰 화살표 크기 최적화 */
+}
+
+/* [아래쪽 버튼] 질문자님의 10px 높이와 투명 배경을 완벽히 유지하면서 삼각형(▼)만 삽입 */
+body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
+    display: block !important;
+    height: 10px !important;
+    background: transparent !important;
+    
+    /* 선명한 내장 SVG 화살표 삽입 */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5H7z' fill='%23ff9494'/></svg>") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 10px !important; /* 10px 버튼 높이에 맞춰 화살표 크기 최적화 */
 }
 
 
