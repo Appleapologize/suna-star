@@ -346,13 +346,13 @@ body:has(#container)::-webkit-scrollbar-button {
 }
 
 /* [위쪽 버튼] 이오니콘즈의 '위쪽 화살표(chevron-up)' 아이콘 코드 매핑 */
-body:has(#container)::-webkit-scrollbar-button:vertical:start:decrement {
+body:has(#container)::-webkit-scrollbar-button:vertical:decrement {
     /* 이오니콘즈 라이브러리 내부의 위쪽 꺾쇠 화살표 유니코드 고유값 */
     content: "\ea51" !important; 
 }
 
 /* [아래쪽 버튼] 이오니콘즈의 '아래쪽 화살표(chevron-down)' 아이콘 코드 매핑 */
-body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
+body:has(#container)::-webkit-scrollbar-button:vertical:increment {
     /* 이오니콘즈 라이브러리 내부의 아래쪽 꺾쇠 화살표 유니코드 고유값 */
     content: "\e963" !important; 
 }
