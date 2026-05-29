@@ -295,7 +295,7 @@ body:has(#container) {
 
 /* 1. 스크롤바 전체 너비 정의 */
 body:has(#container)::-webkit-scrollbar {
-    width: 15px; 
+    width: 2.5vw; 
     display: block;
 }
 
@@ -311,7 +311,7 @@ body:has(#container)::-webkit-scrollbar-thumb {
     border-radius: 10px;
     
     /* [오버레이 디자인 효과] 투명 테두리와 padding-box 조화로 막대만 우주 위에 붕 띄우기 */
-    border: 5px solid transparent !important;
+    border: calc((2.5vw - 6px) / 2) solid transparent !important;
     background-clip: padding-box !important;
 }
 
