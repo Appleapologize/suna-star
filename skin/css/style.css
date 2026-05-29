@@ -262,10 +262,27 @@ html, body{
 }
 
 html:has(#container) {
-	scrollbar-color: var(--scroll-color1) color-mix(in srgb, var(--background-color) 15%, transparent); 
+	scrollbar-color: auto 
+	/*var(--scroll-color1) color-mix(in srgb, var(--background-color) 15%, transparent)*/;
+	scrollbar-gutter: stable both-edges; 
     background:
     center / cover no-repeat var(--limit-img),
     left top / auto repeat var(--background-color) var(--limit-pattern);
+	overflow-x: hidden;
+}
+
+html:has(#container)::-webkit-scrollbar-track {
+    background-color: transparent; 
+}
+
+html:has(#container)::-webkit-scrollbar-thumb {
+    /* 원래 질문하신 color-mix를 여기에 적용 (약 85% 불투명) */
+    background-color: color-mix(in srgb, var(--background-color) 85%, transparent); 
+    border-radius: 10px;
+    
+    /* 팁: 투명한 테두리를 주면 스크롤바가 배경에서 살짝 뜬 것처럼 예쁘게 연출됩니다 */
+    border: 3px solid transparent; 
+    background-clip: padding-box;
 }
 
 body {
