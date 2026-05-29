@@ -331,31 +331,31 @@ body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
     height: 10px !important;
     background: transparent !important;
 }*/
+/* [공통] 이오니콘즈 아이콘 폰트를 스크롤바 버튼 구조에 강제 주입 */
+body:has(#container)::-webkit-scrollbar-button:vertical {
+    display: block !important;
+    height: 10px !important; /* 질문자님의 소중한 10px 높이 유지 */
+    background: transparent !important;
+    color: var(--scroll-color1) !important; /* 막대와 똑같은 색상 연결 */
+    
+    /* 이오니콘즈 내장 아이콘 폰트 패밀리 지정 */
+    font-family: "Ionicons" !important; 
+    font-size: 10px !important; /* 버튼 높이에 맞춰 10px 크기 지정 */
+    text-align: center !important;
+    line-height: 10px !important; /* 세로 정중앙 정렬 */
+}
+
+/* [위쪽 버튼] 이오니콘즈의 '위쪽 화살표(chevron-up)' 아이콘 코드 매핑 */
 body:has(#container)::-webkit-scrollbar-button:vertical:start:decrement {
-    display: block !important;
-    height: 10px !important;
-    background: transparent !important;
-    
-    /* 선명한 내장 SVG 화살표 삽입 */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 24 24'%3E%3Cpath d='M7 14l5-5 5 5H7z' fill='%23ff9494'/%3E%3C/svg%3E") !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-size: 10px !important; /* 10px 버튼 높이에 맞춰 화살표 크기 최적화 */
+    /* 이오니콘즈 라이브러리 내부의 위쪽 꺾쇠 화살표 유니코드 고유값 */
+    content: "\ea51" !important; 
 }
 
-/* [아래쪽 버튼] 질문자님의 10px 높이와 투명 배경을 완벽히 유지하면서 삼각형(▼)만 삽입 */
+/* [아래쪽 버튼] 이오니콘즈의 '아래쪽 화살표(chevron-down)' 아이콘 코드 매핑 */
 body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
-    display: block !important;
-    height: 10px !important;
-    background: transparent !important;
-    
-    /* 선명한 내장 SVG 화살표 삽입 */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5H7z' fill='%23ff9494'/%3E%3C/svg%3E") !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-size: 10px !important; /* 10px 버튼 높이에 맞춰 화살표 크기 최적화 */
+    /* 이오니콘즈 라이브러리 내부의 아래쪽 꺾쇠 화살표 유니코드 고유값 */
+    content: "\e963" !important; 
 }
-
 
 
 a{
