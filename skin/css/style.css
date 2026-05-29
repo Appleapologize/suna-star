@@ -309,6 +309,21 @@ html::-webkit-scrollbar-thumb:hover {
     filter: brightness(1.2); 
 }
 
+/* 스크롤바 맨 위에 10px 크기의 투명한 빈 공간 버튼 추가 */
+html::-webkit-scrollbar-button:vertical:start:decrement {
+    display: block !important;
+    height: 10px !important;
+    background: transparent !important; /* 뒤에 우주가 비치도록 투명 처리 */
+}
+
+/* 스크롤바 맨 아래에 10px 크기의 투명한 빈 공간 버튼 추가 */
+html::-webkit-scrollbar-button:vertical:end:increment {
+    display: block !important;
+    height: 10px !important;
+    background: transparent !important; /* 뒤에 우주가 비치도록 투명 처리 */
+}
+
+
 a{
 	margin: 0;
     padding: 0;
