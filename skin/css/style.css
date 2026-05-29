@@ -280,8 +280,8 @@ body {
 body:has(#container) {
     /* [수정] 실제 서비스에 쓰이는 배경색(var(--background-color))은 이미지들과 함께 여기에 명시해 줍니다 */
     background:
-    var(--background-color) left top / auto repeat var(--bg-pattern),	
-    center / cover no-repeat var(--bg-img);
+    center / cover no-repeat var(--limit-img),
+    left top / auto repeat var(--background-color) var(--limit-pattern);
 }
 
 ::selection {
