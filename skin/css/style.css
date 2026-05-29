@@ -337,7 +337,7 @@ body:has(#container)::-webkit-scrollbar-button:vertical:start:decrement {
     background: transparent !important;
     
     /* 선명한 내장 SVG 화살표 삽입 */
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 24 24'><path d='M7 14l5-5 5 5H7z' fill='%23ff9494'/></svg>") !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 24 24'%3E%3Cpath d='M7 14l5-5 5 5H7z' fill='%23ff9494'/%3E%3C/svg%3E") !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
     background-size: 10px !important; /* 10px 버튼 높이에 맞춰 화살표 크기 최적화 */
@@ -350,7 +350,7 @@ body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
     background: transparent !important;
     
     /* 선명한 내장 SVG 화살표 삽입 */
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5H7z' fill='%23ff9494'/></svg>") !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5H7z' fill='%23ff9494'/%3E%3C/svg%3E") !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
     background-size: 10px !important; /* 10px 버튼 높이에 맞춰 화살표 크기 최적화 */
