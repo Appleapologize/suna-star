@@ -342,14 +342,14 @@ body:has(#container)::-webkit-scrollbar-button{
     background-size: 10px 10px !important; /* 10px 크기 안에 꽉 차게 정렬 */	
 }
 
-body:has(#container)::-webkit-scrollbar-button:vertical:decrement {
+body:has(#container)::-webkit-scrollbar-button:vertical:start:decrement {
     
     /* [수정] 크롬 엔진 버그를 우회하기 위해 완벽히 인코딩된 화살표 이미지 주입 */
     background-image: url("https://unpkg.com/ionicons@5.5.2/dist/svg/caret-up.svg") !important;
 }
 
 /* [아래쪽 버튼] 높이 10px 투명 유지 + var(--scroll-color1) 색상의 아래 화살표(▼) 강제 출력 */
-body:has(#container)::-webkit-scrollbar-button:vertical:increment {
+body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
     
     /* [수정] 크롬 엔진 버그를 우회하기 위해 완벽히 인코딩된 화살표 이미지 주입 */
     background-image: url("https://unpkg.com/ionicons@5.5.2/dist/svg/caret-down.svg") !important;
