@@ -253,8 +253,8 @@
   }
 
 html, body{
-    width: 100%;
-    max-width: 100%;	
+    width: var(--width-100);
+    max-width: var(--width-100);	
     margin: 0;
     padding: 0;
 	cursor:var(--default-cursor), auto !important;
@@ -289,9 +289,8 @@ html::-webkit-scrollbar {
     width: 12px; 
 }
 
-/* 2. [핵심] 투명(`transparent`)이 먹히지 않는 트랙을 브라우저 화면에서 완전히 숨겨버립니다 */
 html::-webkit-scrollbar-track {
-    display: none !important; /* 흰색으로 뜨던 공간 자체를 렌더링에서 제외 */
+    background-color: var(--scroll-color2) !important; /* 흰색으로 뜨던 공간 자체를 렌더링에서 제외 */
 }
 
 /* 3. 막대 색상을 요청하신 --scroll-color1로 설정 */
@@ -300,7 +299,6 @@ html::-webkit-scrollbar-thumb {
     border-radius: 10px;
     
     /* 트랙이 사라졌으므로 테두리 여백 대신 막대 자체 두께로 깔끔하게 얹어지게 처리 */
-    border: none !important; 
 }
 
 /* 4. 마우스 올렸을 때 효과 */
