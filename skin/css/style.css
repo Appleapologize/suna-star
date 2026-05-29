@@ -252,59 +252,73 @@
 	box-sizing: border-box; 
   }
 
-html, body{
+html, body {
     width: var(--width-100);
     max-width: var(--width-100);	
     margin: 0;
     padding: 0;
-	cursor:var(--default-cursor), auto !important;
+    cursor: var(--default-cursor), auto !important;
 }
 
 html:has(#container) {
-  	background:
-    center / cover no-repeat var(--limit-img),
-    left top / auto repeat var(--background-color) var(--limit-pattern);
-	overflow-x: hidden;
-	overflow-y: overlay; 
-	
+    /* [수정] 크롬 버그를 일으키는 overlay 속성을 지우고, 표준 스크롤 속성으로 변경 */
+    overflow-x: hidden;
+    overflow-y: scroll; 
+    
+    /* [수정] html에 바로 배경을 주면 크롬이 트랙을 무조건 하얗게 채웁니다. */
+    /* 아래 body:has 영역으로 이 배경화면 코드를 안전하게 통합시켰습니다. */
+}
+
+html {
+    /* [추가] 최신 크롬/엣지 표준 명세에 맞춰 트랙을 transparent(투명)로 강제 지정합니다 */
+    scrollbar-color: var(--scroll-color1) transparent;
+    scrollbar-width: thin;
 }
 
 body {
     background-color: var(--background-color);
-	color:var(--text-color);
+    color: var(--text-color);
 }
 
 body:has(#container) {
+    /* [수정 및 통합] html에 있던 배경 이미지들을 이쪽으로 순서대로 합쳤습니다. */
+    /* 이렇게 해야 우주 배경이 깨지지 않고 오른쪽 스크롤바 밑바닥 끝까지 투명하게 비칩니다. */
     background:
-	left top / auto repeat var(--background-color) var(--bg-pattern),	
+    center / cover no-repeat fixed var(--limit-img),
+    left top / auto repeat fixed var(--background-color) var(--limit-pattern),
+    left top / auto repeat var(--background-color) var(--bg-pattern),	
     center / cover no-repeat var(--bg-img);
 }
 
 ::selection {
-    background-color: var( --select);
-    color: var( --select-color);
+    background-color: var(--select);
+    color: var(--select-color);
 }
-/*-------스크롤바 스타일--------*/
+
+
+/*======= 🛠️ 스크롤바 스타일 깔끔하게 정리 및 정상화 =======*/
+
 /* 1. 스크롤바 전체 너비 정의 */
 html::-webkit-scrollbar {
     width: 12px; 
-	display: block;
+    display: block;
 }
 
+/* 2. [수정] 충돌하던 트랙 코드를 하나로 통합하고 완전 투명하게 처리 */
 html::-webkit-scrollbar-track {
-    background-color: var(--scroll-color2) !important; /* 흰색으로 뜨던 공간 자체를 렌더링에서 제외 */
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
-::-webkit-scrollbar-track, ::-webkit-scrollbar-button {
-	display: none;
-}
-
-/* 3. 막대 색상을 요청하신 --scroll-color1로 설정 */
+/* 3. 막대 색상을 요청하신 --scroll-color1로 설정하고 투명도 링크 */
 html::-webkit-scrollbar-thumb {
     background-color: var(--scroll-color1) !important; 
     border-radius: 10px;
     
-    /* 트랙이 사라졌으므로 테두리 여백 대신 막대 자체 두께로 깔끔하게 얹어지게 처리 */
+    /* [오버레이 효과] 트랙을 투명하게 뚫었기 때문에, 투명 테두리를 주면 */
+    /* 막대가 화면 끝에 붙지 않고 우주 공간에 둥둥 떠 있는 것처럼 세련되게 바뀝니다 */
+    border: 3px solid transparent !important;
+    background-clip: padding-box !important;
 }
 
 /* 4. 마우스 올렸을 때 효과 */
@@ -313,10 +327,18 @@ html::-webkit-scrollbar-thumb:hover {
     filter: brightness(1.2); 
 }
 
-::-webkit-scrollbar-thumb{
-background-color: lightblue;
-	
+/* 5. 위아래 10px 투명 여백 버튼 완벽 연출 */
+html::-webkit-scrollbar-button:vertical:start:decrement {
+    display: block !important;
+    height: 10px !important;
+    background: transparent !important;
 }
+html::-webkit-scrollbar-button:vertical:end:increment {
+    display: block !important;
+    height: 10px !important;
+    background: transparent !important;
+}
+
 
 a{
 	margin: 0;
