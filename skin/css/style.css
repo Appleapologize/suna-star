@@ -253,7 +253,7 @@
   }
 
 html, body{
-    width:100vw;
+    width: var(--width-100);
     max-width: 100%;	
     margin: 0;
     padding: 0;
@@ -262,9 +262,9 @@ html, body{
 
 html:has(#container) {
 	scrollbar-width: thin; 
-    background:
+  /*background:
     center / cover no-repeat var(--limit-img),
-    left top / auto repeat var(--background-color) var(--limit-pattern);
+    left top / auto repeat var(--background-color) var(--limit-pattern);*/
 	overflow-x: hidden;
 }
 
@@ -280,7 +280,9 @@ body {
 
 body:has(#container) {
     background:
-	left top / auto repeat var(--background-color) var(--bg-pattern),	
+    center / cover no-repeat var(--limit-img),
+    left top / auto repeat var(--background-color) var(--limit-pattern),
+    left top / auto repeat var(--background-color) var(--bg-pattern),	
     center / cover no-repeat var(--bg-img);
 }
 
@@ -289,37 +291,27 @@ body:has(#container) {
     color: var( --select-color);
 }
 /*-------스크롤바 스타일--------*/
-/* 1. 크롬/엣지가 스크롤바 뒷공간을 따로 떼서 흰색으로 채우지 못하도록 제어 */
 html::-webkit-scrollbar {
-    width: 14px; /* 마우스가 닿기 편하도록 살짝 넉넉하게 지정 */
-    background: transparent !important; /* 브라우저 기본 흰 배경 강제 제거 */
+    width: 14px; 
+    background: transparent !important; 
 }
 
-/* 2. 스크롤바 배경(트랙)을 완전 투명화하여 우주 배경이 비치게 설정 */
 html::-webkit-scrollbar-track {
     background-color: transparent !important;
     background: transparent !important;
 }
 
-/* 3. 막대 색상을 요청하신 --scroll-color1로 설정 */
 html::-webkit-scrollbar-thumb {
-    /* 원래 원하셨던 스크롤바 막대 전용 색상 적용 */
     background-color: var(--scroll-color1) !important; 
-    
-    /* 10px 둥근 모서리 */
     border-radius: 10px;
-    
-    /* [유리 같은 마감] 주변에 투명 테두리를 주어 우주 위에 둥둥 떠 흐르는 느낌 연출 */
-    border: 3px solid transparent; 
+    border: 3.5px solid transparent; /* 테두리를 조금 더 넓혀 슬림하고 뜨게 조정 */
     background-clip: padding-box;
 }
 
-/* 4. 마우스 올렸을 때 막대 투명도나 선명도 유지 */
 html::-webkit-scrollbar-thumb:hover {
     background-color: var(--scroll-color1) !important;
-    filter: brightness(1.2); /* 마우스 올리면 살짝 밝아지게 선택적 효과 */
+    filter: brightness(1.2); 
 }
-
 
 a{
 	margin: 0;
