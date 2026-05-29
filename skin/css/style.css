@@ -312,7 +312,7 @@ body:has(#container)::-webkit-scrollbar-thumb {
     border-radius: 10px;
     
     /* [오버레이 디자인 효과] 투명 테두리와 padding-box 조화로 막대만 우주 위에 붕 띄우기 */
-    border: 3px solid transparent !important;
+    border: 5px solid transparent !important;
     background-clip: padding-box !important;
 }
 
