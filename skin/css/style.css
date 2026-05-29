@@ -870,9 +870,21 @@ footer p.bold{
 
 @media (max-width: 1024px) {
 
-	body:has(#container)::-webkit-scrollbar-track{
+	/*body:has(#container)::-webkit-scrollbar-track{
 		background-color: color-mix(in srgb, var(--background-color) 15%, transparent) !important;
-	}
+	}*/
+
+    body:has(#container) {
+        -ms-overflow-style: none !important;  /* IE, 엣지 */
+        scrollbar-width: none !important;     /* 파이어폭스 */
+    }
+
+    /* 크롬, 사파리, 삼성인터넷 등 모바일 웹킷 브라우저에서 스크롤바 완전히 숨기기 */
+    body:has(#container)::-webkit-scrollbar {
+        display: none !important;
+    }	
+
+
 	
 	#head{
 		margin-bottom:0;
