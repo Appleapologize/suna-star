@@ -262,9 +262,9 @@ html, body{
 
 html:has(#container) {
 	scrollbar-width: thin; 
-  /*background:
+  	background:
     center / cover no-repeat var(--limit-img),
-    left top / auto repeat var(--background-color) var(--limit-pattern);*/
+    left top / auto repeat var(--background-color) var(--limit-pattern);
 	overflow-x: hidden;
 }
 
@@ -280,9 +280,7 @@ body {
 
 body:has(#container) {
     background:
-    center / cover no-repeat var(--limit-img),
-    left top / auto repeat var(--background-color) var(--limit-pattern),
-    left top / auto repeat var(--background-color) var(--bg-pattern),	
+	left top / auto repeat var(--background-color) var(--bg-pattern),	
     center / cover no-repeat var(--bg-img);
 }
 
