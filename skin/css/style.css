@@ -264,9 +264,9 @@ html:has(#container) {
     /* [수정] 크롬 버그를 일으키는 overlay 속성을 지우고, 표준 스크롤 속성으로 변경 */
     overflow-x: hidden;
     overflow-y: scroll; 
-    
-    /* [수정] html에 바로 배경을 주면 크롬이 트랙을 무조건 하얗게 채웁니다. */
-    /* 아래 body:has 영역으로 이 배경화면 코드를 안전하게 통합시켰습니다. */
+  	background:
+    center / cover no-repeat var(--limit-img),
+    left top / auto repeat var(--background-color) var(--limit-pattern);
 }
 
 html {
@@ -281,13 +281,9 @@ body {
 }
 
 body:has(#container) {
-    /* [수정 및 통합] html에 있던 배경 이미지들을 이쪽으로 순서대로 합쳤습니다. */
-    /* 이렇게 해야 우주 배경이 깨지지 않고 오른쪽 스크롤바 밑바닥 끝까지 투명하게 비칩니다. */
-    background:
-    center / cover no-repeat fixed var(--limit-img),
-    left top / auto repeat fixed var(--background-color) var(--limit-pattern),
-    left top / auto repeat var(--background-color) var(--bg-pattern),	
-    center / cover no-repeat var(--bg-img);
+  	background:
+    center / cover no-repeat var(--limit-img),
+    left top / auto repeat var(--background-color) var(--limit-pattern);
 }
 
 ::selection {
