@@ -269,7 +269,7 @@ html:has(#container) {
 
 
 html {
-	scrollbar-width: thin; 
+	/*scrollbar-width: thin; */
 }
 
 body {
