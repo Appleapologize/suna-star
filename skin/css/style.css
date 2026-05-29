@@ -332,7 +332,7 @@ body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
     background: transparent !important;
 }*/
 /* [공통] 이오니콘즈 아이콘 폰트를 스크롤바 버튼 구조에 강제 주입 */
-body:has(#container)::-webkit-scrollbar-button:vertical {
+body:has(#container)::-webkit-scrollbar-button {
     display: block !important;
     height: 10px !important; /* 질문자님의 소중한 10px 높이 유지 */
     background: transparent !important;
