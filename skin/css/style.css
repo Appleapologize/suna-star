@@ -263,19 +263,19 @@ html, body {
 html:has(#container) {
     /* [수정] 크롬이 스크롤바 맨 뒷자리를 하얗게 칠하지 못하도록 html의 기본 배경색을 투명하게 선언 */
     background-color: transparent !important;
-    overflow-x: hidden;
-    overflow-y: scroll; 
+    overflow: hidden; 
 }
 
 body {
     color: var(--text-color);
+	overflow-y:scroll;
 }
 
 body:has(#container) {
     /* [수정] 실제 서비스에 쓰이는 배경색(var(--background-color))은 이미지들과 함께 여기에 명시해 줍니다 */
     background:
     center / cover no-repeat var(--limit-img),
-    left top / auto repeat var(--background-color) var(--limit-pattern);
+    left top / auto repeat var(--limit-pattern);
 }
 
 ::selection {
@@ -285,17 +285,17 @@ body:has(#container) {
 
 /*-------스크롤바 스타일 (질문자님이 완성하신 완벽한 코드 그대로 유지)--------*/
 /* 1. 스크롤바 전체 너비 정의 */
-html::-webkit-scrollbar {
+body::-webkit-scrollbar {
     width: 12px; 
 }
 
 /* 2. [핵심] 투명(`transparent`)이 먹히지 않는 트랙을 브라우저 화면에서 완전히 숨겨버립니다 */
-html::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     display: none !important; /* 흰색으로 뜨던 공간 자체를 렌더링에서 제외 */
 }
 
 /* 3. 막대 색상을 요청하신 --scroll-color1로 설정 */
-html::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
     background-color: var(--scroll-color1) !important; 
     border-radius: 10px;
     
@@ -304,20 +304,20 @@ html::-webkit-scrollbar-thumb {
 }
 
 /* 4. 마우스 올렸을 때 효과 */
-html::-webkit-scrollbar-thumb:hover {
+body::-webkit-scrollbar-thumb:hover {
     background-color: var(--scroll-color1) !important;
     filter: brightness(1.2); 
 }
 
 /* 스크롤바 맨 위에 10px 크기의 투명한 빈 공간 버튼 추가 */
-html::-webkit-scrollbar-button:vertical:start:decrement {
+body::-webkit-scrollbar-button:vertical:start:decrement {
     display: block !important;
     height: 10px !important;
     background: transparent !important; /* 뒤에 우주가 비치도록 투명 처리 */
 }
 
 /* 스크롤바 맨 아래에 10px 크기의 투명한 빈 공간 버튼 추가 */
-html::-webkit-scrollbar-button:vertical:end:increment {
+body::-webkit-scrollbar-button:vertical:end:increment {
     display: block !important;
     height: 10px !important;
     background: transparent !important; /* 뒤에 우주가 비치도록 투명 처리 */
