@@ -1800,52 +1800,37 @@
         </div>
 </div>
 <div class="goto">
-<!--top버튼 나도 만들거다-->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 <script type="text/javascript">
 $(function(){
+  // [1] 맨 위로 가기 버튼 (작동하던 코드 유지)
   $("#gotop").hide();
   $(window).scroll(function(){
-    if($(this).scrollTop() > 60){$("#gotop").fadeIn();}
-    else{$("#gotop").fadeOut();}
+    if($(this).scrollTop() > 60){ $("#gotop").fadeIn(); }
+    else{ $("#gotop").fadeOut(); }
   });
 
-    $("#gotop").click(function(){
-    $("html, body").animate({ scrollTop: 0 }, 500); // 500ms 동안 스크롤 이동
+  $("#gotop").click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 500);
     return false;
   });
-});
-</script>
-<a href="#" id="gotop" title="Top">
-  ▲
-  <!--<img src="./images/top1.png" onmouseover="this.src='./images/top2.png'" onmouseout="this.src='./images/top1.png'" border="0"/>-->
-</a>
-<!--탑(TOP)버튼 종료 -->
 
-<!--맨 밑으로 버튼-->
-<script type="text/javascript">
-$(function(){
-  $(window).scroll(function(){
-    $("#gotobottom").fadeIn();
-  });
-
+  // [2] 맨 밑으로 가기 버튼 (절대 에러 안 나는 순수 자바스크립트 방식)
   $("#gotobottom").click(function(){
-    /* [수정] #container 대신, 실제 게시물이 들어있는 table.sns-board의 위치와 높이를 계산 */
-    var boardTop = $(".sns-board").offset().top;
-    var boardHeight = $(".sns-board").outerHeight();
-    
-    /* 타임라인 보드가 끝나는 딱 그 지점까지만 스크롤 이동 */
-    $("html, body").animate({ scrollTop: boardTop + boardHeight - $(window).height() }, 500); 
+    // 브라우저 화면의 가장 밑바닥 좌표를 구해서 부드럽게 이동시킵니다.
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    });
     return false;
   });
 });
 </script>
 
+<a href="#" id="gotop" title="Top">▲</a>
+<a href="#" id="gotobottom" title="Bottom">▼</a>
+</div>
 
-<!-- 버튼 코드 -->
-<a href="#" id="gotobottom" title="Bottom">
-  ▼
-</a>
-<!--맨 밑으로 버튼 종료 -->  
-</div>  
 <div class="sns-line"></div>
+
