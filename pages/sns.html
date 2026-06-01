@@ -1804,15 +1804,24 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
 <script type="text/javascript">
 $(function(){
+  // 1. 처음에 켰을 때는 버튼을 가려둡니다.
   $("#gotop").hide();
-  $(window).scroll(function(){
-    if($(this).scrollTop() > 60){$("#gotop").fadeIn();}
-    else{$("#gotop").fadeOut();}
+  
+  // 2. [수정] window가 아니라 스크롤바가 살아있는 #container를 감시합니다.
+  $("#container").scroll(function(){
+    // #container가 60px 이상 밑으로 내려가면 가림을 해제하고 보여줍니다(fadeIn)
+    if($(this).scrollTop() > 60){
+      $("#gotop").fadeIn();
+    } else {
+      // 다시 맨 위로 올라오면 숨깁니다(fadeOut)
+      $("#gotop").fadeOut();
+    }
   });
 
-    $("#gotop").click(function(){
-    $("html, body").animate({ scrollTop: 0 }, 500); // 500ms 동안 스크롤 이동
-    return false;
+  // 3. 버튼 클릭 시 #container 내부 스크롤을 최상단으로 올립니다.
+  $("#gotop").click(function(){
+    $("#container").animate({ scrollTop: 0 }, 500); 
+    return false; // href="#" 새로고침 차단
   });
 });
 </script>
