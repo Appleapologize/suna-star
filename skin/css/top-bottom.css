@@ -10,57 +10,44 @@
   --goto-font-size:xx-large;
 }
 
-div.goto {
-    display: var(--goto-display);
-    position: var(--goto-position);
-    top: 35%;
-    right: 10px;
-    margin: 0 10px;
-    background-color: var(--goto-backcolor);
-    border-radius:var(--goto-border-radius);
-    padding: 10px 0px;
-    z-index: 1;
+.goto {
+    position: fixed !important;
+    top: 50% !important;        /* 화면 세로 기준 딱 절반 위치 */
+    right: 20px;                /* 우측 여백 */
+    transform: translateY(-50%);/* 수직 정중앙 정렬 보정 */
+    display: flex;
+    flex-direction: column;    /* 버튼을 위아래(수직)로 배치 */
+    gap: 10px;                  /* 버튼 사이의 간격 */
+    z-index: 9999 !important;
 }
 
-div.goto a{
-  display:block;
+.goto a {
+    display: none;              /* 평소에는 숨겨두고 JS 조건에 맞을 때만 fadeIn */
+    width: 40px;
+    height: 40px;
+    background-color: var(--btn-sub-color, #716ac7) !important; /* 지정하신 보라색 연동 */
+    color: #ffffff !important;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;         /* 동그라미 모양 버튼 */
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.2s;
 }
 
-#gotop, #gotobottom{
-  position:relative;
-  text-decoration: var(--goto-text-deco);
-  background: transparent;
-  font-size:var(--goto-font-size);
-  text-align:center;
-  max-width:80px;
-  background-color:transparent;
-  color:white;
-  padding:var(--goto-padding);
-  margin:10px 0;
-}
-
-#gotop:hover, #gotobottom:hover{
+.goto a:hover{
   color:#6475b0;
 }
 
 @media (max-width: 1024px){
-  div.goto {
-    display: var(--goto-display);
-    position: var(--goto-position);
-    top: auto;
-    bottom: 0%;          
-    right: 0px;
-    margin: 0;
-    border-radius:0;
- }
+   .goto {
+        top: auto !important;     /* PC의 세로 중앙 고정 해제 */
+        bottom: 20px !important;  /* 우측 하단 구석으로 배치 변경 */
+        right: 20px;
+        transform: none;          /* 중앙 보정값 초기화 */
+        flex-direction: row;      /* 버튼을 좌우(수평)로 나란히 배치 */
+        gap: 8px;
+    }
 
-  div.goto a{
-    display:inline;
-  }
-  #gotop{
-    font-size:larger;
-  }
-  #gotobottom{
-    font-size:larger;
-  }
 }
