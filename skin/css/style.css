@@ -265,6 +265,7 @@ html:has(#container) {
 body {
     background-color: var(--background-color);
     color: var(--text-color);
+    height: 100%;	
 }
 
 body:has(#container) {
