@@ -111,7 +111,7 @@ function loadPage(event, relativePath, addHistory = true) {
 
                 // 3. 순수 본문 내용만 타겟 영역에 주입
                 contentArea.innerHTML = doc.body.innerHTML; 
-                contentArea.scrollTo(0, 0); 
+                window.scrollTo(0, 0); 
 
                 // 4. [🎨 CSS 동적 로드] fetch한 HTML 내에 수록된 모든 <link rel="stylesheet"> 추출
                 const cssLinks = doc.querySelectorAll('link[rel="stylesheet"]');
@@ -162,7 +162,7 @@ function loadPage(event, relativePath, addHistory = true) {
                     });
                 });
 
-                // 6. [버그 수정 완료] split('.') 뒤에 [0]을 붙여 순수하게 'sns' 문자열만 추출합니다!
+                // 6. 모든 스크립트 구동 완료 후 초기화 헬퍼 함수 실행 (버그 수정 완료)
                 scriptChain.then(() => {
                     const pageKey = fileName.split('.')[0]; 
                     executePageInit(pageKey);
@@ -187,62 +187,8 @@ function executePageInit(pageKey) {
     if (pageKey === 'gallery' && typeof initGallery === 'function') {
         initGallery();
     }
+    // 페이지 주소 이름에 관계없이 setupMenuLinks 함수가 로드되었다면 무조건 자동 실행!
     if (typeof setupMenuLinks === 'function') {
         setupMenuLinks();
-    }
-
-    /* =========================================================
-       [🔧 완벽 해결] 배열 버그 뚫고 작동하는 #container 정밀 타격 구역
-       ========================================================= */
-    if (pageKey === 'sns') {
-        const container = document.getElementById("container");
-        const btnTop = document.getElementById("gotop");
-        const btnBottom = document.getElementById("gotobottom");
-
-        if (container) {
-            if (btnTop) btnTop.style.display = "none";
-
-            // #container 내부 스크롤 감시
-            container.addEventListener("scroll", function() {
-                if (container.scrollTop > 60) {
-                    if (btnTop) btnTop.style.display = "inline-block";
-                } else {
-                    if (btnTop) btnTop.style.display = "none";
-                }
-            });
-
-            // 맨 위로 가기 클릭
-            if (btnTop) {
-                btnTop.addEventListener("click", function(e) {
-                    e.preventDefault(); 
-                    container.scrollTo({ top: 0, behavior: "smooth" });
-                });
-            }
-
-            // 맨 밑으로 가기 클릭
-            if (btnBottom) {
-                btnBottom.addEventListener("click", function(e) {
-                    e.preventDefault(); 
-                    
-                    const board = document.getElementById("board");
-                    if (board) {
-                        // 유령 선(.sns-line) 공간 완전 무시 연산식
-                        const boardTop = board.offsetTop;
-                        const boardHeight = board.offsetHeight;
-                        const containerHeight = container.clientHeight;
-                        
-                        const targetScroll = boardTop + boardHeight - containerHeight;
-                        
-                        container.scrollTo({
-                            top: targetScroll,
-                            behavior: "smooth"
-                        });
-                    } else {
-                        // 혹시라도 board를 놓치면 최대 한계치 이동 백업
-                        container.scrollTo({ top: container.scrollHeight, behavior: "smooth" });
-                    }
-                });
-            }
-        }
     }
 }
