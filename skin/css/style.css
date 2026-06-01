@@ -335,7 +335,7 @@ body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
 body:has(#container)::-webkit-scrollbar-button{
     display: block !important;
     height: 10px !important;
-    background: transparent !important;	
+    background: var(--scroll-color1) !important;	
 	color: var(--scroll-color1) !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
