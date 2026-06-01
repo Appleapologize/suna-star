@@ -137,9 +137,6 @@
        --btn-ssub-color:#9a658a;
        --btn-ssub-hover-color:#400722;
       /* 서브메뉴 버튼 색상 지정 */
-  
-      --btn-ssub-background:#adffff;
-      /* 서브메뉴 버튼 배경 색상*/
       
     /* -------- -------- -------- 기타 설정 -------- -------- -------- */
         
@@ -186,7 +183,7 @@
 
 	/* 주요 포인트 색상을 지정합니다. */	
     --point-color: #716ac7;
-    --point-sub-color: #0e0b3a;
+    --point-sub-color: #3b358a;
 	
     /* 스크롤바의 커스텀 색상을 지정합니다. */
 	--scroll-bar-color: white;
@@ -209,14 +206,11 @@
 
 
     /* -------- -------- -------- 그 외 메뉴설정 -------- -------- -------- */
-        --btn-sub-color:#58336D;
-       --btn-sub-hover-color:#22102B;
-       --btn-ssub-color:#6E2652;
-       --btn-ssub-hover-color:#310B22;
+        --btn-sub-color:#514b9e;
+       --btn-sub-hover-color:#262161;
+       --btn-ssub-color:#353073;
+       --btn-ssub-hover-color:#15123d;
       /* 서브메뉴 버튼 색상 지정 */
-  
-      --btn-ssub-background:#5c4087;
-      /* 서브메뉴 버튼 배경 색상*/
       
     /* -------- -------- -------- 기타 설정 -------- -------- -------- */
         
@@ -524,6 +518,7 @@ ul li:hover > .sub {
 }
 .btn-sub-sub:hover { 
 	background: var(--btn-ssub-hover-color); 
+	color: var(--btn-text-color) ;
 }
 
 
