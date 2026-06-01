@@ -1804,24 +1804,24 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
 <script type="text/javascript">
 $(function(){
-  // 1. 처음에 켰을 때는 버튼을 가려둡니다.
+  // 1. 처음에는 가려둡니다.
   $("#gotop").hide();
   
-  // 2. [수정] window가 아니라 스크롤바가 살아있는 #container를 감시합니다.
-  $("#container").scroll(function(){
-    // #container가 60px 이상 밑으로 내려가면 가림을 해제하고 보여줍니다(fadeIn)
-    if($(this).scrollTop() > 60){
-      $("#gotop").fadeIn();
+  // 2.body 스크롤을 감시합니다!
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 60) {
+      $("#gotop").fadeIn(); // 60px 아래로 내려가면 가림 해제!
     } else {
-      // 다시 맨 위로 올라오면 숨깁니다(fadeOut)
-      $("#gotop").fadeOut();
+      $("#gotop").fadeOut(); // 맨 위로 오면 다시 숨김!
     }
   });
 
-  // 3. 버튼 클릭 시 #container 내부 스크롤을 최상단으로 올립니다.
-  $("#gotop").click(function(){
-    $("#container").animate({ scrollTop: 0 }, 500); 
-    return false; // href="#" 새로고침 차단
+  // 3. 버튼 클릭 시 스크롤 잠금 버그를 완벽하게 고친 클릭 이벤트
+  $("#gotop").click(function(e){
+    e.preventDefault(); // [수정] return false 대신 브라우저 버그가 없는 안전 잠금장치 사용!
+    
+    // body 스크롤바를 부드럽게 맨 위로 올립니다.
+    $("html, body").stop().animate({ scrollTop: 0 }, 500); 
   });
 });
 </script>
