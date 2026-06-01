@@ -1823,21 +1823,24 @@ $(function(){
 <!--탑(TOP)버튼 종료 -->
 
 <!--맨 밑으로 버튼-->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
-  // 스크롤 이벤트 처리: 500px 이상 스크롤 시 버튼 표시
   $(window).scroll(function(){
     $("#gotobottom").fadeIn();
   });
 
-  // '맨 밑으로 가기' 버튼 클릭 이벤트 추가
   $("#gotobottom").click(function(){
-    $("html, body").animate({ scrollTop: $("#container").prop('scrollHeight') }, 500); // 500ms 동안 스크롤 이동
+    /* [수정] #container 대신, 실제 게시물이 들어있는 table.sns-board의 위치와 높이를 계산 */
+    var boardTop = $(".sns-board").offset().top;
+    var boardHeight = $(".sns-board").outerHeight();
+    
+    /* 타임라인 보드가 끝나는 딱 그 지점까지만 스크롤 이동 */
+    $("html, body").animate({ scrollTop: boardTop + boardHeight - $(window).height() }, 500); 
     return false;
   });
 });
 </script>
+
 
 <!-- 버튼 코드 -->
 <a href="#" id="gotobottom" title="Bottom">
