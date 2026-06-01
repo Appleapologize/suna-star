@@ -1804,52 +1804,49 @@
 <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 <script type="text/javascript">
 // HTML 구조가 완전히 준비되면 작동하도록 안전하게 감싸줍니다.
+// html 구조가 완벽히 파악된 후 실행하도록 보장
 document.addEventListener("DOMContentLoaded", function() {
   
-  // 딱 움직여야 하는 대상인 #container 박스 하나만 정확하게 붙잡습니다.
   var container = document.getElementById("container");
   var btnTop = document.getElementById("gotop");
   var btnBottom = document.getElementById("gotobottom");
 
-  // 혹시 모르니 처음에는 맨 위로 버튼을 보이지 않게 숨겨둡니다.
+  // 처음에는 맨 위로 버튼 숨기기
   btnTop.style.display = "none";
 
-  // 1. #container 내부가 스크롤될 때만 감시합니다.
+  // 1. #container 내부 스크롤 감시
   container.addEventListener("scroll", function() {
     if (container.scrollTop > 60) {
-      btnTop.style.display = "inline"; // 60px 이상 내려오면 나타남
+      btnTop.style.display = "block";
     } else {
-      btnTop.style.display = "none";   // 맨 위로 가면 다시 숨김
+      btnTop.style.display = "none";
     }
   });
 
-  // 2. [맨 위로 가기] 클릭 시 #container 내부 스크롤을 0으로 부드럽게 올립니다.
-  btnTop.addEventListener("click", function(e) {
-    e.preventDefault(); // 기본 링크 이동 무력화
+  // 2. 맨 위로 가기 버튼 클릭 (새로고침 없이 #container 상단 이동)
+  btnTop.addEventListener("click", function() {
     container.scrollTo({
       top: 0,
-      behavior: "smooth" // 부드러운 애니메이션 효과
+      behavior: "smooth"
     });
   });
 
-  // 3. [맨 밑으로 가기] 클릭 시 #container 내부의 진짜 물리적 맨 끝 바닥으로 보냅니다.
-  btnBottom.addEventListener("click", function(e) {
-    e.preventDefault(); // 기본 링크 이동 무력화
-    
-    // #container 내부의 전체 스크롤 가능한 총높이를 구합니다.
+  // 3. 맨 밑으로 가기 버튼 클릭 (새로고침 없이 #container 물리적 최대 바닥 이동)
+  btnBottom.addEventListener("click", function() {
+    // #container가 수용할 수 있는 전체 내부 스크롤 길이 계산
     var maxScroll = container.scrollHeight;
     
     container.scrollTo({
       top: maxScroll,
-      behavior: "smooth" // 마우스 휠로 끝까지 내린 것과 완전히 동일하게 이동
+      behavior: "smooth"
     });
   });
 
 });
 </script>
 
-<a href="#" id="gotop" title="Top">▲</a>
-<a href="#" id="gotobottom" title="Bottom">▼</a>
+<button type="button" id="gotop" title="Top">▲</button>
+<button type="button" id="gotobottom" title="Bottom">▼</button>
 </div>
 
 <div class="sns-line"></div>
