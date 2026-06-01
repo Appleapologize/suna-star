@@ -209,22 +209,19 @@
   <button onclick="scrollToBottom()">⬇ 맨 아래로</button>
 </div>
     <script>
-        // 1. 맨 위로 부드럽게 이동하는 함수
-function scrollToTop() {
+function scrollToBottom() {
+  // 전체 문서의 총 높이를 구합니다.
+  const totalHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+  // 브라우저 화면의 순수 높이(보이는 영역)를 구합니다.
+  const viewHeight = window.innerHeight;
+  
+  // 전체 높이에서 보이는 높이를 빼면 '진짜 스크롤바가 도달할 수 있는 맨 밑'이 됩니다.
   window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+    top: totalHeight - viewHeight,
+    behavior: 'smooth' // 스르륵 내려가는 효과
   });
 }
 
-// 2. 맨 아래로 부드럽게 이동하는 함수 (기존 내용)
-function scrollToBottom() {
-  const pageHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-  window.scrollTo({
-    top: pageHeight,
-    behavior: 'smooth'
-  });
-}
 
     </script>
 
