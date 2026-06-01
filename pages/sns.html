@@ -1804,25 +1804,28 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 <script type="text/javascript">
 $(function(){
-  // [1] 맨 위로 가기 버튼 (작동하던 코드 유지)
+  // 1. 맨 위로 가기 버튼 수정 (#container 내부 스크롤을 0으로)
   $("#gotop").hide();
-  $(window).scroll(function(){
+  
+  // #container 내부가 스크롤될 때 맨 위로 버튼을 띄웁니다
+  $("#container").scroll(function(){
     if($(this).scrollTop() > 60){ $("#gotop").fadeIn(); }
     else{ $("#gotop").fadeOut(); }
   });
 
   $("#gotop").click(function(){
-    $("html, body").animate({ scrollTop: 0 }, 500);
+    // 바깥 창이 아니라 #container를 위로 올립니다
+    $("#container").animate({ scrollTop: 0 }, 500);
     return false;
   });
 
-  // [2] 맨 밑으로 가기 버튼 (절대 에러 안 나는 순수 자바스크립트 방식)
+  // 2. 맨 밑으로 가기 버튼 수정 (#container 내부의 진짜 높이만큼만 스크롤)
   $("#gotobottom").click(function(){
-    // 브라우저 화면의 가장 밑바닥 좌표를 구해서 부드럽게 이동시킵니다.
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: 'smooth'
-    });
+    // 유령 선(sns-line) 높이에 낚이지 않도록, 실제 게시판 테이블(.sns-board)의 높이를 기준으로 잡습니다
+    var totalHeight = $(".sns-board").outerHeight() + 300; // 하단 여백 여유분 300px 추가
+    
+    // #container 내부 스크롤을 게시판 끝 지점으로 부드럽게 이동시킵니다
+    $("#container").animate({ scrollTop: totalHeight }, 500);
     return false;
   });
 });
