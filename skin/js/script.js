@@ -111,7 +111,9 @@ function loadPage(event, relativePath, addHistory = true) {
 
                 // 3. 순수 본문 내용만 타겟 영역에 주입
                 contentArea.innerHTML = doc.body.innerHTML; 
-                window.scrollTo(0, 0); 
+                
+                // [수정] 메인 창이 아닌 스크롤바가 있는 #container 자체를 맨 위로 초기화시킵니다.
+                contentArea.scrollTo(0, 0); 
 
                 // 4. [🎨 CSS 동적 로드] fetch한 HTML 내에 수록된 모든 <link rel="stylesheet"> 추출
                 const cssLinks = doc.querySelectorAll('link[rel="stylesheet"]');
@@ -193,59 +195,60 @@ function executePageInit(pageKey) {
     }
 
     /* =========================================================
-       [🔧 여기에 추가!] sns.html 로딩이 완료된 후 실행되는 스크롤 고정 제어 섹션
+       [🔧 철저 정밀 수정] 오직 #container 박스만 완벽 지배하는 스크롤 엔진 구역
        ========================================================= */
     if (pageKey === 'sns') {
+        const container = document.getElementById("container");
         const btnTop = document.getElementById("gotop");
         const btnBottom = document.getElementById("gotobottom");
-        const board = document.getElementById("board");
 
-        // 1. 초기 셋팅: '맨 위로 가기' 버튼 숨김
-        if (btnTop) btnTop.style.display = "none";
+        if (container) {
+            // 1. 초기 셋팅: '맨 위로 가기' 버튼 숨김
+            if (btnTop) btnTop.style.display = "none";
 
-        // 2. 브라우저 화면 스크롤 이벤트 감시
-        window.addEventListener("scroll", function() {
-            if (window.scrollY > 60) {
-                if (btnTop) btnTop.style.display = "inline-block";
-            } else {
-                if (btnTop) btnTop.style.display = "none";
-            }
-        });
-
-        // 3. [▲ 맨 위로 가기] 새로고침 차단 및 연동 작동
-        if (btnTop) {
-            btnTop.addEventListener("click", function(e) {
-                e.preventDefault(); // 주소창 새로고침(# 현상) 차단 잠금장치
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-            });
-        }
-
-        // 4. [▼ 맨 밑으로 가기] 유령 공간 완벽 차단 및 #board 끝선 정밀 조준
-        if (btnBottom) {
-            btnBottom.addEventListener("click", function(e) {
-                e.preventDefault(); // 주소창 새로고침(# 현상) 차단 잠금장치
-                
-                if (board) {
-                    // 전체 문서 기준 #board 박스가 시작되는 Y축 절대 좌표 계산
-                    const boardTop = board.getBoundingClientRect().top + window.pageYOffset;
-                    // #board 영역의 순수 콘텐츠 높이값 계산
-                    const boardHeight = board.offsetHeight;
-                    // 현재 사용자가 보고 있는 모니터 화면(뷰포트)의 높이 계산
-                    const windowHeight = window.innerHeight;
-                    
-                    // .sns-line이 아래로 길게 파놓은 유령 빈 우주 공간을 완전히 무시하고,
-                    // 오직 글들이 끝나는 #board 박스의 아랫단 끝선이 내 화면 하단에 딱 걸치도록 역계산 이동!
-                    const targetScroll = boardTop + boardHeight - windowHeight;
-                    
-                    window.scrollTo({
-                        top: targetScroll,
-                        behavior: "smooth"
-                    });
+            // 2. #container 자체의 내부 스크롤바 움직임을 정밀 감시
+            container.addEventListener("scroll", function() {
+                if (container.scrollTop > 60) {
+                    if (btnTop) btnTop.style.display = "inline-block";
+                } else {
+                    if (btnTop) btnTop.style.display = "none";
                 }
             });
+
+            // 3. [▲ 맨 위로 가기] 새로고침 차단 및 #container를 맨 위로 올림
+            if (btnTop) {
+                btnTop.addEventListener("click", function(e) {
+                    e.preventDefault(); // href="#" 버그 차단
+                    container.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                });
+            }
+
+            // 4. [▼ 맨 밑으로 가기] 유령 선을 완전히 무시하고 오직 #board 알맹이의 바닥에 안착
+            if (btnBottom) {
+                btnBottom.addEventListener("click", function(e) {
+                    e.preventDefault(); // href="#" 버그 차단
+                    
+                    const board = document.getElementById("board");
+                    if (board) {
+                        // #container 내부에서 #board 박스가 시작되는 Y축 상대 위치를 구합니다
+                        const boardTop = board.offsetTop;
+                        // #board 영역의 실제 순수 높이값을 구합니다
+                        const boardHeight = board.offsetHeight;
+                        // 현재 눈에 보이는 #container 상자의 실질적인 틀 높이를 구합니다
+                        const containerHeight = container.clientHeight;
+                        
+                        // [.sns-line] 유령 영역을 완전히 배제하고, 딱 #board 콘텐츠가 끝나는 지점을 정확하게 타겟팅 계산
+                        const targetScroll = boardTop + boardHeight - containerHeight;
+                        
+                        container.scrollTo({
+                            top: targetScroll,behavior: "smooth"
+                         });
+                    }
+                });
+            }
         }
     }
 }
