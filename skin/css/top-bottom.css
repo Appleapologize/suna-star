@@ -21,11 +21,9 @@ margin: 0 10px;
 background-color: var(--goto-backcolor);
 border-radius:var(--goto-border-radius);
 padding: 10px 0px;
-    z-index: 1;}
     z-index: 1;
 }
 
-div.goto a{display:block;}
 div.goto a{
   display:block;
 }
@@ -43,14 +41,10 @@ padding:var(--goto-padding);
 margin:10px 0;
 }
 
-#gotop:hover, #gotobottom:hover
-{color:#6475b0;}
 #gotop:hover, #gotobottom:hover{
   color:#6475b0;
 }
 
-@media (min-width: 768px) and (max-width: 1024px){
-  div.goto {display: var(--goto-display);
 @media (max-width: 1024px){
   div.goto {
     display: var(--goto-display);
@@ -59,9 +53,8 @@ top: auto;
 bottom: 0%;          
 right: 0px;
 margin: 0;
-    border-radius:0;}
     border-radius:0;
- }
+  }
 
   div.goto a{display:inline;
               }
