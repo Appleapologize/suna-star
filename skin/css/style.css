@@ -332,7 +332,7 @@ body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
     background: transparent !important;
 }*/
 /* [공통] 이오니콘즈 아이콘 폰트를 스크롤바 버튼 구조에 강제 주입 */
-body:has(#container)::-webkit-scrollbar-button{
+/*body:has(#container)::-webkit-scrollbar-button{
     display: block !important;
     height: 10px !important;
     background: var(--scroll-color1) !important;	
@@ -342,14 +342,39 @@ body:has(#container)::-webkit-scrollbar-button{
     background-size: 10px 10px !important; /* 10px 크기 안에 꽉 차게 정렬 */	
 }
 
-/* [위쪽 버튼] url 내부를 크롬이 인식할 수 있는 내부 데이터 주소로 교체 */
+/* [위쪽 버튼] url 내부를 크롬이 인식할 수 있는 내부 데이터 주소로 교체 
 body:has(#container)::-webkit-scrollbar-button:vertical:start:decrement {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMjU2IDIzMGwtMTM2IDEzNmMtOS40IDkuNC0yNC42IDkuNC0zNCAwcy05LjQtMjQuNiAwLTM0bDE1My0xNTNjOS40LTkuNCAyNC42LTkuNCAzNCAwbDE1MyAxNTNjOS40IDkuNCA5LjQgMjQuNiAwIDM0cy0yNC42IDkuNC0zNCAwTDI1NiAyMzB6IiBmaWxsPSIjMDAwMDAwIi8+PC9zdmc+") !important;
 }
 
-/* [아래쪽 버튼] </svf> 오타 수정 및 화살표 색상 검은색(#000000) 고정 */
+/* [아래쪽 버튼] </svf> 오타 수정 및 화살표 색상 검은색(#000000) 고정 
 body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMjU2IDI4MkwzOTIgMTQ2YzkuNC05LjQgMjQuNi05LjQgMzQgMHM5LjQgMjQuNiAwIDM0TDI3MyAzMzNjLTkuNCA5LjQtMjQuNiA5LjQtMzQgMEwxMDUgMjE0Yy05LjQtOS40LTkuNC0yNC42IDAtMzRzMjQuNi05LjQgMzQgMEwyNTYgMjgyeiIgZmlsbD0iIzAwMDAwMCIvPjwvc3ZnPg==") !important;
+}*/
+
+/* [공통] 스크롤바 버튼 기본 구조 정의 */
+body:has(#container)::-webkit-scrollbar-button {
+    display: block !important;
+    height: 10px !important;
+    background: transparent !important; /* 버튼 배경을 투명하게 해서 막대와 조화롭게 만듭니다 */
+    
+    /* 🎨 여기가 핵심: 내가 원하는 CSS 변수로 색상을 제어합니다 */
+    color: var(--scroll-color1) !important; 
+    
+    font-size: 10px !important;
+    line-height: 10px !important;
+    text-align: center !important;
+    font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif !important;
+}
+
+/* [위쪽 버튼] content 속성으로 ▲ 특수문자 주입 */
+body:has(#container)::-webkit-scrollbar-button:vertical:start:decrement {
+    content: "▲" !important;
+}
+
+/* [아래쪽 버튼] content 속성으로 ▼ 특수문자 주입 */
+body:has(#container)::-webkit-scrollbar-button:vertical:end:increment {
+    content: "▼" !important;
 }
 
 
