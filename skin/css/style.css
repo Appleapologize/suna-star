@@ -270,6 +270,7 @@ body {
 body:has(#container) {
     /* [핵심 수정] body를 100vh로 잡았을 때 배경이 깨지지 않도록 fixed(화면 고정) 추가 */
     height: 100vh;
+	min-height:100vh;
     overflow-x: hidden;
     overflow-y: scroll; /* 스크롤바가 body 영역 내부 평면 위에 얹어지게 설정 */
     
