@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentScroll < 50) {
       // document.body.lastElementChild는 body 안의 진짜 마지막 태그를 찾아냅니다.
       // 수치형 scrollHeight를 쓰지 않고 이 태그 위치로 정렬하면 흰 화면(빈 공간)이 안 생깁니다.
-      const lastElement = document.body.lastElementChild;
+      const lastElement = document.querySelector(".footer");
       
       if (lastElement) {
         lastElement.scrollIntoView({ behavior: "smooth", block: "end" });
