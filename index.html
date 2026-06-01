@@ -139,8 +139,6 @@
     <!--내용 보이는 영역-->
         <div id="container">
         </div>  
-        <button onclick="scrollMainTop()" class="scroll-btn">맨 위로</button>
-        <button onclick="scrollMainBottom()" class="scroll-btn">맨 밑으로</button>
     </div>    
       <!-- 배너
     <div class="banner-area">
@@ -220,26 +218,5 @@
 
     
     <script src="./skin/js/script.js" defer></script>
-    <script>
-function scrollMainTop() {
-    const container = document.getElementById('container');
-    if (container) {
-        container.scrollTo({
-            top: 0,
-            behavior: 'smooth' // 부드럽게 위로 스크롤
-        });
-    }
-}
-
-function scrollMainBottom() {
-    const container = document.getElementById('container');
-    if (container) {
-        container.scrollTo({
-            top: container.scrollHeight, // 안 보이는 데까지 펼쳐진 실제 콘텐츠의 맨 끝 높이
-            behavior: 'smooth' // 부드럽게 아래로 스크롤
-        });
-    }
-}
-</script>
 </body>
 </html>
