@@ -1,6 +1,6 @@
 @charset "utf-8";
 #container{
-  position:relative;
+  overflow:hidden;
 }
 
 .diary-text table{ 
