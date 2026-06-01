@@ -165,53 +165,48 @@
         document.addEventListener('DOMContentLoaded', loadMenu);
       </script>   
 
-    <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
   const scrollBtn = document.getElementById("scrollToggleBtn");
-  
-  // ★ 중요: 실제 스크롤바가 생기는 내부 컨테이너의 선택자를 입력하세요.
-  // 만약 전체 body 내에서 무언가 움직인다면 document.documentElement 또는 document.body를 사용합니다.
-  const targetContainer = document.querySelector("#wrap") || document.documentElement;
 
   scrollBtn.addEventListener("click", () => {
-    const scrollTop = targetContainer.scrollTop; // 현재 스크롤 위치
-    const scrollHeight = targetContainer.scrollHeight; // 컨테이너 전체 높이
-    const clientHeight = targetContainer.clientHeight; // 현재 보이는 화면 높이
+    // window.scrollY는 현재 브라우저의 스크롤이 위에서부터 얼마나 내려왔는지 측정합니다.
+    const currentScroll = window.scrollY;
 
-    // 현재 스크롤이 맨 위에 있거나 중간쯤 있으면 맨 아래로 이동
-    // (완전한 맨 아래가 아니라면 맨 아래로 보냄)
-    if (scrollTop + clientHeight < scrollHeight - 10) {
-      targetContainer.scrollTo({
-        top: scrollHeight,
-        behavior: "smooth"
-      });
+    // 현재 스크롤이 맨 위(0 또는 상단 영역)에 있다면 맨 아래로 보냅니다.
+    if (currentScroll < 50) {
+      // document.body.lastElementChild는 body 안의 진짜 마지막 태그를 찾아냅니다.
+      // 수치형 scrollHeight를 쓰지 않고 이 태그 위치로 정렬하면 흰 화면(빈 공간)이 안 생깁니다.
+      const lastElement = document.body.lastElementChild;
+      
+      if (lastElement) {
+        lastElement.scrollIntoView({ behavior: "smooth", block: "end" });
+      }
     } else {
-      // 이미 맨 아래에 도착해 있다면 맨 위로 이동
-      targetContainer.scrollTo({
+      // 스크롤이 이미 내려가 있는 상태라면 맨 위(0,0) 좌표로 부드럽게 올립니다.
+      window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
     }
   });
 
-  // 스크롤 위치에 따라 버튼 텍스트 실시간 변경 (선택 사항)
-  targetContainer.addEventListener("scroll", () => {
-    const scrollTop = targetContainer.scrollTop;
-    const scrollHeight = targetContainer.scrollHeight;
-    const clientHeight = targetContainer.clientHeight;
-
-    if (scrollTop + clientHeight >= scrollHeight - 10) {
-      scrollBtn.textContent = "맨 위로";
-    } else {
+  // 사용자가 마우스 휠이나 터치로 직접 스크롤할 때도 버튼 글자를 실시간 변경해 줍니다.
+  window.addEventListener("scroll", () => {
+    if (window.scrollY < 50) {
       scrollBtn.textContent = "맨 아래로";
+    } else {
+      scrollBtn.textContent = "맨 위로";
     }
   });
 });
+</script>
 
-    </script>
-<button id="scrollToggleBtn" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+<!-- 화면 우측 하단에 고정되는 원형의 깔끔한 디자인 버튼 예시 -->
+<button id="scrollToggleBtn" style="position: fixed; bottom: 25px; right: 25px; z-index: 9999; padding: 12px 18px; background-color: #222; color: #fff; border: none; border-radius: 30px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.2s;">
   맨 아래로
 </button>
+
     <footer>
         <!---- ---- ---- ---- 위젯 ---- ---- ---- ---->
         <div id="time-and-day">
