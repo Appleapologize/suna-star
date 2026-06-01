@@ -33,45 +33,6 @@
     <!--위키 표 가져오는 곳-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="/suna-star/skin/js/wiki-chart.js"></script>    
-
-    <style>
-        /* 버튼들을 감싸는 박스를 우측 하단에 고정 */
-.scroll-buttons {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column; /* 버튼을 세로로 배치 */
-  gap: 8px;              /* 버튼 사이의 간격 */
-  z-index: 9999;         /* 항상 최상단에 노출 */
-}
-
-/* 두 버튼에 공통으로 적용되는 스타일 */
-.scroll-buttons button {
-  padding: 12px 14px;
-  background-color: #1a1a1a; /* 어두운 테마에 맞춘 배경색 */
-  color: #ffffff;
-  border: 1px solid #333333;
-  border-radius: 50%;       /* 동그란 버튼 모양 */
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.2s, transform 0.2s;
-  width: 50px;              /* 버튼 너비 고정 */
-  height: 50px;             /* 버튼 높이 고정 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 마우스를 올렸을 때 효과 */
-.scroll-buttons button:hover {
-  background-color: #333333;
-  transform: translateY(-2px);
-}
-
-    </style>
 </head>
 <body>  
     <div id="head">
@@ -203,27 +164,6 @@
         // 페이지 로드 시 메뉴를 불러옵니다.
         document.addEventListener('DOMContentLoaded', loadMenu);
       </script>    
-    <!-- 화면 우측 하단 스크롤 버튼 모음 -->
-<div class="scroll-buttons">
-  <button onclick="scrollToTop()">⬆ 맨 위로</button>
-  <button onclick="scrollToBottom()">⬇ 맨 아래로</button>
-</div>
-    <script>
-function scrollToBottom() {
-  // 전체 문서의 총 높이를 구합니다.
-  const totalHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-  // 브라우저 화면의 순수 높이(보이는 영역)를 구합니다.
-  const viewHeight = window.innerHeight;
-  
-  // 전체 높이에서 보이는 높이를 빼면 '진짜 스크롤바가 도달할 수 있는 맨 밑'이 됩니다.
-  window.scrollTo({
-    top: totalHeight - viewHeight,
-    behavior: 'smooth' // 스르륵 내려가는 효과
-  });
-}
-
-
-    </script>
 
     <footer>
         <!---- ---- ---- ---- 위젯 ---- ---- ---- ---->
