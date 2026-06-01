@@ -1803,39 +1803,39 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 <script type="text/javascript">
-$(function(){
-  // [초기 설정] 처음에는 맨 위로 가기 버튼을 숨깁니다
+window.onload = function() {
+  var $scrollTarget = $("#container");
+
+  // 1. 초기 세팅: 맨 위로 버튼 숨김
   $("#gotop").hide();
   
-  // 1. 스크롤 감지 대상을 window가 아닌 '#container'로 교체
-  $("#container").scroll(function(){
-    if($(this).scrollTop() > 60){ 
-      $("#gotop").fadeIn(); 
-    } else { 
-      $("#gotop").fadeOut(); 
-    }
+  // 2. #container 내부 스크롤 감지 및 버튼 등장
+  $scrollTarget.on("scroll", function(){
+    if($(this).scrollTop() > 60){ $("#gotop").fadeIn(); }
+    else{ $("#gotop").fadeOut(); }
   });
 
-  // 2. 맨 위로 가기 클릭: html, body가 아닌 '#container'의 내부 스크롤을 0으로 올림
-  $("#gotop").click(function(){
-    $("#container").animate({ scrollTop: 0 }, 500);
+  // 3. 맨 위로 가기 버튼 클릭 이벤트
+  $("#gotop").on("click", function(){
+    $scrollTarget.animate({ scrollTop: 0 }, 500);
     return false;
   });
 
-  // 3. 맨 밑으로 가기 클릭: 유령 공간에 낚이지 않고 실제 게시판(#board) 영역의 진짜 바닥으로 안착
-  $("#gotobottom").click(function(){
-    // #board가 시작하는 위치와 내부 패딩을 포함한 순수 높이를 계산합니다
+  // 4. 맨 밑으로 가기 버튼 클릭 이벤트 (유령 영역 완벽 무시 버전)
+  $("#gotobottom").on("click", function(){
+    // #board 박스가 시작되는 위치와 순수 높이를 정확하게 추출합니다.
     var boardTop = $("#board").position().top;
     var boardHeight = $("#board").outerHeight();
-    var containerHeight = $("#container").height();
+    var containerHeight = $scrollTarget.height();
     
-    // #board의 바닥선이 #container 안에서 딱 알맞게 멈추도록 이동 좌표를 계산합니다
-    var targetScroll = $("#container").scrollTop() + boardTop + boardHeight - containerHeight;
+    // 유령 선(.sns-line)을 완전히 제외하고 딱 #board 콘텐츠 바닥 위치만 역계산합니다.
+    var targetScroll = $scrollTarget.scrollTop() + boardTop + boardHeight - containerHeight;
 
-    $("#container").animate({ scrollTop: targetScroll }, 500);
+    // #container 상자를 직접 타겟팅하여 스크롤바를 아래로 강제 이동시킵니다.
+    $scrollTarget.animate({ scrollTop: targetScroll }, 500);
     return false;
   });
-});
+};
 </script>
 
 <a href="#" id="gotop" title="Top">▲</a>
