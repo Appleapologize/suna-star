@@ -1805,44 +1805,60 @@
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
   
-  // 아이디 찾기 다 포기하고, 브라우저 스크롤을 담당하는 가장 최상위 본문(html)을 타겟으로 잡습니다.
-  var scrollTarget = document.documentElement || document.body;
   var btnTop = document.getElementById("gotop");
   var btnBottom = document.getElementById("gotobottom");
+  var board = document.getElementById("board");
 
-  // 초기 설정: 맨 위로 버튼 숨기기
-  btnTop.style.display = "none";
+  // [초기화] 맨 위로 버튼은 처음에는 숨김 처리
+  if (btnTop) btnTop.style.display = "none";
 
-  // 1. 화면이 스크롤될 때 맨 위로 버튼 표시/숨김 통제
+  // 1. 실제 브라우저 화면(window)이 스크롤될 때 맨 위로 버튼 토글
   window.addEventListener("scroll", function() {
     if (window.scrollY > 60) {
-      btnTop.style.display = "block";
+      if (btnTop) btnTop.style.display = "inline-block";
     } else {
-      btnTop.style.display = "none";
+      if (btnTop) btnTop.style.display = "none";
     }
   });
 
-  // 2. 맨 위로 가기 (새로고침 원천 차단형)
-  btnTop.addEventListener("click", function(e) {
-    e.preventDefault(); // href="#"의 새로고침 기능을 완벽하게 락 걸어 차단합니다.
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+  // 2. [맨 위로 가기] 새로고침 없이 최상단 이동
+  if (btnTop) {
+    btnTop.addEventListener("click", function(e) {
+      e.preventDefault(); // href="#" 때문에 새로고침되는 현상 완벽 방지
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     });
-  });
+  }
 
-  // 3. 맨 밑으로 가기 (마우스 휠 끝까지 내린 것과 100% 매칭)
-  btnBottom.addEventListener("click", function(e) {
-    e.preventDefault(); // href="#"의 새로고침 기능을 완벽하게 락 걸어 차단합니다.
-    
-    // 문서 전체의 순수 최대 스크롤 가능 범위를 구합니다.
-    var maxScroll = scrollTarget.scrollHeight - window.innerHeight;
-    
-    window.scrollTo({
-      top: maxScroll,
-      behavior: "smooth"
+  // 3. [맨 밑으로 가기] 유령 공간 무시하고 딱 #board 바닥에 안착하기
+  if (btnBottom) {
+    btnBottom.addEventListener("click", function(e) {
+      e.preventDefault(); // href="#" 새로고침 방지
+      
+      if (board) {
+        // #board 박스가 웹페이지 맨 위에서부터 얼마나 떨어져 있는지 구합니다.
+        var boardTop = board.getBoundingClientRect().top + window.pageYOffset;
+        
+        // #board 박스의 실제 순수 높이를 구합니다.
+        var boardHeight = board.offsetHeight;
+        
+        // 사용자의 현재 브라우저 창 높이를 구합니다.
+        var windowHeight = window.innerHeight;
+        
+        // [.sns-line]이 늘려놓은 유령 공간은 완전히 무시하고,
+        // 딱 [#board의 시작 지점 + #board의 실제 높이 - 내 화면 높이] 만큼만 스크롤을 내립니다.
+        // 이렇게 하면 #board의 맨 밑바닥이 내 화면 가장 아래쪽에 정밀하게 걸치게 됩니다.
+        var targetScroll = boardTop + boardHeight - windowHeight;
+        
+        window.scrollTo({
+          top: targetScroll,
+          behavior: "smooth"
+        });
+      }
     });
-  });
+  }
 
 });
 </script>
