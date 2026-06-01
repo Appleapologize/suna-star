@@ -111,8 +111,6 @@ function loadPage(event, relativePath, addHistory = true) {
 
                 // 3. 순수 본문 내용만 타겟 영역에 주입
                 contentArea.innerHTML = doc.body.innerHTML; 
-                
-                // [수정] 메인 창이 아닌 스크롤바가 있는 #container 자체를 맨 위로 초기화시킵니다.
                 contentArea.scrollTo(0, 0); 
 
                 // 4. [🎨 CSS 동적 로드] fetch한 HTML 내에 수록된 모든 <link rel="stylesheet"> 추출
@@ -164,7 +162,7 @@ function loadPage(event, relativePath, addHistory = true) {
                     });
                 });
 
-                // 6. 모든 스크립트 구동 완료 후 초기화 헬퍼 함수 실행 (버그 수정 완료)
+                // 6. [버그 수정 완료] split('.') 뒤에 [0]을 붙여 순수하게 'sns' 문자열만 추출합니다!
                 scriptChain.then(() => {
                     const pageKey = fileName.split('.')[0]; 
                     executePageInit(pageKey);
@@ -189,13 +187,12 @@ function executePageInit(pageKey) {
     if (pageKey === 'gallery' && typeof initGallery === 'function') {
         initGallery();
     }
-    // 페이지 주소 이름에 관계없이 setupMenuLinks 함수가 로드되었다면 무조건 자동 실행!
     if (typeof setupMenuLinks === 'function') {
         setupMenuLinks();
     }
 
     /* =========================================================
-       [🔧 철저 정밀 수정] 오직 #container 박스만 완벽 지배하는 스크롤 엔진 구역
+       [🔧 완벽 해결] 배열 버그 뚫고 작동하는 #container 정밀 타격 구역
        ========================================================= */
     if (pageKey === 'sns') {
         const container = document.getElementById("container");
@@ -203,10 +200,9 @@ function executePageInit(pageKey) {
         const btnBottom = document.getElementById("gotobottom");
 
         if (container) {
-            // 1. 초기 셋팅: '맨 위로 가기' 버튼 숨김
             if (btnTop) btnTop.style.display = "none";
 
-            // 2. #container 자체의 내부 스크롤바 움직임을 정밀 감시
+            // #container 내부 스크롤 감시
             container.addEventListener("scroll", function() {
                 if (container.scrollTop > 60) {
                     if (btnTop) btnTop.style.display = "inline-block";
@@ -215,37 +211,35 @@ function executePageInit(pageKey) {
                 }
             });
 
-            // 3. [▲ 맨 위로 가기] 새로고침 차단 및 #container를 맨 위로 올림
+            // 맨 위로 가기 클릭
             if (btnTop) {
                 btnTop.addEventListener("click", function(e) {
-                    e.preventDefault(); // href="#" 버그 차단
-                    container.scrollTo({
-                        top: 0,
-                        behavior: "smooth"
-                    });
+                    e.preventDefault(); 
+                    container.scrollTo({ top: 0, behavior: "smooth" });
                 });
             }
 
-            // 4. [▼ 맨 밑으로 가기] 유령 선을 완전히 무시하고 오직 #board 알맹이의 바닥에 안착
+            // 맨 밑으로 가기 클릭
             if (btnBottom) {
                 btnBottom.addEventListener("click", function(e) {
-                    e.preventDefault(); // href="#" 버그 차단
+                    e.preventDefault(); 
                     
                     const board = document.getElementById("board");
                     if (board) {
-                        // #container 내부에서 #board 박스가 시작되는 Y축 상대 위치를 구합니다
+                        // 유령 선(.sns-line) 공간 완전 무시 연산식
                         const boardTop = board.offsetTop;
-                        // #board 영역의 실제 순수 높이값을 구합니다
                         const boardHeight = board.offsetHeight;
-                        // 현재 눈에 보이는 #container 상자의 실질적인 틀 높이를 구합니다
                         const containerHeight = container.clientHeight;
                         
-                        // [.sns-line] 유령 영역을 완전히 배제하고, 딱 #board 콘텐츠가 끝나는 지점을 정확하게 타겟팅 계산
                         const targetScroll = boardTop + boardHeight - containerHeight;
                         
                         container.scrollTo({
-                            top: targetScroll,behavior: "smooth"
-                         });
+                            top: targetScroll,
+                            behavior: "smooth"
+                        });
+                    } else {
+                        // 혹시라도 board를 놓치면 최대 한계치 이동 백업
+                        container.scrollTo({ top: container.scrollHeight, behavior: "smooth" });
                     }
                 });
             }
