@@ -505,7 +505,7 @@ ul li:hover > .sub {
 .btn-sub-sub { 
     padding: 6px 6px 6px 25px;
     cursor: var(--over-cursor) pointer;
-    background: var(--btn-ssub-background);
+    background: var(--btn-ssub-color);
     font-size: 13px;
     border-radius: 4px;
     display: block;
