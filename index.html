@@ -151,45 +151,37 @@
  
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const scrollBtn = document.getElementById("scrollToggleBtn");
+  const scrollDownBtn = document.getElementById("scrollDownBtn");
+  const scrollUpBtn = document.getElementById("scrollUpBtn");
 
-  scrollBtn.addEventListener("click", () => {
-    const currentScroll = window.scrollY;
-
-    // 1. 현재 스크롤이 맨 위에 있으면 맨 아래로 이동
-    if (currentScroll < 50) {
-      
-      // ★ 중요: footer 바로 위에 있는 본문 감싸는 태그(예: main 또는 특정 div class)를 선택합니다.
-      // 본문 태그가 main이 아니라면 '.content' 나 '#wrap' 등으로 수정해 주세요.
-      const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
-      
-      if (mainContent) {
-        // 본문 요소의 최하단(end)을 화면 하단에 맞추어 스크롤을 내립니다.
-        mainContent.scrollIntoView({ behavior: "smooth", block: "end" });
-      }
-    } else {
-      // 2. 이미 내려와 있다면 맨 위(0,0)로 이동
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+  // 1. 맨 아래로 가기 버튼 클릭 이벤트 (기존 코드 유지)
+  scrollDownBtn.addEventListener("click", () => {
+    const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
+    if (mainContent) {
+      mainContent.scrollIntoView({ behavior: "smooth", block: "end" });
     }
   });
 
-  // 사용자가 직접 스크롤할 때도 버튼 텍스트를 유연하게 변경
-  window.addEventListener("scroll", () => {
-    if (window.scrollY < 50) {
-      scrollBtn.textContent = "맨 아래로";
-    } else {
-      scrollBtn.textContent = "맨 위로";
-    }
+  // 2. 맨 위로 가기 버튼 클릭 이벤트 (새로 추가)
+  scrollUpBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   });
 });
 </script>
 
-<button id="scrollToggleBtn" style="position: fixed; bottom: 25px; right: 25px; z-index: 9999; padding: 12px 18px; background-color: #222; color: #fff; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+<!-- 1. 맨 아래로 가기 버튼 (기존 디자인 및 위치 유지) -->
+<button id="scrollDownBtn" style="position: fixed; bottom: 25px; right: 25px; z-index: 9999; padding: 12px 18px; background-color: #222; color: #fff; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
   맨 아래로
 </button>
+
+<!-- 2. 맨 위로 가기 버튼 (기존 버튼 '바로 위'에 배치) -->
+<button id="scrollUpBtn" style="position: fixed; bottom: 80px; right: 25px; z-index: 9999; padding: 12px 18px; background-color: #222; color: #fff; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+  맨 위로
+</button>
+
 
 
 
