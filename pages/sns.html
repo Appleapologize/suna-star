@@ -1800,66 +1800,49 @@
         </div>
 </div>
 <div class="goto">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
-  <script type="text/javascript">
-  $(function() {
-      // 🎨 동적 페이지(AJAX) 로드 환경을 고려해 0.3초 뒤에 안정적으로 요소를 붙잡습니다.
-      setTimeout(function() {
-          var $container = $("#container");
-          var $topBtn = $("#gotop");
-          var $bottomBtn = $("#gotobottom");
-
-          if ($container.length) {
-              function checkScrollPosition() {
-                  var scrollTop = $container.scrollTop(); 
-                  var containerViewHeight = $container.height();
-                  var totalScrollHeight = $container.prop('scrollHeight'); 
-
-                  // 1. 위로 올라갈 게 있다면 ▲ 등장 (60px 기준)
-                  if (scrollTop > 60) {
-                      $topBtn.stop().fadeIn(150);
-                  } else {
-                      $topBtn.stop().fadeOut(150);
-                  }
-
-                  // 2. 밑으로 더 내려갈 게 있다면 ▼ 등장, 끝에 완전히 도달하면 숨김
-                  // 픽셀 오차 방지를 위해 -15px 여유를 둡니다.
-                  if (scrollTop + containerViewHeight < totalScrollHeight - 15) {
-                      $bottomBtn.stop().fadeIn(150);
-                  } else {
-                      $bottomBtn.stop().fadeOut(150);
-                  }
-              }
-
-              // #container 내부 실제 스크롤 결합
-              $container.off('scroll').on('scroll', checkScrollPosition);
-              $(window).off('resize').on('resize', checkScrollPosition);
-              
-              // 첫 로드 시 상태 반영 강제 호출
-              checkScrollPosition();
-
-              // ▲ 클릭 시: 진짜 작동하는 #container 스크롤을 0으로 이동
-              $topBtn.off('click').on('click', function() {
-                  $container.animate({ scrollTop: 0 }, 400);
-                  return false;
-              });
-
-              // ▼ 클릭 시: 유령 공간 제외, #container 내부 알맹이 끝으로 이동
-              $bottomBtn.off('click').on('click', function() {
-                  var totalScrollHeight = $container.prop('scrollHeight');
-                  $container.animate({ scrollTop: totalScrollHeight }, 400);
-                  return false;
-              });
-          }
-      }, 300); // 300ms의 안전 시간 지연
+<!--top버튼 나도 만들거다-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
+<script type="text/javascript">
+$(function(){
+  $("#gotop").hide();
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 60){$("#gotop").fadeIn();}
+    else{$("#gotop").fadeOut();}
   });
-  </script>
 
-  <!-- 버튼 디자인 태그 (기존 레이아웃 유지) -->
-  <a href="#" id="gotop" title="Top">▲</a>
-  <a href="#" id="gotobottom" title="Bottom">▼</a>
+    $("#gotop").click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 500); // 500ms 동안 스크롤 이동
+    return false;
+  });
+});
+</script>
+<a href="#" id="gotop" title="Top">
+  ▲
+  <!--<img src="./images/top1.png" onmouseover="this.src='./images/top2.png'" onmouseout="this.src='./images/top1.png'" border="0"/>-->
+</a>
+<!--탑(TOP)버튼 종료 -->
+
+<!--맨 밑으로 버튼-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  // 스크롤 이벤트 처리: 500px 이상 스크롤 시 버튼 표시
+  $(window).scroll(function(){
+    $("#gotobottom").fadeIn();
+  });
+
+  // '맨 밑으로 가기' 버튼 클릭 이벤트 추가
+  $("#gotobottom").click(function(){
+    $("html, body").animate({ scrollTop: $("#container").prop('scrollHeight') }, 500); // 500ms 동안 스크롤 이동
+    return false;
+  });
+});
+</script>
+
+<!-- 버튼 코드 -->
+<a href="#" id="gotobottom" title="Bottom">
+  ▼
+</a>
+<!--맨 밑으로 버튼 종료 -->  
 </div>  
 <div class="sns-line"></div>
-
-
-
