@@ -191,4 +191,61 @@ function executePageInit(pageKey) {
     if (typeof setupMenuLinks === 'function') {
         setupMenuLinks();
     }
+
+    /* =========================================================
+       [🔧 여기에 추가!] sns.html 로딩이 완료된 후 실행되는 스크롤 고정 제어 섹션
+       ========================================================= */
+    if (pageKey === 'sns') {
+        const btnTop = document.getElementById("gotop");
+        const btnBottom = document.getElementById("gotobottom");
+        const board = document.getElementById("board");
+
+        // 1. 초기 셋팅: '맨 위로 가기' 버튼 숨김
+        if (btnTop) btnTop.style.display = "none";
+
+        // 2. 브라우저 화면 스크롤 이벤트 감시
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 60) {
+                if (btnTop) btnTop.style.display = "inline-block";
+            } else {
+                if (btnTop) btnTop.style.display = "none";
+            }
+        });
+
+        // 3. [▲ 맨 위로 가기] 새로고침 차단 및 연동 작동
+        if (btnTop) {
+            btnTop.addEventListener("click", function(e) {
+                e.preventDefault(); // 주소창 새로고침(# 현상) 차단 잠금장치
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        }
+
+        // 4. [▼ 맨 밑으로 가기] 유령 공간 완벽 차단 및 #board 끝선 정밀 조준
+        if (btnBottom) {
+            btnBottom.addEventListener("click", function(e) {
+                e.preventDefault(); // 주소창 새로고침(# 현상) 차단 잠금장치
+                
+                if (board) {
+                    // 전체 문서 기준 #board 박스가 시작되는 Y축 절대 좌표 계산
+                    const boardTop = board.getBoundingClientRect().top + window.pageYOffset;
+                    // #board 영역의 순수 콘텐츠 높이값 계산
+                    const boardHeight = board.offsetHeight;
+                    // 현재 사용자가 보고 있는 모니터 화면(뷰포트)의 높이 계산
+                    const windowHeight = window.innerHeight;
+                    
+                    // .sns-line이 아래로 길게 파놓은 유령 빈 우주 공간을 완전히 무시하고,
+                    // 오직 글들이 끝나는 #board 박스의 아랫단 끝선이 내 화면 하단에 딱 걸치도록 역계산 이동!
+                    const targetScroll = boardTop + boardHeight - windowHeight;
+                    
+                    window.scrollTo({
+                        top: targetScroll,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        }
+    }
 }
