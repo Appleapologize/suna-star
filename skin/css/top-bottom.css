@@ -1,53 +1,69 @@
 @charset "utf-8";
-:root{
-  --goto-display:block;
-  --goto-position:fixed;
-  --goto-text-deco:none;
-  --goto-backcolor:rgba(166, 193, 238, 0.8);
-  --goto-padding:10px;
-  --goto-right-or-left:10px;
-  --goto-border-radius:30px;
-  --goto-font-size:xx-large;
+#container{
+  position:relative;
 }
 
-.goto {
-    position: fixed !important;
-    top: 50% !important;        /* 화면 세로 기준 딱 절반 위치 */
-    right: 20px;                /* 우측 여백 */
-    transform: translateY(-50%);/* 수직 정중앙 정렬 보정 */
-    display: flex;
-    flex-direction: column;    /* 버튼을 위아래(수직)로 배치 */
-    gap: 10px;                  /* 버튼 사이의 간격 */
-    z-index: 9999 !important;
+.diary-text table{ 
+  border:1px solid black; 
+  width:50%;
+  border-collapse: collapse;
 }
 
-.goto a {
-    display: none;              /* 평소에는 숨겨두고 JS 조건에 맞을 때만 fadeIn */
-    width: 40px;
-    height: 40px;
-    background-color: var(--btn-sub-color, #716ac7) !important; /* 지정하신 보라색 연동 */
-    color: #ffffff !important;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;         /* 동그라미 모양 버튼 */
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: background 0.2s;
+.diary-text table tr td{
+  padding:10px;
+  border: 1px solid black;
 }
 
-.goto a:hover{
-  color:#6475b0;
+
+table.sns-board{
+  width:var(--width-100);
+  border:none;
+}
+table.sns-board tr td{
+  text-align:center;
+  border:none;
+  border-bottom:1px solid gray;
+  width:20%;
 }
 
-@media (max-width: 1024px){
-   .goto {
-        top: auto !important;     /* PC의 세로 중앙 고정 해제 */
-        bottom: 20px !important;  /* 우측 하단 구석으로 배치 변경 */
-        right: 20px;
-        transform: none;          /* 중앙 보정값 초기화 */
-        flex-direction: row;      /* 버튼을 좌우(수평)로 나란히 배치 */
-        gap: 8px;
-    }
+table.sns-board tr th{
+  text-align: left;
+  border-bottom:1px solid gray;
+  border-left:1px solid gray;
+  border-right:1px solid gray;
+  width:60%;
+  padding:0 0 0 10px;
+  overflow:hidden;
+                     }
 
+table.sns-board tr th a{
+  text-decoration: none;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+table.sns-board .date{
+  position: static;
+}
+#board{
+  position: relative;
+      }
+
+.sns-line{
+  position: absolute;
+  width: 10px;/*sns 타임라인 선 두께*/
+  height: 99.8%;
+  top: calc(100px + var(--padding-in-body));
+  left: 15%;
+  background: #ebebeb;/*sns 타임라인 선 색상*/
+  z-index: -1;
+}
+
+@media (max-width: 1024px) {
+  .diary-text table{
+    width:var(--width-100);
+}
 }
