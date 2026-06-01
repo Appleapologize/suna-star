@@ -1833,7 +1833,7 @@ $(function(){
 
   // '맨 밑으로 가기' 버튼 클릭 이벤트 추가
   $("#gotobottom").click(function(){
-    $("html, body").animate({ scrollTop: $(document).height() }, 500); // 500ms 동안 스크롤 이동
+    $("html, body").animate({ scrollTop: $("#container").prop('scrollHeight') }, 500); // 500ms 동안 스크롤 이동
     return false;
   });
 });
