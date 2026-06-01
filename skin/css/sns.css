@@ -58,7 +58,7 @@ table.sns-board .date{
   width: 10px;/*sns 타임라인 선 두께*/
   height: 100%;
   top: 0;
-  left: 15%;
+  left: calc(var(--sns-profile-margin) + var(--sns-profile-margin) + var(--sns-profile-img-size));
   background: #ebebeb;/*sns 타임라인 선 색상*/
   z-index: -1;
 }
