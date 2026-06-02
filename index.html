@@ -152,9 +152,35 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const scrollDownBtn = document.getElementById("scrollDownBtn");
-  const scrollUpBtn = document.getElementById("scrollUpBtn"); // ✨ 추가
+  const scrollUpBtn = document.getElementById("scrollUpBtn");
 
-  // 1. 맨 아래로 가기
+  const toggleScrollButtons = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
+
+    // 맨 위일 때 (아래로 버튼만 표시)
+    if (scrollTop < 10) {
+      scrollDownBtn.classList.add("show");
+      scrollUpBtn.classList.remove("show");
+    } 
+    // 맨 아래일 때 (위로 버튼만 표시)
+    else if (scrollTop + clientHeight >= scrollHeight - 10) {
+      scrollDownBtn.classList.remove("show");
+      scrollUpBtn.classList.add("show");
+    } 
+    // 중간 위치일 때 (둘 다 표시)
+    else {
+      scrollDownBtn.classList.add("show");
+      scrollUpBtn.classList.add("show");
+    }
+  };
+
+  // 초기 실행 및 스크롤 이벤트 등록
+  toggleScrollButtons();
+  window.addEventListener("scroll", toggleScrollButtons);
+
+  // 클릭 이벤트
   scrollDownBtn.addEventListener("click", () => {
     const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
     if (mainContent) {
@@ -162,24 +188,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 2. 맨 위로 가기 ✨ 추가
   scrollUpBtn.addEventListener("click", () => {
     const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
     if (mainContent) {
-      mainContent.scrollIntoView({ behavior: "smooth", block: "start" }); // 💡 block을 start로 변경
+      mainContent.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
-}); // 💡 닫는 괄호 수정
-
-
+});
 </script>
 
-<button id="scrollUpBtn">
-▲
-</button>
-<button id="scrollDownBtn">
-  ▼
-</button>
+<div class="scroll-btn">
+  <button id="scrollUpBtn">▲</button>  
+  <button id="scrollDownBtn">▼</button>  
+</div>
 
 
 
