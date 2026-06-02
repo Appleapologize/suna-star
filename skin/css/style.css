@@ -787,8 +787,8 @@ img {
 /*-------------맨 아래로 가기 버튼----------*/
 #scrollDownBtn{
 	position: fixed; 
-	bottom: 25px; 
-	right: 25px; 
+	bottom: 120px; 
+	left: calc(100vw - 10%); 
 	z-index: 100; 
 	padding: 12px 18px; 
 	background-color: var(--sub-background-color); 
