@@ -152,8 +152,9 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const scrollDownBtn = document.getElementById("scrollDownBtn");
+  const scrollUpBtn = document.getElementById("scrollUpBtn"); // ✨ 추가
 
-  // 1. 맨 아래로 가기 버튼 클릭 이벤트 (기존 코드 유지)
+  // 1. 맨 아래로 가기
   scrollDownBtn.addEventListener("click", () => {
     const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
     if (mainContent) {
@@ -161,11 +162,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // 2. 맨 위로 가기 ✨ 추가
+  scrollUpBtn.addEventListener("click", () => {
+    const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
+    if (mainContent) {
+      mainContent.scrollIntoView({ behavior: "smooth", block: "start" }); // 💡 block을 start로 변경
+    }
+  });
+}); // 💡 닫는 괄호 수정
+
+
 </script>
 
-<!-- 1. 맨 아래로 가기 버튼 (기존 디자인 및 위치 유지) -->
+<button id="scrollUpBtn">
+▲
+</button>
 <button id="scrollDownBtn">
-  맨 아래로
+  ▼
 </button>
 
 
