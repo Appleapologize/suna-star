@@ -152,7 +152,6 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const scrollDownBtn = document.getElementById("scrollDownBtn");
-  const scrollUpBtn = document.getElementById("scrollUpBtn");
 
   // 1. 맨 아래로 가기 버튼 클릭 이벤트 (기존 코드 유지)
   scrollDownBtn.addEventListener("click", () => {
@@ -162,24 +161,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 2. 맨 위로 가기 버튼 클릭 이벤트 (새로 추가)
-  scrollUpBtn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-});
 </script>
 
 <!-- 1. 맨 아래로 가기 버튼 (기존 디자인 및 위치 유지) -->
-<button id="scrollDownBtn" style="position: fixed; bottom: 25px; right: 25px; z-index: 9999; padding: 12px 18px; background-color: #222; color: #fff; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+<button id="scrollDownBtn">
   맨 아래로
-</button>
-
-<!-- 2. 맨 위로 가기 버튼 (기존 버튼 '바로 위'에 배치) -->
-<button id="scrollUpBtn" style="position: fixed; bottom: 80px; right: 25px; z-index: 9999; padding: 12px 18px; background-color: #222; color: #fff; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-  맨 위로
 </button>
 
 
