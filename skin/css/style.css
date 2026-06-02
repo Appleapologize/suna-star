@@ -809,7 +809,6 @@ img {
     cursor: pointer;
 
     /* 💡 초기 상태를 투명하고 공간을 차지하지 않게 설정 */
-    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
