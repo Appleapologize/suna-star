@@ -791,6 +791,7 @@ img {
     position: fixed; 
     bottom: calc(var(--padding-in-body) * 2.5);
     right: 0;
+	border-radius: var(--button-round); 
     z-index: 100; 
     padding: 12px;
     margin: calc(var(--padding-in-body) - var(--container-padding));
@@ -802,21 +803,17 @@ img {
 #scrollDownBtn, #scrollUpBtn {
     color: var(--text-color); 
     border: none; 
-    border-radius: var(--button-round); 
     font-weight: bold; 
     font-size: x-large;
     background-color: transparent;
     cursor: pointer;
-
-    /* 💡 초기 상태를 투명하고 공간을 차지하지 않게 설정 */
     transition: opacity 0.3s ease;
 }
 
-/* 💡 show 클래스가 붙었을 때만 display와 opacity를 동시에 활성화 */
-#scrollDownBtn.show, #scrollUpBtn.show {
-    display: block;
-    opacity: 1;
+#scrollDownBtn:hover, #scrollUpBtn:hover{
+	
 }
+
 
 /*-------------footer----------*/
 footer *{
