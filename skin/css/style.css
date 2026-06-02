@@ -800,7 +800,8 @@ img {
 	border: none; 
 	border-radius: var(--button-round); 
 	font-weight: bold; 
-	cursor:var(--over-cursor), pointer;	
+	font-size:xx-large;
+	background-color:none;
 }
 
 /*-------------footer----------*/
