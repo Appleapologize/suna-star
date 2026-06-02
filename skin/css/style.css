@@ -785,41 +785,41 @@ img {
 }
 
 /*-------------맨 위, 맨 아래로 가기 버튼----------*/
-.scroll-btn{
-	display:flex;
-	position: fixed; 
-	bottom: calc(var(--padding-in-body) * 2.5);
-	right: 0;
-	z-index: 100; 
-	padding: 12px;
+/*-------------맨 위, 맨 아래로 가기 버튼----------*/
+.scroll-btn {
+    display: flex;
     flex-direction: column;
+    position: fixed; 
+    bottom: calc(var(--padding-in-body) * 2.5);
+    right: 0;
+    z-index: 100; 
+    padding: 12px;
     margin: calc(var(--padding-in-body) - var(--container-padding));
     background-color: var(--sub-background-color);
     box-shadow: var(--box-shadow);
     gap: 3px;	
 }
-#scrollDownBtn, #scrollUpBtn{
-	color: var(--text-color); 
-	border: none; 
-	border-radius: var(--button-round); 
-	font-weight: bold; 
-	font-size:x-large;
-	background-color:transparent;
 
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    opacity: 0;
-    visibility: hidden;	
-}
+#scrollDownBtn, #scrollUpBtn {
+    color: var(--text-color); 
+    border: none; 
+    border-radius: var(--button-round); 
+    font-weight: bold; 
+    font-size: x-large;
+    background-color: transparent;
+    cursor: pointer;
 
-#scrollDownBtn:not(.show), #scrollUpBtn:not(.show) {
+    /* 💡 초기 상태를 투명하고 공간을 차지하지 않게 설정 */
     display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
+/* 💡 show 클래스가 붙었을 때만 display와 opacity를 동시에 활성화 */
 #scrollDownBtn.show, #scrollUpBtn.show {
+    display: block;
     opacity: 1;
-    visibility: visible;
 }
-
 
 /*-------------footer----------*/
 footer *{
