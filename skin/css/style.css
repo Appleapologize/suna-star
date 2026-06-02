@@ -785,7 +785,6 @@ img {
 }
 
 /*-------------맨 위, 맨 아래로 가기 버튼----------*/
-/*-------------맨 위, 맨 아래로 가기 버튼----------*/
 .scroll-btn {
     display: flex;
     flex-direction: column;
@@ -810,7 +809,6 @@ img {
     cursor: pointer;
 
     /* 💡 초기 상태를 투명하고 공간을 차지하지 않게 설정 */
-    display: none;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
