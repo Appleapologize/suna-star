@@ -83,9 +83,9 @@
             /* 임베드 모듈에서 불러온 요소의 최대 높이를 제한합니다. 제한을 하지 않으려면 none으로 입력합니다.*/
 
     /* -------- -------- -------- -------- 마우스 커서 설정 (PC 전용) -------- -------- -------- -------- */
-        --default-cursor: url('https://img1.daumcdn.net/thumb/R48x48/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcwXft5%2FbtsMB4uW9qM%2FVokNPKYRdWlYr3iN7T65kk%2Fimg.png');
+        --default-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcwXft5%2FbtsMB4uW9qM%2FVokNPKYRdWlYr3iN7T65kk%2Fimg.png');
         /* 기본 마우스 커서로 사용할 이미지 주소를 넣습니다. */
-        --over-cursor: url('https://img1.daumcdn.net/thumb/R48x48/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpIKCH%2FbtsMC9a6QiP%2FJaf37WTd2kDVN0LxXh3CaK%2Fimg.png');
+        --over-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpIKCH%2FbtsMC9a6QiP%2FJaf37WTd2kDVN0LxXh3CaK%2Fimg.png');
         /* 버튼 위에 마우스를 올렸을 때 사용할 이미지 주소를 넣습니다. */	
 
     /* -------- -------- -------- -------- 배너 설정 -------- -------- -------- -------- */
@@ -318,26 +318,6 @@ body:has(#container)::-webkit-scrollbar-button{
     display: none !important;
 }
 
-
-
-#main-wrapper::-webkit-scrollbar,
-#container::-webkit-scrollbar,
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  width: 0 !important;
-  height: 0 !important;
-  background: transparent !important;
-}
-
-/* 2. 파이어폭스 브라우저 대응 */
-#main-wrapper, #container, html, body {
-  scrollbar-width: none !important;
-}
-
-/* 3. IE 및 구형 엣지 브라우저 대응 */
-#main-wrapper, #container, html, body {
-  -ms-overflow-style: none !important;
-}
 
 a{
 	margin: 0;
