@@ -256,19 +256,25 @@ document.addEventListener("DOMContentLoaded", () => {
         <p>© 2026 Appleapologize. All rights reserved.</p>
     </footer>
   <script defer>
-    function loadMenu() {
-      const menuContainer = document.querySelector('.navmenu');
-      fetch('./menu.html')
-        .then(response => response.text())
-        .then(data => {
-          menuContainer.innerHTML = data; // 메뉴를 로드하여 추가
-          setupMenuLinks(); // 메뉴 링크에 이벤트 리스너 설정
-        })
-        .catch(error => console.error('Error loading menu:', error));
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    // index.html 안에 있는 .navmenu 클래스를 가진 요소를 선택합니다.
+    const navMenu = document.querySelector('.navmenu');
 
-    // 페이지 로드 시 메뉴를 불러옵니다.
-    document.addEventListener('DOMContentLoaded', loadMenu);
+    // 같은 폴더에 있는 menu.html 파일을 읽어옵니다.
+    fetch('menu.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('menu.html 파일을 불러오지 못했습니다.');
+            }
+            return response.text(); // HTML 내용을 텍스트로 변환
+        })
+        .then(data => {
+            navMenu.innerHTML = data; // .navmenu 내부에 메뉴 HTML 주입
+        })
+        .catch(error => {
+            console.error('메뉴 로드 실패:', error);
+        });
+});
   </script>
 
     
