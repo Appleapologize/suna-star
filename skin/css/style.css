@@ -741,7 +741,7 @@ img {
     position: absolute;
     right: var(--box-padding);
     top: var(--box-padding);
-    color: var(--point-sub-color);
+    color: var(--point-color);
 }
 
 .diary-module .diary-text {
