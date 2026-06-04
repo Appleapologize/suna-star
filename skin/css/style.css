@@ -814,15 +814,26 @@ img {
 	
 }
 
+.scroll-btn,
+.scroll-btn button,
+#scrollUpBtn,
+#scrollDownBtn {
+    /* 원래 기본 화면에서 나오는 일반 커서 이미지 변수명을 여기에 적어주세요 */
+    cursor: var(--default-cursor, auto) !important; 
+}
+
+/* 2. 버튼 위에 확실히 마우스가 올라가서 반응할 때 (호버/포인터 상태) */
+.scroll-btn button:hover,
+#scrollUpBtn:hover,
+#scrollDownBtn:hover {
+    cursor: var(--over-cursor), pointer !important;
+}
+
+/* 3. 버튼 안의 글자(▲, ▼)가 커서를 방해하지 못하도록 완벽 차단 */
 .scroll-btn button * {
     pointer-events: none !important;
 }
 
-/* 혹시 몰라 한 번 더 확실하게 지정하는 버튼 커서 */
-#scrollUpBtn, 
-#scrollDownBtn {
-    cursor: var(--over-cursor), pointer !important;
-}
 /*-------------footer----------*/
 footer *{
 	margin:0;
