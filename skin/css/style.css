@@ -81,9 +81,9 @@
             /* 임베드 모듈에서 불러온 요소의 최대 높이를 제한합니다. 제한을 하지 않으려면 none으로 입력합니다.*/
 
     /* -------- -------- -------- -------- 마우스 커서 설정 (PC 전용) -------- -------- -------- -------- */
-        --default-cursor: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcwXft5%2FbtsMB4uW9qM%2FVokNPKYRdWlYr3iN7T65kk%2Fimg.png');
+        --default-cursor: url('https://img1.daumcdn.net/thumb/R48x48/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcwXft5%2FbtsMB4uW9qM%2FVokNPKYRdWlYr3iN7T65kk%2Fimg.png');
         /* 기본 마우스 커서로 사용할 이미지 주소를 넣습니다. */
-        --over-cursor: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpIKCH%2FbtsMC9a6QiP%2FJaf37WTd2kDVN0LxXh3CaK%2Fimg.png');
+        --over-cursor: url('https://img1.daumcdn.net/thumb/R48x48/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpIKCH%2FbtsMC9a6QiP%2FJaf37WTd2kDVN0LxXh3CaK%2Fimg.png');
         /* 버튼 위에 마우스를 올렸을 때 사용할 이미지 주소를 넣습니다. */	
 
     /* -------- -------- -------- -------- 배너 설정 -------- -------- -------- -------- */
@@ -784,7 +784,6 @@ img {
     box-shadow: var(--box-shadow);
 }
 
-/*-------------맨 위, 맨 아래로 가기 버튼----------*/
 /*-------------맨 위, 맨 아래로 가기 버튼----------*/
 .scroll-btn {
     display: flex;
