@@ -433,7 +433,7 @@ table.text-two-line{
 table.text-two-line tr{
 	height: auto;
     max-width:63vw;
-	word-break:keep-all;
+	word-break:normal;
 } 
 table.text-two-line tr td{
 	width: var(--width-100);
