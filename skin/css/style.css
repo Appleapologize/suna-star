@@ -789,7 +789,7 @@ img {
     display: flex;
     flex-direction: column;
     position: fixed; 
-    bottom: calc(var(--padding-in-body) * 2.5);
+    bottom: calc(var(--padding-in-body) * 2.5 + 15px);
     right: 0;
 	border-radius: var(--button-round); 
     z-index: 1000; 
