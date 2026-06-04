@@ -321,9 +321,15 @@ body:has(#container)::-webkit-scrollbar-thumb:hover {
 body:has(#container)::-webkit-scrollbar-button{
     display: none !important;
 }
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+	cursor: var(--default-cursor), auto !important;	
+}
 
-
-
+::-webkit-scrollbar-thumb:hover{
+	cursor: var(--over-cursor), pointer !important;	
+}
 
 a{
 	margin: 0;
