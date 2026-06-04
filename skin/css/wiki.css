@@ -57,11 +57,11 @@ td{
 	line-height: 1.5;
 }
 a.index{
-	color:#0275d8;
+	color:var(--wiki-a-color);
 	text-decoration: none;
 }
 #wiki a{
-	color:#0275d8;
+	color:var(--wiki-a-color);
 	text-decoration: none;
 }
 #wiki a sup{
