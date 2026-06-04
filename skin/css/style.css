@@ -786,6 +786,7 @@ img {
 
 /*-------------맨 위, 맨 아래로 가기 버튼----------*/
 .scroll-btn {
+	cursor: var(--default-cursor), auto !important; 
     display: flex;
     flex-direction: column;
     position: fixed; 
@@ -808,28 +809,12 @@ img {
     background-color: transparent;
     cursor: pointer;
     transition: opacity 0.3s ease;
+	cursor: var(--over-cursor), pointer !important;
 }
 
 #scrollDownBtn:hover, #scrollUpBtn:hover{
-	
+	cursor: var(--over-cursor), pointer !important;
 }
-
-.scroll-btn *,
-.scroll-btn button *{
-    /* 원래 기본 화면에서 나오는 일반 커서 이미지 변수명을 여기에 적어주세요 */
-    cursor: var(--default-cursor), auto !important; 
-}
-
-/* 2. 버튼 위에 확실히 마우스가 올라가서 반응할 때 (호버/포인터 상태) */
-.scroll-btn *:hover,
-.scroll-btn button *:hover {
-    cursor: var(--over-cursor), pointer !important;
-}
-
-/* 3. 버튼 안의 글자(▲, ▼)가 커서를 방해하지 못하도록 완벽 차단 
-.scroll-btn button * {
-    pointer-events: none !important;
-}*/
 
 /*-------------footer----------*/
 footer *{
