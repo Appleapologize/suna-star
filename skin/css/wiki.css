@@ -79,6 +79,9 @@ span{
 	text-align:start;
 }
 
+th * {
+	color:black;
+}
 #wiki p{
 	text-align: left;
 }
@@ -160,8 +163,8 @@ th{
 	border-bottom:1px solid var(--wiki-text-white-color);
 	width:100;
 	white-space: nowrap;
-	color:black;
 }
+
 td {
 	border-bottom:1px solid var(--border-wiki-gray-color) !important;
 }
@@ -761,6 +764,3 @@ details:not([open]) h2.one-title span {
     }
 }
 
-th {
-	color:black;	
-}
