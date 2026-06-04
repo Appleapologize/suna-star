@@ -806,7 +806,7 @@ img {
     gap: 3px;
     
     /* 박스 자체 및 내부 빈 공간에서도 평소 커스텀 커서가 강제 유지되도록 설정 */
-    cursor: var(--default-cursor), auto !important;
+    cursor: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcwXft5%2FbtsMB4uW9qM%2FVokNPKYRdWlYr3iN7T65kk%2Fimg.png'), auto !important;
 }
 
 /* 버튼 기본 상태 (평소 상태) */
@@ -819,10 +819,9 @@ img {
     transition: opacity 0.3s ease;
     
     /* 버튼 위에 올라가기 전, 기본 상태일 때 커스텀 커서 지정 */
-    cursor: var(--default-cursor), auto !important;
+    cursor: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcwXft5%2FbtsMB4uW9qM%2FVokNPKYRdWlYr3iN7T65kk%2Fimg.png'), auto !important;
 }
 
-/* [가장 중요] 버튼 안의 ▲, ▼ 글자가 마우스 포인터를 가로채서 커서 초기화하는 버그 완전 차단 */
 
 /* 버튼에 마우스가 정확히 올라갔을 때 (호버 상태) */
 #scrollDownBtn:hover, 
