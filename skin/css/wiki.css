@@ -10,6 +10,8 @@
   --wiki-blacktray-color:#ddd;
   --wiki-main-text-color:#000000;  /*검정색*/
   --wiki-text-white-color:#ffffff; /*흰색*/
+
+  --wiki-a-color:#0275d8;	/*링크 걸려있는 파란색 글자 색상*/
 }
 
 [data-theme="dark"]{
@@ -18,6 +20,8 @@
   --wiki-blacktray-color:#ddd;
   --wiki-main-text-color:#fff;  /*검정색*/
   --wiki-text-white-color:#000000; /*흰색*/
+
+  --wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
 }
 
 /*목차와 프로필 칸 좌우로 두기 및 모바일에서는 세로로 두기*/
@@ -156,6 +160,7 @@ th{
 	border-bottom:1px solid var(--wiki-text-white-color);
 	width:100;
 	white-space: nowrap;
+	color:black;
 }
 td {
 	border-bottom:1px solid var(--border-wiki-gray-color) !important;
