@@ -1,34 +1,37 @@
 @charset "utf-8";
-:root {  /*디테일의 앞의 마크 색상*/
-  --summary-mark-color:#fc6603;
-  /*디테일의 앞의 마크*/
-  --summary-mark:"◆";}
+:root {  
+        /*디테일의 앞의 마크 색상*/
+        --summary-mark-color:#fc6603;
+        /*디테일의 앞의 마크*/
+        --summary-mark:"◆";
+}
 
 #home h1 {
-    color: var(--point-color);
+        color: var(--point-color);
 }
 
 /*접고 피기*/
 details.details-css{
-  padding:10px;
+        padding:10px;
         margin:5px 0 10px 0;
+        background:var(--background-color);
 }
 details.details-css summary{
-  font-weight:bold;
-                margin:10px 0;
-               display: block;
+        font-weight:bold;
+        margin:10px 0;
+        display: block;
 }
 details.details-css summary::-webkit-details-marker { 
-  /* Safari 브라우저용 사용자 정의 스타일 */
-  content: var(--summary-mark);
-  color:var(--summary-mark-color);
-  margin-right:5px;
+        /* Safari 브라우저용 사용자 정의 스타일 */
+        content: var(--summary-mark);
+        color:var(--summary-mark-color);
+        margin-right:5px;
 }
 
 details.details-css summary::before{
-  content: var(--summary-mark);
-  color:var(--summary-mark-color);
-  margin-right:5px;
+        content: var(--summary-mark);
+        color:var(--summary-mark-color);
+        margin-right:5px;
 }
 
 
