@@ -252,9 +252,10 @@ html, body {
 }
 
 html:has(#container) {
-    /* [수정] 스크롤바가 레이아웃을 밀지 않고 우주 위로 붕 뜨도록 강제 오버레이 처리 */
-    overflow: hidden; /* html의 구형 바깥 스크롤 영역 완벽 차단 */
-    
+    /* 구형 overflow 차단을 지우고 웹 표준 스크롤 축을 복구합니다. */
+    overflow-x: hidden;
+    overflow-y: scroll; 
+	
     background:
     center / cover no-repeat fixed var(--limit-img),
     left top / auto repeat fixed var(--background-color) var(--limit-pattern);
@@ -269,8 +270,7 @@ body:has(#container) {
     /* [핵심 수정] body를 100vh로 잡았을 때 배경이 깨지지 않도록 fixed(화면 고정) 추가 */
     height: 100vh;
 	min-height:100vh;
-    overflow-x: hidden;
-    overflow-y: scroll; /* 스크롤바가 body 영역 내부 평면 위에 얹어지게 설정 */
+    overflow: visible; /* 스크롤 제어권을 html에 전임 */
     
     background:
     center / cover no-repeat fixed var(--limit-img),
@@ -286,34 +286,34 @@ body:has(#container) {
 /*---- ---- 스크롤바 스타일 ---- ----*/
 
 /* 1. 스크롤바 전체 너비 정의 */
-body:has(#container)::-webkit-scrollbar {
-    width: 2.5vw; 
+html::-webkit-scrollbar {
+    width: 14px; 
     display: block;
 }
 
 /* 2. 브라우저가 스크롤바 밑바닥에 까는 그림자까지 투명하게 밀어버려 흰색 칸 원천 삭제 */
-body:has(#container)::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
     background-color: var(--scroll-back-color) !important;
-    box-shadow: inset 0 0 0 transparent !important; /* 미세한 시스템 음영까지 완벽 투명화 */
+    box-shadow: inset 0 0 0 transparent !important; 
 }
 
 /* 막대 색상 */
-body:has(#container)::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
     background-color: var(--scroll-bar-color) !important; 
-    border-radius: calc(2.5vw - 6px);
+    border-radius: calc(14px - 6px);
     
     /* [오버레이 디자인 효과] 투명 테두리와 padding-box 조화로 막대만 우주 위에 붕 띄우기 */
-    border: calc((2.5vw - 6px) / 3) solid transparent !important;
+    border: calc((14px - 6px) / 2) solid transparent !important;
     background-clip: padding-box !important;
 }
 
 /* 4. 마우스 올렸을 때 효과 */
-body:has(#container)::-webkit-scrollbar-thumb:hover {
+html::-webkit-scrollbar-thumb:hover {
     background-color: color-mix(in srgb, var(--sub-background-color) 60%, red) !important;
 }
 
 /* [공통] 이오니콘즈 아이콘 폰트를 스크롤바 버튼 구조에 강제 주입 */
-body:has(#container)::-webkit-scrollbar-button{
+html::-webkit-scrollbar-button{
     display: none !important;
 }
 
