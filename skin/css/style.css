@@ -786,55 +786,47 @@ img {
 
 /*-------------맨 위, 맨 아래로 가기 버튼----------*/
 .scroll-btn {
-	cursor: var(--default-cursor), auto !important; 
     display: flex;
     flex-direction: column;
     position: fixed; 
     bottom: calc(var(--padding-in-body) * 2.5 + 15px);
     right: 0;
-	border-radius: var(--button-round); 
+    border-radius: var(--button-round); 
     z-index: 1000; 
     padding: 12px;
     margin: calc(var(--padding-in-body) - var(--container-padding));
     background-color: var(--sub-background-color);
     box-shadow: var(--box-shadow);
-    gap: 3px;	
+    gap: 3px;
+    
+    /* 박스 자체 및 내부 빈 공간에서도 평소 커스텀 커서가 강제 유지되도록 설정 */
+    cursor: var(--default-cursor), auto !important;
 }
 
+/* 버튼 기본 상태 (평소 상태) */
 #scrollDownBtn, #scrollUpBtn {
     color: var(--text-color); 
     border: none; 
     font-weight: bold; 
     font-size: x-large;
     background-color: transparent;
-    cursor: pointer;
     transition: opacity 0.3s ease;
-	cursor: var(--over-cursor), pointer !important;
-}
-
-#scrollDownBtn:hover, #scrollUpBtn:hover{
-	cursor: var(--over-cursor), pointer !important;
-}
-
-/* 1. 버튼에 마우스가 올라갔을 때의 기본 상태 (일반 커서 이미지 강제 지정) */
-.scroll-btn,
-#scrollUpBtn,
-#scrollDownBtn {
+    
+    /* 버튼 위에 올라가기 전, 기본 상태일 때 커스텀 커서 지정 */
     cursor: var(--default-cursor), auto !important;
 }
 
-/* 2. 버튼 위에서 마우스가 정확히 호버(포인터)되었을 때 (손가락 커서 이미지 강제 지정) */
-.scroll-btn #scrollUpBtn:hover,
-.scroll-btn #scrollDownBtn:hover,
-#scrollUpBtn:hover,
-#scrollDownBtn:hover {
+/* 버튼에 마우스가 정확히 올라갔을 때 (호버 상태) */
+#scrollDownBtn:hover, 
+#scrollUpBtn:hover {
+    /* 기존의 일반 커서 고정을 이기고 손가락 커스텀 커서가 나오도록 지정 */
     cursor: var(--over-cursor), pointer !important;
 }
 
-/* 3. [가장 중요] 버튼 안의 ▲, ▼ 글자가 마우스 커서를 가로채서 초기화하는 것을 완전 차단 */
+/* [가장 중요] 버튼 안의 ▲, ▼ 글자가 마우스 포인터를 가로채서 커서 초기화하는 버그 완전 차단 */
 #scrollUpBtn *,
 #scrollDownBtn * {
-    pointer-events: inherit   !important;
+    pointer-events: none !important;
 }
 
 /*-------------footer----------*/
