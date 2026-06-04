@@ -785,6 +785,12 @@ img {
 }
 
 /*-------------맨 위, 맨 아래로 가기 버튼----------*/
+.scroll-btn *,
+#scrollUpBtn *,
+#scrollDownBtn * {
+    pointer-events: none !important;
+}
+
 .scroll-btn {
     display: flex;
     flex-direction: column;
@@ -816,17 +822,13 @@ img {
     cursor: var(--default-cursor), auto !important;
 }
 
+/* [가장 중요] 버튼 안의 ▲, ▼ 글자가 마우스 포인터를 가로채서 커서 초기화하는 버그 완전 차단 */
+
 /* 버튼에 마우스가 정확히 올라갔을 때 (호버 상태) */
 #scrollDownBtn:hover, 
 #scrollUpBtn:hover {
     /* 기존의 일반 커서 고정을 이기고 손가락 커스텀 커서가 나오도록 지정 */
     cursor: var(--over-cursor), pointer !important;
-}
-
-/* [가장 중요] 버튼 안의 ▲, ▼ 글자가 마우스 포인터를 가로채서 커서 초기화하는 버그 완전 차단 */
-#scrollUpBtn *,
-#scrollDownBtn * {
-    pointer-events: none !important;
 }
 
 /*-------------footer----------*/
@@ -898,6 +900,7 @@ footer p.bold{
 		padding:0 ;
 		margin:0;
 	}
+	
 	#container {
 		width:var(--width-100);
 		border:none;
