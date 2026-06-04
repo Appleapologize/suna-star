@@ -2,26 +2,26 @@
 
 
 :root{ 
-       --gallery-box-shadow-X:0px; /*양수는 오른쪽, 음수는 왼쪽*/
+	--gallery-box-shadow-X:0px; /*양수는 오른쪽, 음수는 왼쪽*/
 	--gallery-box-shadow-Y:4px; /*양수는 위쪽, 음수는 아래쪽*/
 	--gallery-box-shadow-blur: 8px; 
 	--gallery-box-shadow-spread:0px;
-       --gallery-box-shadow:
-              var(--gallery-box-shadow-X) 
-              var(--gallery-box-shadow-Y) 
-              var(--gallery-box-shadow-blur) 
-              var(--gallery-box-shadow-spread) 
-              var(--box-shadow-color); /* 작은박스 그림자*/
-       --gallery-box-between:1em;/*작은 박스 사이간격*/
+	--gallery-box-shadow:
+		var(--gallery-box-shadow-X) 
+		var(--gallery-box-shadow-Y) 
+		var(--gallery-box-shadow-blur) 
+		var(--gallery-box-shadow-spread) 
+		var(--box-shadow-color); /* 작은박스 그림자*/
+	--gallery-box-between:1em;/*작은 박스 사이간격*/
        
      }
 [data-theme="dark"] {
-       --gallery-box-shadow:
-              var(--gallery-box-shadow-X) 
-              var(--gallery-box-shadow-Y) 
-              var(--gallery-box-shadow-blur) 
-              var(--gallery-box-shadow-spread) 
-              var(--box-shadow-color); /* 작은박스 그림자*/
+	--gallery-box-shadow:
+		var(--gallery-box-shadow-X) 
+		var(--gallery-box-shadow-Y) 
+		var(--gallery-box-shadow-blur) 
+		var(--gallery-box-shadow-spread) 
+		var(--box-shadow-color); /* 작은박스 그림자*/
 }
 
 body:has(#gallery-notice){
@@ -90,7 +90,7 @@ body:has(#gallery-notice){
        color: var(--btn-text-color);
 }
 
-.prev {
+.slider button.prev {
        left: 0px;
        border-radius: 0 10px 10px 0px;
 
@@ -98,7 +98,6 @@ body:has(#gallery-notice){
 
 .next {
        right: 0px;
-
 }
 
 /* 갤러리 */
