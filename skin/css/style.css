@@ -816,6 +816,27 @@ img {
 	cursor: var(--over-cursor), pointer !important;
 }
 
+/* 1. 버튼에 마우스가 올라갔을 때의 기본 상태 (일반 커서 이미지 강제 지정) */
+.scroll-btn,
+#scrollUpBtn,
+#scrollDownBtn {
+    cursor: var(--default-cursor), auto !important;
+}
+
+/* 2. 버튼 위에서 마우스가 정확히 호버(포인터)되었을 때 (손가락 커서 이미지 강제 지정) */
+.scroll-btn #scrollUpBtn:hover,
+.scroll-btn #scrollDownBtn:hover,
+#scrollUpBtn:hover,
+#scrollDownBtn:hover {
+    cursor: var(--over-cursor), pointer !important;
+}
+
+/* 3. [가장 중요] 버튼 안의 ▲, ▼ 글자가 마우스 커서를 가로채서 초기화하는 것을 완전 차단 */
+#scrollUpBtn *,
+#scrollDownBtn * {
+    pointer-events: inherit   !important;
+}
+
 /*-------------footer----------*/
 footer *{
 	margin:0;
