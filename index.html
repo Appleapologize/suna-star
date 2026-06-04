@@ -152,35 +152,46 @@
    
       <script>
       document.addEventListener("DOMContentLoaded", () => {
-         const scrollDownBtn = document.getElementById("scrollDownBtn");
-         const scrollUpBtn = document.getElementById("scrollUpBtn");
-         
-         const toggleScrollButtons = () => {
-         const scrollTop = window.scrollY || document.documentElement.scrollTop;
-         const scrollHeight = document.documentElement.scrollHeight;
-         const clientHeight = document.documentElement.clientHeight;
-         };
-         
-         // 초기 실행 및 스크롤 이벤트 등록
-         toggleScrollButtons();
-         window.addEventListener("scroll", toggleScrollButtons);
-         
-         // 클릭 이벤트
-         scrollDownBtn.addEventListener("click", () => {
-            const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
-            if (mainContent) {
-               mainContent.scrollIntoView({ behavior: "smooth", block: "end" });
-            }
-         });
-         
-         scrollUpBtn.addEventListener("click", () => {
-            const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
-            if (mainContent) {
-               mainContent.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-         });
+        const scrollDownBtn = document.getElementById("scrollDownBtn");
+        const scrollUpBtn = document.getElementById("scrollUpBtn");
+        
+        // 버튼 토글 함수 내부를 비워두어 버튼이 항상 기본(show) 상태를 유지하도록 합니다.
+        const toggleScrollButtons = () => {
+          // 버튼을 숨기는 코드가 없으므로 버튼이 항상 보입니다.
+        };
+        
+        // 초기 실행 및 스크롤 이벤트 등록
+        toggleScrollButtons();
+        window.addEventListener("scroll", toggleScrollButtons);
+        
+        // 아래로 가기 클릭 이벤트 (끝까지 내린 후 10px 더 아래로 이동)
+        scrollDownBtn.addEventListener("click", () => {
+          const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
+          if (mainContent) {
+            mainContent.scrollIntoView({ behavior: "smooth", block: "end" });
+            
+            // 스크롤이 끝나는 타이밍에 10px 더 내려주는 안전 장치
+            setTimeout(() => {
+              window.scrollBy({ top: 10, behavior: "smooth" });
+            }, 500);
+          }
+        });
+        
+        // 위로 가기 클릭 이벤트 (맨 위까지 올린 후 10px 더 위로 이동)
+        scrollUpBtn.addEventListener("click", () => {
+          const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
+          if (mainContent) {
+            mainContent.scrollIntoView({ behavior: "smooth", block: "start" });
+            
+            // 스크롤이 끝나는 타이밍에 10px 더 올려주는 안전 장치
+            setTimeout(() => {
+              window.scrollBy({ top: -10, behavior: "smooth" });
+            }, 500);
+          }
+        });
       });
       </script>
+
    
       <div class="scroll-btn">
          <button id="scrollUpBtn">▲</button>  
