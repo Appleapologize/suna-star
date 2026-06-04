@@ -255,7 +255,21 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>        
         <p>© 2026 Appleapologize. All rights reserved.</p>
     </footer>
+  <script defer>
+    function loadMenu() {
+      const menuContainer = document.querySelector('.navmenu');
+      fetch('./menu.html')
+        .then(response => response.text())
+        .then(data => {
+          menuContainer.innerHTML = data; // 메뉴를 로드하여 추가
+          setupMenuLinks(); // 메뉴 링크에 이벤트 리스너 설정
+        })
+        .catch(error => console.error('Error loading menu:', error));
+    }
 
+    // 페이지 로드 시 메뉴를 불러옵니다.
+    document.addEventListener('DOMContentLoaded', loadMenu);
+  </script>
 
     
     <script src="./skin/js/script.js" defer></script>
