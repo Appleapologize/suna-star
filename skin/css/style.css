@@ -243,6 +243,7 @@
 
 * {
 	box-sizing: border-box; 
+	cursor: var(--default-cursor), auto !important;
   }
 
 html, body {
@@ -250,7 +251,6 @@ html, body {
     max-width: var(--width-100);	
     margin: 0;
     padding: 0;
-    cursor: var(--default-cursor), auto !important;
 }
 
 html:has(#container) {
