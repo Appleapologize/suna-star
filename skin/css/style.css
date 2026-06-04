@@ -279,7 +279,26 @@ body:has(#container) {
 
 	contain: layout styles;
 }
-
+body:has(#container)::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    /* 콘텐츠 뒤쪽, 밤하늘 배경 바로 앞에 투명하게 배치합니다. */
+    z-index: -1; 
+    background-color: transparent; 
+    
+    /* ----------------================================------
+       [★ 핵심 해결책]
+       브라우저가 껍데기 여백이라 착각하던 양옆 공간에 이 투명 막이 가득 차면서
+       화면 어디를 가든 내가 지정한 커스텀 커서가 강제로 화면에 고정됩니다.
+       ----------------====================================== */
+    cursor: var(--default-cursor), auto !important;
+    pointer-events: all !important;
+}
 ::selection {
     background-color: var(--select);
     color: var(--select-color);
