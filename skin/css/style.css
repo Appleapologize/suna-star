@@ -798,13 +798,7 @@ img {
     background-color: var(--sub-background-color);
     box-shadow: var(--box-shadow);
     gap: 3px;
-    
-    /* [버그 해결 1] 박스 자체의 기본 커서를 전체와 동일하게 강제 주입 */
     cursor: var(--default-cursor), auto !important;
-
-    /* [버그 해결 2] 브라우저 하드웨어 가속을 켜서 fixed 레이어의 커서 풀림 버그를 물리적으로 차단 */
-    transform: translateZ(0); 
-    will-change: transform;
 }
 
 /* 버튼 평상시 상태 */
@@ -815,22 +809,14 @@ img {
     font-size: x-large;
     background-color: transparent;
     transition: opacity 0.3s ease;
-    
-    /* 버튼 자체도 평소엔 기본 커서 유지 */
-    cursor: var(--default-cursor), auto !important;
+    cursor: var(--over-cursor), pointer !important;
 }
 
 /* 버튼에 마우스가 정확히 올라갔을 때 (호버 상태) */
 /* !important 충돌을 이기기 위해 부모 클래스(.scroll-btn)를 앞에 붙여 점수를 높였습니다 */
 .scroll-btn #scrollDownBtn:hover, 
 .scroll-btn #scrollUpBtn:hover {
-    cursor: var(--over-cursor), pointer !important;
-}
 
-/* [최종 조치] 버튼 안의 ▲, ▼ 글자가 마우스를 방해하는 현상 완벽 차단 */
-#scrollUpBtn *,
-#scrollDownBtn * {
-    pointer-events: none !important;
 }
 
 
