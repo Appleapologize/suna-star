@@ -276,6 +276,8 @@ body:has(#container) {
     background:
     center / cover no-repeat fixed var(--limit-img),
     left top / auto repeat fixed var(--background-color) var(--limit-pattern);
+
+	contain: layout styles;
 }
 
 ::selection {
