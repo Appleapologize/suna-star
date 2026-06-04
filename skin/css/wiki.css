@@ -65,12 +65,12 @@ a.index{
 	text-decoration: none;
 }
 #wiki a sup{
-	color:#0275d8;
+	color:var(--wiki-a-color);
 }
 
 #wiki a:hover,
   focus {
-	color: #ff85d4;
+	color: var(--wiki-a-color);
 	text-decoration:underline;
   } /*태그 및 링크 색상(주석 옆의 숫자들 색상)*/
 
