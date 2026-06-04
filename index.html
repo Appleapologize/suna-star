@@ -154,48 +154,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const scrollDownBtn = document.getElementById("scrollDownBtn");
   const scrollUpBtn = document.getElementById("scrollUpBtn");
 
-  const toggleScrollButtons = () => {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight;
-    const clientHeight = document.documentElement.clientHeight;
+  // 더 많이 이동할 픽셀 수 (10px 더 많이)
+  const extraScroll = 10; 
 
-    // 맨 위일 때 (아래로 버튼만 표시)
-    if (scrollTop < 10) {
-      scrollDownBtn.classList.add("show");
-      scrollUpBtn.classList.remove("show");
-    } 
-    // 맨 아래일 때 (위로 버튼만 표시)
-    else if (scrollTop + clientHeight >= scrollHeight - 10) {
-      scrollDownBtn.classList.remove("show");
-      scrollUpBtn.classList.add("show");
-    } 
-    // 중간 위치일 때 (둘 다 표시)
-    else {
-      scrollDownBtn.classList.add("show");
-      scrollUpBtn.classList.add("show");
-    }
-  };
-
-  // 초기 실행 및 스크롤 이벤트 등록
-  toggleScrollButtons();
-  window.addEventListener("scroll", toggleScrollButtons);
-
-  // 클릭 이벤트
-  scrollDownBtn.addEventListener("click", () => {
-    const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
-    if (mainContent) {
-      mainContent.scrollIntoView({ behavior: "smooth", block: "end" });
-    }
-  });
-
+  // 위로 가기 버튼 클릭 (10px 더 위로 올라감)
   scrollUpBtn.addEventListener("click", () => {
     const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
     if (mainContent) {
-      mainContent.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.scrollTo({
+        top: mainContent.offsetTop - extraScroll, // 빼기를 해서 더 위로 보냅니다.
+        behavior: "smooth"
+      });
+    }
+  });
+
+  // 밑으로 가기 버튼 클릭 (10px 더 아래로 내려감)
+  scrollDownBtn.addEventListener("click", () => {
+    const mainContent = document.querySelector("#main-wrapper") || document.body.firstElementChild;
+    if (mainContent) {
+      const targetPosition = mainContent.offsetTop + mainContent.offsetHeight - window.innerHeight + extraScroll; // 더하기를 해서 더 아래로 보냅니다.
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
+      });
     }
   });
 });
 </script>
+
+
 
 <div class="scroll-btn">
   <button id="scrollUpBtn">▲</button>  
