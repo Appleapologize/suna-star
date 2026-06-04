@@ -814,7 +814,11 @@ img {
 	
 }
 
-
+.scroll-btn button,
+#scrollUpBtn,
+#scrollDownBtn {
+    cursor: var(--over-cursor), pointer !important;
+}
 /*-------------footer----------*/
 footer *{
 	margin:0;
