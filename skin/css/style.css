@@ -814,8 +814,12 @@ img {
 	
 }
 
-.scroll-btn button,
-#scrollUpBtn,
+.scroll-btn button * {
+    pointer-events: none !important;
+}
+
+/* 혹시 몰라 한 번 더 확실하게 지정하는 버튼 커서 */
+#scrollUpBtn, 
 #scrollDownBtn {
     cursor: var(--over-cursor), pointer !important;
 }
