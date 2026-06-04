@@ -792,7 +792,7 @@ img {
     bottom: calc(var(--padding-in-body) * 2.5);
     right: 0;
 	border-radius: var(--button-round); 
-    z-index: 100; 
+    z-index: 1000; 
     padding: 12px;
     margin: calc(var(--padding-in-body) - var(--container-padding));
     background-color: var(--sub-background-color);
