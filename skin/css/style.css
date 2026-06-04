@@ -253,72 +253,30 @@ html, body {
     padding: 0;
 }
 
-html:has(#container) {
-    overflow: hidden; /* html의 구형 바깥 스크롤 영역 완벽 차단 */
-    
-    background:
-    center / cover no-repeat fixed var(--limit-img),
-    left top / auto repeat fixed var(--background-color) var(--limit-pattern);
-}
-html:has(#container)::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    
-    /* 콘텐츠 뒤쪽, 밤하늘 배경 바로 앞에 투명하게 배치합니다. */
-    z-index: -1; 
-    background-color: transparent; 
-    
-    /* ----------------================================------
-       [★ 핵심 해결책]
-       브라우저가 껍데기 여백이라 착각하던 양옆 공간에 이 투명 막이 가득 차면서
-       화면 어디를 가든 내가 지정한 커스텀 커서가 강제로 화면에 고정됩니다.
-       ----------------====================================== */
-    cursor: var(--default-cursor), auto !important;
-    pointer-events: all !important;
-}
-
 body {
     background-color: var(--background-color);
     color: var(--text-color);
 }
 
+html:has(#container), body:has(#container) {
+    background:
+    center / cover no-repeat fixed var(--limit-img),
+    left top / auto repeat fixed var(--background-color) var(--limit-pattern);	
+}
+
+html:has(#container) {
+    overflow-x: hidden;
+    overflow-y: scroll; /* 스크롤바가 body 영역 내부 평면 위에 얹어지게 설정 */
+}
+
+
 body:has(#container) {
     /* [핵심 수정] body를 100vh로 잡았을 때 배경이 깨지지 않도록 fixed(화면 고정) 추가 */
     height: 100vh;
 	min-height:100vh;
-    overflow-x: hidden;
-    overflow-y: scroll; /* 스크롤바가 body 영역 내부 평면 위에 얹어지게 설정 */
-    
-    background:
-    center / cover no-repeat fixed var(--limit-img),
-    left top / auto repeat fixed var(--background-color) var(--limit-pattern);
+	overflow:hidden;
+}
 
-	contain: layout styles;
-}
-body:has(#container)::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    
-    /* 콘텐츠 뒤쪽, 밤하늘 배경 바로 앞에 투명하게 배치합니다. */
-    z-index: -1; 
-    background-color: transparent; 
-    
-    /* ----------------================================------
-       [★ 핵심 해결책]
-       브라우저가 껍데기 여백이라 착각하던 양옆 공간에 이 투명 막이 가득 차면서
-       화면 어디를 가든 내가 지정한 커스텀 커서가 강제로 화면에 고정됩니다.
-       ----------------====================================== */
-    cursor: var(--default-cursor), auto !important;
-    pointer-events: all !important;
-}
 ::selection {
     background-color: var(--select);
     color: var(--select-color);
@@ -328,19 +286,19 @@ body:has(#container)::before {
 /*---- ---- 스크롤바 스타일 ---- ----*/
 
 /* 1. 스크롤바 전체 너비 정의 */
-body:has(#container)::-webkit-scrollbar {
+html:has(#container)::-webkit-scrollbar {
     width: var(--scroll-width); 
     display: block;
 }
 
 /* 2. 브라우저가 스크롤바 밑바닥에 까는 그림자까지 투명하게 밀어버려 흰색 칸 원천 삭제 */
-body:has(#container)::-webkit-scrollbar-track {
+html:has(#container)::-webkit-scrollbar-track {
     background-color: var(--scroll-back-color) !important;
     box-shadow: inset 0 0 0 transparent !important; /* 미세한 시스템 음영까지 완벽 투명화 */
 }
 
 /* 막대 색상 */
-body:has(#container)::-webkit-scrollbar-thumb {
+html:has(#container)::-webkit-scrollbar-thumb {
     background-color: var(--scroll-bar-color) !important; 
     border-radius: calc(var(--scroll-width) - 6px);
     
@@ -350,12 +308,12 @@ body:has(#container)::-webkit-scrollbar-thumb {
 }
 
 /* 4. 마우스 올렸을 때 효과 */
-body:has(#container)::-webkit-scrollbar-thumb:hover {
+html:has(#container)::-webkit-scrollbar-thumb:hover {
     background-color: color-mix(in srgb, var(--sub-background-color) 60%, red) !important;
 }
 
 /* [공통] 이오니콘즈 아이콘 폰트를 스크롤바 버튼 구조에 강제 주입 */
-body:has(#container)::-webkit-scrollbar-button{
+html:has(#container)::-webkit-scrollbar-button{
     display: none !important;
 }
 
