@@ -691,9 +691,8 @@ details:not([open]) h2[class*="-title"] span{
 		word-break: auto-phrase;
 	}
 	
-	*,
-	table.index tr td.index{
-	    font-size: 1.5rem;
+	*{
+	    font-size: 1.5rem !important;
 	}
 	
     #profile-index {
