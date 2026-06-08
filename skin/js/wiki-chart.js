@@ -1,7 +1,8 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // 1. 데이터 읽기
-  const chartDataElement = document.getElementById("chart-data"); 
-  if (!chartDataElement) return; // 차트 데이터가 없으면 실행 중단 (안전장치)
+// 💥 DOMContentLoaded 감싸개를 과감히 제거하여 로드 즉시 실행되도록 만듭니다!
+
+// 1. 데이터 읽기
+const chartDataElement = document.getElementById("chart-data"); 
+if (chartDataElement) { // 안전장치 역할을 블록 전체 감싸기로 변경
 
   const datasets = Array.from(chartDataElement.getElementsByClassName("dataset")); 
   const labelsElement = chartDataElement.querySelector(".labels"); 
@@ -128,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // 최초 차트 그리기 실행
+  // 💡 즉시 차트 그리기 실행
   createCharts();
 
   // 브라우저 창 크기가 바뀔 때 글자 크기 리사이징 대응
@@ -146,4 +147,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-}); // 👈 엎어져 있던 닫는 괄호들을 완벽하게 복구했습니다!
+} // 👈 if (chartDataElement) 블록의 마감입니다.
