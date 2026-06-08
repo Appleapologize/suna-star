@@ -688,11 +688,11 @@ details:not([open]) h2[class*="-title"] span{
 @media screen and (max-width: 1024px) {
 	th{
 		white-space: unset;
+		word-break: auto-phrase;
 	}
 	
 	#wiki * {
 	    font-size: 1.5rem;
-		word-break: auto-phrase;
 	}
 	
     #profile-index {
