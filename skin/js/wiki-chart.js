@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const cssGridColor = `color-mix(in srgb, ${cssTextColor} 10%, transparent)`; 
 
   /*모바일, 데스크탑 폰트 사이즈 선언*/
-  /*모바일, 데스크탑 폰트 사이즈 선언*/
   const isMobile = window.innerWidth < 1024;
   
   const getFontSize = () => {
