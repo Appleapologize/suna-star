@@ -332,6 +332,7 @@ a{
 
 a:hover{
     color: var(--point-sub-color);
+	cursor: var(--over-cursor), pointer !important;	
 }
 
 #head{
