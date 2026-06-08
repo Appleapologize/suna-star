@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: {
           color: cssTextColor, //
           boxWidth: 12,        /* 범례 아이콘 크기를 줄여 차트 공간 확보 */
-          padding: 10          /* 범례 아래 여백 줄이기 */
+          padding: 10,          /* 범례 아래 여백 줄이기 */
+          font: { size: mobileSize(20, 16) } /*(모바일 폰트 사이즈, PC 폰트 사이즈)*/
         },
       },
     },
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         pointLabels: {
           color: cssTextColor, //
           font: { 
-            size: 11,
+            size: mobileSize(20, 16), 
             weight: 'bold'
           },
           // 💡 에러 없는 안전한 최소 여백(0) 설정으로 차트 크기 최대화
