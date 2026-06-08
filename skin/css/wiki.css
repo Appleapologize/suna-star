@@ -163,6 +163,7 @@ th{
 	border-bottom:1px solid var(--wiki-text-white-color);
 	width:100;
 	white-space: nowrap;
+	color: black;
 }
 
 td {
