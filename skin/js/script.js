@@ -152,10 +152,17 @@ function loadPage(event, relativePath, addHistory = true) {
                             const newScript = document.createElement('script');
                             newScript.className = 'dynamic-blog-js'; // 대청소용 식별 클래스
                             
-                            const src = script.getAttribute('src');
+                            let src = script.getAttribute('src');
                             if (src) {
                                 if (!src.startsWith('/') && !src.startsWith('http')) {
-                                    newScript.src = window.location.origin + '/suna-star/skin/js/' + src;
+                                    // ⭐ [버그 수정] src에 이미 skin/js/가 포함되어 있다면 중복 방지 처리
+                                    if (src.includes('skin/js/')) {
+                                        // 중복되는 부분을 제외한 순수 파일명만 추출하거나 올바른 경로로 재조합
+                                        const fileName = src.split('/').pop();
+                                        newScript.src = window.location.origin + '/suna-star/skin/js/' + fileName;
+                                    } else {
+                                        newScript.src = window.location.origin + '/suna-star/skin/js/' + src;
+                                    }
                                 } else {
                                     newScript.src = src;
                                 }
