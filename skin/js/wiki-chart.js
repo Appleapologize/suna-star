@@ -106,18 +106,19 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // 7. 차트 생성 - Radar Chart
-  const radarCtx = document.getElementById("radarChart").getContext("2d"); //
-  new Chart(radarCtx, { //
-    type: "radar", //
-    data: data, //
-    options: radarOptions, //
-  });
+  const radarCanvas = document.getElementById("radarChart");
+  if (radarCanvas) {
+    const oldRadar = Chart.getChart(radarCanvas);
+    if (oldRadar) oldRadar.destroy(); // 💡 낡은 고정관념(10px)을 완전히 부숩니다.
+    new Chart(radarCanvas.getContext("2d"), { type: "radar", data: data, options: radarOptions });
+  };
+
 
   // 8. 차트 생성 - Bar Chart
-  const barCtx = document.getElementById("barChart").getContext("2d"); //
-  new Chart(barCtx, { //
-    type: "bar", //
-    data: data, //
-    options: barOptions, //
-  });
-});
+  const barCanvas = document.getElementById("barChart");
+  if (barCanvas) {
+    const oldBar = Chart.getChart(barCanvas);
+    if (oldBar) oldBar.destroy(); // 💡 낡은 고정관념(10px)을 완전히 부숩니다.
+    new Chart(barCanvas.getContext("2d"), { type: "bar", data: data, options: barOptions });
+  };
+
