@@ -56,67 +56,117 @@ function initFootnoteSystem() {
     document.body.appendChild(tooltip);
   }
 
-  footnoteLinks.forEach((a) => {
-    const sup = a.querySelector("sup");
-    const p = a.nextElementSibling;
-    const content = p ? p.textContent.replace(/^\[\d+\]\s*/, "").trim() : "";
+  /* ------------------------------------------------------------------------
+ [수정] 데스크톱은 Hover(마우스) / 모바일은 Click(터치) 반응형 이원화 시스템
+ ------------------------------------------------------------------------ */
+footnoteLinks.forEach((a) => {
+ const sup = a.querySelector("sup");
+ const p = a.nextElementSibling;
+ const content = p ? p.textContent.replace(/^\[\d+\]\s*/, "").trim() : "";
 
-    a.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+ // 말풍선 HTML 콘텐츠를 동적으로 생성하는 내부 헬퍼 함수
+ function updateTooltipContent(isMobile) {
+   const currentNumber = parseInt(sup.textContent.match(/\[(\d+)\]/)[1]);
+   let tooltipContent = `
+     <button class="tooltip-close">X</button>
+     <div class="tooltip-number">${currentNumber}</div>
+     <hr class="tooltip-divider">
+     <div class="tooltip-content">${content}</div>
+   `;
+   if (isMobile) {
+     tooltipContent = `
+       <div class="tooltip-number">${currentNumber}</div>
+       <hr class="tooltip-divider">
+       <div class="tooltip-content">${content}</div>
+       <button class="tooltip-close">닫기</button>
+     `;
+   }
+   tooltip.innerHTML = tooltipContent;
+ }
 
-      const currentNumber = parseInt(sup.textContent.match(/\[(\d+)\]/)[1]);
-      const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+ // 말풍선 위치를 실시간 측정 및 정렬하는 내부 헬퍼 함수
+ function positionTooltip(isMobile) {
+   tooltip.style.display = "block"; // 높이를 정확히 측정하기 위해 먼저 화면에 켭니다.
+   
+   if (isMobile) {
+     tooltip.style.position = "fixed";
+     tooltip.style.bottom = "0px";
+     tooltip.style.left = "48vw";
+     tooltip.style.transform = "translateX(-51%)";
+     tooltip.style.width = "calc(100vw - 30px)";
+     tooltip.style.maxWidth = "100vw";
+     tooltip.style.top = "auto";
+   } else {
+     // [데스크톱 위치 버그 완전 보정]
+     tooltip.style.position = "absolute";
+     tooltip.style.bottom = "auto";
+     tooltip.style.transform = "translateX(-50%)"; // 정중앙 매칭
+     tooltip.style.width = ""; 
+     tooltip.style.maxWidth = "300px"; 
 
-      let tooltipContent;
-      tooltipContent = `
-        <button class="tooltip-close">X</button>
-        <div class="tooltip-number">${currentNumber}</div>
-        <hr class="tooltip-divider">
-        <div class="tooltip-content">${content}</div>
-      `;
+     // 각주 번호(sup) 요소의 화면상 실제 픽셀 좌표 측정
+     const rect = sup.getBoundingClientRect();
+     
+     // 현재 스크롤된 거리를 정확히 더해 절대 좌표 산출
+     const absoluteLeft = rect.left + (window.scrollX || window.pageXOffset);
+     const absoluteTop = rect.top + (window.scrollY || window.pageYOffset);
 
-      if (isMobile) {
-        tooltipContent = `
-          <div class="tooltip-number">${currentNumber}</div>
-          <hr class="tooltip-divider">
-          <div class="tooltip-content">${content}</div>
-          <button class="tooltip-close">닫기</button>
-        `;
-      }
+     // 1. 가로 위치 보정
+     tooltip.style.left = `${absoluteLeft + (rect.width / 2)}px`;
+     
+     // 2. 세로 위치 보정: 화면에 켜진 직후의 실제 높이(offsetHeight)를 읽어와 번호 위에 정확히 안착
+     const tooltipHeight = tooltip.offsetHeight;
+     tooltip.style.top = `${absoluteTop - tooltipHeight - 12}px`;
+   }
+ }
 
-      tooltip.innerHTML = tooltipContent;
-      tooltip.style.display = "block";
 
-      if (isMobile) {
-        tooltip.style.position = "fixed";
-        tooltip.style.bottom = "0px";
-        tooltip.style.left = "48vw";
-        tooltip.style.transform = "translateX(-51%)";
-        tooltip.style.width = "calc(100vw - 30px)";
-        tooltip.style.maxWidth = "100vw";
-        tooltip.style.top = "auto";
-      } else {
-        tooltip.style.position = "absolute";
-        tooltip.style.bottom = "auto";
-        tooltip.style.transform = ""; 
-        tooltip.style.width = "";      
-        tooltip.style.maxWidth = "";
+ // 📱 [모바일 영역]: 터치/클릭 이벤트 바인딩
+ a.addEventListener("click", (e) => {
+   const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+   
+   // 모바일 화면일 때만 기존 클릭 차단 및 말풍선 팝업 작동
+   if (isMobile) {
+     e.preventDefault();
+     e.stopPropagation();
+     
+     updateTooltipContent(true);
+     positionTooltip(true);
 
-        const rect = sup.getBoundingClientRect();
-        tooltip.style.left = `${rect.left + window.pageXOffset + rect.width - 12}px`;
-        tooltip.style.top = `${rect.top + window.pageYOffset - tooltip.offsetHeight - 15}px`;
-      }
+     const closeButton = tooltip.querySelector(".tooltip-close");
+     if (closeButton) {
+       closeButton.addEventListener("click", (event) => {
+         event.stopPropagation();
+         tooltip.style.display = "none";
+       });
+     }
+   } else {
+     // 데스크톱 환경에서는 a 태그 본연의 하단 스크롤(해시 링크) 이동을 차단하지 않습니다.
+     // 만약 클릭 시 아무 동작도 원치 않으시면 e.preventDefault(); 를 여기에 두셔도 됩니다.
+   }
+ });
 
-      const closeButton = tooltip.querySelector(".tooltip-close");
-      if (closeButton) {
-        closeButton.addEventListener("click", (event) => {
-          event.stopPropagation();
-          tooltip.style.display = "none";
-        });
-      }
-    });
-  });
+ // 💻 [데스크톱 영역]: 마우스 호버(MouseEnter / MouseLeave) 이벤트 바인딩
+ a.addEventListener("mouseenter", () => {
+   const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+   if (!isMobile) {
+     updateTooltipContent(false);
+     positionTooltip(false);
+     
+     // 데스크톱 호버 모드에서는 우측 상단 'X' 버튼을 숨겨 더 깔끔하게 처리 가능
+     const closeButton = tooltip.querySelector(".tooltip-close");
+     if (closeButton) closeButton.style.display = "none";
+   }
+ });
+
+ a.addEventListener("mouseleave", () => {
+   const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+   if (!isMobile) {
+     tooltip.style.display = "none";
+   }
+ });
+});
+
 
   document.body.addEventListener("click", (event) => {
     const clickedElement = event.target;
