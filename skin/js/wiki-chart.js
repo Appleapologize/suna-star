@@ -23,7 +23,7 @@
   const finalIsMobile = isMobile || (currentWidth > 0 && currentWidth < 1024);
 
   // 최종 화면 크기에 따른 폰트 사이즈 부여 /*모바일 : 데스크탑 폰트 사이즈 선언*/
-  const chartFontSize = finalIsMobile ? 16 : 12; 
+  const chartFontSize = finalIsMobile ? 16 : 10; 
 
   // 전역 기본 폰트 크기 지정
   Chart.defaults.font.size = chartFontSize; 
@@ -132,7 +132,7 @@
   // 브라우저 창 크기가 바뀔 때 글자 크기 실시간 리사이징 대응
   window.addEventListener('resize', function() {
     const currentIsMobile = window.innerWidth < 1024;
-    const nextFontSize = currentIsMobile ? 16 : 12;
+    const nextFontSize = currentIsMobile ? 16 : 10;
     
     if (Chart.defaults.font.size !== nextFontSize) {
       Chart.defaults.font.size = nextFontSize;
