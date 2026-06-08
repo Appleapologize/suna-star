@@ -24,6 +24,11 @@
   --wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
 }
 
+
+.classification a{
+	margin-left: 10px;
+}
+
 /*목차와 프로필 칸 좌우로 두기 및 모바일에서는 세로로 두기*/
 #profile-index{
 	float:left;
