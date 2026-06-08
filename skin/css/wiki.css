@@ -29,6 +29,10 @@
 	margin-left: 10px;
 }
 
+br.re-br{
+	display: none !important;
+}
+
 /*목차와 프로필 칸 좌우로 두기 및 모바일에서는 세로로 두기*/
 #profile-index{
 	float:left;
@@ -768,5 +772,10 @@ details:not([open]) h2[class*="-title"] span{
         min-width: 40vw !important;		
 		min-height: 40vh !important;
     }
+
+
+	br.re-br{
+	display: inline !important;
+}
 }
 
