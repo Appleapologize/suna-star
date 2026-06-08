@@ -91,7 +91,7 @@ footnoteLinks.forEach((a) => {
    if (isMobile) {
      tooltip.style.position = "fixed";
      tooltip.style.bottom = "0px";
-     tooltip.style.left = "48vw";
+     tooltip.style.left = "50%";
      tooltip.style.transform = "translateX(-51%)";
      tooltip.style.width = "calc(100vw - 30px)";
      tooltip.style.maxWidth = "100vw";
