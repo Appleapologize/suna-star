@@ -3,7 +3,6 @@
 :root{
   --mobile-font-size:1.5rem; /*꼭 rem 기준으로 작성하기*/
   --arrow-mobile-wihei:80px; /*모바일상의 화살표 사이즈*/
-  --chart-font-size:1.5rem;
 	
   /*색상 변경 란*/
   --noah-color: #42f5ce; /*드림주 색상*/
@@ -692,6 +691,10 @@ details:not([open]) h2[class*="-title"] span{
    1024px 이하 타블렛 및 모바일 대응
    ========================================================================== */
 @media screen and (max-width: 1024px) {
+	:root{
+	  --chart-font-size:1.5rem;		
+	}
+	
 	th{
 		white-space: unset;
 		word-break: auto-phrase;
