@@ -238,56 +238,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const scrollDownBtn = document.getElementById("scrollDownBtn");
   const scrollUpBtn = document.getElementById("scrollUpBtn");
 
-  // 현재 활성화된 콘텐츠 영역을 안전하게 찾아내는 내부 함수
-  function getActiveContent() {
-    const container = document.querySelector("#container");
-    if (!container) return null;
-    
-    // 만약 #container 내부에 서브페이지용 감싸는 div가 따로 있다면 그것을 우선 타겟팅
-    const innerContent = container.firstElementChild;
-    return innerContent || container;
-  }
-
-  // [핵심] 맨 밑으로 가기
+  // [수정] body 내부 스크롤 구조에 맞춘 정밀 스크롤 제어
   scrollDownBtn.addEventListener("click", () => {
-    const target = getActiveContent();
-    if (!target) return;
-
-    // 모바일 브라우저의 렌더링 엔진을 깨우기 위해 0.02초 미세 지연 후 실행
-    setTimeout(() => {
-      // scrollIntoView의 오차를 없애기 위해 상대 좌표 방식으로 맨 하단 정렬 강제 적용
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "end"
+    const scrollTarget = document.body; // 현재 스크롤바를 쥐고 있는 주체는 body입니다.
+    
+    if (scrollTarget) {
+      scrollTarget.scrollTo({
+        top: scrollTarget.scrollHeight, // body 내부 콘텐츠의 진짜 맨 밑바닥 끝 좌표
+        behavior: "smooth"
       });
-
-      // [이중 안전장치] 만약 하단에 주소창 버그 등으로 빈칸이 남았다면 칼같이 추가 보정
-      setTimeout(() => {
-        const rect = target.getBoundingClientRect();
-        const bottomOffset = rect.bottom - window.innerHeight;
-        
-        // 화면 바깥으로 삐져나간 유령 빈칸이 감지되면 딱 그만큼 스크롤을 올려서 커트
-        if (bottomOffset > 0) {
-          window.scrollBy({ top: bottomOffset, behavior: "smooth" });
-        }
-      }, 350); // 스크롤 애니메이션(약 0.3초)이 완전히 끝난 직후 실행
-    }, 20);
+    }
   });
 
-  // [핵심] 맨 위로 가기
   scrollUpBtn.addEventListener("click", () => {
-    const target = getActiveContent();
-    if (!target) return;
-
-    setTimeout(() => {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+    const scrollTarget = document.body;
+    
+    if (scrollTarget) {
+      scrollTarget.scrollTo({
+        top: 0,
+        behavior: "smooth"
       });
-    }, 20);
+    }
   });
 });
 </script>
+
 
 
    
