@@ -238,43 +238,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const scrollDownBtn = document.getElementById("scrollDownBtn");
   const scrollUpBtn = document.getElementById("scrollUpBtn");
 
-  // [수정] 클릭하는 순간 #container의 절대 위치를 실시간으로 계산하는 함수
-  function getContainerPositions() {
-    const container = document.querySelector("#container");
-    if (!container) return { top: 0, bottom: 0 };
-    
-    // #container의 화면상 현재 위치 구하기
-    const rect = container.getBoundingClientRect();
-    // 현재 스크롤된 양을 더해 body 기준 절대 좌표로 변환
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    return {
-      top: rect.top + scrollTop,
-      bottom: rect.bottom + scrollTop
-    };
-  }
-
-  // [수정] 맨 밑으로 가기: 오직 #container의 끝점으로만 이동
+  // [수정] 맨 밑으로 가기: 계산식을 버리고 #container 자체의 내부 높이 한계점으로 이동
   scrollDownBtn.addEventListener("click", () => {
-    const positions = getContainerPositions();
-    const maxScrollLimit = document.documentElement.scrollHeight - window.innerHeight;
-    
-    // #container 끝점과 브라우저 한계점 중 최적의 위치 계산 (하단 빈칸 유출 완벽 차단)
-    const targetScrollTo = Math.min(positions.bottom - window.innerHeight, maxScrollLimit);
+    const container = document.querySelector("#container");
+    if (!container) return;
 
-    window.scrollTo({
-      top: targetScrollTo,
-      behavior: "smooth"
+    // 모바일 브라우저의 가상 주소창 오차를 깨부수기 위해 뷰포트 정렬 강제 적용
+    container.scrollIntoView({
+      behavior: "smooth",
+      block: "end" // 오직 #container의 아랫줄이 화면 맨 밑에 딱 닿도록 지정
     });
+    
+    // [보정 필터] scrollIntoView 후 삐져나온 하단 빈칸 공간이 있다면 즉시 화면 보정
+    setTimeout(() => {
+      const rect = container.getBoundingClientRect();
+      if (rect.bottom < window.innerHeight) {
+        window.scrollBy({
+          top: rect.bottom - window.innerHeight,
+          behavior: "auto"
+        });
+      }
+    }, 300); // 스크롤 애니메이션이 끝나는 시점에 빈칸 잘라내기 숨은 제어
   });
 
-  // [수정] 맨 위로 가기: 오직 #container의 시작점으로만 이동
+  // [수정] 맨 위로 가기: 오직 #container의 최상단 시작점으로만 이동
   scrollUpBtn.addEventListener("click", () => {
-    const positions = getContainerPositions();
-    
-    window.scrollTo({
-      top: positions.top,
-      behavior: "smooth"
+    const container = document.querySelector("#container");
+    if (!container) return;
+
+    container.scrollIntoView({
+      behavior: "smooth",
+      block: "start" // #container의 첫 줄이 화면 맨 위에 딱 걸치도록 지정
     });
   });
 });
