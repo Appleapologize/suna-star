@@ -522,7 +522,7 @@ a + p.text1{
 
 /* 말풍선 스타일 */
 .tooltip {
-  margin:10px;  
+  margin-bottom:10px;  
   position: absolute;
   background-color: var(--wiki-text-white-color); /* 배경색 */
   color: var(--wiki-main-text-color); /* 글자색 */
@@ -534,7 +534,6 @@ a + p.text1{
   z-index: 1000;
   max-width:201px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transform:translate(-52%, -105%);
 }
 
 button.tooltip-close{
