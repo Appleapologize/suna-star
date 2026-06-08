@@ -524,7 +524,7 @@ a + p.text1{
 .tooltip {
   margin-bottom:10px;  
   position: absolute;
-  background-color: var(--wiki-text-white-color); /* 배경색 */
+  background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent); /* 배경색 */
   color: var(--wiki-main-text-color); /* 글자색 */
   padding: 10px;
   font-size: 14px;
@@ -775,5 +775,9 @@ details:not([open]) h2[class*="-title"] span{
 	br.re-br{
 	display: inline !important;
 }
+
+	.tooltip{
+		background-color:color-mix(in srgb, var(--card-background-color) 95%, transparent);
+	}
 }
 
