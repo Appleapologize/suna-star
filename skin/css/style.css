@@ -86,7 +86,34 @@
         --default-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcwXft5%2FbtsMB4uW9qM%2FVokNPKYRdWlYr3iN7T65kk%2Fimg.png');
         /* 기본 마우스 커서로 사용할 이미지 주소를 넣습니다. */
         --over-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpIKCH%2FbtsMC9a6QiP%2FJaf37WTd2kDVN0LxXh3CaK%2Fimg.png');
-        /* 버튼 위에 마우스를 올렸을 때 사용할 이미지 주소를 넣습니다. */	
+        /* 버튼 위에 마우스를 올렸을 때 사용할 이미지 주소를 넣습니다. */
+
+		--help-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FqRBpF%2FdJMcabdlYPf%2FAAAAAAAAAAAAAAAAAAAAAC4CdOGsiOueBhjsMhOxCJ5tdaMS4GImZ5Qg8cDSb0DL%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3Dgariur5SH3J0tjyAbfRrBBTATN8%253D'); 
+	/* 도움말 커서 */
+	    --progress-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fna2jc%2FdJMcagyZ410%2FAAAAAAAAAAAAAAAAAAAAAO4Gvpgoq7HF2maSkQi4DZKydGLUpa1uzh1N0ix3eMZj%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3DFL6eror651iMBUJazCYpc2xku9o%253D');
+	/* 백그라운드 작업커서 */
+	    --wait-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FeGgo4g%2FdJMcagZ2IZ0%2FAAAAAAAAAAAAAAAAAAAAAL0Mih5YInYbX5blMesjHfBMPUaHlInqi88qTBAh3rp6%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3DTpM0nDKiNwxh%252FtkSDzHX100zvME%253D'); 
+	/* 사용중 커서 */
+	    --not-allowed-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcktTzT%2FdJMcaiKjOIa%2FAAAAAAAAAAAAAAAAAAAAANuvtr-7Xi3OCRKm4ydfdF4OyrR73gOGJbPw5rc_ZS6N%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3DxT8%252Fq96mmDC%252F%252Biffsqk0y%252B7gwdo%253D'); 
+	/* 사용할 수 없음 커서 */
+	    --text-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FceQ3Ui%2FdJMcaar3U47%2FAAAAAAAAAAAAAAAAAAAAAKr-aKrG17FViy_n3LdkEpe8HC1Vmobz_wwRsQ5MShEj%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3DfJI2EgDP6RI7tQeBjQPM%252F%252Fq9aOI%253D'); 
+	/* 텍스트 커서 */
+	    --move-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FclG1Vx%2FdJMcadCbJzp%2FAAAAAAAAAAAAAAAAAAAAAPsrxPJ96NaazAZJj8V85KK2QSm1X4uF8a4YAWCWnH-y%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3DID34k1k%252BOSKOV5ePo5GgOLR8dVc%253D');
+	/* 이동 커서 */
+	    --crosshair-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fr0RIA%2FdJMcaicAixW%2FAAAAAAAAAAAAAAAAAAAAAJW-bQ9EckEusYGnGQCGuNqFFsa9uoerElMVE9PJGUqQ%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3DcSfiH2NO0R%252BlvNGWOausSBsCUpo%253D'); 
+	/* 정밀도 선택 커서 */
+	    --alias-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbN5QrD%2FdJMcadoGCuA%2FAAAAAAAAAAAAAAAAAAAAABgEfPPb5i2D1MRX4T6TGqUmNSpomTuin8yq11jiC816%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3Dte1AFwxFmCPhyTt9GRPEeze7bco%253D'); 
+	/* 위치선택 커서 */
+	    
+	    /* 크기 조절 방향 커서들 */
+	    --ns-resize-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FCT5Hi%2FdJMcaayPybI%2FAAAAAAAAAAAAAAAAAAAAAIEMi02e8GRQ6V-Bk8pXYPlh3P8qG4RAWm3ffIag5KrY%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3D58nG2Aq7A6wRQbNlM3G5BHcEK%252Bg%253D');
+	/* 수직크기조절 커서 */
+	    --ew-resize-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbqLlWg%2FdJMcac4qVnu%2FAAAAAAAAAAAAAAAAAAAAAFXHngImyTCOrIHFVYh6yOFgYqfREwN6T9QjbZXt5ofk%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3DuDirjxNVutJTlr8RpRZ%252BqjJuruM%253D'); 
+	/* 수평크기조절 커서 */
+	    --nwse-resize-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FHuMp1%2FdJMcaf7UbTJ%2FAAAAAAAAAAAAAAAAAAAAAL5m55BLEwbMEt3-kQcaB-MjVmxheIxIsPmW8i1aF22w%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3DKI%252BLZDUVKOXUSiihArgg2dNV7QA%253D'); 
+	/* 대각선크기조절1 커서 */
+	    --nesw-resize-cursor: url('https://img1.daumcdn.net/thumb/R32x32/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbinqIy%2FdJMcaf7UbTI%2FAAAAAAAAAAAAAAAAAAAAABopgdBpg4r198idxsUWxuM71kUfJSgif3ZtJ8T0m2aQ%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1782831599%26allow_ip%3D%26allow_referer%3D%26signature%3DBHMKEK7BFkjm63wqR90LjcJ0V%252Fo%253D'); 
+	/* 대각선크기조절2 커서 */
 
     /* -------- -------- -------- -------- 배너 설정 -------- -------- -------- -------- */
         --banner-gap: 5px;
@@ -238,7 +265,70 @@
 
 --box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);			
 }	
+/* 1. 글자/검색창/텍스트 입력 상자 영역 */
+html body input[type="text"], 
+html body input[type="search"], 
+html body input[type="password"], 
+html body textarea,
+html body [contenteditable="true"] {
+    cursor: var(--text-cursor), text !important;
+}
 
+/* 2. 클릭 금지 및 비활성화 상태 */
+html body:disabled,
+html body .disabled,
+html body [cursor="not-allowed"] {
+    cursor: var(--not-allowed-cursor), not-allowed !important;
+}
+
+/* 3. 정밀 선택선 (포토샵 캔버스, 그림판 십자선 등) */
+html body canvas, 
+html body .precision,
+html body [cursor="crosshair"] {
+    cursor: var(--crosshair-cursor), crosshair !important;
+}
+
+/* ====================================================
+   [수동 인식] 태그에 직접 class="cursor-명칭" 또는 cursor="명칭"을 붙여 사용
+==================================================== */
+html body [cursor="help"], 
+html body .cursor-help { 
+	cursor: var(--help-cursor), help !important; 
+}
+html body [cursor="progress"],
+html body .cursor-progress {
+	cursor: var(--progress-cursor), progress !important; 
+}
+html body [cursor="wait"], 
+html body .cursor-wait { 
+	cursor: var(--wait-cursor), wait !important; 
+}
+html body [cursor="move"], 
+html body .cursor-move {
+	cursor: var(--move-cursor), move !important; 
+}
+html body [cursor="alias"], 
+html body .cursor-alias { 
+	cursor: var(--alias-cursor), alias !important; 
+}
+
+/* 윈도우 창 크기 제어선 매칭 */
+html body [cursor="ns-resize"], 
+html body .ns-resize { 
+	cursor: var(--ns-resize-cursor), ns-resize !important;
+}
+html body [cursor="ew-resize"], 
+html body .ew-resize { 
+	cursor: var(--ew-resize-cursor), ew-resize !important;
+}
+html body [cursor="nwse-resize"],
+html body .nwse-resize { 
+	cursor: var(--nwse-resize-cursor), nwse-resize !important;
+}
+html body [cursor="nesw-resize"], 
+html body .nesw-resize { 
+	cursor: var(--nesw-resize-cursor), nesw-resize !important; 
+}
 
 
 * {
