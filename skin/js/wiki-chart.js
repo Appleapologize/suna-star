@@ -132,7 +132,7 @@
   // 브라우저 창 크기가 바뀔 때 글자 크기 실시간 리사이징 대응
   window.addEventListener('resize', function() {
     const currentIsMobile = window.innerWidth < 1024;
-    const nextFontSize = currentIsMobile ? 26 : 20;
+    const nextFontSize = currentIsMobile ? 26 : 16;
     
     if (Chart.defaults.font.size !== nextFontSize) {
       Chart.defaults.font.size = nextFontSize;
