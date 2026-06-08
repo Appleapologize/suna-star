@@ -736,6 +736,11 @@ details:not([open]) h2[class*="-title"] span{
     div.footnote .text1 {
         margin: 5px 0;
     } 
+
+	.tooltip{
+		background-color:color-mix(in srgb, var(--card-background-color) 95%, transparent);
+	}
+	
     .tooltip:after {
         border: 0px solid transparent;
         border-top-color: var(--border-wiki-gray-color);
@@ -791,12 +796,16 @@ details:not([open]) h2[class*="-title"] span{
 
 	br.re-br{
 	display: inline !important;
-}
-
-	.tooltip{
-		background-color:color-mix(in srgb, var(--card-background-color) 95%, transparent);
 	}
 
+	details h2.one-title span{
+		margin: 0.2em 1em 0 0.2em;
+	}
+	
+	ion-icon{
+	    height: 80px;
+	    width: 70px;
+	}
 	
 }
 
