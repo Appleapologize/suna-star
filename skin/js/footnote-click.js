@@ -147,7 +147,7 @@ footnoteLinks.forEach((a) => {
  });
 
  // 💻 [데스크톱 영역]: 마우스 호버(MouseEnter / MouseLeave) 이벤트 바인딩 "mouseenter"를 "click"으로 바꾸면 클릭이 된다.
- a.addEventListener("click", () => {
+ a.addEventListener("mouseenter", () => {
    const isMobile = window.matchMedia("(max-width: 1024px)").matches;
    if (!isMobile) {
      updateTooltipContent(false);
