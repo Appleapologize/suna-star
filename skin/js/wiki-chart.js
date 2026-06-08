@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /*모바일 : 데스크탑 폰트 사이즈 선언*/
   const isMobile = window.innerWidth < 1024;
-  const chartFontSize = isMobile ? 200 : 140; 
+  const chartFontSize = isMobile ? 26 : 20; 
 
 
   // 3. 데이터셋 추출
