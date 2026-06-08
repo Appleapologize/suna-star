@@ -948,6 +948,10 @@ footer p.bold{
 }	
 /*타블렛*/
 @media (max-width: 1300px) {
+	html, body, * {
+    cursor: none !important;
+}
+	
 	#container {
 		width:91%;
 	}
@@ -955,6 +959,9 @@ footer p.bold{
 }
 
 @media (max-width: 1024px) {
+	html, body, * {
+    cursor: none !important;
+}
 
 	/*body:has(#container)::-webkit-scrollbar-track{
 		background-color: color-mix(in srgb, var(--background-color) 15%, transparent) !important;
