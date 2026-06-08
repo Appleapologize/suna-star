@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // 눈금선 색상은 글자색을 가져와서 10%의 연한 투명도로 자동 계산합니다
   const cssGridColor = `color-mix(in srgb, ${cssTextColor} 10%, transparent)`; 
 
+  /*모바일, 데스크탑 폰트 사이즈 선언*/
+  const isMobile = window.innerWidth < 1024;
+  const mobileSize = (m, d) => isMobile ? m : d;  
+
   // 3. 데이터셋 추출
   const data = {
     labels: labelsElement.getAttribute("data-values").split(","), //
@@ -82,12 +86,18 @@ document.addEventListener("DOMContentLoaded", function () {
     maintainAspectRatio: false, // 💡 박스 크기에 맞게 꽉 차게 조절
     scales: {
       x: {
-        ticks: { color: cssTextColor }, //
+        ticks: { 
+          color: cssTextColor,
+         font: { size: mobileSize(20, 16) } // ⭐ 막대차트 X축도 적용하려면 추가
+      }, //
         grid: { color: cssGridColor }, //
       },
       y: {
         beginAtZero: true, //
-        ticks: { color: cssTextColor }, //
+        ticks: { 
+          color: cssTextColor,
+          font: { size: mobileSize(20, 16) }
+        }, //
         grid: { color: cssGridColor }, //
       },
     },
