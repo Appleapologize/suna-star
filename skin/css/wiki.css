@@ -812,13 +812,13 @@ details:not([open]) h2[class*="-title"] span{
 
 	details[open] h2[class*="-title"] span,
 	details:not([open]) h2[class*="-title"] span{
-	    height: var(--arrow-mobile-wihei);
-	    width: calc(var(--arrow-mobile-wihei) - 10px);		
+	   /* height: var(--arrow-mobile-wihei);
+	    width: calc(var(--arrow-mobile-wihei) - 10px);		*/
 	}
 	
 	ion-icon{
-	    height: var(--arrow-mobile-wihei);
-	    width: calc(var(--arrow-mobile-wihei) - 10px);
+	   /* height: var(--arrow-mobile-wihei);
+	    width: calc(var(--arrow-mobile-wihei) - 10px);*/
 	}
 	
 }
