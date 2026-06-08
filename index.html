@@ -14,17 +14,6 @@
       <link rel="stylesheet" href="skin/css/custom.css"> 
       <link rel="stylesheet" href="skin/css/bgm.css">  
       <link rel="stylesheet" href="skin/css/wigte.css">    
-      <!--<link rel="stylesheet" href="skin/css/custom.css"> 
-         <link rel="stylesheet" href="skin/css/guest.css">        
-         <link rel="stylesheet" href="skin/css/links.css"> 
-         <link rel="stylesheet" href="skin/css/play-list.css">     
-         <link rel="stylesheet" href="skin/css/sns.css"> 
-         <link rel="stylesheet" href="skin/css/story.css"> 
-         <link rel="stylesheet" href="skin/css/talk.css"> 
-         <link rel="stylesheet" href="skin/css/top-bottom.css"> 
-         <link rel="stylesheet" href="skin/css/timeline.css"> 
-         <link rel="stylesheet" href="skin/css/wiki.css"> 
-         <link rel="stylesheet" href="skin/css/wiki-custom.css">   -->  
       <title>사막의 별이 가장 밝게 빛나는 법이지</title>
       <script src="./skin/js/bgm.js"></script> 
       <!--위키에서 왼쪽 화살표 아이콘 가져 오는 곳-->
@@ -245,38 +234,48 @@
    
    
       <script>
-         document.addEventListener("DOMContentLoaded", () => {
-           const scrollDownBtn = document.getElementById("scrollDownBtn");
-           const scrollUpBtn = document.getElementById("scrollUpBtn");
-         
-           // [수정] 맨 밑으로 가기: #main-wrapper의 최하단으로 정확히 이동
-           scrollDownBtn.addEventListener("click", () => {
-             const mainContent = document.querySelector("#main-wrapper");
-             if (mainContent) {
-               // 모바일 브라우저의 초기 렌더링 지연 속도를 극복하기 위해 setTimeout 배치
-               setTimeout(() => {
-                 mainContent.scrollIntoView({ 
-                   behavior: "smooth", 
-                   block: "end" 
-                 });
-               }, 50); // 0.05초 미세 지연으로 모바일 레이아웃 연산 유도
-             }
-           });
-         
-           // [수정] 맨 위로 가기: #main-wrapper의 최상단으로 정확히 이동
-           scrollUpBtn.addEventListener("click", () => {
-             const mainContent = document.querySelector("#main-wrapper");
-             if (mainContent) {
-               setTimeout(() => {
-                 mainContent.scrollIntoView({ 
-                   behavior: "smooth", 
-                   block: "start" 
-                 });
-               }, 50);
-             }
-           });
-         });
+      document.addEventListener("DOMContentLoaded", () => {
+        const scrollDownBtn = document.getElementById("scrollDownBtn");
+        const scrollUpBtn = document.getElementById("scrollUpBtn");
+      
+        // 버튼을 누른 '그 순간'의 본문 좌표를 실시간으로 정확하게 즉시 계산하는 함수
+        function getAbsolutePositions() {
+          const mainContent = document.querySelector("#main-wrapper");
+          if (!mainContent) return { top: 0, bottom: 0 };
+          
+          // 모바일 주소창 및 폰트 변경 오차를 없애기 위해 getBoundingClientRect 절대 좌표 활용
+          const rect = mainContent.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          
+          return {
+            top: rect.top + scrollTop,
+            bottom: rect.bottom + scrollTop
+          };
+        }
+      
+        // 맨 밑으로 가기 버튼 이벤트
+        scrollDownBtn.addEventListener("click", () => {
+          // 클릭하는 순간 웹 폰트나 주소창이 변했어도 실시간 끝점을 잡아냄
+          const positions = getAbsolutePositions();
+          
+          window.scrollTo({
+            top: positions.bottom - window.innerHeight, // 딱 화면 뷰포트 높이만큼 차감해서 정확히 본문 끝에 맞춤
+            behavior: "smooth"
+          });
+        });
+      
+        // 맨 위로 가기 버튼 이벤트
+        scrollUpBtn.addEventListener("click", () => {
+          const positions = getAbsolutePositions();
+          
+          window.scrollTo({
+            top: positions.top, // 본문 시작점 절대 위치로 이동
+            behavior: "smooth"
+          });
+        });
+      });
       </script>
+
 
 
 
