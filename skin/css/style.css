@@ -957,7 +957,7 @@ footer p.bold{
 
 @media (max-width: 1024px) {
 	html, body, * {
-    cursor: none !important;
+    /*cursor: none !important;*/
 }
 
 	/*body:has(#container)::-webkit-scrollbar-track{
