@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
       x: {
         ticks: { 
           color: cssTextColor,
-         font: { size: cssFontSize } // ⭐ 막대차트 X축도 적용하려면 추가
+         font: { size: chartFontSize } // ⭐ 막대차트 X축도 적용하려면 추가
       }, //
         grid: { color: cssGridColor }, //
       },
