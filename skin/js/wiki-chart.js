@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const isMobile = window.innerWidth < 1024;
   const chartFontSize = isMobile ? 26 : 20; 
 
+  Chart.defaults.font.size = chartFontSize; 
 
   // 3. 데이터셋 추출
   const data = {
