@@ -14,6 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('contextmenu', (event) => {
         event.preventDefault();
     });
+        // 🔒 2. [추가] 개발자 도구 단축키 차단 (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+    /*document.addEventListener('keydown', (event) => {
+        if (
+            event.key === 'F12' || 
+            (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'i' || event.key === 'j')) || 
+            (event.ctrlKey && (event.key === 'U' || event.key === 'u'))
+        ) {
+            event.preventDefault();
+            return false;
+        }
+    });*/
 
     // 테마 설정 (다크모드 토글)
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
