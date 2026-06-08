@@ -691,7 +691,7 @@ details:not([open]) h2[class*="-title"] span{
 		word-break: auto-phrase;
 	}
 	
-	#wiki * {
+	* {
 	    font-size: 1.5rem;
 	}
 	
@@ -710,7 +710,7 @@ details:not([open]) h2[class*="-title"] span{
         width: 100%;
     }
     #parameters {
-        font-size: 10px;
+
     }
     table.text-one-line {
         max-width: 80vw;
@@ -736,10 +736,10 @@ details:not([open]) h2[class*="-title"] span{
     }
     .tooltip-number {
         font-weight: bold;
-        font-size: 20px;
+
     }
     .tooltip-content {
-        font-size: 15px;
+
     }
     button.tooltip-close {
         width: 100%;
