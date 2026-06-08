@@ -1,6 +1,8 @@
 @charset "utf-8";
 
 :root{
+  --mobile-font-size:1.5rem; /*꼭 rem 기준으로 작성하기*/
+	
   /*색상 변경 란*/
   --noah-color: #42f5ce; /*드림주 색상*/
   /*--gaara-color: red;*//*저는 가아라랑 같이 사용할 생각으로 둔 거에요 이걸 주석처리를 지우면 이제 가아라 색이 나오는 거죠*/
@@ -692,7 +694,11 @@ details:not([open]) h2[class*="-title"] span{
 	}
 	
 	*{
-	    font-size: 1.5rem !important;
+	    font-size: var(--mobile-font-size) !important;
+	}
+	#wiki a, 
+	#wiki b{
+		font-size: calc(1rem + var(--mobile-font-size)) !important;
 	}
 	
     #profile-index {
