@@ -696,8 +696,8 @@ details:not([open]) h2[class*="-title"] span{
 	*{
 	    font-size: var(--mobile-font-size) !important;
 	}
-	#wiki a, 
-	#wiki b{
+	#wiki b, 
+	#wiki b a{
 		font-size: calc(1rem + var(--mobile-font-size)) !important;
 	}
 	
