@@ -92,7 +92,7 @@ footnoteLinks.forEach((a) => {
      tooltip.style.position = "fixed";
      tooltip.style.bottom = "0px";
      tooltip.style.left = "50%";
-     tooltip.style.transform = "translateX(-51%)";
+     tooltip.style.transform = "translateX(-50%)";
      tooltip.style.width = "calc(100vw - 30px)";
      tooltip.style.maxWidth = "100vw";
      tooltip.style.top = "auto";
@@ -116,7 +116,7 @@ footnoteLinks.forEach((a) => {
      
      // 2. 세로 위치 보정: 화면에 켜진 직후의 실제 높이(offsetHeight)를 읽어와 번호 위에 정확히 안착
      const tooltipHeight = tooltip.offsetHeight;
-     tooltip.style.top = `${absoluteTop - tooltipHeight - 12}px`;
+     tooltip.style.top = `${absoluteTop - tooltipHeight - 20}px`;
    }
  }
 
