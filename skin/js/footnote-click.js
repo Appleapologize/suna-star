@@ -93,7 +93,7 @@ footnoteLinks.forEach((a) => {
      tooltip.style.bottom = "0px";
      tooltip.style.left = "50%";
      tooltip.style.transform = "translateX(-50%)";
-     tooltip.style.width = "calc(100vw - 30px)";
+     tooltip.style.width = "calc(100vw - 10px)";
      tooltip.style.maxWidth = "100vw";
      tooltip.style.top = "auto";
    } else {
