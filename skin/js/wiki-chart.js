@@ -13,26 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // 눈금선 색상은 글자색을 가져와서 10%의 연한 투명도로 자동 계산합니다
   const cssGridColor = `color-mix(in srgb, ${cssTextColor} 10%, transparent)`; 
 
-  /*모바일, 데스크탑 폰트 사이즈 선언*/
+  /*모바일 : 데스크탑 폰트 사이즈 선언*/
   const isMobile = window.innerWidth < 1024;
-  
-  const getFontSize = () => {
-    if (isMobile) {
-      // 📱 모바일일 때는 CSS에 적어둔 --chart-font-size(rem 값)를 가져와 실제 px 숫자로 계산
-      const div = document.createElement('div');
-      div.style.fontSize = 'var(--chart-font-size, 1.25rem)'; 
-      document.body.appendChild(div);
-      const mobilePixelSize = parseFloat(getComputedStyle(div).fontSize);
-      document.body.removeChild(div);
-      return mobilePixelSize;
-    } else {
-      // 💻 데스크톱일 때는 CSS 변수를 무시하고 기본값 16px 고정
-      return 16; 
-    }
-  };
-
-  // 아래쪽 font: { size: cssFontSize } 자리에 이 계산된 숫자가 주입됩니다.
-  const cssFontSize = getFontSize(); 
+  const chartFontSize = isMobile ? 200 : 140; 
 
 
   // 3. 데이터셋 추출
@@ -61,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
           color: cssTextColor, //
           boxWidth: 12,        /* 범례 아이콘 크기를 줄여 차트 공간 확보 */
           padding: 10,          /* 범례 아래 여백 줄이기 */
-          font: { size: cssFontSize } /*(모바일 폰트 사이즈, PC 폰트 사이즈)*/
+          font: { size: chartFontSize } /*(모바일 폰트 사이즈, PC 폰트 사이즈)*/
         },
       },
     },
@@ -88,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         pointLabels: {
           color: cssTextColor, //
           font: { 
-            size: cssFontSize, 
+            size: chartFontSize, 
             weight: 'bold'
           },
           // 💡 에러 없는 안전한 최소 여백(0) 설정으로 차트 크기 최대화
@@ -114,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         beginAtZero: true, //
         ticks: { 
           color: cssTextColor,
-          font: { size: cssFontSize }
+          font: { size: chartFontSize }
         }, //
         grid: { color: cssGridColor }, //
       },
