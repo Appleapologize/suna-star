@@ -10,6 +10,7 @@
   --wiki-blacktray-color:#ddd;
   --wiki-main-text-color:#000000;  /*검정색*/
   --wiki-text-white-color:#ffffff; /*흰색*/
+  --wiki-tooltip-content:#555;
 
   --wiki-a-color:#0275d8;	/*링크 걸려있는 파란색 글자 색상*/
 }
@@ -20,6 +21,7 @@
   --wiki-blacktray-color:#ddd;
   --wiki-main-text-color:#fff;  /*검정색*/
   --wiki-text-white-color:#000000; /*흰색*/
+  --wiki-tooltip-content:#eeeeee;
 
   --wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
 }
@@ -573,7 +575,7 @@ button.tooltip-close:hover{
 }
 
 .tooltip-content {
-  color: #555; /* 내용 색상 */
+  color: var(--wiki-tooltip-content); /* 내용 색상 */
   font-size: 12px; /* 내용 크기 */
 }
 
