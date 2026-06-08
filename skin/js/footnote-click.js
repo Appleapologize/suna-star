@@ -112,11 +112,11 @@ footnoteLinks.forEach((a) => {
      const absoluteTop = rect.top + (window.scrollY || window.pageYOffset);
 
      // 1. 가로 위치 보정
-     tooltip.style.left = `${absoluteLeft + (rect.width / 2) - 5}px`;
+     tooltip.style.left = `${absoluteLeft + (rect.width / 2) - 8}px`;
      
      // 2. 세로 위치 보정: 화면에 켜진 직후의 실제 높이(offsetHeight)를 읽어와 번호 위에 정확히 안착
      const tooltipHeight = tooltip.offsetHeight;
-     tooltip.style.top = `${absoluteTop - tooltipHeight - 20}px`;
+     tooltip.style.top = `${absoluteTop - tooltipHeight - 25}px`;
    }
  }
 
