@@ -238,43 +238,45 @@
         const scrollDownBtn = document.getElementById("scrollDownBtn");
         const scrollUpBtn = document.getElementById("scrollUpBtn");
       
-        // 버튼을 누른 '그 순간'의 본문 좌표를 실시간으로 정확하게 즉시 계산하는 함수
-        function getAbsolutePositions() {
+        // [수정] 맨 밑으로 가기: 하단 빈칸 매칭 버그 완벽 수정
+        scrollDownBtn.addEventListener("click", () => {
           const mainContent = document.querySelector("#main-wrapper");
-          if (!mainContent) return { top: 0, bottom: 0 };
-          
-          // 모바일 주소창 및 폰트 변경 오차를 없애기 위해 getBoundingClientRect 절대 좌표 활용
+          if (!mainContent) return;
+      
+          // 1. 현재 버튼을 누른 순간 본문(#main-wrapper)의 실제 끝 좌표 계산
           const rect = mainContent.getBoundingClientRect();
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          
-          return {
-            top: rect.top + scrollTop,
-            bottom: rect.bottom + scrollTop
-          };
-        }
+          const contentBottom = rect.bottom + scrollTop;
       
-        // 맨 밑으로 가기 버튼 이벤트
-        scrollDownBtn.addEventListener("click", () => {
-          // 클릭하는 순간 웹 폰트나 주소창이 변했어도 실시간 끝점을 잡아냄
-          const positions = getAbsolutePositions();
-          
+          // 2. 브라우저가 최대로 스크롤할 수 있는 절대 한계점 계산 (여백 유출 차단용)
+          const maxScrollLimit = document.documentElement.scrollHeight - window.innerHeight;
+      
+          // 3. 본문 끝 지점과 브라우저 한계점 중 더 최상단에 있는 값(여백이 보이지 않는 지점)을 타겟팅
+          // 만약 본문 아래에 유령 공백이나 빈칸이 있다면 contentBottom 단계에서 걸러집니다.
+          const targetScrollTo = Math.min(contentBottom - window.innerHeight, maxScrollLimit);
+      
           window.scrollTo({
-            top: positions.bottom - window.innerHeight, // 딱 화면 뷰포트 높이만큼 차감해서 정확히 본문 끝에 맞춤
+            top: targetScrollTo,
             behavior: "smooth"
           });
         });
       
-        // 맨 위로 가기 버튼 이벤트
+        // [수정] 맨 위로 가기
         scrollUpBtn.addEventListener("click", () => {
-          const positions = getAbsolutePositions();
-          
+          const mainContent = document.querySelector("#main-wrapper");
+          if (!mainContent) return;
+      
+          const rect = mainContent.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
           window.scrollTo({
-            top: positions.top, // 본문 시작점 절대 위치로 이동
+            top: rect.top + scrollTop,
             behavior: "smooth"
           });
         });
       });
       </script>
+
 
 
 
