@@ -692,7 +692,7 @@ details:not([open]) h2[class*="-title"] span{
    ========================================================================== */
 @media screen and (max-width: 1024px) {
 	:root{
-	  --chart-font-size:1.5rem;		
+	  --chart-font-size:var(--mobile-font-size);		
 	}
 	
 	th{
