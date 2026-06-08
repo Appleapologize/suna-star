@@ -6,6 +6,21 @@
 <script src="/suna-star/skin/js/wiki-chart.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
+
+<script>
+  // 차트 라이브러리가 켜지자마자 전역 글자 크기를 모바일 기준으로 강제 세팅합니다.
+  if (window.innerWidth < 1024) {
+    if (typeof Chart !== 'undefined') {
+      Chart.defaults.font.size = 26; // 📱 모바일에서 원하는 px 글자 크기 (차트는 안 커짐)
+    } else {
+      // 라이브러리가 아직 안 로드되었을 경우를 대비한 2중 안전장치
+      document.addEventListener("DOMContentLoaded", function() {
+        if (typeof Chart !== 'undefined') Chart.defaults.font.size = 26;
+      });
+    }
+  }
+</script>
+
 <!--<script>
   // 윈도우 크기를 체크하는 함수
   function checkMobile() {
