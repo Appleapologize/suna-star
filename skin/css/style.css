@@ -948,10 +948,7 @@ footer p.bold{
 }	
 /*타블렛*/
 @media (max-width: 1300px) {
-	html, body, * {
-    cursor: none !important;
-}
-	
+
 	#container {
 		width:91%;
 	}
