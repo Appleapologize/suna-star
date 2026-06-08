@@ -13,7 +13,7 @@
   const cssTextColor = computedStyle.getPropertyValue('--text-color').trim() || '#000000'; 
   
   // 눈금선 색상은 글자색을 가져와서 10%의 연한 투명도로 자동 계산합니다
-  const cssGridColor = `color-mix(in srgb, ${cssTextColor} 90%, transparent)`; 
+  const cssGridColor = `color-mix(in srgb, ${cssTextColor} 60%, transparent)`; 
 
   /* 💡 [수정] 모바일 화면(1024px 미만)인지 CSS 미디어쿼리 기준으로 정확히 체크 */
   const isMobile = window.matchMedia('(max-width: 1023px)').matches;
