@@ -15,11 +15,17 @@
   // 눈금선 색상은 글자색을 가져와서 10%의 연한 투명도로 자동 계산합니다
   const cssGridColor = `color-mix(in srgb, ${cssTextColor} 10%, transparent)`; 
 
-  /* 모바일 : 데스크탑 폰트 사이즈 선언 */
-  const isMobile = window.innerWidth < 1024;
-  const chartFontSize = isMobile ? 26 : 20; 
+  /* 💡 [수정] 모바일 화면(1024px 미만)인지 CSS 미디어쿼리 기준으로 정확히 체크 */
+  const isMobile = window.matchMedia('(max-width: 1023px)').matches;
+  
+  // 브라우저 줌 상태나 비동기 로드 버그를 방지하기 위해 가로폭 한 번 더 검증
+  const currentWidth = window.innerWidth || document.documentElement.clientWidth;
+  const finalIsMobile = isMobile || (currentWidth > 0 && currentWidth < 1024);
 
-  // 전역 기본 폰트 크기 강제 지정
+  // 최종 화면 크기에 따른 폰트 사이즈 부여
+  const chartFontSize = finalIsMobile ? 26 : 20; 
+
+  // 전역 기본 폰트 크기 지정
   Chart.defaults.font.size = chartFontSize; 
 
   // 3. 데이터셋 추출
