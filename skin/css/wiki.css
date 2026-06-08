@@ -704,6 +704,10 @@ details:not([open]) h2[class*="-title"] span{
 	#wiki b a{
 		font-size: calc(1rem + var(--mobile-font-size)) !important;
 	}
+
+	#wiki a sup{
+		font-size: calc(var(--mobile-font-size) - 0.5rem) !important;
+	}
 	
     #profile-index {
         float: none;
