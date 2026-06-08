@@ -264,7 +264,6 @@ html:has(#container), body:has(#container) {
     center / cover no-repeat fixed var(--limit-img),
     left top / auto repeat fixed var(--background-color) var(--limit-pattern);	
     height: 100% !important; 
-	min-height:100vh;	
 }
 
 html:has(#container) {
@@ -274,6 +273,7 @@ html:has(#container) {
 
 body:has(#container) {
     /* [핵심 수정] body를 100vh로 잡았을 때 배경이 깨지지 않도록 fixed(화면 고정) 추가 */
+	min-height:100vh;		
     overflow-x: hidden;
     overflow-y: visible !important; /* 스크롤바가 body 영역 내부 평면 위에 얹어지게 설정 */
 }
