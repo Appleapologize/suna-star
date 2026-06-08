@@ -658,19 +658,15 @@ div.footnote .text1 {
 
 
 /* ==========================================================================
-   [최종 구현] details 가 닫혔을 때만 화살표 아이콘 180도 회전 
+   details 가 닫혔을 때만 화살표 아이콘 180도 회전 
    ========================================================================== */
-details[open] h2.one-title span,
-details[open] h2.two-title span,
-details[open] h2.three-title span{
+details[open] h2[class*="-title"] span{
   transform: rotate(0deg) !important;
   transition: transform 0.3s ease;
   display: inline-block !important;
 }
 
-details:not([open]) h2.one-title span,
-details:not([open]) h2.two-title span,
-details:not([open]) h2.three-title span{
+details:not([open]) h2[class*="-title"] span{
   transform: rotate(180deg) !important;
   transition: transform 0.3s ease;
   display: inline-block !important;
@@ -678,7 +674,7 @@ details:not([open]) h2.three-title span{
 
 
 /* ==========================================================================
-   📱 [반응형 레이아웃 화면] - 1024px 이하 타블렛 및 모바일 완전 대응
+   1024px 이하 타블렛 및 모바일 대응
    ========================================================================== */
 @media screen and (max-width: 1024px) {
     #profile-index {
