@@ -233,49 +233,52 @@
         --> 
    
    
-      <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const scrollDownBtn = document.getElementById("scrollDownBtn");
-        const scrollUpBtn = document.getElementById("scrollUpBtn");
-      
-        // [수정] 맨 밑으로 가기: 하단 빈칸 매칭 버그 완벽 수정
-        scrollDownBtn.addEventListener("click", () => {
-          const mainContent = document.querySelector("#main-wrapper");
-          if (!mainContent) return;
-      
-          // 1. 현재 버튼을 누른 순간 본문(#main-wrapper)의 실제 끝 좌표 계산
-          const rect = mainContent.getBoundingClientRect();
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const contentBottom = rect.bottom + scrollTop;
-      
-          // 2. 브라우저가 최대로 스크롤할 수 있는 절대 한계점 계산 (여백 유출 차단용)
-          const maxScrollLimit = document.documentElement.scrollHeight - window.innerHeight;
-      
-          // 3. 본문 끝 지점과 브라우저 한계점 중 더 최상단에 있는 값(여백이 보이지 않는 지점)을 타겟팅
-          // 만약 본문 아래에 유령 공백이나 빈칸이 있다면 contentBottom 단계에서 걸러집니다.
-          const targetScrollTo = Math.min(contentBottom - window.innerHeight, maxScrollLimit);
-      
-          window.scrollTo({
-            top: targetScrollTo,
-            behavior: "smooth"
-          });
-        });
-      
-        // [수정] 맨 위로 가기
-        scrollUpBtn.addEventListener("click", () => {
-          const mainContent = document.querySelector("#main-wrapper");
-          if (!mainContent) return;
-      
-          const rect = mainContent.getBoundingClientRect();
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-          window.scrollTo({
-            top: rect.top + scrollTop,
-            behavior: "smooth"
-          });
-        });
-      });
-      </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollDownBtn = document.getElementById("scrollDownBtn");
+  const scrollUpBtn = document.getElementById("scrollUpBtn");
+
+  // [수정] 클릭하는 순간 #container의 절대 위치를 실시간으로 계산하는 함수
+  function getContainerPositions() {
+    const container = document.querySelector("#container");
+    if (!container) return { top: 0, bottom: 0 };
+    
+    // #container의 화면상 현재 위치 구하기
+    const rect = container.getBoundingClientRect();
+    // 현재 스크롤된 양을 더해 body 기준 절대 좌표로 변환
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    return {
+      top: rect.top + scrollTop,
+      bottom: rect.bottom + scrollTop
+    };
+  }
+
+  // [수정] 맨 밑으로 가기: 오직 #container의 끝점으로만 이동
+  scrollDownBtn.addEventListener("click", () => {
+    const positions = getContainerPositions();
+    const maxScrollLimit = document.documentElement.scrollHeight - window.innerHeight;
+    
+    // #container 끝점과 브라우저 한계점 중 최적의 위치 계산 (하단 빈칸 유출 완벽 차단)
+    const targetScrollTo = Math.min(positions.bottom - window.innerHeight, maxScrollLimit);
+
+    window.scrollTo({
+      top: targetScrollTo,
+      behavior: "smooth"
+    });
+  });
+
+  // [수정] 맨 위로 가기: 오직 #container의 시작점으로만 이동
+  scrollUpBtn.addEventListener("click", () => {
+    const positions = getContainerPositions();
+    
+    window.scrollTo({
+      top: positions.top,
+      behavior: "smooth"
+    });
+  });
+});
+</script>
 
 
 
