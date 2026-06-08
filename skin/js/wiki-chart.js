@@ -22,8 +22,8 @@
   const currentWidth = window.innerWidth || document.documentElement.clientWidth;
   const finalIsMobile = isMobile || (currentWidth > 0 && currentWidth < 1024);
 
-  // 최종 화면 크기에 따른 폰트 사이즈 부여
-  const chartFontSize = finalIsMobile ? 26 : 20; 
+  // 최종 화면 크기에 따른 폰트 사이즈 부여 /*모바일 : 데스크탑 폰트 사이즈 선언*/
+  const chartFontSize = finalIsMobile ? 16 : 16; 
 
   // 전역 기본 폰트 크기 지정
   Chart.defaults.font.size = chartFontSize; 
