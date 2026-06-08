@@ -691,9 +691,6 @@ details:not([open]) h2[class*="-title"] span{
    1024px 이하 타블렛 및 모바일 대응
    ========================================================================== */
 @media screen and (max-width: 1024px) {
-	:root{
-	  --chart-font-size:var(--mobile-font-size);		
-	}
 	
 	th{
 		white-space: unset;
