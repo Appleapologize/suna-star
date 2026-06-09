@@ -155,7 +155,7 @@ hr.main-ce{
 }
 
 #pl-fair-frame{
- display:flex !important;
+ display:flex;
   margin-top:50px;
   max-width: 100vw;  
 }
