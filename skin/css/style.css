@@ -546,10 +546,8 @@ button, a.button {
 	word-break: keep-all;
 }
 
-button*
-
 button:hover, a.button:hover {
-    background-color: var(--point-sub-color);	
+    background: var(--point-sub-color);	
 }
 
 /* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
