@@ -80,6 +80,7 @@ a.index{
 }
 #wiki a sup{
 	color:var(--wiki-a-color);
+	cursor: var(--over-cursor), pointer !important;
 }
 
 #wiki a:hover,
