@@ -33,11 +33,16 @@
   /*별 색상*/
   --star-color:yellow;
   /*별 뒤의 후광 색상*/
-  --star-shadow-color:blue;
+  --star-shadow-color:#a8f7de;
   /*open 별*/
   --star-open-cont:'★';
   /*close 별*/
   --star-close-cont:'✦';
+}
+
+[data-theme="dark"]{
+    --border-color:white;
+    --dash-color:white;
 }
 
 .pl-left-frame .pl-text summary:after, .pl-right-frame .pl-text summary:after, 
@@ -73,14 +78,14 @@ h1, h2, h3, h4, h5, h6{
   word-break: keep-all;
 }
 
-#play-list-frame{padding:15px;}
-.main *:first-child
-{
+#play-list-frame{
+  padding:15px;
+                }
+.main *:first-child{
   margin-bottom:0;
 }
 
-.main *:last-child
-{
+.main *:last-child{
   margin-top:0;
 }
 .main{
@@ -112,6 +117,7 @@ word-break: keep-all;
   display:block;
   margin:50px 0;
   border:var(--border-px-l) solid var(--border-color);
+  background: var(--card-background-color);
 }
 
 .main-fr{
@@ -206,7 +212,7 @@ hr.play-list{
  margin: 0 20px;
  border: 0;
  border-left: 5px dashed var(--dash-color);
- background: white;
+ background: var(--card-background-color);
 }
 
 .pl-text{
@@ -244,7 +250,11 @@ summary {
 .pl-right-frame .pl-text summary:before {
     content: var(--star-open-cont);
     color: var(--star-color);
-    text-shadow: -3px 0px 4px var(--star-shadow-color), 0px 3px 4px var(--star-shadow-color), 3px 0px 4px var(--star-shadow-color), 0px -3px 4px var(--star-shadow-color);
+    text-shadow:
+      -3px 0px 4px var(--star-shadow-color), 
+      0px 3px 4px var(--star-shadow-color), 
+      3px 0px 4px var(--star-shadow-color),
+      0px -3px 4px var(--star-shadow-color);
     margin-right: 5px;
 }
 
@@ -254,29 +264,29 @@ summary {
 
 
 /*반응형*/
-@media (max-width:800px){
-h1, h2, h3, h4, h5, h6{
-  word-break: nomal;
-}
-  
+@media (max-width: 1024px){
+  h1, h2, h3, h4, h5, h6{
+    word-break: nomal;
+  }
+    
   #pl-fair-frame {
     display: block !important;
   }
 
-hr.play-list{
- margin: 20px 0px;
-border-bottom: 5px dashed var(--dash-color);  
-}  
+  hr.play-list{
+   margin: 20px 0px;
+  border-bottom: 5px dashed var(--dash-color);  
+  }  
 
-.pl-frame  {
-  display:block;
-  justify-items: center;
-}
+  .pl-frame  {
+    display:block;
+    justify-items: center;
+  }
 
-.pl-frame .left-align{
-  text-align:center;
-}  
-.trans{
-  letter-spacing: 3px;  
-}  
+  .pl-frame .left-align{
+    text-align:center;
+  }  
+  .trans{
+    letter-spacing: 3px;  
+  }  
 }
