@@ -269,12 +269,12 @@ summary {
 
 
 /*반응형*/
-@media (max-width: 1024px){
+@media (max-width:1024px){
   h1, h2, h3, h4, h5, h6{
     word-break: nomal;
   }
     
-  #pl-fair-frame {
+  #pl-fair-frame{
     display: block !important;
   }
 
@@ -283,7 +283,7 @@ summary {
   border-bottom: 5px dashed var(--dash-color);  
   }  
 
-  .pl-frame  {
+  .pl-frame{
     display:block;
     justify-items: center;
   }
