@@ -187,7 +187,7 @@
 	--footer-back-color:var(--background-color);
 
 	/*footer 배경 유리 질감*/
-	--footer-back-color-glass: rgba(227, 209, 255, 0.4);
+	--footer-back-color-glass: color-mix(in srgb, var(--sub-background-color) 60%, transparent); /*rgba(227, 209, 255, 0.4)*/
 	--footer-border-color-glass:rgba(255, 255, 255, 0.3);
 
 --box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);		
@@ -260,7 +260,7 @@
     --footer-back-color: #666b7a;                 
 
     /* footer 배경 유리 질감 */
-    --footer-back-color-glass: rgba(102, 107, 122, 0.3); 
+    --footer-back-color-glass: color-mix(in srgb, var(--sub-background-color) 60%, transparent); /*rgba(102, 107, 122, 0.3)*/
     --footer-border-color-glass: rgba(255, 255, 255, 0.1);
 
 --box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);			
