@@ -210,8 +210,8 @@
 	--btn-text-color: #fff;
 
 	/* 주요 포인트 색상을 지정합니다. */	
-    --point-color: #716ac7;
-    --point-sub-color: #3b358a;
+    --point-color: #514b9e;
+    --point-sub-color: #262161;
 	
     /* 스크롤바의 커스텀 색상을 지정합니다. */
 	--scroll-bar-color: white;
@@ -234,8 +234,8 @@
 
 
     /* -------- -------- -------- 그 외 메뉴설정 -------- -------- -------- */
-        --btn-sub-color:#514b9e;
-       --btn-sub-hover-color:#262161;
+        --btn-sub-color:#716ac7;
+       --btn-sub-hover-color:#3b358a;
        --btn-ssub-color:#353073;
        --btn-ssub-hover-color:#15123d;
       /* 서브메뉴 버튼 색상 지정 */
