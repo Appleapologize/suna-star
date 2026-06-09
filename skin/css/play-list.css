@@ -134,7 +134,7 @@ word-break: keep-all;
   display:block;
   margin:50px 0;
   border:var(--border-px-l) solid var(--border-color);
-  background: var(--card-background-color);
+  background: var(--card-background-color) !important;
 }
 
 .main-fr{
