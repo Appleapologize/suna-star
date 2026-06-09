@@ -288,7 +288,11 @@ hr.play-list{
   #play-list-frame h6{
     word-break: normal;
   }
-    
+
+  #play-list-frame p{
+    font-size: unset;
+  }
+  
   #pl-fair-frame{
     display: block !important;
   }
