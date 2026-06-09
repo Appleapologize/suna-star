@@ -9,6 +9,7 @@
 :root {
     --width-100:100%;
 	--background-blur:12px;/*유리 질감때 blur*/
+	--footer-back-opacity:60%;/*footer 유리 질감때 투명도*/
 
 	--button-round: 15px;  /* 버튼들의 기본적인 테두리 둥글기 값*/
 	
@@ -187,7 +188,7 @@
 	--footer-back-color:var(--background-color);
 
 	/*footer 배경 유리 질감*/
-	--footer-back-color-glass: color-mix(in srgb, var(--sub-background-color) 60%, transparent); /*rgba(227, 209, 255, 0.4)*/
+	--footer-back-color-glass: color-mix(in srgb, var(--sub-background-color) var(--footer-back-opacity), transparent); /*rgba(227, 209, 255, 0.4)*/
 	--footer-border-color-glass:rgba(255, 255, 255, 0.3);
 
 --box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);		
@@ -260,7 +261,7 @@
     --footer-back-color: #666b7a;                 
 
     /* footer 배경 유리 질감 */
-    --footer-back-color-glass: color-mix(in srgb, var(--sub-background-color) 60%, transparent); /*rgba(102, 107, 122, 0.3)*/
+    --footer-back-color-glass: color-mix(in srgb, var(--sub-background-color) var(--footer-back-opacity), transparent); /*rgba(102, 107, 122, 0.3)*/
     --footer-border-color-glass: rgba(255, 255, 255, 0.1);
 
 --box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);			
