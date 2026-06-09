@@ -11,6 +11,13 @@
   // 2. 내 CSS에 정의된 글자색(--text-color)을 실시간으로 긁어옵니다
   const computedStyle = getComputedStyle(document.documentElement);
   const cssTextColor = computedStyle.getPropertyValue('--text-color').trim() || '#000000'; 
+
+  /* CSS에 등록된 폰트 사이즈 변수 읽어오기 (기본값 설정: 데스크톱에서는 10px, 모바일에서는 16px가 기본) */
+  const desktopFontSizeCSS = computedStyle.getPropertyValue('--chart-font-size').trim() || '10px';
+  const mobileFontSizeCSS = computedStyle.getPropertyValue('--mobile-chart-font-size').trim() || '16px';  
+    // px 단위를 제외하고 순수 숫자만 추출 (예: '16px' -> 16)
+    const desktopFontSize = parseInt(desktopFontSizeCSS, 10) || 10;
+    const mobileFontSize = parseInt(mobileFontSizeCSS, 10) || 16;
   
   // 눈금선 색상은 글자색을 가져와서 10%의 연한 투명도로 자동 계산합니다
   const cssGridColor = `color-mix(in srgb, ${cssTextColor} 60%, transparent)`; 
@@ -22,8 +29,8 @@
   const currentWidth = window.innerWidth || document.documentElement.clientWidth;
   const finalIsMobile = isMobile || (currentWidth > 0 && currentWidth < 1024);
 
-  // 최종 화면 크기에 따른 폰트 사이즈 부여 /*모바일 : 데스크탑 폰트 사이즈 선언*/
-  const chartFontSize = finalIsMobile ? 16 : 10; 
+  // 추출한 CSS 변수 기반으로 최종 폰트 크기 결정 */
+  const chartFontSize = finalIsMobile ? mobileFontSize : desktopFontSize; 
 
   // 전역 기본 폰트 크기 지정
   Chart.defaults.font.size = chartFontSize; 
@@ -34,8 +41,10 @@
     datasets: datasets.map((dataset, index) => ({ 
       label: dataset.getAttribute("data-label"), 
       data: dataset.getAttribute("data-values").split(",").map(Number), 
-      backgroundColor: `rgba(${index === 0 ? "255, 99, 132" : index === 1 ? "54, 162, 235" : "153, 102, 255"}, 0.2)`, 
-      borderColor: `rgba(${index === 0 ? "255, 99, 132" : index === 1 ? "54, 162, 235" : "153, 102, 255"}, 1)`, 
+      backgroundColor: 
+        `rgba(${index === 0 ? "255, 99, 132" : index === 1 ? "54, 162, 235" : "153, 102, 255"}, 0.2)`, 
+      borderColor: 
+        `rgba(${index === 0 ? "255, 99, 132" : index === 1 ? "54, 162, 235" : "153, 102, 255"}, 1)`, 
       borderWidth: 2, 
     })),
   };
@@ -132,7 +141,8 @@
   // 브라우저 창 크기가 바뀔 때 글자 크기 실시간 리사이징 대응
   window.addEventListener('resize', function() {
     const currentIsMobile = window.innerWidth < 1024;
-    const nextFontSize = currentIsMobile ? 16 : 10;
+    /* 리사이즈 시에도 CSS 변수 기반 숫자를 사용 */
+    const nextFontSize = currentIsMobile ? mobileFontSize : desktopFontSize;
     
     if (Chart.defaults.font.size !== nextFontSize) {
       Chart.defaults.font.size = nextFontSize;
@@ -141,17 +151,23 @@
       if(barOptions.scales.y.ticks.font) barOptions.scales.y.ticks.font.size = nextFontSize;
       
       // 리사이즈 시 새롭게 캔버스 갱신
-      if (radarCanvas) {
-        const oldRadar = Chart.getChart(radarCanvas);
-        if (oldRadar) oldRadar.destroy();
-        new Chart(radarCanvas.getContext("2d"), { type: "radar", data: data, options: radarOptions });
-      }
-      if (barCanvas) {
-        const oldBar = Chart.getChart(barCanvas);
-        if (oldBar) oldBar.destroy();
-        new Chart(barCanvas.getContext("2d"), { type: "bar", data: data, options: barOptions });
-      }
+       if (Chart.defaults.font.size !== nextFontSize) {
+          Chart.defaults.font.size = nextFontSize;
+          radarOptions.scales.r.pointLabels.font.size = nextFontSize;
+          if(barOptions.scales.x.ticks.font) barOptions.scales.x.ticks.font.size = nextFontSize;
+          if(barOptions.scales.y.ticks.font) barOptions.scales.y.ticks.font.size = nextFontSize;
+          
+          // 리사이즈 시 새롭게 캔버스 갱신
+          if (radarCanvas) {
+            const oldRadar = Chart.getChart(radarCanvas);
+            if (oldRadar) oldRadar.destroy();
+            new Chart(radarCanvas.getContext("2d"), { type: "radar", data: data, options: radarOptions });
+          }
+          if (barCanvas) {
+            const oldBar = Chart.getChart(barCanvas);
+            if (oldBar) oldBar.destroy();
+            new Chart(barCanvas.getContext("2d"), { type: "bar", data: data, options: barOptions });
+          }
     }
   });
-
 })(); // 즉시 실행 함수 종료
