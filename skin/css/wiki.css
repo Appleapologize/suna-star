@@ -189,7 +189,7 @@ td {
 }
 
 img.profile{
-	object-fit:cover;
+	object-fit:contain;
 }
 
  /*프로필 상단 이름 란 1번*/
