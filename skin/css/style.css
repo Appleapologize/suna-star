@@ -547,6 +547,8 @@ button, a.button {
 	word-break: keep-all;
 }
 
+button*
+
 button:hover, a.button:hover {
     background-color: var(--point-sub-color);	
 }
@@ -629,6 +631,10 @@ ul li:hover > .sub {
 
 
 /*---------다크모드 버튼----------*/
+.theme-icon-button *{
+	cursor: var(--over-cursor), pointer !important;
+}
+
 .theme-button-wrapper {
     display: flex;
     justify-content: flex-end;
