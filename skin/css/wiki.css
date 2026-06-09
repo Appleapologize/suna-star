@@ -1,8 +1,9 @@
 @charset "utf-8";
 
 :root{
-  --mobile-font-size:1.5rem; /*꼭 rem 기준으로 작성하기*/
-  --arrow-mobile-wihei:80px; /*모바일상의 화살표 사이즈*/
+  /*차트 폰트 사이즈(무조건 px 기준으로 적기)*/	
+  --chart-font-size: 10px;
+  --mobile-chart-font-size: 16px;
 	
   /*색상 변경 란*/
   --noah-color: #42f5ce; /*드림주 색상*/
