@@ -23,6 +23,8 @@
   --wiki-tooltip-content:#555;
 
   --wiki-a-color:#0275d8;	/*링크 걸려있는 파란색 글자 색상*/
+
+  --arrow-hover:black; /*detail 닫혀있을때 화살표 hover때 색상*/
 }
 
 [data-theme="dark"]{
@@ -34,6 +36,7 @@
   --wiki-tooltip-content:#eeeeee;
 
   --wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
+  --arrow-hover:#ababab; /*detail 닫혀있을때 화살표 hover때 색상*/	
 }
 
 br.re-br{
@@ -342,7 +345,7 @@ details:open h2[class*="-title"] span ion-icon:hover{
 }
 
 details:not([open]) h2[class*="-title"] span ion-icon:hover{
-	opacity: 1;
+	color:var(--arrow-hover);
 }
 
 summary::-webkit-details-marker{
