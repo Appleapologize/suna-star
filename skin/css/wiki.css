@@ -194,7 +194,7 @@ th{
 	color: black;
 }
 
-td {
+td:not(table.text-one-line td):not(table.text-two-line td) {
 	border-bottom:1px solid var(--border-wiki-gray-color) !important;
 }
 
