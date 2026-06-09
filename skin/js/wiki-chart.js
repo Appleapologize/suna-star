@@ -144,7 +144,7 @@
     /* 리사이즈 시에도 CSS 변수 기반 숫자를 사용 */
     const nextFontSize = currentIsMobile ? mobileFontSize : desktopFontSize;
     
-    if (Chart.defaults.font.size !== nextFontSize) {
+     if (Chart.defaults.font.size !== nextFontSize) {
       Chart.defaults.font.size = nextFontSize;
       radarOptions.scales.r.pointLabels.font.size = nextFontSize;
       if(barOptions.scales.x.ticks.font) barOptions.scales.x.ticks.font.size = nextFontSize;
@@ -158,16 +158,16 @@
           if(barOptions.scales.y.ticks.font) barOptions.scales.y.ticks.font.size = nextFontSize;
           
           // 리사이즈 시 새롭게 캔버스 갱신
-          if (radarCanvas) {
-            const oldRadar = Chart.getChart(radarCanvas);
-            if (oldRadar) oldRadar.destroy();
-            new Chart(radarCanvas.getContext("2d"), { type: "radar", data: data, options: radarOptions });
-          }
-          if (barCanvas) {
-            const oldBar = Chart.getChart(barCanvas);
-            if (oldBar) oldBar.destroy();
-            new Chart(barCanvas.getContext("2d"), { type: "bar", data: data, options: barOptions });
-          }
-    }
+        if (radarCanvas) {
+          const oldRadar = Chart.getChart(radarCanvas);
+          if (oldRadar) oldRadar.destroy();
+          new Chart(radarCanvas.getContext("2d"), { type: "radar", data: data, options: radarOptions });
+      }
+      if (barCanvas) {
+          const oldBar = Chart.getChart(barCanvas);
+          if (oldBar) oldBar.destroy();
+          new Chart(barCanvas.getContext("2d"), { type: "bar", data: data, options: barOptions });
+      }
+    } // if문을 닫는 중괄호
   });
 })(); // 즉시 실행 함수 종료
