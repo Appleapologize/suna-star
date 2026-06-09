@@ -67,17 +67,18 @@ footnoteLinks.forEach((a) => {
  // 말풍선 HTML 콘텐츠를 동적으로 생성하는 내부 헬퍼 함수
  function updateTooltipContent(isMobile) {
    const currentNumber = parseInt(sup.textContent.match(/\[(\d+)\]/)[1]);
+   const cleanContent = content.replace(/\[\d+\]\s*/g, "").trim();
    let tooltipContent = `
      <button class="tooltip-close">X</button>
      <div class="tooltip-number">${currentNumber}</div>
      <hr class="tooltip-divider">
-     <div class="tooltip-content">${content}</div>
+     <div class="tooltip-content">${cleanContent}</div>
    `;
    if (isMobile) {
      tooltipContent = `
        <div class="tooltip-number">${currentNumber}</div>
        <hr class="tooltip-divider">
-       <div class="tooltip-content">${content}</div>
+       <div class="tooltip-content">${cleanContent}</div>
        <button class="tooltip-close">닫기</button>
      `;
    }
