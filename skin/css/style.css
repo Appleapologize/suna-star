@@ -135,8 +135,8 @@
 	--svgroup-stroke:#aa98ff; /*상단 로고(?) 평소 색상*/
 
 	/* 주요 포인트 색상을 지정합니다. */	
-    --point-color: #8b5cf6;
-    --point-sub-color: #4b3bdb;
+    --point-color: #ff9494;
+    --point-sub-color: #8c0000;
 	
     /* 버튼 텍스트 색상을 지정합니다. */	
 	--btn-text-color: #fff;
@@ -162,10 +162,10 @@
 
 
     /* -------- -------- -------- 그 외 메뉴설정 -------- -------- -------- */
-       --btn-sub-color:#8bd8f7;
-       --btn-sub-hover-color:#6f8add;
-       --btn-ssub-color:#ff9494;
-       --btn-ssub-hover-color:#8c0000;
+       --btn-sub-color:#8b5cf6;
+       --btn-sub-hover-color:#4b3bdb;
+       --btn-ssub-color:#8bd8f7;
+       --btn-ssub-hover-color:#6f8add;
       /* 서브메뉴 버튼 색상 지정 */
       
     /* -------- -------- -------- 기타 설정 -------- -------- -------- */
