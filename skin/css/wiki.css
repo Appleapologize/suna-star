@@ -29,6 +29,10 @@
   --wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
 }
 
+figure.profile-img{
+	padding:0;
+	margin:0;
+}
 
 .classification a{
 	margin-left: 5px;
@@ -185,7 +189,7 @@ td {
 }
 
 img.profile{
-	object-fit:contain;
+	object-fit:cover;
 }
 
  /*프로필 상단 이름 란 1번*/
