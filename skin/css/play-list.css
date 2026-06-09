@@ -72,6 +72,11 @@
   color:var(--text-color);
   font-weight: bolder;
 }
+
+#play-list-frame a *{
+  cursor: var(--over-cursor), pointer !important;
+}
+
 #play-list-frame a:hover{
   color: var(--point-sub-color);
 }
