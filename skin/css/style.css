@@ -136,7 +136,7 @@
 
 	/* 주요 포인트 색상을 지정합니다. */	
     --point-color: #8b5cf6;
-    --point-sub-color: #7e26a;
+    --point-sub-color: #4b3bdb;
 	
     /* 버튼 텍스트 색상을 지정합니다. */	
 	--btn-text-color: #fff;
@@ -162,8 +162,8 @@
 
 
     /* -------- -------- -------- 그 외 메뉴설정 -------- -------- -------- */
-       --btn-sub-color:#adffff;
-       --btn-sub-hover-color:#99d6f2;
+       --btn-sub-color:#8bd8f7;
+       --btn-sub-hover-color:#6f8add;
        --btn-ssub-color:#ff9494;
        --btn-ssub-hover-color:#8c0000;
       /* 서브메뉴 버튼 색상 지정 */
