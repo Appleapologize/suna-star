@@ -778,7 +778,7 @@ details:not([open]) h2[class*="-title"] span{
     } 
 
 	.tooltip{
-		background-color:color-mix(in srgb, var(--card-background-color) 95%, transparent);
+		background-color:color-mix(in srgb, var(--card-background-color) 90%, transparent);
 	}
 	
     .tooltip:after {
