@@ -282,8 +282,7 @@ html body [cursor="not-allowed"] {
 }
 
 /* 3. 정밀 선택선 (포토샵 캔버스, 그림판 십자선 등) */
-html body canvas:not(#radarChart),
-html body canvas:not(#barChart), 
+html body canvas:not(#radarChart):not(#barChart), 
 html body .precision,
 html body [cursor="crosshair"] {
     cursor: var(--crosshair-cursor), crosshair !important;
