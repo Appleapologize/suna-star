@@ -124,7 +124,7 @@
 
 /* -------- -------- -------- -------- 라이트 모드 색상 및 이미지 설정 -------- -------- -------- -------- */
     --background-color: #e3d1ff;
-    --sub-background-color: #adffff;	
+    --sub-background-color: #e3d1ff;	
     --title-color:#fff; /*제목 글자 색상*/
 	--title-shadow-color:#ccc;
     --card-background-color: #fff;  
