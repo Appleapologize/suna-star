@@ -7,7 +7,10 @@
 
   /*화살표 사이즈*/	
   --arrow-mobile-wihei:;
-	
+
+  /*화살표 hover 때랑, detail 닫혀있을때 투명도*/
+  --arrow-opacity:0.5;	
+	  
   /*색상 변경 란*/
   --noah-color: #42f5ce; /*드림주 색상*/
   /*--gaara-color: red;*//*저는 가아라랑 같이 사용할 생각으로 둔 거에요 이걸 주석처리를 지우면 이제 가아라 색이 나오는 거죠*/
@@ -33,21 +36,8 @@
   --wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
 }
 
-figure.profile-img{
-	padding:0;
-	margin:0;
-}
-
-.classification a{
-	margin-left: 5px;
-}
-
 br.re-br{
 	display: none !important;
-}
-
-details h2[class*="-title"] span ion-icon{
-    cursor: var(--over-cursor), pointer !important;
 }
 
 /*목차와 프로필 칸 좌우로 두기 및 모바일에서는 세로로 두기*/
@@ -141,6 +131,10 @@ h3.classification{
 	padding: 0.2rem 0.5rem;
 }
 
+.classification a{
+	margin-left: 5px;
+}
+
 div.profile{
 	width:var(--width-100);
 	border-line:none;
@@ -194,6 +188,11 @@ th{
 
 td {
 	border-bottom:1px solid var(--border-wiki-gray-color) !important;
+}
+
+figure.profile-img{
+	padding:0;
+	margin:0;
 }
 
 img.profile{
@@ -334,6 +333,18 @@ table.profile tr td.profil-img figure.profile-img{
 }
 
 /*접고 피는 때의 스타일*/
+details h2[class*="-title"] span ion-icon{
+    cursor: var(--over-cursor), pointer !important;
+}
+
+details:open h2[class*="-title"] span ion-icon:hover{
+	opacity: var(--arrow-opacity);
+}
+
+details:not([open]) h2[class*="-title"] span ion-icon:hover{
+	opacity: 1;
+}
+
 summary::-webkit-details-marker{
 	display:none
 }
@@ -396,7 +407,7 @@ details:open summary h2.one-title{
 	opacity: 1;
 }
 details:not([open]) summary h2.one-title{
-	opacity: 0.5;
+	opacity: var(--arrow-opacity);
 }
 details h2.one-title span{
 	margin: 0.2em 0.4em 0 0.2em;
