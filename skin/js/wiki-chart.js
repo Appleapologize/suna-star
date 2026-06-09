@@ -82,7 +82,7 @@
         pointLabels: {
           color: cssTextColor, 
           font: { 
-            size: chartFontSize, /* 👈 외곽 카테고리 글씨 크기 반영 */
+            size: chartFontSize - 2, /* 👈 외곽 카테고리 글씨 크기 반영 */
             weight: 'bold'
           },
           padding: 3 
