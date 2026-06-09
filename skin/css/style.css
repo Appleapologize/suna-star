@@ -907,7 +907,7 @@ img {
 /* !important 충돌을 이기기 위해 부모 클래스(.scroll-btn)를 앞에 붙여 점수를 높였습니다 */
 .scroll-btn #scrollDownBtn:hover, 
 .scroll-btn #scrollUpBtn:hover {
-
+	color: var(--btn-sub-color); 
 }
 
 
