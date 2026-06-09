@@ -169,5 +169,6 @@
           new Chart(barCanvas.getContext("2d"), { type: "bar", data: data, options: barOptions });
       }
     } // if문을 닫는 중괄호
-  });
+  }
+  };
 })(); // 즉시 실행 함수 종료
