@@ -1,6 +1,8 @@
 @charset "utf-8";
 
 :root{
+  --border-wiki-line:1px solid;
+	
   /*차트 폰트 사이즈(무조건 px 기준으로 적기)*/	
   --chart-font-size: 10px;
   --mobile-chart-font-size: 16px;
@@ -14,11 +16,9 @@
   /*색상 변경 란*/
   --noah-color: #42f5ce; /*드림주 색상*/
   /*--gaara-color: red;*//*저는 가아라랑 같이 사용할 생각으로 둔 거에요 이걸 주석처리를 지우면 이제 가아라 색이 나오는 거죠*/
-  --border-wiki-line:1px solid;
   --border-wiki-gray-color:#ccc;
   --wiki-line-background-color:#eee;
   --wiki-blacktray-color:#ddd;
-  --wiki-main-text-color:#000000;  /*검정색*/
   --wiki-text-white-color:#ffffff; /*흰색*/
   --wiki-tooltip-content:#555;
 
@@ -31,7 +31,6 @@
   --border-wiki-gray-color:#ccc;
   --wiki-line-background-color:#4a4a52;
   --wiki-blacktray-color:#ddd;
-  --wiki-main-text-color:#fff;  /*검정색*/
   --wiki-text-white-color:#000000; /*흰색*/
   --wiki-tooltip-content:#eeeeee;
 
@@ -95,7 +94,7 @@ a.index{
   } /*태그 및 링크 색상(주석 옆의 숫자들 색상)*/
 
 span{
-	color:var(--wiki-main-text-color);
+	color:var(--text-color);
 	text-align:start;
 }
 
@@ -232,7 +231,7 @@ img.profile{
 	border: 2px solid var(--gaara-color, var(--gaara-color, var(--noah-color))); 
 }
   tr.profile-name td span{ 
-	color:var(--wiki-main-text-color);
+	color:var(--text-color);
 	font-size: 20px;
 	text-align:center;
 	font-weight:bold;
@@ -564,7 +563,7 @@ a + p.text1{
   margin-bottom:10px;  
   position: absolute;
   background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent); /* 배경색 */
-  color: var(--wiki-main-text-color); /* 글자색 */
+  color: var(--text-color); /* 글자색 */
   padding: 10px;
   font-size: 14px;
   border: 2px solid var(--border-wiki-gray-color);
