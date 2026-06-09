@@ -123,7 +123,7 @@
 
 
 /* -------- -------- -------- -------- 라이트 모드 색상 및 이미지 설정 -------- -------- -------- -------- */
-    --background-color: #f0f4f8;
+    --background-color: #e3d1ff;
     --sub-background-color: #adffff;	
     --title-color:#fff; /*제목 글자 색상*/
 	--title-shadow-color:#ccc;
@@ -134,8 +134,8 @@
 	--svgroup-stroke:#aa98ff; /*상단 로고(?) 평소 색상*/
 
 	/* 주요 포인트 색상을 지정합니다. */	
-    --point-color: #ff9494;
-    --point-sub-color: #8c0000;
+    --point-color: #8b5cf6;
+    --point-sub-color: #7e26a;
 	
     /* 버튼 텍스트 색상을 지정합니다. */	
 	--btn-text-color: #fff;
@@ -161,10 +161,10 @@
 
 
     /* -------- -------- -------- 그 외 메뉴설정 -------- -------- -------- */
-       --btn-sub-color:#d17b9d;
-       --btn-sub-hover-color:#611035;
-       --btn-ssub-color:#9a658a;
-       --btn-ssub-hover-color:#400722;
+       --btn-sub-color:#adffff;
+       --btn-sub-hover-color:#99d6f2;
+       --btn-ssub-color:#ff9494;
+       --btn-ssub-hover-color:#8c0000;
       /* 서브메뉴 버튼 색상 지정 */
       
     /* -------- -------- -------- 기타 설정 -------- -------- -------- */
