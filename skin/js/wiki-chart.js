@@ -8,7 +8,7 @@
   const datasets = Array.from(chartDataElement.getElementsByClassName("dataset")); 
   const labelsElement = chartDataElement.querySelector(".labels"); 
 
-  // 2. 내 CSS에 정의된 글자색(--text-color)을 실시간으로 긁어옵니다
+  // CSS에 정의된 글자색(--text-color)을 실시간으로 가져옴
   const computedStyle = getComputedStyle(document.documentElement);
   const cssTextColor = computedStyle.getPropertyValue('--text-color').trim() || '#000000'; 
 
@@ -19,10 +19,10 @@
     const desktopFontSize = parseInt(desktopFontSizeCSS, 10) || 10;
     const mobileFontSize = parseInt(mobileFontSizeCSS, 10) || 16;
   
-  // 눈금선 색상은 글자색을 가져와서 10%의 연한 투명도로 자동 계산합니다
+  // 눈금선 색상은 글자색을 가져와서 60%의 연한 투명도로 자동 계산
   const cssGridColor = `color-mix(in srgb, ${cssTextColor} 60%, transparent)`; 
 
-  /* 💡 [수정] 모바일 화면(1024px 미만)인지 CSS 미디어쿼리 기준으로 정확히 체크 */
+  /* 모바일 화면(1024px 미만)인지 CSS 미디어쿼리 기준으로 정확히 체크 */
   const isMobile = window.matchMedia('(max-width: 1023px)').matches;
   
   // 브라우저 줌 상태나 비동기 로드 버그를 방지하기 위해 가로폭 한 번 더 검증
@@ -143,19 +143,13 @@
     const currentIsMobile = window.innerWidth < 1024;
     /* 리사이즈 시에도 CSS 변수 기반 숫자를 사용 */
     const nextFontSize = currentIsMobile ? mobileFontSize : desktopFontSize;
-    
+
+    // 리사이즈 시 새롭게 캔버스 갱신
      if (Chart.defaults.font.size !== nextFontSize) {
       Chart.defaults.font.size = nextFontSize;
       radarOptions.scales.r.pointLabels.font.size = nextFontSize;
       if(barOptions.scales.x.ticks.font) barOptions.scales.x.ticks.font.size = nextFontSize;
       if(barOptions.scales.y.ticks.font) barOptions.scales.y.ticks.font.size = nextFontSize;
-      
-      // 리사이즈 시 새롭게 캔버스 갱신
-       if (Chart.defaults.font.size !== nextFontSize) {
-          Chart.defaults.font.size = nextFontSize;
-          radarOptions.scales.r.pointLabels.font.size = nextFontSize;
-          if(barOptions.scales.x.ticks.font) barOptions.scales.x.ticks.font.size = nextFontSize;
-          if(barOptions.scales.y.ticks.font) barOptions.scales.y.ticks.font.size = nextFontSize;
           
           // 리사이즈 시 새롭게 캔버스 갱신
        if (radarCanvas) {
