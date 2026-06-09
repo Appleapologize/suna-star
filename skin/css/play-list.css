@@ -170,6 +170,11 @@ hr.main-ce{
   margin-bottom: 10px;  
   overflow:hidden;
 }
+
+[data-theme="dark"] .pl-frame {
+  background: color-mix(in srgb, var(--text-color) 10%, transparent);
+}
+
 .pl-profile{
     text-align: center;
     margin-bottom: 20px;  
