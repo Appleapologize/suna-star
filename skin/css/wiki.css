@@ -111,6 +111,12 @@ th * {
 	margin: 1.2em 0 0.7em;
 	padding-bottom: 5px;
 }
+
+#wiki h2[class*="-title"]{
+	display:flex;
+	align-items: center;
+}
+
 h2 span{
 	color: #666; 
 	float: left; 
