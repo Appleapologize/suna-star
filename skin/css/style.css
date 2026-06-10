@@ -665,10 +665,9 @@ ul li:hover > .sub {
 /* ==========================================
     글이 보이는 곳
    ========================================== */
-/*---------글이 보이는 곳----------*/
 #container{
     width: var(--width-100);
-    border: 5px dotted red;
+    border: 5px solid var(--point-color);
     border-radius: var(--border-radius-l);
     background: var(--card-background-color);	
 	padding: var(--container-padding);
