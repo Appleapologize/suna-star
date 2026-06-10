@@ -635,10 +635,6 @@ ul li:hover > .sub {
 
 
 /*---------다크모드 버튼----------*/
-.theme-icon-button *{
-	/*cursor: var(--over-cursor), pointer !important;*/
-}
-
 .theme-button-wrapper {
     display: flex;
     justify-content: flex-end;
