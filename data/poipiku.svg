@@ -1,16 +1,16 @@
-<svg xmlns="http://w3.org" viewBox="0 0 512 512" id="my-poipiku">
-  <!-- 하단 바깥 면 (CSS color 값을 채우기 색으로 연결) -->
+<svg xmlns="http://w3.org" viewBox="0 0 512 512" id="poipiku">
+  <!-- 하단 바깥 면 (CSS color 값 연동) -->
   <path fill="currentColor" d="M256 512 L0 384 L0 128 L256 256 Z" opacity="0.85" />
   <path fill="currentColor" d="M256 512 L512 384 L512 128 L256 256 Z" />
   
-  <!-- 상단 내부 선 (CSS color 값을 선 색으로 연결) -->
+  <!-- 상단 내부 선 (CSS color 값 연동) -->
   <g stroke="currentColor" stroke-width="25" stroke-linecap="round" stroke-linejoin="round" fill="none">
     <path d="M256 0 L0 128 L256 256 L512 128 Z" />
     <path d="M256 0 L256 256" />
   </g>
 
-  <!-- 가타카나 문자 (글자 획은 흰색 유지, 동그라미 선은 CSS color를 따라감) -->
-  <g fill="#FFFFFF">
+  <!-- 가타카나 문자 (class와 fill이 모두 currentColor 연동 완료) -->
+  <g class="poipiku-text" fill="currentColor">
     <!-- 'ポ' -->
     <path d="M60 250 L115 235 L115 245 L60 260 Z" />
     <path d="M85 220 L85 330 L75 330 L75 220 Z" />
