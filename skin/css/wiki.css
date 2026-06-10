@@ -25,6 +25,7 @@
 
   --wiki-a-color:#0275d8;	/*링크 걸려있는 파란색 글자 색상*/
 
+  --arrow-color:#666;	
   --arrow-hover:black; /*detail 닫혀있을때 화살표 hover때 색상*/
 }
 
@@ -36,6 +37,7 @@
   --wiki-tooltip-content:#eeeeee;
 
   --wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
+  --arrow-color:#a4a4a4;
   --arrow-hover:#ababab; /*detail 닫혀있을때 화살표 hover때 색상*/	
 }
 
