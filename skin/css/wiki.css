@@ -529,6 +529,7 @@ table.text-two-line td hr{
 	border: 0; 
 	border-top: 0.0625rem solid var(--border-wiki-gray-color); 
 	margin: 0.5em 0;
+	max-width:100%;
 }
 
 
@@ -788,24 +789,6 @@ details:not([open]) h2[class*="-title"] span{
     }
     table.profile {
         width: 100%;
-    }
-    #parameters {
-
-    }
-    table.text-one-line {
-        max-width: 80vw;
-    }
-    table.text-one-line tr td {
-        max-width: 80vw;
-    }
-    table.text-two-line {
-        max-width: 80vw;
-    }
-    table.text-two-line tr {
-        max-width: 80vw;
-    }
-    table.text-two-line td hr {
-        max-width: 80vw;
     }
     div.footnote .text1 {
         margin: 5px 0;
