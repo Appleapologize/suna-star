@@ -150,14 +150,6 @@
 	--select: #ffed89;
 	--select-color: #000080;
   /* -------- -------- --------  배경 이미지 설정 -------- -------- -------- */
-        --bg-img: url('');
-        /* 홈페이지 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
-        --bg-pattern: url('');
-        /* 홈페이지 전체 배경화면에 패턴 배경을 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. main 색상보다 우선적입니다.*/
-        --nav-img: url('');
-        /* 메뉴 네비게이션 영역에 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 sub 색상보다 우선적으로 깔리게 됩니다.*/
-        --nav-pattern: url('');
-        /* 메뉴 네비게이션 영역에 패턴 배경을 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. sub 색상보다 우선적입니다.*/	
         --limit-img: url('https://blog.kakaocdn.net/dn/etvSjI/btsFK1xpOWa/wIKt4vM5G1iyWJ2XcqQFZ0/img.jpg');/*../bg-img.png*/
         /* 크기제한 스타일을 사용하는 경우, 가장 바깥 영역의 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
         --limit-pattern: url('');
@@ -222,15 +214,7 @@
 		--select: #C8ACD6;
 		--select-color: white;
   /* -------- -------- --------  배경 이미지 설정 -------- -------- -------- */
-        --bg-img: url('');
-        /* 홈페이지 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
-        --bg-pattern: url('');
-        /* 홈페이지 전체 배경화면에 패턴 배경을 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. main 색상보다 우선적입니다.*/
-        --nav-img: url('');
-        /* 메뉴 네비게이션 영역에 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 sub 색상보다 우선적으로 깔리게 됩니다.*/
-        --nav-pattern: url('');
-        /* 메뉴 네비게이션 영역에 패턴 배경을 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. sub 색상보다 우선적입니다.*/	
-		--limit-img:  url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FokY02%2FbtsKntxhLwz%2FwIz0gO7F8abrlyZcnLHEWK%2Fimg.jpg');/*../bg-img.png*/
+        --limit-img:  url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FokY02%2FbtsKntxhLwz%2FwIz0gO7F8abrlyZcnLHEWK%2Fimg.jpg');/*../bg-img.png*/
         /* 크기제한 스타일을 사용하는 경우, 가장 바깥 영역의 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
         --limit-pattern: url('');
         /* 크기제한 스타일을 사용하는 경우, 가장 바깥 영역의 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/	
