@@ -22,6 +22,8 @@
     display: flex;
     justify-content: center;
     margin:10px 0;
+    width: var(--width-100);
+    height: auto;      
 }
 
 #bgmBtn button {
@@ -30,6 +32,13 @@
     background-color: var(--clear);
     min-width: 0;
     border: none;      
+}
+
+#bgmBtn button.prev,
+#bgmBtn button.play,
+#bgmBtn button.stop,
+#bgmBtn button.next{
+      font-size: 20px;
 }
 
 #bgmVisual {
