@@ -411,7 +411,7 @@ summary.text1 {list-style: none;
     그 외의 스포일러 접고 피기
    ========================================== */
 details.spoiler{
-	background: var(--background-color);
+	background: var(--sub-background-color);
 	padding: 15px;
 	margin: 5px 0 10px 0;
 	border-radius: 20px;
@@ -430,7 +430,7 @@ details.spoiler summary h4{
 }
 
 details.spoiler:hover{
-	background: color-mix(var(--background-color) 50%, #4b4b4b);
+	background: color-mix(var(--sub-background-color) 50%, #4b4b4b);
 }
 
 details.spoiler:hover h4{
