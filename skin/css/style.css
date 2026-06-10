@@ -659,6 +659,22 @@ ul li:hover > .sub {
 	vertical-align: middle;	
 }	
 
+	/*포스타입*/
+#postype {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    color: red;          /* 기본 상태 파란색 */
+    transition: color 0.3s;
+}
+	/*티스토리*/
+.tistory-svg {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    color: #ff6e00;          /* 티스토리의 시그니처 주황색 예시 */
+    transition: color 0.3s;  /* 부드럽게 색상이 변하는 효과 */
+}
 /* ==========================================
     글이 보이는 곳
    ========================================== */
