@@ -26,9 +26,6 @@
     height: auto;      
 }
 
-#bgmBtn button *{
-    /*cursor: var(--over-cursor), pointer !important;*/
-}
 #bgmBtn button {
     padding: 0;
     color: var(--disable-color);
