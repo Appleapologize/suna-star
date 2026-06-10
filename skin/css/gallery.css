@@ -2,6 +2,7 @@
 
 
 :root{ 
+	
 	--gallery-box-shadow-X:0px; /*양수는 오른쪽, 음수는 왼쪽*/
 	--gallery-box-shadow-Y:4px; /*양수는 위쪽, 음수는 아래쪽*/
 	--gallery-box-shadow-blur: 8px; 
@@ -46,7 +47,7 @@ body:has(#gallery-notice){
        box-shadow:var(--gallery-box-shadow);
        border-radius: 10px;
        margin-bottom: var(--gallery-box-between);
-       background:var(--sub-background-color);
+       background:var(--card-background-color);
 }
 
 .slides {
@@ -102,7 +103,7 @@ body:has(#gallery-notice){
 
 /* 갤러리 */
 .gallery-img {
-       background: var(--sub-background-color);
+       background: var(--card-background-color);
        margin-bottom: var(--gallery-box-between);
        border-radius:10px;
        padding: 1em;
