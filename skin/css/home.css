@@ -14,7 +14,7 @@
 details.details-css{
         padding:10px;
         margin:5px 0 10px 0;
-        background:var(--background-color);
+        background:var(--sub-background-color);
 }
 details.details-css summary{
         font-weight:bold;
