@@ -127,7 +127,7 @@
 /* ==========================================
     라이트 모드 색상 및 이미지 설정
    ========================================== */
-    --background-color: #e3d1ff;
+    --background-color: white;
     --sub-background-color: #e3d1ff;	
     --card-background-color: #fff;  
     --box-shadow-color:rgba(0,0,0,.5); /*card 그림자 색상*/
@@ -194,7 +194,7 @@
     다크 모드 색상 설정
    ========================================== */
 [data-theme="dark"] {
-    --background-color: #17153B;    
+    --background-color: #0b0a21;    
     --sub-background-color: #2E236C;		              
     --card-background-color: #232733;     
     --box-shadow-color: rgba(255,255,255,.5);        
@@ -655,7 +655,7 @@ ul li:hover > .sub {
     width: var(--width-100);
     border: 5px solid var(--point-color);
     border-radius: var(--border-radius-l);
-    background: var(--card-background-color);	
+    background: var(--background-color);	
 	padding: var(--container-padding);
 	z-index:0;	
 	margin-bottom:var(--box-gap-out-margin);
