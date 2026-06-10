@@ -128,7 +128,7 @@
     라이트 모드 색상 및 이미지 설정
    ========================================== */
     --background-color: #e3d1ff;
-    --sub-background-color: #fff;	
+    --sub-background-color: #e3d1ff;	
     --card-background-color: #fff;  
     --box-shadow-color:rgba(0,0,0,.5); /*card 그림자 색상*/
     --line-color:#eee; /*하단 라인 색상*/
