@@ -501,7 +501,7 @@ table[class*="text-"][class$="-line"]{
 	width: auto; 
 	border-collapse: collapse; 	
 	margin: 1em 0;	
-	max-width:63vw;
+	max-width:100%;
 }
 
 table[class*="text-"][class$="-line"] tr td {
