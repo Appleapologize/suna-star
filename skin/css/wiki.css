@@ -413,10 +413,12 @@ details.spoiler summary h4{
 	margin:0;
 }
 
-details.spoiler:hover summary,
-details.spoiler:hover summary h4{
+details.spoiler:hover{
 	background: color-mix(var(--background-color) 50%, #4b4b4b);
-	color:var(--spoiler-text-color);
+}
+
+details.spoiler:hover h4{
+	color:color-mix( var(--spoiler-text-color) 50%, #4b4b4b);
 }
 
 /* 0.큰 타이틀*/
