@@ -78,6 +78,10 @@ svg.text-logo:hover #svgGroup{
         width: fit-content;        
 }
 
+.text-module .button:hover *{
+        cursor:var(--over-cursor), pointer !important;
+}
+
 .text-module .button-icon{
         padding: 8px 20px;
         border-radius: 14px;
