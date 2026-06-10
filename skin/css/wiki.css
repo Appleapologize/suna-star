@@ -341,12 +341,12 @@ table.profile tr td.profil-img figure.profile-img{
 }
 
 /*접고 피는 때의 스타일*/
-details h2[class*="-title"] span{
-	margin: 0.2em 0.4em 0 0.2em;
+details, details summary *:hover{
+	cursor: var(--over-cursor), pointer !important;
 }
 
-details h2[class*="-title"] span ion-icon{
-    cursor: var(--over-cursor), pointer !important;
+details h2[class*="-title"] span{
+	margin: 0.2em 0.4em 0 0.2em;
 }
 
 details:open h2[class*="-title"] span ion-icon:hover{
