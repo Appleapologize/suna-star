@@ -2,13 +2,14 @@
 
 @font-face {
     font-family: 'Pretendard-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') 
+		 format('woff');
 }
 
 :root {
     --width-100:100%;
-	--background-blur:12px;/*유리 질감때 blur*/
-	--footer-back-opacity:60%;/*footer 유리 질감때 투명도*/
+	--background-blur:12px; /*유리 질감때 blur*/
+	--footer-back-opacity:60%; /*footer 유리 질감때 투명도*/
 
 	--button-round: 15px;  /* 버튼들의 기본적인 테두리 둥글기 값*/
 	
@@ -19,7 +20,7 @@
 	
 	--clear:transparent;
 	
-	/*모바일 모드에서만 나오는 버튼*/
+	/*모바일 모드에서만 나오는 메뉴 버튼*/
 	--mobile-vwvh:44px;
 	--mobile-position:15px;
 	
@@ -128,8 +129,6 @@
    ========================================== */
     --background-color: #e3d1ff;
     --sub-background-color: #e3d1ff;	
-    --title-color:#fff; /*제목 글자 색상*/
-	--title-shadow-color:#ccc;
     --card-background-color: #fff;  
     --box-shadow-color:rgba(0,0,0,.5); /*card 그림자 색상*/
     --line-color:#eee; /*하단 라인 색상*/
@@ -142,26 +141,18 @@
 	
     /* 버튼 텍스트 색상을 지정합니다. */	
 	--btn-text-color: #fff;
+	
     /* 스크롤바의 커스텀 색상을 지정합니다. */
 	--scroll-bar-color: #ffed89;
-	--scroll-back-color: tran;
+	--scroll-back-color: transparent;
+	
     /* 드래그 색상 및 드래그 한 문구 색상을 지정합니다. */	
 	--select: #ffed89;
 	--select-color: #000080;
   /* -------- -------- --------  배경 이미지 설정 -------- -------- -------- */
-        --bg-img: url('');
-        /* 홈페이지 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
-        --bg-pattern: url('');
-        /* 홈페이지 전체 배경화면에 패턴 배경을 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. main 색상보다 우선적입니다.*/
-        --nav-img: url('');
-        /* 메뉴 네비게이션 영역에 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 sub 색상보다 우선적으로 깔리게 됩니다.*/
-        --nav-pattern: url('');
-        /* 메뉴 네비게이션 영역에 패턴 배경을 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. sub 색상보다 우선적입니다.*/
         --limit-img: url('https://blog.kakaocdn.net/dn/etvSjI/btsFK1xpOWa/wIKt4vM5G1iyWJ2XcqQFZ0/img.jpg');/*../bg-img.png*/
         /* 크기제한 스타일을 사용하는 경우, 가장 바깥 영역의 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
-        --limit-pattern: url('');
-        /* 크기제한 스타일을 사용하는 경우, 가장 바깥 영역의 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
-
+	
 
     /* -------- -------- -------- 그 외 메뉴설정 -------- -------- -------- */
        --btn-sub-color:#b18fff;
@@ -201,71 +192,59 @@
    ========================================== */
 [data-theme="dark"] {
     --background-color: #17153B;    
-    --sub-background-color: #2E236C;		
-    --title-color:  #ffffff;                       
-    --title-shadow-color: #334155;                
+    --sub-background-color: #2E236C;		              
     --card-background-color: #232733;     
     --box-shadow-color: rgba(255,255,255,.5);        
-    --line-color:  #475569;       
-	--text-color: white;
+		--line-color:  #475569;       
+		--text-color: white;
 
 	    /* 버튼 텍스트 색상을 지정합니다. */	
-	--btn-text-color: #fff;
+		--btn-text-color: #fff;
 
 	/* 주요 포인트 색상을 지정합니다. */	
-    --point-color: #6f6bac;
-    --point-sub-color: #262161;
+		--point-color: #6f6bac;
+		--point-sub-color: #262161;
 	
     /* 스크롤바의 커스텀 색상을 지정합니다. */
-	--scroll-bar-color: white;
+		--scroll-bar-color: white;
     /* 드래그 색상 및 드래그 한 문구 색상을 지정합니다. */	
-	--select: #C8ACD6;
-	--select-color: white;
+		--select: #C8ACD6;
+		--select-color: white;
   /* -------- -------- --------  배경 이미지 설정 -------- -------- -------- */
-        --bg-img: url('');
-        /* 홈페이지 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
-        --bg-pattern: url('');
-        /* 홈페이지 전체 배경화면에 패턴 배경을 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. main 색상보다 우선적입니다.*/
-        --nav-img: url('');
-        /* 메뉴 네비게이션 영역에 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 sub 색상보다 우선적으로 깔리게 됩니다.*/
-        --nav-pattern: url('');
-        /* 메뉴 네비게이션 영역에 패턴 배경을 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. sub 색상보다 우선적입니다.*/
-        --limit-img:  url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FokY02%2FbtsKntxhLwz%2FwIz0gO7F8abrlyZcnLHEWK%2Fimg.jpg');/*../bg-img.png*/
-        /* 크기제한 스타일을 사용하는 경우, 가장 바깥 영역의 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
-        --limit-pattern: url('');
+		--limit-img:  url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FokY02%2FbtsKntxhLwz%2FwIz0gO7F8abrlyZcnLHEWK%2Fimg.jpg');/*../bg-img.png*/
         /* 크기제한 스타일을 사용하는 경우, 가장 바깥 영역의 전체 배경이미지를 넣습니다. 따옴표 안에 이미지 주소를 넣어주세요. 패턴과 main 색상보다 우선적으로 깔리게 됩니다.*/
 
 
     /* -------- -------- -------- 그 외 메뉴설정 -------- -------- -------- */
-        --btn-sub-color:#716ac7;
-       --btn-sub-hover-color:#3b358a;
-       --btn-ssub-color:#353073;
-       --btn-ssub-hover-color:#15123d;
+		--btn-sub-color:#716ac7;
+		--btn-sub-hover-color:#3b358a;
+		--btn-ssub-color:#353073;
+		--btn-ssub-hover-color:#15123d;
       /* 서브메뉴 버튼 색상 지정 */
       
     /* -------- -------- -------- 기타 설정 -------- -------- -------- */
         
   /*디테일의 앞의 마크 색상*/
-  --summary-mark-color:#fc6603;
+		--summary-mark-color:#fc6603;
 
 
     /* -------- -------- -------- 모듈 박스 설정 -------- -------- -------- */
         /* -------- -------- 모듈 개별 설정 -------- -------- */
-            --pair-bg-gradient-rgba-1:rgba(255,255,255,1);	
-            --pair-bg-gradient-rgba-2:rgba(255,255,255,0);		
+		--pair-bg-gradient-rgba-1:rgba(255,255,255,1);	
+		--pair-bg-gradient-rgba-2:rgba(255,255,255,0);		
 
 
 
 	/* -------- -------- -------- --------모드 바꾸기 버튼-------- -------- -------- -------- */
-	--theme-toggle-btn-color:#f1f5f9;
-	--theme-toggle-btn-back-color-hover:#555f7d;
+		--theme-toggle-btn-color:#f1f5f9;
+		--theme-toggle-btn-back-color-hover:#555f7d;
 
     /* -------- -------- -------- --------footer 색상-------- -------- -------- -------- */
-    --footer-back-color: #666b7a;                 
+		--footer-back-color: #666b7a;                 
 
     /* footer 배경 유리 질감 */
-    --footer-back-color-glass: color-mix(in srgb, var(--sub-background-color) var(--footer-back-opacity), transparent); /*rgba(102, 107, 122, 0.3)*/
-    --footer-border-color-glass: rgba(255, 255, 255, 0.1);
+		--footer-back-color-glass: color-mix(in srgb, var(--sub-background-color) var(--footer-back-opacity), transparent); /*rgba(102, 107, 122, 0.3)*/
+		--footer-border-color-glass: rgba(255, 255, 255, 0.1);
 
 --box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);			
 }	
@@ -347,6 +326,7 @@ html body .nesw-resize {
 * {
 	box-sizing: border-box; 
 	cursor: var(--default-cursor), auto !important;
+	font-family: var(--font);
   }
 
 html, body {
@@ -413,7 +393,7 @@ body:has(#container)::-webkit-scrollbar-thumb {
     background-clip: padding-box !important;
 }
 
-/* 4. 마우스 올렸을 때 효과 */
+/* 마우스 올렸을 때 효과 */
 body:has(#container)::-webkit-scrollbar-thumb:hover {
     background-color: color-mix(in srgb, var(--sub-background-color) 60%, red) !important;
 }
@@ -573,6 +553,7 @@ button, a.button {
 button:hover, a.button:hover {
     background: var(--point-sub-color);	
 }
+
 button *, 
 a.button *, 
 a *{
