@@ -566,9 +566,9 @@ ul.mark-on-ul{
 }
 ul.mark-on-ul li{
   display: list-item;
-  list-style:disclosure-closed;
+  list-style: disclosure-closed;
   background:none;
-  margin:0 0 20px 0;
+  margin: 0 0 20px  15px;
 }
 
 ul.mark-on-ul li b{
