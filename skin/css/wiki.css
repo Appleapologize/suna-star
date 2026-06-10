@@ -413,6 +413,12 @@ details.spoiler summary h4{
 	margin:0;
 }
 
+details.spoiler:hover summary,
+details.spoiler:hover summary h4{
+	background: color-mix(var(--background-color) 50%, #4b4b4b);
+	color:var(--spoiler-text-color);
+}
+
 /* 0.큰 타이틀*/
 details summary h2.one-title{
 	font-size: 1.8em;
