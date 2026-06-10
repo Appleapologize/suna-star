@@ -641,7 +641,7 @@ button.tooltip-close:hover{
 
 .tooltip-number {
   font-weight: bold;
-  color:#0275d8; /* 번호 색상 */
+  color: var(--wiki-a-color); /* 번호 색상 */
   margin-bottom: 5px; /* 번호와 내용 간격 */
 }
 
