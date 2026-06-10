@@ -1,0 +1,28 @@
+<svg xmlns="http://w3.org" viewBox="0 0 512 512" id="my-poipiku">
+  <!-- 하단 바깥 면 (CSS color 값을 채우기 색으로 연결) -->
+  <path fill="currentColor" d="M256 512 L0 384 L0 128 L256 256 Z" opacity="0.85" />
+  <path fill="currentColor" d="M256 512 L512 384 L512 128 L256 256 Z" />
+  
+  <!-- 상단 내부 선 (CSS color 값을 선 색으로 연결) -->
+  <g stroke="currentColor" stroke-width="25" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M256 0 L0 128 L256 256 L512 128 Z" />
+    <path d="M256 0 L256 256" />
+  </g>
+
+  <!-- 가타카나 문자 (글자 획은 흰색 유지, 동그라미 선은 CSS color를 따라감) -->
+  <g fill="#FFFFFF">
+    <!-- 'ポ' -->
+    <path d="M60 250 L115 235 L115 245 L60 260 Z" />
+    <path d="M85 220 L85 330 L75 330 L75 220 Z" />
+    <path d="M85 280 L125 290 L122 300 L85 290 Z" />
+    <circle cx="120" cy="225" r="10" stroke="currentColor" stroke-width="4" fill="none" />
+    <!-- 'イ' -->
+    <path d="M145 295 L190 260 L196 268 L151 303 Z" />
+    <path d="M170 275 L170 345 L160 345 L160 275 Z" />
+    <!-- 'ピ' -->
+    <path d="M310 270 L310 335 L355 315 L355 250 L345 250 L345 305 L320 315 L320 270 Z" />
+    <circle cx="365" cy="235" r="10" stroke="currentColor" stroke-width="4" fill="none" />
+    <!-- 'ク' -->
+    <path d="M390 275 L465 245 L425 325 L415 320 L450 255 L395 285 Z" />
+  </g>
+</svg>
