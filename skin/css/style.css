@@ -1008,6 +1008,27 @@ footer p.bold{
 		top: calc(var(--padding-in-body) - 30px);
 	}
 
+/*버튼 안 아이콘 색상*/
+	/*포이피쿠*/
+.poipiku-svg {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    color: #3193DC; /* 기본 상자 색상 */
+    transition: color 0.3s;
+}
+.poipiku-svg .poipiku-text {
+    fill: #FFFFFF !important;   /* 글자 획은 흰색으로 강제 고정 */
+    stroke: #FFFFFF !important; /* 글자 동그라미 선도 흰색으로 강제 고정 */
+}
+
+/* 마우스 호버: 상자 몸통 색상만 주황색으로 변경 */
+.link-btn:hover .poipiku-svg {
+    color: #ff5722;
+}
+
+
+	
 	#menu{
 		padding: 0;
 		margin:0;
