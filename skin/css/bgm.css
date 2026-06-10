@@ -83,17 +83,22 @@
     color: var(--good-color);
 }
 
-#bgmBtn #bgmStatus[value="stop"] ~ .stop {
+#bgmBtn #bgmStatus[value="stop"] ~ .stop:hover {
+    color: color-mix(var(--good-color) 70%, #4b4b4b)
+}
+
+#bgmBtn #bgmStatus[value="stop"] ~ .stop,
+#bgmBtn #bgmStatus[value="prev"] ~ .prev,
+#bgmBtn #bgmStatus[value="next"] ~ .next{
     color: var(--bad-color);
 }
 
-#bgmBtn #bgmStatus[value="prev"] ~ .prev {
-    color: var(--bad-color);
+#bgmBtn #bgmStatus[value="stop"] ~ .stop:hover,
+#bgmBtn #bgmStatus[value="prev"] ~ .prev:hover,
+#bgmBtn #bgmStatus[value="next"] ~ .next:hover{
+    color: color-mix(var(--bad-color) 70%, #4b4b4b)
 }
 
-#bgmBtn #bgmStatus[value="next"] ~ .next {
-    color: var(--bad-color);
-}
 
 #bgm {
     display: none;
