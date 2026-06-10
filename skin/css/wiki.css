@@ -126,7 +126,9 @@ h2 span{
 	text-align: left; 
 	width: 1em;
 }
-
+/* ==========================================
+    
+   ========================================== */
 /*분류표*/
 h3.classification{
 	width:auto; 
@@ -149,7 +151,9 @@ div.profile{
 	border-line:none;
 	display:block;
 }
-
+/* ==========================================
+    
+   ========================================== */
 /*목차 스타일*/
 table.index{
 	border-collapse: collapse;
@@ -185,8 +189,9 @@ a.index{
 a.iindex{
 	padding-left: 40px;
 }
-
-/*프로필 표*/
+/* ==========================================
+    프로필 표
+   ========================================== */
 th{
 	background:var(--gaara-color, var(--gaara-color, var(--noah-color)));
 	border-bottom:1px solid var(--wiki-text-white-color);
@@ -252,8 +257,10 @@ tr.profile-name td span.ruby{
 	width:10%;
 }
 
-#country figure{padding:0;
-               margin:0;}
+#country figure{
+	padding:0;
+	margin:0;
+}
 
 #country figure img{
 	width:10%;
@@ -305,8 +312,9 @@ table.profile tr td.profil-img figure.profile-img{
 	flex-direction: column; 
 	align-items: center;
 }
-
-/*임무 횟수 표*/
+/* ==========================================
+    임무 횟수 표
+   ========================================== */
 #mission{
 	border-collapse: collapse;
 	border:2px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
@@ -323,7 +331,9 @@ table.profile tr td.profil-img figure.profile-img{
 	border:1px solid var(--border-wiki-gray-color);
 }
 
-/*패러미터*/
+/* ==========================================
+    패러미터
+   ========================================== */
 #parameters{
 	border-collapse: collapse;
 	border:2px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
@@ -341,7 +351,9 @@ table.profile tr td.profil-img figure.profile-img{
 	padding:0;
 }
 
-/*접고 피는 때의 스타일*/
+/* ==========================================
+    접고 피는 때의 스타일
+   ========================================== */
 details, details summary *:hover{
 	cursor: var(--over-cursor), pointer !important;
 }
@@ -393,7 +405,9 @@ summary.text1 {list-style: none;
 	line-height: 1.5;
 }
 
-/*그 외의 스포일러 접고 피기*/
+/* ==========================================
+    그 외의 스포일러 접고 피기
+   ========================================== */
 details.spoiler{
 	background: var(--background-color);
 	padding: 15px;
@@ -420,8 +434,9 @@ details.spoiler:hover{
 details.spoiler:hover h4{
 	color:color-mix( var(--spoiler-text-color) 50%, #4b4b4b);
 }
-
-/* 0.큰 타이틀*/
+/* ==========================================
+    0.큰 타이틀
+   ========================================== */
 details summary h2.one-title{
 	font-size: 1.8em;
 }
@@ -431,8 +446,9 @@ details:open summary h2.one-title{
 details:not([open]) summary h2.one-title{
 	opacity: var(--arrow-opacity);
 }
-
-/* 0.0 타이틀*/
+/* ==========================================
+    0.0 타이틀
+   ========================================== */
 details summary h2.two-title {
 	opacity: 1;
 	font-size: 1.6em;
@@ -440,14 +456,19 @@ details summary h2.two-title {
 details:not([open]) summary h2.two-title{
 	opacity: 0.5;
 }
-
-/* 0.0.0 타이틀*/
-details summary h2.three-title{font-size: 1.4em;}
+/* ==========================================
+   0.0.0 타이틀
+   ========================================== */
+details summary h2.three-title{
+	font-size: 1.4em;
+}
 details:not([open]) summary h2.three-title{
 	opacity: 0.5;
 }
 
-/*스포일러 경고창*/
+/* ==========================================
+   스포일러 경고창
+   ========================================== */
 #spoiler-coution{
 	text-align:center;
 	font-size: 15px;
@@ -471,50 +492,44 @@ details:not([open]) summary h2.three-title{
 	font-size: 1.3em;
 }
 
+/* ==========================================
+   대사 넣는 칸 (공통 스타일)
+   ========================================== */
+table[class*="-title"][class$="-line"]{
+	width: auto; 
+	border-collapse: collapse; 	
+	margin: 1em 0;	
+	max-width:63vw;
+}
+
+table[class*="-title"][class$="-line"] tr td {
+    width: var(--width-100);
+    border: 2px dashed var(--border-wiki-gray-color); 
+    border-left: 5px solid var(--gaara-color, var(--noah-color)); /* 중복되던 var 변수 1개 정리 */
+    background: var(--wiki-line-background-color); 
+    padding: 1em; 
+    line-height: 1.5;
+    text-align: start;
+}
+
 /*대사 1줄*/
 table.text-one-line{
-	border-collapse: collapse; 
-	width: auto; 
-	max-width:63vw;
 	word-break:keep-all;
 }
 
-table.text-one-line tr td{
-	width: 100%;
-	border: 2px dashed var(--border-wiki-gray-color); 
-    border-left: 5px solid var(--gaara-color, var(--gaara-color, var(--noah-color))); 
-	background: var(--wiki-line-background-color); 
-	padding: 1em; 
-	line-height: 1.5;
-	text-align: start;
-}
 /*대사 2줄*/
-table.text-two-line{
-	border-collapse: collapse; 
-	width: auto; 
-	max-width:63vw;
-	margin: 1em 0;
-}
+
 table.text-two-line tr{
-	height: auto;
-    max-width:63vw;
 	word-break:normal;
 } 
-table.text-two-line tr td{
-	width: var(--width-100);
- 	border: 2px dashed var(--border-wiki-gray-color); 
-	border-left: 5px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
-	background: var(--wiki-line-background-color); 
-	padding: 1em;
-	text-align:start;
-	line-height: 1.5;
-}
 
 table.text-two-line td hr{
 	border: 0; 
 	border-top: 0.0625rem solid var(--border-wiki-gray-color); 
 	margin: 0.5em 0;
 }
+
+
 
 .dialogue {
 	display: flex; /* 이름과 대사를 가로로 배치 */
@@ -525,7 +540,9 @@ table.text-two-line td hr{
 	white-space: nowrap; /* 이름 줄바꿈 방지 */
 }
 
-/*순서 나타내기*/
+/* ==========================================
+    순서 나타내기
+   ========================================== */
 .ol-number{
 	padding:30px 30px 30px 30px;
 	border:1px solid var(--border-wiki-gray-color);
@@ -554,7 +571,9 @@ ul.mark-on-ul li b{
 	margin:0 0 5px 0;
 }
 
-/*주석 란*/
+/* ==========================================
+    주석 란
+   ========================================== */
 div.footnote{
 	display:block;
 	text-align:left;
@@ -568,7 +587,9 @@ a + p.text1{
 	display:none;
 }
 
-/* 말풍선 스타일 */
+/* ==========================================
+    말풍선 스타일
+   ========================================== */
 .tooltip {
   margin-bottom:10px;  
   position: absolute;
@@ -639,7 +660,7 @@ div.footnote .text1 {
 
 
 /* ==========================================================================
-   ⭐ [수정 핵심부] 차트 고정 레이아웃 및 400px 유령 공백 소멸 패치
+   차트 
    ========================================================================== */
 
 /* 1. 부모 테이블(#gallery)이 차트를 억지로 밑으로 밀어내지 못하게 auto화 */
@@ -663,6 +684,7 @@ div.footnote .text1 {
     border: 1px solid var(--border-wiki-gray-color);
     height: auto !important; /* 고정 331px 강제 해제 */
 }
+
 
 /* 2. PC 차트 박스 규격을 정확히 320px로 단단히 밀봉 */
 .chart-container {
