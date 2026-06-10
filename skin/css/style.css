@@ -17,7 +17,9 @@
 	--border-radius-s:6px;
 	--border-radius-m:8px;
 	--border-radius-l:12px;
-
+	
+	--clear:transparent;
+	
 	/*모바일 모드에서만 나오는 버튼*/
 	--mobile-vwvh:44px;
 	--mobile-position:15px;
