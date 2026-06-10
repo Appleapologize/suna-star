@@ -69,7 +69,7 @@ textarea{
 }
 
 .guest-li{
-    background: var(--sub-background-color);
+    background: var(--card-background-color);
     padding: 15px;
     border-radius: 10px;
 }
