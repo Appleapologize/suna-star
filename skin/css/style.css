@@ -428,6 +428,11 @@ a:hover{
 	cursor: var(--over-cursor), pointer !important;	
 }
 
+
+details, details summary:hover {
+    cursor: var(--over-cursor), pointer !important;
+}
+
 #head{
     position: sticky;
     top: 0;
@@ -557,7 +562,20 @@ a.button *,
 a *{
 	cursor: var(--over-cursor), pointer !important;	
 }
-/* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
+
+/*버튼 안 아이콘 색상*/
+	/*포이피쿠*/
+#poipiku{
+    color: var(--btn-text-color);
+}
+
+.poipiku-svg{
+    width: 18px;
+    height: 18px;	
+	vertical-align: middle;	
+}	
+
+/* 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
 ul li:hover > .sub {
   max-height: 300px;       /* 하위 메뉴들이 다 보일 수 있는 충분한 높이 지정 */
   opacity: 1;              /* 선명하게 보임 */
@@ -1009,18 +1027,6 @@ footer p.bold{
 	.theme-icon-button{
 		top: calc(var(--padding-in-body) - 30px);
 	}
-
-/*버튼 안 아이콘 색상*/
-	/*포이피쿠*/
-#poipiku{
-    color: var(--btn-text-color);
-}
-
-.poipiku-svg{
-    width: 18px;
-    height: 18px;	
-	vertical-align: middle;	
-}	
 
 
 	
