@@ -27,7 +27,7 @@
 }
 
 #bgmBtn button *{
-    cursor: var(--over-cursor), pointer !important;
+    /*cursor: var(--over-cursor), pointer !important;*/
 }
 #bgmBtn button {
     padding: 0;
