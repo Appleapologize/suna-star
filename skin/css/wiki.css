@@ -120,7 +120,7 @@ th * {
 }
 
 h2 span{
-	color: #666; 
+	color: var(--arrow-color); 
 	float: left; 
 	font-size: 1em; 
 	font-weight: 400; 
