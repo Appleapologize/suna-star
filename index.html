@@ -104,10 +104,20 @@
                <p id="marqueeText">음악 정지</p>
             </div>
             <!-- 동영상 제목 표시 영역 -->
-            <button class="prev" onclick="bgm('prev');">❰❰</button> <!-- 이전 곡 버튼 -->  
-            <button class="play" onclick="bgm('play');" style="font-size:18px;">❥</button>
-            <button class="stop" onclick="bgm('stop');">■</button>
-            <button class="next" onclick="bgm('next');">❱❱</button> <!-- 다음 곡 버튼 -->
+            <button class="prev" onclick="bgm('prev');">
+               <ion-icon name="play-back"></ion-icon>
+            </button> <!-- ❰❰ 이전 곡 버튼 -->  
+            
+            <button class="play" onclick="bgm('play');">
+               <ion-icon name="heart"></ion-icon>
+            </button> <!-- ❥ 재생 버튼 -->
+            
+            <button class="stop" onclick="bgm('stop');">
+               <ion-icon name="stop"></ion-icon>
+            </button> <!-- ■ 정지 버튼 -->
+            <button class="next" onclick="bgm('next');">
+               <ion-icon name="play-forward"></ion-icon>
+            </button> <!-- ❱❱ 다음 곡 버튼 -->
             <div id="bgm"></div>
             <script>window.addEventListener('load', () => bgm('stop'));</script>
             <div id="bgmTitles" style="display:none; visibility:hidden;height:none;">
