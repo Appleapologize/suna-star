@@ -16,6 +16,11 @@ details.details-css{
         margin:5px 0 10px 0;
         background:var(--sub-background-color);
 }
+
+details.details-css:hover{
+        background:color-mix(var(--sub-background-color) 50%, #4b4b4b);
+}
+
 details.details-css summary{
         font-weight:bold;
         margin:10px 0;
