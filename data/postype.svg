@@ -1,4 +1,4 @@
-<svg xmlns="http://w3.org" viewBox="0 0 512 512" id="postype">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="postype">
   <defs>
     <!-- 상자 안을 파내기 위한 마스크 정의 -->
     <mask id="postype-tp-punch">
