@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="poipiku">
-  <defs>
-    <!-- [마스크 정의] 하단 바깥 면에서 글자 모양만 칼로 도려냅니다 -->
-    <mask id="poipiku-text-cutout">
-      <!-- 배경을 완전한 흰색으로 채움 (흰색 영역은 상자 표면이 남음) -->
+<defs>
+    <!-- 상자 표면에서 글자 모양대로 구멍을 뚫어버리는 마스크 정의 -->
+    <mask id="poipiku-text-punch">
+      <!-- 흰색 바탕 (이 부분은 상자 색상이 채워짐) -->
       <rect width="512" height="512" fill="#ffffff" />
-      <!-- 글자 부분은 완전한 검은색으로 채움 (검은색 영역은 상자 표면이 파여나감) -->
+      <!-- 검은색 글자 (이 부분은 칼로 파낸 것처럼 뻥 뚫림) -->
       <g fill="#000000">
         <!-- 'ポ' -->
         <path d="M60 250 L115 235 L115 245 L60 260 Z" />
@@ -23,15 +23,16 @@
     </mask>
   </defs>
 
-  <!-- 1층 (맨 아래): 상자 안쪽을 가로지르는 내부 선들 (뚫린 구멍 뒤로 들여다보일 영역) -->
-  <g stroke="currentColor" stroke-width="25" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6">
-    <path d="M256 0 L0 128 L256 256 L512 128 Z" />
-    <path d="M256 0 L256 256" />
-  </g>
+  <!-- 상자의 모든 그래픽 요소를 하나의 그룹으로 묶고 마스크를 씌웁니다 -->
+  <g mask="url(#poipiku-text-punch)">
+    <!-- 1. 상단 내부 선 (오직 currentColor 단색 적용) -->
+    <g stroke="currentColor" stroke-width="25" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M256 0 L0 128 L256 256 L512 128 Z" />
+      <path d="M256 0 L256 256" />
+    </g>
 
-  <!-- 2층 (맨 위): 글자 모양대로 뻥 뚫어버린 상자 바깥 표면 레이어 -->
-  <g mask="url(#poipiku-text-cutout)">
-    <path fill="currentColor" d="M256 512 L0 384 L0 128 L256 256 Z" opacity="0.85" />
+    <!-- 2. 하단 바깥 면 (오직 currentColor 단색 적용) -->
+    <path fill="currentColor" d="M256 512 L0 384 L0 128 L256 256 Z" />
     <path fill="currentColor" d="M256 512 L512 384 L512 128 L256 256 Z" />
   </g>
 </svg>
