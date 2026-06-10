@@ -1,0 +1,27 @@
+<svg xmlns="http://w3.org" viewBox="0 0 512 512" id="postype">
+  <defs>
+    <!-- 상자 안을 파내기 위한 마스크 정의 -->
+    <mask id="postype-tp-punch">
+      <!-- 남겨둘 상자 영역 -->
+      <rect width="512" height="512" fill="#ffffff" />
+      
+      <!-- 도려낼 영역 -->
+      <g fill="#000000">
+        <!-- T의 가로 상단 획 -->
+        <path d="M120 120 H240 V156 H120 Z" />
+        <!-- T와 P를 구성하는 2개의 세로 기둥 획 -->
+        <path d="M156 156 H192 V392 H156 Z" />
+        <path d="M228 120 H264 V392 H228 Z" />
+        <!-- 오른쪽 P의 둥근 머리 외곽 둥글기 곡선 -->
+        <path d="M264 120 H318 C368 120, 408 160, 408 210 C408 260, 368 300, 318 300 H264 Z" />
+        <!-- 오른쪽 P의 머리 안쪽 구멍 복구 (안 뚫려야 하는 흰색 영역 처리) -->
+        <path d="M264 156 H318 C348 156, 372 180, 372 210 C372 240, 348 264, 318 264 H264 Z" fill="#ffffff" />
+      </g>
+    </mask>
+  </defs>
+
+  <!--  몸통  -->
+  <g mask="url(#postype-tp-punch)">
+   <rect width="512" height="512" rx="100" ry="100" fill="currentColor" />
+  </g>
+</svg>
