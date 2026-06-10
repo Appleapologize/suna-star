@@ -207,7 +207,7 @@
     --card-background-color: #232733;     
     --box-shadow-color: rgba(255,255,255,.5);        
     --line-color:  #475569;       
-	--text-color:#E0E0E0;
+	--text-color: white;
 
 	    /* 버튼 텍스트 색상을 지정합니다. */	
 	--btn-text-color: #fff;
