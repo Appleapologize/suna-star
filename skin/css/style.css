@@ -1011,11 +1011,14 @@ footer p.bold{
 /*버튼 안 아이콘 색상*/
 	/*포이피쿠*/
 #poipiku{
-    width: 18px;
-    height: 18px;
-    vertical-align: middle;
     color: var(--btn-text-color);
 }
+
+.poipiku-svg{
+    width: 18px;
+    height: 18px;	
+	vertical-align: middle;	
+}	
 
 
 	
