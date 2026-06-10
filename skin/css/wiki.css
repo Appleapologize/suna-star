@@ -21,6 +21,7 @@
   --wiki-blacktray-color:#ddd;
   --wiki-text-white-color:#ffffff; /*흰색*/
   --wiki-tooltip-content:#555;
+  --spoiler-text-color:#fc6603;
 
   --wiki-a-color:#0275d8;	/*링크 걸려있는 파란색 글자 색상*/
 
@@ -405,10 +406,12 @@ details.spoiler{
 details.spoiler summary{
 	font-weight:bold;
 	margin:10px 0;
-	color:#fc6603;
+	color:var(--spoiler-text-color);
 }
+
 details.spoiler summary h4{
-	color:#fc6603;
+	color:var(--spoiler-text-color);
+	text-align: center;
 }
 
 /* 0.큰 타이틀*/
