@@ -394,7 +394,7 @@ summary.text1 {list-style: none;
 
 /*그 외의 스포일러 접고 피기*/
 details.spoiler{
-	background: var(--sub-color);
+	background: var(--background-color);
 	padding-left: 10px;
 	margin: 5px 0 10px 0;
 	border-radius: 20px;
