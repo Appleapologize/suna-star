@@ -549,6 +549,7 @@ table.text-two-line td hr{
 .ol-number{
 	padding:30px 30px 30px 30px;
 	border:1px solid var(--border-wiki-gray-color);
+	background: var(--wiki-line-background-color);
 }
 .ol-number li{
 	list-style:decimal;
