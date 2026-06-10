@@ -495,14 +495,14 @@ details:not([open]) summary h2.three-title{
 /* ==========================================
    대사 넣는 칸 (공통 스타일)
    ========================================== */
-table[class*="-title"][class$="-line"]{
+table[class*="text-"][class$="-line"]{
 	width: auto; 
 	border-collapse: collapse; 	
 	margin: 1em 0;	
 	max-width:63vw;
 }
 
-table[class*="-title"][class$="-line"] tr td {
+table[class*="text-"][class$="-line"] tr td {
     width: var(--width-100);
     border: 2px dashed var(--border-wiki-gray-color); 
     border-left: 5px solid var(--gaara-color, var(--noah-color)); /* 중복되던 var 변수 1개 정리 */
