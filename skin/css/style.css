@@ -668,7 +668,7 @@ ul li:hover > .sub {
     transition: color 0.3s;
 }
 	/*티스토리*/
-.tistory-svg {
+#tistory {
     width: 18px;
     height: 18px;
     vertical-align: middle;
