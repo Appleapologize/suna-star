@@ -1,4 +1,4 @@
-<svg viewBox="0 0 512 512" id="poipiku">
+<svg  xmlns="http://w3.org" viewBox="0 0 512 512" id="poipiku">
   <!-- 하단 바깥 면 (CSS color 값 연동) -->
   <path fill="currentColor" d="M256 512 L0 384 L0 128 L256 256 Z" />
   <path fill="currentColor" d="M256 512 L512 384 L512 128 L256 256 Z" />
