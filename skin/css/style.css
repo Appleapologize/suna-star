@@ -1010,22 +1010,11 @@ footer p.bold{
 
 /*버튼 안 아이콘 색상*/
 	/*포이피쿠*/
-.poipiku-svg {
+#poipiku{
     width: 18px;
     height: 18px;
     vertical-align: middle;
-    color: #3193DC;              /* 기본 상자 몸통 색상 (파란색) */
-}
-
-/* 외부 파일 내부의 가타카나 글자 획과 선을 흰색(#FFFFFF)으로 강제 고정 */
-.poipiku-svg .poipiku-text {
-    fill: #FFFFFF !important;   
-    stroke: #FFFFFF !important; 
-}
-
-/* [마우스 오버] 버튼에 마우스를 올렸을 때 상자 몸통 색상만 주황색으로 변경 */
-.button:hover .poipiku-svg {     /* ◀ .link-btn에서 .button으로 수정 완료 */
-    color: #ff5722;              /* 마우스 오버 시 변할 주황색 코드 */
+    color: var(--btn-text-color);
 }
 
 
