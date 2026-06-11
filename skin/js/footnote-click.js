@@ -209,39 +209,56 @@ function initWikiChartSystem() {
 
   if (!labelsElement || datasets.length === 0) return;
 
-  const data = {
+ const rootStyles = window.getComputedStyle(document.documentElement);
+
+  // 어떤 색상이든 브라우저 엔진을 거쳐 순수한 RGB 숫자로 바꿔주는 헬퍼 함수
+  function convertToRgbString(colorValue) {
+    if (!colorValue) return null;
+    if (/^\d+\s*,\s*\d+\s*,\s*\d+$/.test(colorValue.trim())) return colorValue.trim();
+    
+    const tempElem = document.createElement("div");
+    tempElem.style.color = colorValue;
+    document.body.appendChild(tempElem);
+    const computedColor = window.getComputedStyle(tempElem).color;
+    document.body.removeChild(tempElem);
+    
+    // "rgb(r, g, b)" 또는 "rgba(r, g, b, a)" 구조에서 r, g, b 숫자만 추출합니다.
+    const match = computedColor.match(/rgb\s*a?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
+    return match ? `${match[1]}, ${match[2]}, ${match[3]}` : null;
+  }
+
+ // CSS에서 배경 투명도와 선 투명도를 가져옵니다. (없으면 기본값 0.2와 1 사용)
+   //차트 색상, 글자색, 그리드색, 투명도를 CSS에서 통합 수집하는 함수
+  function getChartColors() {
+    const rootStyles = window.getComputedStyle(document.documentElement);
+    return {
+      textColor: rootStyles.getPropertyValue('--chart-text-color').trim() || "#000000",
+      gridColor: rootStyles.getPropertyValue('--chart-grid-color').trim() || "rgba(0, 0, 0, 0.1)",
+      bgOpacity: rootStyles.getPropertyValue('--chart-bg-opacity').trim() || "0.2",
+      borderOpacity: rootStyles.getPropertyValue('--chart-border-opacity').trim() || "1"
+    };
+  }
+  let colors = getChartColors();
+  const rootStyles = window.getComputedStyle(document.documentElement);
+   
+ const data = {
     labels: labelsElement.getAttribute("data-values").split(","),
-    datasets: datasets.map((dataset, index) => ({
-      label: dataset.getAttribute("data-label"),
-      data: dataset.getAttribute("data-values").split(",").map(Number),
-      backgroundColor: `rgba(${index === 0 ? "255, 99, 132" : index === 1 ? "54, 162, 235" : "153, 102, 255"}, 0.2)`,
-      borderColor: `rgba(${index === 0 ? "255, 99, 132" : index === 1 ? "54, 162, 235" : "153, 102, 255"}, 1)`,
-      borderWidth: 2,
-    })),
+    datasets: datasets.map((dataset, index) => {
+      const defaultColors = ["255, 99, 132", "54, 162, 235", "153, 102, 255"];
+      const rawColor = rootStyles.getPropertyValue(`--chart-color-${index}`).trim();
+      const rgbColor = convertToRgbString(rawColor) || (defaultColors[index] || "128, 128, 128");
+
+      return {
+        label: dataset.getAttribute("data-label"),
+        data: dataset.getAttribute("data-values").split(",").map(Number),
+        backgroundColor: `rgba(${rgbColor}, ${colors.bgOpacity})`,
+        borderColor: `rgba(${rgbColor}, ${colors.borderOpacity})`,
+        borderWidth: 2,
+      };
+    }),
   };
 
-  // 실시간 html[data-theme="dark"] 속성 체크
-  function isDarkMode() {
-    return document.documentElement.getAttribute("data-theme") === "dark";
-  }
-
-  function getChartColors() {
-    if (isDarkMode()) {
-      return {
-        textColor: "#ffffff",
-        gridColor: "rgba(255, 255, 255, 0.15)",
-      };
-    } else {
-      return {
-        textColor: "#000000",
-        gridColor: "rgba(0, 0, 0, 0.1)",
-      };
-    }
-  }
-
-  let colors = getChartColors();
-
-  const commonOptions = {
+ const commonOptions = {
     responsive: true,
     maintainAspectRatio: false,
     animation: {
@@ -329,6 +346,20 @@ function initWikiChartSystem() {
   // 다크모드 버튼 실시간 변경 스캔 감지기 활성화
   const observer = new MutationObserver(() => {
     const updatedColors = getChartColors();
+    const currentRootStyles = window.getComputedStyle(document.documentElement);
+
+    // ★ [실시간 연동 보완] 다크모드로 변경 시 그래프 고유 색상과 투명도도 CSS에서 새로 받아와서 교체합니다.
+    const updateDatasetColors = (chartInstance) => {
+      if (!chartInstance) return;
+      chartInstance.data.datasets.forEach((dataset, index) => {
+        const defaultColors = ["255, 99, 132", "54, 162, 235", "153, 102, 255"];
+        const rawColor = currentRootStyles.getPropertyValue(`--chart-color-${index}`).trim();
+        const rgbColor = convertToRgbString(rawColor) || (defaultColors[index] || "128, 128, 128");
+        
+        dataset.backgroundColor = `rgba(${rgbColor}, ${updatedColors.bgOpacity})`;
+        dataset.borderColor = `rgba(${rgbColor}, ${updatedColors.borderOpacity})`;
+      });
+    };
 
     if (window.activeRadarChart) {
       window.activeRadarChart.options.scales.r.ticks.color = updatedColors.textColor;
@@ -336,6 +367,7 @@ function initWikiChartSystem() {
       window.activeRadarChart.options.scales.r.angleLines.color = updatedColors.gridColor;
       window.activeRadarChart.options.scales.r.pointLabels.color = updatedColors.textColor;
       window.activeRadarChart.options.plugins.legend.labels.color = updatedColors.textColor;
+      updateDatasetColors(window.activeRadarChart); // 그래프 색상 새로고침
       window.activeRadarChart.update('none');
     }
 
@@ -345,15 +377,10 @@ function initWikiChartSystem() {
       window.activeBarChart.options.scales.y.ticks.color = updatedColors.textColor;
       window.activeBarChart.options.scales.y.grid.color = updatedColors.gridColor;
       window.activeBarChart.options.plugins.legend.labels.color = updatedColors.textColor;
+      updateDatasetColors(window.activeBarChart); // 그래프 색상 새로고침
       window.activeBarChart.update('none');
     }
   });
 
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-}
-
-// 생 새로고침(F5) 가드 조건문 실행
-if (document.documentElement.getAttribute("data-theme")) {
-  initFootnoteSystem();
-  initWikiChartSystem();
 }
