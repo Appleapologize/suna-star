@@ -27,7 +27,7 @@
   --noah-color: #42f5ce; /*드림주 색상*/
 
 	/*---- ---- ----그 외의 위키 색상 지정 ---- ---- ----*/		
-  --border-wiki-gray-color:#ccc; /*위키 회색 선 색상*/
+  --border-wiki-gray-color:#ccc; /*위키 회색 선 색상, 목차 테두리도 이 색상*/
   --wiki-line-background-color:#eee; /*대사 박스 같은 내부 내용에 들어가는 박스 배경 색상*/
   --wiki-text-white-color:#ffffff; /*흰색*/
   --wiki-tooltip-content:#555; /*말풍선 내용 색상*/
@@ -183,12 +183,16 @@ div.profile{
    ========================================== */
 table.index{
 	border-collapse: collapse;
-	/*display: inline-block;*/
 	width: auto;
 	heigh: auto; 
 	background:none;
 	margin: 0 0 20px 5px; 
 	line-height: 180%;
+}
+
+table.index, 
+td.index{
+	border:var(--border-wiki-line) var(--border-wiki-gray-color);
 }
 
 table.index tr{
@@ -226,7 +230,9 @@ th{
 	color: black;
 }
 
-td:not(table.text-one-line td):not(table.text-two-line td) {
+td:not(table.text-one-line td)
+:not(table.text-two-line td)
+:not(.index) {
 	border-bottom:1px solid var(--border-wiki-gray-color) !important;
 }
 
