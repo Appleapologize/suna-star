@@ -100,20 +100,24 @@ function loadPage(event, relativePath, addHistory = true) {
 
      let cleanPath = relativePath;
      if (cleanPath.startsWith('./')) {
-     cleanPath = cleanPath.substring(2);
-     }
-  
-     // 파일명만 떼지 않고 원래 가지고 있던 하위 폴더 경로 구조를 통째로 사용합니다.
-     let finalUrl = '';
-     if (cleanPath.startsWith('http') || cleanPath.startsWith('/')) {
-         finalUrl = cleanPath;
-     } else {
-         finalUrl = window.location.origin + '/suna-star/' + cleanPath;
-     }
-  
-    // 초기화 함수 처리를 위한 순수 파일명 추출
-     const fileName = relativePath.split('/').pop();
+   cleanPath = cleanPath.substring(2); // './pages/wiki/...' -> 'pages/wiki/...'
+ }
+     if (cleanPath.startsWith('pages/')) {
+   cleanPath = cleanPath.substring(6); // 'pages/wiki/...' -> 'wiki/...'
+ }
 
+ // 서버에서 불러올 최종 절대 경로를 조립합니다.
+ let finalUrl = '';
+ if (cleanPath.startsWith('http') || cleanPath.startsWith('/')) {
+   finalUrl = cleanPath;
+ } else {
+   // window.location.origin + '/suna-star/pages/' + 'wiki/noah-wiki.html'
+   finalUrl = window.location.origin + '/suna-star/pages/' + cleanPath;
+ }
+
+ // 초기화 함수 처리를 위한 순수 파일명 추출
+ const fileName = cleanPath.split('/').pop(); 
+    
     // GitHub Pages 경로 버그 방지 고정 주소
     const finalUrl = window.location.origin + '/suna-star/pages/' + fileName;
 
