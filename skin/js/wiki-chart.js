@@ -81,7 +81,12 @@ function initWikiChartSystem() {
       bgOpacity: computedStyle.getPropertyValue('--chart-bg-opacity').trim() || "0.2",
       borderOpacity: computedStyle.getPropertyValue('--chart-border-opacity').trim() || "1",
       fontSizeDesktop: computedStyle.getPropertyValue('--chart-font-size').trim() || '10px',
-      fontSizeMobile: computedStyle.getPropertyValue('--mobile-chart-font-size').trim() || '16px'
+      fontSizeMobile: computedStyle.getPropertyValue('--mobile-chart-font-size').trim() || '16px',
+
+       tooltipBg: computedStyle.getPropertyValue('--chart-tooltip-bg').trim() || 'rgba(0, 0, 0, 0.8)',
+       tooltipPadding: parseInt(computedStyle.getPropertyValue('--chart-tooltip-padding'), 10) || 10,
+       tooltipXAlign: computedStyle.getPropertyValue('--chart-tooltip-x-align').trim() || 'center',
+       tooltipYAlign: computedStyle.getPropertyValue('--chart-tooltip-y-align').trim() || 'center'
     };
   }
 
@@ -133,6 +138,15 @@ function initWikiChartSystem() {
           font: { size: chartFontSize } 
         },
       },
+    tooltip: {
+          backgroundColor: settings.tooltipBg,      
+          padding: settings.tooltipPadding,          
+          titleFont: { size: chartFontSize },
+          bodyFont: { size: chartFontSize },
+ 
+         // 커서 위치는 그대로 따라다니되, 말풍선 위치만 CSS 변수 값으로 매핑합니다!
+          xAlign: settings.tooltipXAlign,
+          yAlign: settings.tooltipYAlign
     },
   };
 
