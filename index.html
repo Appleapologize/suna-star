@@ -140,6 +140,29 @@
                </nav>
             </aside>
          </div> 
+          <script>
+         // 웹페이지가 로드되면 자동으로 메뉴를 불러옵니다.
+         document.addEventListener("DOMContentLoaded", function () {
+           const navMenuBox = document.querySelector(".navmenu");
+           if (!navMenuBox) return;
+         
+           // index.html과 같은 위치에 있는 menu.html 파일을 가져옵니다.
+           fetch("./menu.html")
+             .then(response => {
+               if (!response.ok) {
+                 throw new Error("메뉴 파일을 불러오지 못했습니다.");
+               }
+               return response.text();
+             })
+             .then(htmlContent => {
+               // 가져온 HTML 메뉴 코드를 상자 안에 쏙 집어넣습니다.
+               navMenuBox.innerHTML = htmlContent;
+             })
+             .catch(error => {
+               console.error("메뉴 로딩 실패:", error);
+             });
+         });
+         </script>         
          <!--내용 보이는 영역-->
          <div id="container">
          </div>  
@@ -248,28 +271,5 @@ document.addEventListener("DOMContentLoaded", () => {
       
       <script src="./skin/js/script.js" defer></script>
       
-    <script>
-         // 웹페이지가 로드되면 자동으로 메뉴를 불러옵니다.
-   document.addEventListener("DOMContentLoaded", function () {
-     const navMenuBox = document.querySelector(".navmenu");
-     if (!navMenuBox) return;
-   
-     // index.html과 같은 위치에 있는 menu.html 파일을 가져옵니다.
-     fetch("./menu.html")
-       .then(response => {
-         if (!response.ok) {
-           throw new Error("메뉴 파일을 불러오지 못했습니다.");
-         }
-         return response.text();
-       })
-       .then(htmlContent => {
-         // 가져온 HTML 메뉴 코드를 상자 안에 쏙 집어넣습니다.
-         navMenuBox.innerHTML = htmlContent;
-       })
-       .catch(error => {
-         console.error("메뉴 로딩 실패:", error);
-       });
-   });
-   </script>
    </body>
 </html>
