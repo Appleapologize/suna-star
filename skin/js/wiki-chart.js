@@ -148,7 +148,9 @@ function initWikiChartSystem() {
  
          // 커서 위치는 그대로 따라다니되, 말풍선 위치만 CSS 변수 값으로 매핑합니다!
           xAlign: settings.tooltipXAlign,
-          yAlign: settings.tooltipYAlign
+          yAlign: settings.tooltipYAlign,
+          titleColor: settings.tooltipTitleColor,
+          bodyColor: settings.tooltipBodyColor
     },
     }
   };
