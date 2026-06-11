@@ -796,6 +796,7 @@ details:not([open]) h2[class*="-title"] span{
 	    width: calc(100vw - 10px) !important;
 	    max-width: 100vw !important;		
 		background-color:color-mix(in srgb, var(--card-background-color) 90%, transparent);
+		padding:10px;
 	}
 	
     .tooltip:after {
