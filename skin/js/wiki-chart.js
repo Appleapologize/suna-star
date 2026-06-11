@@ -8,45 +8,65 @@
   const datasets = Array.from(chartDataElement.getElementsByClassName("dataset")); 
   const labelsElement = chartDataElement.querySelector(".labels"); 
 
-  // CSS에 정의된 글자색(--text-color)을 실시간으로 가져옴
-  const computedStyle = getComputedStyle(document.documentElement);
-  const cssTextColor = computedStyle.getPropertyValue('--text-color').trim() || '#000000'; 
+  if (!labelsElement || datasets.length === 0) return;
 
-  /* CSS에 등록된 폰트 사이즈 변수 읽어오기 (기본값 설정: 데스크톱에서는 10px, 모바일에서는 16px가 기본) */
-  const desktopFontSizeCSS = computedStyle.getPropertyValue('--chart-font-size').trim() || '10px';
-  const mobileFontSizeCSS = computedStyle.getPropertyValue('--mobile-chart-font-size').trim() || '16px';  
-    // px 단위를 제외하고 순수 숫자만 추출 (예: '16px' -> 16)
-    const desktopFontSize = parseInt(desktopFontSizeCSS, 10) || 10;
-    const mobileFontSize = parseInt(mobileFontSizeCSS, 10) || 16;
-  
-  // 눈금선 색상은 글자색을 가져와서 60%의 연한 투명도로 자동 계산
-  const cssGridColor = `color-mix(in srgb, ${cssTextColor} 60%, transparent)`; 
+  // 어떤 색상이든 브라우저 엔진을 거쳐 순수한 RGB 숫자로 바꿔주는 헬퍼 함수
+  function convertToRgbString(colorValue) {
+    if (!colorValue) return null;
+    if (/^\d+\s*,\s*\d+\s*,\s*\d+$/.test(colorValue.trim())) return colorValue.trim();
+    
+    const tempElem = document.createElement("div");
+    tempElem.style.color = colorValue;
+    document.body.appendChild(tempElem);
+    const computedColor = window.getComputedStyle(tempElem).color;
+    document.body.removeChild(tempElem);
+    
+    const match = computedColor.match(/rgb\s*a?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
+    return match ? `${match[1]}, ${match[2]}, ${match[3]}` : null;
+  }
 
-  /* 모바일 화면(1024px 미만)인지 CSS 미디어쿼리 기준으로 정확히 체크 */
+  // ★ CSS에서 차트 관련 디자인 변수들을 통합 수집하는 함수
+  function getChartDesignSettings() {
+    const computedStyle = window.getComputedStyle(document.documentElement);
+    return {
+      textColor: computedStyle.getPropertyValue('--chart-text-color').trim() || '#000000',
+      gridColor: computedStyle.getPropertyValue('--chart-grid-color').trim() || 'rgba(0, 0, 0, 0.1)',
+      bgOpacity: computedStyle.getPropertyValue('--chart-bg-opacity').trim() || "0.2",
+      borderOpacity: computedStyle.getPropertyValue('--chart-border-opacity').trim() || "1",
+      fontSizeDesktop: computedStyle.getPropertyValue('--chart-font-size').trim() || '10px',
+      fontSizeMobile: computedStyle.getPropertyValue('--mobile-chart-font-size').trim() || '16px'
+    };
+  }
+
+  let settings = getChartDesignSettings();
+  const rootStyles = window.getComputedStyle(document.documentElement);
+
+  // 폰트 크기 계산 구역
+  const desktopFontSize = parseInt(settings.fontSizeDesktop, 10) || 10;
+  const mobileFontSize = parseInt(settings.fontSizeMobile, 10) || 16;
   const isMobile = window.matchMedia('(max-width: 1023px)').matches;
-  
-  // 브라우저 줌 상태나 비동기 로드 버그를 방지하기 위해 가로폭 한 번 더 검증
   const currentWidth = window.innerWidth || document.documentElement.clientWidth;
   const finalIsMobile = isMobile || (currentWidth > 0 && currentWidth < 1024);
+  let chartFontSize = finalIsMobile ? mobileFontSize : desktopFontSize; 
 
-  // 추출한 CSS 변수 기반으로 최종 폰트 크기 결정 */
-  const chartFontSize = finalIsMobile ? mobileFontSize : desktopFontSize; 
-
-  // 전역 기본 폰트 크기 지정
   Chart.defaults.font.size = chartFontSize; 
 
-  // 3. 데이터셋 추출
+  // 3. 데이터셋 추출 (CSS 변수 기반 그래프 색상 및 투명도 반영)
   const data = {
     labels: labelsElement.getAttribute("data-values").split(","), 
-    datasets: datasets.map((dataset, index) => ({ 
-      label: dataset.getAttribute("data-label"), 
-      data: dataset.getAttribute("data-values").split(",").map(Number), 
-      backgroundColor: 
-        `rgba(${index === 0 ? "255, 99, 132" : index === 1 ? "54, 162, 235" : "153, 102, 255"}, 0.2)`, 
-      borderColor: 
-        `rgba(${index === 0 ? "255, 99, 132" : index === 1 ? "54, 162, 235" : "153, 102, 255"}, 1)`, 
-      borderWidth: 2, 
-    })),
+    datasets: datasets.map((dataset, index) => {
+      const defaultColors = ["255, 99, 132", "54, 162, 235", "153, 102, 255"];
+      const rawColor = rootStyles.getPropertyValue(`--chart-color-${index}`).trim();
+      const rgbColor = convertToRgbString(rawColor) || (defaultColors[index] || "128, 128, 128");
+
+      return {
+        label: dataset.getAttribute("data-label"), 
+        data: dataset.getAttribute("data-values").split(",").map(Number), 
+        backgroundColor: `rgba(${rgbColor}, ${settings.bgOpacity})`,
+        borderColor: `rgba(${rgbColor}, ${settings.borderOpacity})`,
+        borderWidth: 2, 
+      };
+    }),
   };
 
   // 4. 차트 공통 옵션 설정
@@ -60,9 +80,9 @@
       legend: {
         position: "top", 
         labels: {
-          color: cssTextColor, 
-          boxWidth: 12,        /* 범례 아이콘 크기 */
-          padding: 10,          /* 범례 아래 여백 */
+          color: settings.textColor, 
+          boxWidth: 12,
+          padding: 10,
           font: { size: chartFontSize } 
         },
       },
@@ -73,25 +93,22 @@
   const radarOptions = {
     ...commonOptions, 
     maintainAspectRatio: true, 
-    layout: {
-      padding: 0 
-    },
     scales: {
       r: {
         beginAtZero: true, 
         suggestedMax: 5, 
         ticks: { 
-          color: cssTextColor, 
+          color: settings.textColor, 
           backdropColor: 'transparent', 
           showLabelBackdrop: false,
-          font: { size: chartFontSize - 4 } /* 축 내부 숫자 크기 */
+          font: { size: chartFontSize - 4 }
         },
-        grid: { color: cssGridColor }, 
-        angleLines: { color: cssGridColor }, 
+        grid: { color: settings.gridColor }, 
+        angleLines: { color: settings.gridColor }, 
         pointLabels: {
-          color: cssTextColor, 
+          color: settings.textColor, 
           font: { 
-            size: chartFontSize, /* 👈 외곽 카테고리 글씨 크기 반영 */
+            size: chartFontSize,
             weight: 'bold'
           },
           padding: 3 
@@ -107,63 +124,92 @@
     scales: {
       x: {
         ticks: { 
-          color: cssTextColor,
+          color: settings.textColor,
           font: { size: chartFontSize } 
         }, 
-        grid: { color: cssGridColor }, 
+        grid: { color: settings.gridColor }, 
       },
       y: {
         beginAtZero: true, 
         ticks: { 
-          color: cssTextColor,
+          color: settings.textColor,
           font: { size: chartFontSize }
         }, 
-        grid: { color: cssGridColor }, 
+        grid: { color: settings.gridColor }, 
       },
     },
   };
 
-  // 7. 차트 생성 실행 구간
+  // 7. 차트 생성 실행 함수화 (재사용을 위해 함수로 묶음)
   const radarCanvas = document.getElementById("radarChart");
-  if (radarCanvas) {
-    const oldRadar = Chart.getChart(radarCanvas);
-    if (oldRadar) oldRadar.destroy(); // 기존 잔상 제거
-    new Chart(radarCanvas.getContext("2d"), { type: "radar", data: data, options: radarOptions });
+  const barCanvas = document.getElementById("barChart");
+
+  function renderCharts() {
+    if (radarCanvas) {
+      const oldRadar = Chart.getChart(radarCanvas);
+      if (oldRadar) oldRadar.destroy();
+      new Chart(radarCanvas.getContext("2d"), { type: "radar", data: data, options: radarOptions });
+    }
+    if (barCanvas) {
+      const oldBar = Chart.getChart(barCanvas);
+      if (oldBar) oldBar.destroy();
+      new Chart(barCanvas.getContext("2d"), { type: "bar", data: data, options: barOptions });
+    }
   }
 
-  const barCanvas = document.getElementById("barChart");
-  if (barCanvas) {
-    const oldBar = Chart.getChart(barCanvas);
-    if (oldBar) oldBar.destroy(); // 기존 잔상 제거
-    new Chart(barCanvas.getContext("2d"), { type: "bar", data: data, options: barOptions });
-  }
+  // 첫 실행
+  renderCharts();
 
   // 브라우저 창 크기가 바뀔 때 글자 크기 실시간 리사이징 대응
   window.addEventListener('resize', function() {
     const currentIsMobile = window.innerWidth < 1024;
-    /* 리사이즈 시에도 CSS 변수 기반 숫자를 사용 */
     const nextFontSize = currentIsMobile ? mobileFontSize : desktopFontSize;
 
-    // 리사이즈 시 새롭게 캔버스 갱신
-     if (Chart.defaults.font.size !== nextFontSize) {
+    if (Chart.defaults.font.size !== nextFontSize) {
       Chart.defaults.font.size = nextFontSize;
       radarOptions.scales.r.pointLabels.font.size = nextFontSize;
       if(barOptions.scales.x.ticks.font) barOptions.scales.x.ticks.font.size = nextFontSize;
       if(barOptions.scales.y.ticks.font) barOptions.scales.y.ticks.font.size = nextFontSize;
-          
-          // 리사이즈 시 새롭게 캔버스 갱신
-       if (radarCanvas) {
-        const oldRadar = Chart.getChart(radarCanvas);
-        if (oldRadar) oldRadar.destroy();
-        new Chart(radarCanvas.getContext("2d"), { type: "radar", data: data, options: radarOptions });
-      }
-      if (barCanvas) {
-        const oldBar = Chart.getChart(barCanvas);
-        if (oldBar) oldBar.destroy();
-        new Chart(barCanvas.getContext("2d"), { type: "bar", data: data, options: barOptions });
-      }
-
-    } // if문을 닫는 중괄호
-  }
+      
+      renderCharts();
+    }
   });
+
+  // ★ [핵심 추가] 다크모드 버튼 실시간 변경 스캔 감지기 활성화
+  const observer = new MutationObserver(() => {
+    // 다크모드로 바뀌면 CSS 변수 값을 새로 가져옵니다.
+    const updated = getChartDesignSettings();
+    const currentRootStyles = window.getComputedStyle(document.documentElement);
+
+    // 1. 공통 옵션 변수 업데이트
+    commonOptions.plugins.legend.labels.color = updated.textColor;
+    
+    // 2. 레이더 차트 옵션 업데이트
+    radarOptions.scales.r.ticks.color = updated.textColor;
+    radarOptions.scales.r.grid.color = updated.gridColor;
+    radarOptions.scales.r.angleLines.color = updated.gridColor;
+    radarOptions.scales.r.pointLabels.color = updated.textColor;
+
+    // 3. 바 차트 옵션 업데이트
+    barOptions.scales.x.ticks.color = updated.textColor;
+    barOptions.scales.x.grid.color = updated.gridColor;
+    barOptions.scales.y.ticks.color = updated.textColor;
+    barOptions.scales.y.grid.color = updated.gridColor;
+
+    // 4. 그래프 본체 색상 및 투명도 실시간 업데이트
+    data.datasets.forEach((dataset, index) => {
+      const defaultColors = ["255, 99, 132", "54, 162, 235", "153, 102, 255"];
+      const rawColor = currentRootStyles.getPropertyValue(`--chart-color-${index}`).trim();
+      const rgbColor = convertToRgbString(rawColor) || (defaultColors[index] || "128, 128, 128");
+      
+      dataset.backgroundColor = `rgba(${rgbColor}, ${updated.bgOpacity})`;
+      dataset.borderColor = `rgba(${rgbColor}, ${updated.borderOpacity})`;
+    });
+
+    // 5. 변경된 스타일 주입 후 리렌더링
+    renderCharts();
+  });
+
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
 })(); // 즉시 실행 함수 종료
