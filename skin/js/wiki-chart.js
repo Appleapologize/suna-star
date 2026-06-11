@@ -86,7 +86,9 @@ function initWikiChartSystem() {
        tooltipBg: computedStyle.getPropertyValue('--chart-tooltip-bg').trim() || 'rgba(0, 0, 0, 0.8)',
        tooltipPadding: parseInt(computedStyle.getPropertyValue('--chart-tooltip-padding'), 10) || 10,
        tooltipXAlign: computedStyle.getPropertyValue('--chart-tooltip-x-align').trim() || 'center',
-       tooltipYAlign: computedStyle.getPropertyValue('--chart-tooltip-y-align').trim() || 'center'
+       tooltipYAlign: computedStyle.getPropertyValue('--chart-tooltip-y-align').trim() || 'center',
+       tooltipTitleColor: computedStyle.getPropertyValue('--chart-tooltip-title-color').trim() || '#ffffff',
+       tooltipBodyColor: computedStyle.getPropertyValue('--chart-tooltip-body-color').trim() || '#ffffff'      
     };
   }
 
