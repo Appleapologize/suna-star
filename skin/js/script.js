@@ -53,24 +53,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // 주소창의 쿼리스트링 파라미터 확인 후 초기 페이지 로드
     const params = new URLSearchParams(window.location.search);
     const pageName = params.get('pageName') || 'home.html';
-    // 이미 주소에 pages/가 붙어있다면 중복 방지
-    const initialPath = pageName.startsWith('pages/') ? pageName : `pages/${pageName}`;
-    loadPage(null, initialPath, false);
+    loadPage(null, `pages/${pageName}`, false);
 
     // 브라우저 뒤로가기 / 앞으로가기 처리
     window.addEventListener('popstate', function(event) {
         if (event.state && event.state.pageName) {
-           const pName = event.state.pageName;
-           const backPath = pName.startsWith('pages/') ? pName : `pages/${pName}`;
-           loadPage(null, backPath, false);
- } else {
-         const currentParams = new URLSearchParams(window.location.search);
-         const currentPage = currentParams.get('pageName') || 'home.html';
-         const defaultPath = currentPage.startsWith('pages/') ? currentPage : `pages/${currentPage}`;
-         loadPage(null, defaultPath, false);
- }
- });
-  
+            loadPage(null, `pages/${event.state.pageName}`, false);
+        } else {
+            const currentParams = new URLSearchParams(window.location.search);
+            const currentPage = currentParams.get('pageName') || 'home.html';
+            loadPage(null, `pages/${currentPage}`, false);
+        }
+    });
+});
 
 // 모바일 메뉴 토글 함수
 function toggleMobileMenu() {
@@ -93,31 +88,13 @@ function toggleMenu(event, targetId) {
 
 // 외부 HTML을 불러와서 .container에 주입하는 함수
 function loadPage(event, relativePath, addHistory = true) {
-     if (event) {
-         if (typeof event.preventDefault === 'function') event.preventDefault();
-         if (typeof event.stopPropagation === 'function') event.stopPropagation();
-     }
+    if (event) {
+        if (typeof event.preventDefault === 'function') event.preventDefault();
+        if (typeof event.stopPropagation === 'function') event.stopPropagation();
+    }
 
-     let cleanPath = relativePath;
-     if (cleanPath.startsWith('./')) {
-   cleanPath = cleanPath.substring(2); // './pages/wiki/...' -> 'pages/wiki/...'
- }
-     if (cleanPath.startsWith('pages/')) {
-   cleanPath = cleanPath.substring(6); // 'pages/wiki/...' -> 'wiki/...'
- }
+    const fileName = relativePath.split('/').pop(); 
 
- // 서버에서 불러올 최종 절대 경로를 조립합니다.
- let finalUrl = '';
- if (cleanPath.startsWith('http') || cleanPath.startsWith('/')) {
-   finalUrl = cleanPath;
- } else {
-   // window.location.origin + '/suna-star/pages/' + 'wiki/noah-wiki.html'
-   finalUrl = window.location.origin + '/suna-star/pages/' + cleanPath;
- }
-
- // 초기화 함수 처리를 위한 순수 파일명 추출
- const fileName = cleanPath.split('/').pop(); 
-    
     // GitHub Pages 경로 버그 방지 고정 주소
     const finalUrl = window.location.origin + '/suna-star/pages/' + fileName;
 
@@ -210,8 +187,7 @@ function loadPage(event, relativePath, addHistory = true) {
                 });
 
                 if (addHistory) { 
-                    const historyPath = cleanPath.replace('pages/', '');
-                    addQueryString(historyPath); 
+                    addQueryString(fileName); 
                 }
             }
         })
