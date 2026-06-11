@@ -107,15 +107,33 @@ footnoteLinks.forEach((a) => {
 
      // 각주 번호(sup) 요소의 화면상 실제 픽셀 좌표 측정
      const rect = sup.getBoundingClientRect();
-     
-     // 현재 스크롤된 거리를 정확히 더해 절대 좌표 산출
      const absoluteLeft = rect.left + (window.scrollX || window.pageXOffset);
      const absoluteTop = rect.top + (window.scrollY || window.pageYOffset);
+     const anchorCenter = absoluteLeft + (rect.width / 2); // 각주 번호의 정중앙 X좌표
 
-     // 1. 가로 위치 보정
-     tooltip.style.left = `${absoluteLeft + (rect.width / 2) - 3}px`;
+     // 화면 너비 및 안전 여백 변수 정의 (★ 빼놓으셨던 필수 변수 추가)
+     const viewportWidth = window.innerWidth;
+     const padding = 15; // 화면 양쪽 끝 최소 여백
+     const tooltipWidth = tooltip.offsetWidth; // 말풍선의 실제 가로 너비
+      
+     // 말풍선 기본 왼쪽 위치 계산
+     let tooltipLeft = anchorCenter - (tooltipWidth / 2);      
+
+       // [화면 이탈 방지 처리] 말풍선이 화면 왼쪽이나 오른쪽을 뚫고 나가면 화면 안으로 강제 고정
+     if (tooltipLeft < padding) {
+       tooltipLeft = padding; // 왼쪽 화면 이탈 방지
+     } else if (tooltipLeft + tooltipWidth > viewportWidth - padding) {
+       tooltipLeft = viewportWidth - padding - tooltipWidth; // 오른쪽 화면 이탈 방지
+     }
+ 
+      // 계산된 최종 가로 위치 설정
+     tooltip.style.left = `${tooltipLeft}px`;
+
+     // 말풍선 꼬리(화살표) 위치 보정 (CSS 변수 활용)
+     const arrowLeft = anchorCenter - tooltipLeft;
+     tooltip.style.setProperty('--arrow-left', `${arrowLeft}px`);
      
-     // 2. 세로 위치 보정: 화면에 켜진 직후의 실제 높이(offsetHeight)를 읽어와 번호 위에 정확히 안착
+     // 세로 위치 보정: 화면에 켜진 직후의 실제 높이를 읽어와 번호 위에 정확히 안착
      const tooltipHeight = tooltip.offsetHeight;
      tooltip.style.top = `${absoluteTop - tooltipHeight - 21}px`;
    }
