@@ -1,6 +1,34 @@
 // 전역 변수 중복 선언 차단 및 로드 즉시 실행을 위한 즉시 실행 함수(IIFE)
 function initWikiChartSystem() {
+  const table = document.getElementById("parameters");
+  const chartDataContainer = document.getElementById("chart-data");
+  if (!table || !chartDataContainer) return;
 
+  chartDataContainer.innerHTML = ""; // 기존 잔상 청소
+
+  // (1) 항목 이름 자동 추출 (인술, 체술...)
+  const headerCells = Array.from(table.querySelectorAll("tr:first-child th")).slice(1, -1);
+  const labelValues = headerCells.map(cell => cell.textContent.replace(/\n|\s/g, "")).join(",");
+  
+  const labelsDiv = document.createElement("div");
+  labelsDiv.className = "labels";
+  labelsDiv.setAttribute("data-values", labelValues);
+  chartDataContainer.appendChild(labelsDiv);
+
+  // (2) 세대별 숫자 자동 추출
+  const dataRows = Array.from(table.querySelectorAll("tr[data-age]"));
+  dataRows.forEach(row => {
+    const label = row.getAttribute("data-age");
+    const valueCells = Array.from(row.querySelectorAll("td")).slice(0, -1);
+    const values = valueCells.map(cell => cell.textContent.trim() || "0").join(",");
+
+    const datasetDiv = document.createElement("div");
+    datasetDiv.className = "dataset";
+    datasetDiv.setAttribute("data-label", label);
+    datasetDiv.setAttribute("data-values", values);
+    chartDataContainer.appendChild(datasetDiv);
+  });
+  
   // 1. 데이터 읽기
   const chartDataElement = document.getElementById("chart-data"); 
   if (!chartDataElement) return; // 차트 데이터가 없으면 즉시 실행 중단
