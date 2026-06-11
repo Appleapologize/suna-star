@@ -282,9 +282,6 @@ img.profile{
 	border:1px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
   }
 
-  table.profile td{
-	  border-bottom:1px solid var(--border-wiki-gray-color);
-  }
   table.profile tr.profile-name td{
 	background-color: var(--gaara-color, var(--gaara-color, var(--noah-color)));
 	padding: 5px 10px;
