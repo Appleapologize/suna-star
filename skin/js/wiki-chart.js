@@ -4,24 +4,43 @@ function initWikiChartSystem() {
   const chartDataContainer = document.getElementById("chart-data");
   if (!table || !chartDataContainer) return;
 
-  chartDataContainer.innerHTML = ""; // 기존 잔상 청소
+  chartDataContainer.innerHTML = ""; // 이전 잔상 대청소
+
 
   // (1) 항목 이름 자동 추출 (인술, 체술...)
-  const headerCells = Array.from(table.querySelectorAll("tr:first-child th")).slice(1, -1);
+  const headerCells = Array.from(table.querySelectorAll("tr:first-child th")).slice(1);
+  if (headerCells.length > 0 && headerCells[headerCells.length - 1].textContent.includes("총합")) {
+    headerCells.pop();
+  }
   const labelValues = headerCells.map(cell => cell.textContent.replace(/\n|\s/g, "")).join(",");
   
+  // <div class="labels"> 태그 자동 생성 및 주입
   const labelsDiv = document.createElement("div");
   labelsDiv.className = "labels";
   labelsDiv.setAttribute("data-values", labelValues);
   chartDataContainer.appendChild(labelsDiv);
 
+
   // (2) 세대별 숫자 자동 추출
   const dataRows = Array.from(table.querySelectorAll("tr[data-age]"));
   dataRows.forEach(row => {
     const label = row.getAttribute("data-age");
-    const valueCells = Array.from(row.querySelectorAll("td")).slice(0, -1);
-    const values = valueCells.map(cell => cell.textContent.trim() || "0").join(",");
+    const allCells = Array.from(row.querySelectorAll("td"));
+    
+    // [추가된 안전장치 1] 아직 채워지지 않은 빈 데이터 칸은 자동으로 "0"을 채워넣어 시스템 마비 방지
+    let valuesArray = allCells.map(cell => {
+      const text = cell.textContent.replace(/\n|\s/g, "").trim();
+      return text === "" ? "0" : text;
+    });
 
+    // [추가된 안전장치 2] 칸 개수가 항목 개수보다 많으면 자동으로 '총합' 점수를 잘라내어 차트 매칭 일치
+    if (valuesArray.length > headerCells.length) {
+      valuesArray = valuesArray.slice(0, headerCells.length);
+    }
+
+    const values = valuesArray.join(",");
+
+    // <div class="dataset"> 태그 자동 생성 및 주입
     const datasetDiv = document.createElement("div");
     datasetDiv.className = "dataset";
     datasetDiv.setAttribute("data-label", label);
