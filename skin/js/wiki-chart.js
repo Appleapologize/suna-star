@@ -148,6 +148,7 @@ function initWikiChartSystem() {
           xAlign: settings.tooltipXAlign,
           yAlign: settings.tooltipYAlign
     },
+    }
   };
 
   // 5. Radar Chart 옵션
