@@ -91,7 +91,6 @@ function loadPage(event, relativePath, addHistory = true) {
     if (event) {
         if (typeof event.preventDefault === 'function') event.preventDefault();
         if (typeof event.stopPropagation === 'function') event.stopPropagation();
-        event.returnValue = false;
     }
 
  // 앞의 './'가 붙어있다면 제거해서 깔끔한 경로로 만듭니다.
@@ -99,12 +98,25 @@ function loadPage(event, relativePath, addHistory = true) {
  if (cleanPath.startsWith('./')) {
    cleanPath = cleanPath.substring(2); // './pages/wiki/...' -> 'pages/wiki/...'
  }
+    if (cleanPath.startsWith('pages/')) {
+        cleanPath = cleanPath.substring(6);
+    }    
 
- // 파일명만 똑 떼지 않고, HTML 메뉴가 준 폴더 경로(예: pages/wiki/gaara-wiki.html)를 그대로 활용합니다.
- const finalUrl = window.location.origin + '/suna-star/' + cleanPath;
+let finalUrl = '';
+    if (cleanPath.startsWith('http') || cleanPath.startsWith('/')) {
+        finalUrl = cleanPath;
+    } else {
+        finalUrl = window.location.origin + '/suna-star/pages/' + cleanPath;
+    }
 
- // 페이지 내부 스크립트 실행 및 초기화 식별을 위한 순수 파일 이름 추출
- const fileName = cleanPath.split('/').pop(); 
+    // 4. 초기화 함수 처리를 위한 순수 파일명 추출
+    const fileName = cleanPath.split('/').pop(); 
+
+    // 5. [# 자국 강제 제거] 브라우저 이동을 방해하지 않고 주소창 맨 뒤의 #만 투명하게 지워버립니다.
+    if (window.location.href.endsWith('#')) {
+        const cleanURL = window.location.href.substring(0, window.location.href.length - 1);
+        window.history.replaceState(window.history.state, '', cleanURL);
+    }
 
 
 
