@@ -595,7 +595,7 @@ a + p.text1{
     말풍선 스타일
    ========================================== */
 .tooltip {
-  margin-bottom:10px;  
+  margin-bottom:0px;  
   position: absolute;
   background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent); /* 배경색 */
   color: var(--text-color); /* 글자색 */
@@ -605,7 +605,6 @@ a + p.text1{
   border-radius: 8px;
   display: none; /* 기본적으로 숨김 */
   z-index: 1000;
-  max-width:201px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -628,16 +627,16 @@ button.tooltip-close:hover{
 .tooltip:after{
 	content: '';
 	position: absolute;
-	bottom: -6px;
+	bottom: -20px;
 	left: var(--arrow-left, 50%);
 	width: 0;
 	height: 0;
 	border: 20px solid transparent;
 	border-top-color: var(--border-wiki-gray-color);
 	border-bottom: 0;
-	margin-left: -20px;
-	margin-bottom: -20px;
-	transform: translateX(-50%);
+	margin-left: 0;
+	margin-bottom: 0;
+	transform: translateX(-20px); 
 }
 
 .tooltip-number {
