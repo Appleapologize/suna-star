@@ -1,36 +1,10 @@
 <link rel="stylesheet" href="/suna-star/skin/css/style.css">
 <link rel="stylesheet" href="/suna-star/skin/css/wiki.css">
 <link rel="stylesheet" href="/suna-star/skin/css/wiki-custom.css"> 
-<script type="text/javascript" defer src="/suna-star/skin/js/cursor-effect.js"></script>
 
 <script src="/suna-star/skin/js/footnote-click.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<!--<script>
-  // 윈도우 크기를 체크하는 함수
-  function checkMobile() {
-    if (window.innerWidth <= 768) { // 모바일 화면 크기 이하 (768px 이하)
-      // 여기에 모바일에서만 실행할 코드 삽입
-      console.log("모바일 버전입니다.");
-      // 예시: 모바일에서만 보여줄 요소를 변경
-      document.body.style.backgroundColor = "#f0f0f0";
-    } else {
-      console.log("모바일이 아닙니다.");
-    }
-  }
-
-  // 화면 크기 변경 시 확인하도록 이벤트 설정
-  window.addEventListener('resize', checkMobile);
-
-  // 페이지가 처음 로드될 때도 체크
-  window.onload = checkMobile;
-</script>
-<script defer src="../skin/js/footnote-click.js"></script>
-이건 클릭시 말풍선 보이게(무조건 a태그 눌러야 함.)-->
-
 
 <div class="module">
-    <script defer src="../skin/js/dark-mode-load-sub.js"></script>
 <h3 class="classification">분류:<a href="#">나루토 / 가아라</a></h3>
 <br><br>
 <div id="profile-top">
@@ -464,7 +438,7 @@
       <th>인맺기</th>
       <th>총합</th>
     </tr>
-    <tr>
+    <tr data-age="1부">
       <th>12~13세</th>
       <td class="mission">3.5</td>
       <td>1</td>
@@ -476,7 +450,7 @@
       <td>3.5</td>
       <td>20</td>
     </tr>
-    <tr>
+    <tr data-age="2부">
       <th>16~17세</th>
       <td></td>
       <td></td>
@@ -488,7 +462,7 @@
       <td></td>
       <td></td>
     </tr>
-     <tr>
+     <tr data-age="The Last">
       <th>19세</th>
       <td></td>
       <td></td>
@@ -500,6 +474,18 @@
       <td></td>
       <td></td>
     </tr>
+     <tr data-age="보루토">
+      <th>19세</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+       <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>	  
   </tbody>
 </table>
 
@@ -510,15 +496,10 @@
   
   <!-- 데이터 설정 -->
   <div id="chart-data" style="display: none;">
-    <div class="dataset" data-label="12~13세" data-values="3.5,1,2.5,2.5,1,2,4,3.5"></div>
-    <div class="dataset" data-label="Dataset 2" data-values="0,0,0,0,0,0,0,0"></div>
-    <div class="dataset" data-label="Dataset 3" data-values="0,0,0,0,0,0,0,0"></div>
-    <!--여기서 꼭지점 개수 -->
-    <div class="labels" data-values="인술,체술,환술,현명함,힘,속도,스테미나,인맺기"></div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script defer src="../skin/js/wiki-chart.js"></script>
+      <script src="/suna-star/skin/js/wiki-chart.js"></script> 
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
 </details>
 <!--3.갤러리-->
   <details open>
