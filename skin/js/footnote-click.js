@@ -103,7 +103,7 @@ footnoteLinks.forEach((a) => {
      tooltip.style.bottom = "auto";
      tooltip.style.transform = "none"; // "translateX(-50%)" 정중앙 매칭
      tooltip.style.width = "max-content"; 
-     tooltip.style.maxWidth = "calc(100% - 40px)"; 
+     tooltip.style.maxWidth = "700px"; 
 
      // 각주 번호(sup) 요소의 화면상 실제 픽셀 좌표 측정
      const rect = sup.getBoundingClientRect();
