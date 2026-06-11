@@ -1,5 +1,5 @@
 // 전역 변수 중복 선언 차단 및 로드 즉시 실행을 위한 즉시 실행 함수(IIFE)
-(function () {
+function initWikiChartSystem() {
 
   // 1. 데이터 읽기
   const chartDataElement = document.getElementById("chart-data"); 
@@ -213,3 +213,13 @@
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
 })(); // 즉시 실행 함수 종료
+
+window.setupWikiChart = function() {
+  initWikiChartSystem();
+};
+
+// 만약 생 새로고침(F5) 시점에 이미 테마가 주입되어 있다면 즉시 한 번 실행합니다.
+if (document.documentElement.getAttribute("data-theme")) {
+  initWikiChartSystem();
+}
+
