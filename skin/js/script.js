@@ -1,6 +1,8 @@
 let recipeData = []; 
 let dict = {}; 
 
+const subFolders = ['wiki/',];
+
 // 쿼리스트링을 주소창에 추가하는 함수
 function addQueryString(fileName) {
     const url = new URL(window.location);
@@ -50,20 +52,40 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    async function findCorrectPath(pName) {
+        if (pName.startsWith('pages/')) return pName;
+        
+        // 1. 먼저 pages/ 바로 밑에 파일이 있는지 찔러봅니다. (예: pages/home.html)
+        let rootCheck = await fetch(window.location.origin + '/suna-star/pages/' + pName, { method: 'HEAD' });
+        if (rootCheck.ok) return `pages/${pName}`;
+        
+        // 2. 없으면 우리가 위에서 나열한 subFolders 목록을 하나씩 돌면서 파일이 있는지 찾습니다.
+        for (const folder of subFolders) {
+            let subCheck = await fetch(window.location.origin + '/suna-star/pages/' + folder + pName, { method: 'HEAD' });
+            if (subCheck.ok) {
+                return `pages/${folder}${pName}`; // 파일을 찾으면 해당 폴더 주소를 합쳐서 반환!
+            }
+        }
+        // 3. 다 뒤져도 없으면 기본값 반환
+        return `pages/${pName}`;
+    }
+    
     // 주소창의 쿼리스트링 파라미터 확인 후 초기 페이지 로드
     const params = new URLSearchParams(window.location.search);
     const pageName = params.get('pageName') || 'home.html';
-    loadPage(null, `pages/${pageName}`, false);
+    
+    // 자동 추적 함수를 실행하여 정확한 하위 폴더 경로를 받아온 뒤 로드합니다.
+    findCorrectPath(pageName).then(finalPath => {
+        loadPage(null, finalPath, false);
+    });
+
 
     // 브라우저 뒤로가기 / 앞으로가기 처리
     window.addEventListener('popstate', function(event) {
-        if (event.state && event.state.pageName) {
-            loadPage(null, `pages/${event.state.pageName}`, false);
-        } else {
-            const currentParams = new URLSearchParams(window.location.search);
-            const currentPage = currentParams.get('pageName') || 'home.html';
-            loadPage(null, `pages/${currentPage}`, false);
-        }
+        const pName = (event.state && event.state.pageName) ? event.state.pageName : (new URLSearchParams(window.location.search).get('pageName') || 'home.html');
+        findCorrectPath(pName).then(finalPath => {
+            loadPage(null, finalPath, false);
+        });
     });
 });
 
