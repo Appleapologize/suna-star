@@ -57,7 +57,7 @@
   --chart-color-3:#ccc; /* 보루토 데이터 색상*/
 
 	  
-	--chart-tooltip-bg: color-mix(var(--card-background-color) 60%, #4b4b4b);
+	--chart-tooltip-bg: var(--card-background-color);
 	
 	/*차트 내에 뜨는 툴팁 텍스트 색상*/	
   --chart-tooltip-title-color:var(--text-color); /* 💡 '현명함' 같은 제목 글자 색상 */
