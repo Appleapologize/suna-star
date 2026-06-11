@@ -16,6 +16,7 @@
 
 	/*차트 내에 뜨는 툴팁*/
   --chart-tooltip-padding: 10; /*px 기준으로 숫자만 적기*/
+  --chart-tooltip-border-width: 1;  /* 테두리 두께 (단위 px 없이 숫자만!) */		
 
   /* 차트 내에 뜨는 툴팁이 점을 기준으로 나올 방향 설정 */
   --chart-tooltip-x-align: center; /* 💡 left(오른쪽에 뜸), right(왼쪽에 뜸), center(가운데) */
@@ -60,8 +61,10 @@
 	--chart-tooltip-bg: var(--card-background-color);
 	
 	/*차트 내에 뜨는 툴팁 텍스트 색상*/	
-  --chart-tooltip-title-color:var(--text-color); /* 💡 '현명함' 같은 제목 글자 색상 */
-  --chart-tooltip-body-color:var(--wiki-tooltip-content);  /* 💡 '15' 같은 숫자나 내용 글자 색상 */	
+  --chart-tooltip-title-color:var(--text-color); /* '현명함' 같은 제목 글자 색상 */
+  --chart-tooltip-body-color:var(--wiki-tooltip-content);  /* '15' 같은 숫자나 내용 글자 색상 */	
+
+  --chart-tooltip-border-color: var(--text-color); /* 테두리 색상 (예: 반투명 흰색) */
 }
 
 [data-theme="dark"]{
