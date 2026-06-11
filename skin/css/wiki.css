@@ -29,7 +29,7 @@
   --arrow-hover:black; /*detail 닫혀있을때 화살표 hover때 색상*/
 
   --chart-text-color: var(--text-color);
-  --chart-grid-color: color-mix(var(--text-color) 80%, transparent);
+  --chart-grid-color: color-mix(in srgb, var(--text-color) 80%, transparent);
 
   --chart-color-0: #0300c9;      
   --chart-color-1: #3b62ff;   
