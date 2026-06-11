@@ -250,8 +250,8 @@ th{
 
 td:not(table.text-one-line td)
 :not(table.text-two-line td)
-:not(.index)
-:not(.profil-img){
+/*:not(.index)
+:not(.profil-img)*/{
 	border-bottom:1px solid var(--border-wiki-gray-color) !important;
 }
 
