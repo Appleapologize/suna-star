@@ -27,6 +27,17 @@
 
   --arrow-color:#666;	
   --arrow-hover:black; /*detail 닫혀있을때 화살표 hover때 색상*/
+
+  --chart-text-color: #000000;
+  --chart-grid-color: rgba(0, 0, 0, 0.1);
+
+  --chart-color-0: #ff6384;      
+  --chart-color-1: dodgerblue;   
+  --chart-color-2: #9966ff;
+
+  /* ★ 차트 투명도 변수 추가 (0에서 1 사이의 숫자로 적어주세요) */
+  --chart-bg-opacity: 0.2;     /* 안쪽 면은 은은하게 20% 투명도 */
+  --chart-border-opacity: 1;   /* 바깥 선은 선명하게 100% 불투명 */	
 }
 
 [data-theme="dark"]{
@@ -39,6 +50,18 @@
   --wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
   --arrow-color:#a4a4a4;
   --arrow-hover:#ababab; /*detail 닫혀있을때 화살표 hover때 색상*/	
+
+--chart-text-color: #ffffff;
+  --chart-grid-color: rgba(255, 255, 255, 0.15);
+
+  --chart-color-0: #ff6384;  
+  --chart-color-1: #36a2eb;  
+  --chart-color-2: #9966ff;
+
+  /* ★ 다크모드일 때 그래프의 투명도를 다르게 조절할 수도 있습니다! */
+  /* 예를 들어 어두운 화면에서 안쪽 면을 좀 더 진하게 보고 싶다면 값을 올리면 됩니다. */
+  --chart-bg-opacity: 0.35;    /* 다크모드에서는 안쪽 면을 좀 더 진한 35%로 설정 */
+  --chart-border-opacity: 0.9;  /* 선은 약간 부드러운 90%로 설정 */	
 }
 
 br.re-br{
