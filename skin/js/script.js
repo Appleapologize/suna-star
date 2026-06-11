@@ -113,11 +113,11 @@ let finalUrl = '';
     const fileName = cleanPath.split('/').pop(); 
 
     // 5. [# 자국 강제 제거] 브라우저 이동을 방해하지 않고 주소창 맨 뒤의 #만 투명하게 지워버립니다.
-    if (window.location.href.endsWith('#')) {
-        const cleanURL = window.location.href.substring(0, window.location.href.length - 1);
-        window.history.replaceState(window.history.state, '', cleanURL);
-    }
-
+ if (window.location.hash === '#' || window.location.href.endsWith('#')) {
+     // replaceState의 첫 번째 인자를 null로 주어 브라우저 데이터 충돌을 원천 차단합니다.
+     const cleanURL = window.location.href.split('#')[0];
+     window.history.replaceState(null, '', cleanURL);
+ }
 
 
 
