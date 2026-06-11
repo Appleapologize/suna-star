@@ -93,10 +93,20 @@ function loadPage(event, relativePath, addHistory = true) {
         if (typeof event.stopPropagation === 'function') event.stopPropagation();
     }
 
-    const fileName = relativePath.split('/').pop(); 
+ // 앞의 './'가 붙어있다면 제거해서 깔끔한 경로로 만듭니다.
+ let cleanPath = relativePath;
+ if (cleanPath.startsWith('./')) {
+   cleanPath = cleanPath.substring(2); // './pages/wiki/...' -> 'pages/wiki/...'
+ }
 
-    // GitHub Pages 경로 버그 방지 고정 주소
-    const finalUrl = window.location.origin + '/suna-star/pages/' + fileName;
+ // 파일명만 똑 떼지 않고, HTML 메뉴가 준 폴더 경로(예: pages/wiki/gaara-wiki.html)를 그대로 활용합니다.
+ const finalUrl = window.location.origin + '/suna-star/' + cleanPath;
+
+ // 페이지 내부 스크립트 실행 및 초기화 식별을 위한 순수 파일 이름 추출
+ const fileName = cleanPath.split('/').pop(); 
+
+
+
 
     fetch(finalUrl)
         .then(response => {
