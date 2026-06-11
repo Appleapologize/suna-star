@@ -101,7 +101,7 @@ footnoteLinks.forEach((a) => {
      // [데스크톱 위치 버그 완전 보정]
      tooltip.style.position = "absolute";
      tooltip.style.bottom = "auto";
-     tooltip.style.transform = "translateX(-50%)"; // 정중앙 매칭
+     tooltip.style.transform = "none"; // "translateX(-50%)" 정중앙 매칭
      tooltip.style.width = "max-content"; 
      tooltip.style.maxWidth = "100%"; 
 
