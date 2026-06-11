@@ -2,42 +2,52 @@
 
 :root{
   --border-wiki-line:1px solid;
-	
+
+/* ==========================================================================
+  차트 관련
+ ========================================================================== */	
   /*차트 폰트 사이즈(무조건 px 기준으로 적기)*/	
   --chart-font-size: 10px;
   --mobile-chart-font-size: 16px;
 
-  /*화살표 사이즈*/	
-  --arrow-mobile-wihei:;
+    /* 차트 투명도 변수 추가 (0에서 1 사이의 숫자 적기) */
+  --chart-bg-opacity: 0.2;     /* 채워지는 면은 20% 투명도 */
+  --chart-border-opacity: 1;   /* 차트 내부에 그려지는 선은 투명도 없음 */	
 
+/* ==========================================================================
+ 화살표(제목에 있는 화살표) 
+ ========================================================================== */	
   /*화살표 hover 때랑, detail 닫혀있을때 투명도*/
   --arrow-opacity:0.5;	
-	  
-  /*색상 변경 란*/
+	
+/* ==========================================================================
+ 색상 변경 란
+ ========================================================================== */	
+	/*---- ---- ----위키 메인 색상 지정(캐릭터 대표 색상) ---- ---- ----*/	
   --noah-color: #42f5ce; /*드림주 색상*/
-  /*--gaara-color: red;*//*저는 가아라랑 같이 사용할 생각으로 둔 거에요 이걸 주석처리를 지우면 이제 가아라 색이 나오는 거죠*/
-  --border-wiki-gray-color:#ccc;
-  --wiki-line-background-color:#eee;
-  --wiki-blacktray-color:#ddd;
+
+	/*---- ---- ----그 외의 위키 색상 지정 ---- ---- ----*/		
+  --border-wiki-gray-color:#ccc; /*위키 회색 선 색상*/
+  --wiki-line-background-color:#eee; /*대사 박스 같은 내부 내용에 들어가는 박스 배경 색상*/
   --wiki-text-white-color:#ffffff; /*흰색*/
-  --wiki-tooltip-content:#555;
-  --spoiler-text-color:#fc6603;
-
+  --wiki-tooltip-content:#555; /*말풍선 내용 색상*/
   --wiki-a-color:#0275d8;	/*링크 걸려있는 파란색 글자 색상*/
+	
+  --wiki-blacktray-color:#ddd; /*스포일러 안내 박스 테두리 색상*/
+  --spoiler-text-color:#fc6603;	
 
+	/*---- ---- ----화살표(제목에 있는 화살표) ---- ---- ----*/		
   --arrow-color:#666;	
   --arrow-hover:black; /*detail 닫혀있을때 화살표 hover때 색상*/
 
-  --chart-text-color: var(--text-color);
-  --chart-grid-color: color-mix(in srgb, var(--text-color) 60%, transparent);
+	/*---- ---- ---- 차트 색상 ---- ---- ----*/		
+  --chart-text-color: var(--text-color); /*차트 내 글자 색상*/
+  --chart-grid-color: color-mix(in srgb, var(--text-color) 60%, transparent);/*차트 내 그리드 색상*/
 
-  --chart-color-0: #0300c9;      
-  --chart-color-1: #3b62ff;   
-  --chart-color-2: #78bbff;
-
-  /* ★ 차트 투명도 변수 추가 (0에서 1 사이의 숫자로 적어주세요) */
-  --chart-bg-opacity: 0.2;     /* 안쪽 면은 은은하게 20% 투명도 */
-  --chart-border-opacity: 1;   /* 바깥 선은 선명하게 100% 불투명 */	
+  --chart-color-0: #0300c9; /* 1부 데이터 색상*/      
+  --chart-color-1: #3b62ff; /* 2부 데이터 색상*/         
+  --chart-color-2: #78bbff; /* 3부 (the Last) 데이터 색상*/      
+  --chart-color-3:#ccc; /* 보루토 데이터 색상*/
 }
 
 [data-theme="dark"]{
@@ -51,14 +61,10 @@
   --arrow-color:#a4a4a4;
   --arrow-hover:#ababab; /*detail 닫혀있을때 화살표 hover때 색상*/	
 
-  --chart-color-0: #0300c9;      
-  --chart-color-1: #3b62ff;   
-  --chart-color-2: #78bbff;
-
-  /* ★ 다크모드일 때 그래프의 투명도를 다르게 조절할 수도 있습니다! */
-  /* 예를 들어 어두운 화면에서 안쪽 면을 좀 더 진하게 보고 싶다면 값을 올리면 됩니다. */
-  --chart-bg-opacity: 0.35;    /* 다크모드에서는 안쪽 면을 좀 더 진한 35%로 설정 */
-  --chart-border-opacity: 0.9;  /* 선은 약간 부드러운 90%로 설정 */	
+  --chart-color-0: #0300c9; /* 1부 데이터 색상*/      
+  --chart-color-1: #3b62ff; /* 2부 데이터 색상*/         
+  --chart-color-2: #78bbff; /* 3부 (the Last) 데이터 색상*/      
+  --chart-color-3:#ccc; /* 보루토 데이터 색상*/
 }
 
 br.re-br{
