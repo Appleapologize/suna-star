@@ -136,100 +136,6 @@
             <aside>
                <nav>
                   <div class="navmenu">       
-                     <!-- 모바일에서는 버튼을 누르면 뜨는 메뉴-->
-                          <div id="mobile-drawer" class="mobile-drawer">   
-                            <div class="menu-all">
-                            <!-- 1. Home -->
-                              <ul>
-                                <li>
-                                  <a href="./pages/home.html" class="button" onclick="loadPage(event, './pages/home.html')">
-                                    Home
-                                  </a>
-                                </li>
-                              </ul>
-                              <!-- 2. Profile -->
-                              <ul>
-                                <li>
-                                  <a href="./pages/home.html" class="button" onclick="loadPage(event, './pages/home.html'); toggleMenu(event, 'sub-profile')">
-                                    Profile
-                                  </a>
-                                  <ul id="sub-profile" class="sub">
-                                    <li>
-                                      <a href="./pages/wiki/noah-wiki.html" class="btn-sub" onclick="loadPage(event, './pages/wiki/noah-wiki.html')">
-                                        레이
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="./pages/wiki/gaara-wiki.html" class="btn-sub" onclick="loadPage(event, './pages/wiki/gaara-wiki.html')">
-                                        공사중...
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </li>
-                              </ul>
-                              <!-- 3. 타임라인 -->
-                              <ul>
-                                <li>
-                                  <a href="./pages/timeline.html" class="button" onclick="loadPage(event, './pages/timeline.html')">
-                                    타임라인
-                                  </a>
-                                </li>
-                              </ul>
-                              <!-- 4. Exhibit. -->
-                              <ul>
-                                <li>
-                                  <a href="./pages/home.html" class="button" onclick="loadPage(event, './pages/home.html'); toggleMenu(event, 'sub-exhibit')">
-                                    Exhibit.
-                                  </a>
-                                  <ul id="sub-exhibit" class="sub">
-                                    <li>
-                                      <a href="./pages/gallery.html" class="btn-sub" onclick="loadPage(event, './pages/gallery.html')">
-                                        갤러리
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="./pages/sns.html" class="btn-sub" onclick="loadPage(event, './pages/sns.html'); toggleMenu(event, 'ssub-sns')">
-                                        SNS
-                                      </a>
-                                      <ul id="ssub-sns" class="ssub">
-                                        <li>
-                                          <a href="./pages/sns-lock.html" class="btn-sub-sub" onclick="loadPage(event, './pages/sns-lock.html')">
-                                            🔒
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="./pages/talk.html" class="btn-sub-sub" onclick="loadPage(event, './pages/talk.html')">
-                                            TALK
-                                          </a>
-                                        </li>        
-                                      </ul>
-                                    </li>
-                                    <li>
-                                      <a href="./pages/play-list.html" class="btn-sub" onclick="loadPage(event, './pages/play-list.html')">
-                                        PlayList
-                                      </a>
-                                    </li>      
-                                  </ul>
-                                </li>
-                              </ul>
-                              <!-- 5. Guest -->
-                              <ul>
-                                <li>
-                                  <a href="./pages/guest.html" class="button" onclick="loadPage(event, './pages/guest.html')">
-                                    Guest
-                                  </a>
-                                </li>
-                              </ul>
-                              <!-- 6. Banner -->
-                              <ul>
-                                <li>
-                                  <a href="./pages/links.html" class="button" onclick="loadPage(event, './pages/links.html')">
-                                    Banner
-                                  </a>
-                                </li>
-                              </ul>
-                          </div>
-                        </div> 
                   </div>
                </nav>
             </aside>
@@ -341,5 +247,29 @@ document.addEventListener("DOMContentLoaded", () => {
    
       
       <script src="./skin/js/script.js" defer></script>
+      
+    <script>
+         // 웹페이지가 로드되면 자동으로 메뉴를 불러옵니다.
+   document.addEventListener("DOMContentLoaded", function () {
+     const navMenuBox = document.querySelector(".navmenu");
+     if (!navMenuBox) return;
+   
+     // index.html과 같은 위치에 있는 menu.html 파일을 가져옵니다.
+     fetch("./menu.html")
+       .then(response => {
+         if (!response.ok) {
+           throw new Error("메뉴 파일을 불러오지 못했습니다.");
+         }
+         return response.text();
+       })
+       .then(htmlContent => {
+         // 가져온 HTML 메뉴 코드를 상자 안에 쏙 집어넣습니다.
+         navMenuBox.innerHTML = htmlContent;
+       })
+       .catch(error => {
+         console.error("메뉴 로딩 실패:", error);
+       });
+   });
+   </script>
    </body>
 </html>
