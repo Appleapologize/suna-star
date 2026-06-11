@@ -5,7 +5,6 @@
 // 💡 [최상단 마스터 키]: 메인 로더(script.js)가 페이지를 주입하자마자 이 두 시스템을 동시 가동합니다.
 window.setupMenuLinks = function() {
   initFootnoteSystem();
-  initWikiChartSystem();
 };
 
 /* ------------------------------------------------------------------------
