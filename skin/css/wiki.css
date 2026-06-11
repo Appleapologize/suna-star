@@ -14,6 +14,14 @@
   --chart-bg-opacity: 0.2;     /* 채워지는 면은 20% 투명도 */
   --chart-border-opacity: 1;   /* 차트 내부에 그려지는 선은 투명도 없음 */	
 
+	/*차트 내에 뜨는 툴팁*/
+  --chart-tooltip-bg: var(--card-background-color);
+  --chart-tooltip-padding: 10; /*px 기준으로 숫자만 적기*/
+
+  /* 차트 내에 뜨는 툴팁이 점을 기준으로 나올 방향 설정 */
+  --chart-tooltip-x-align: center; /* 💡 left(오른쪽에 뜸), right(왼쪽에 뜸), center(가운데) */
+  --chart-tooltip-y-align: bottom; /* 💡 top(밑에 뜸), bottom(위에 뜸), center(가운데) 	
+
 /* ==========================================================================
  화살표(제목에 있는 화살표) 
  ========================================================================== */	
