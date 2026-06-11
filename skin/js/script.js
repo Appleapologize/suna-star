@@ -86,11 +86,12 @@ function toggleMenu(event, targetId) {
     }
 }
 
-// 외부 HTML을 불러와서 .container에 주입하는 함수
+// 외부 HTML을 불러와서 #container에 주입하는 함수
 function loadPage(event, relativePath, addHistory = true) {
     if (event) {
         if (typeof event.preventDefault === 'function') event.preventDefault();
         if (typeof event.stopPropagation === 'function') event.stopPropagation();
+        event.returnValue = false;
     }
 
  // 앞의 './'가 붙어있다면 제거해서 깔끔한 경로로 만듭니다.
