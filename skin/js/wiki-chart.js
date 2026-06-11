@@ -88,7 +88,9 @@ function initWikiChartSystem() {
        tooltipXAlign: computedStyle.getPropertyValue('--chart-tooltip-x-align').trim() || 'center',
        tooltipYAlign: computedStyle.getPropertyValue('--chart-tooltip-y-align').trim() || 'center',
        tooltipTitleColor: computedStyle.getPropertyValue('--chart-tooltip-title-color').trim() || '#000',
-       tooltipBodyColor: computedStyle.getPropertyValue('--chart-tooltip-body-color').trim() || '#000'      
+       tooltipBodyColor: computedStyle.getPropertyValue('--chart-tooltip-body-color').trim() || '#000',
+       tooltipBorderColor: computedStyle.getPropertyValue('--chart-tooltip-border-color').trim() || 'transparent',
+       tooltipBorderWidth: parseInt(computedStyle.getPropertyValue('--chart-tooltip-border-width'), 10) || 1      
     };
   }
 
@@ -150,7 +152,9 @@ function initWikiChartSystem() {
           xAlign: settings.tooltipXAlign,
           yAlign: settings.tooltipYAlign,
           titleColor: settings.tooltipTitleColor,
-          bodyColor: settings.tooltipBodyColor
+          bodyColor: settings.tooltipBodyColor,
+          borderColor: settings.tooltipBorderColor,
+          borderWidth: settings.tooltipBorderWidth      
     },
     }
   };
