@@ -90,20 +90,11 @@ footnoteLinks.forEach((a) => {
    tooltip.style.display = "block"; // 높이를 정확히 측정하기 위해 먼저 화면에 켭니다.
    
    if (isMobile) {
-     tooltip.style.position = "fixed";
-     tooltip.style.bottom = "0px";
-     tooltip.style.left = "50%";
-     tooltip.style.transform = "translateX(-50%)";
-     tooltip.style.width = "calc(100vw - 10px)";
-     tooltip.style.maxWidth = "100vw";
-     tooltip.style.top = "auto";
-   } else {
+      
+     } else {
      // [데스크톱 위치 버그 완전 보정]
-     tooltip.style.position = "absolute";
-     tooltip.style.bottom = "auto";
-     tooltip.style.transform = "none"; // "translateX(-50%)" 정중앙 매칭
-     tooltip.style.width = "max-content"; 
-     tooltip.style.maxWidth = "700px"; 
+     tooltip.style.bottom = " ";
+     tooltip.style.transform = " "; // "translateX(-50%)" 정중앙 매칭
 
      // 각주 번호(sup) 요소의 화면상 실제 픽셀 좌표 측정
      const rect = sup.getBoundingClientRect();
@@ -113,19 +104,25 @@ footnoteLinks.forEach((a) => {
 
      // 화면 너비 및 안전 여백 변수 정의 (★ 빼놓으셨던 필수 변수 추가)
      const viewportWidth = window.innerWidth;
-     const padding = 15; // 화면 양쪽 끝 최소 여백
      const tooltipWidth = tooltip.offsetWidth; // 말풍선의 실제 가로 너비
+
+     // [데스크톱 전용] CSS 변수 두 개를 가져와서 더하기
+     const rootStyles = window.getComputedStyle(document.documentElement);
+     const containerPadding = parseFloat(rootStyles.getPropertyValue('--container-padding')) || 15;
+     const paddingInBody = parseFloat(rootStyles.getPropertyValue('--padding-in-body')) || 0;
+
+     // 데스크톱 최종 안전 여백 생성
+     const padding = containerPadding + paddingInBody;
       
      // 말풍선 기본 왼쪽 위치 계산
      let tooltipLeft = anchorCenter - (tooltipWidth / 2);      
 
        // [화면 이탈 방지 처리] 말풍선이 화면 왼쪽이나 오른쪽을 뚫고 나가면 화면 안으로 강제 고정
-     if (tooltipLeft < padding) {
-       tooltipLeft = padding; // 왼쪽 화면 이탈 방지
+      if (tooltipLeft < padding) {
+       tooltipLeft = padding; 
      } else if (tooltipLeft + tooltipWidth > viewportWidth - padding) {
-       tooltipLeft = viewportWidth - padding - tooltipWidth; // 오른쪽 화면 이탈 방지
+       tooltipLeft = viewportWidth - padding - tooltipWidth; 
      }
- 
       // 계산된 최종 가로 위치 설정
      tooltip.style.left = `${tooltipLeft}px`;
 
@@ -135,7 +132,7 @@ footnoteLinks.forEach((a) => {
      
      // 세로 위치 보정: 화면에 켜진 직후의 실제 높이를 읽어와 번호 위에 정확히 안착
      const tooltipHeight = tooltip.offsetHeight;
-     tooltip.style.top = `${absoluteTop - tooltipHeight - 21}px`;
+     tooltip.style.top = `${absoluteTop - tooltipHeight - 22}px`;
    }
  }
 
