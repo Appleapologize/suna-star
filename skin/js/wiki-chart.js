@@ -212,13 +212,14 @@ function initWikiChartSystem() {
 
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
-})(); // 즉시 실행 함수 종료
+}
 
+// ★ [수정 완료] 메인 마스터 컨트롤러(script.js)가 호출할 수 있는 전역 연결 고리
 window.setupWikiChart = function() {
   initWikiChartSystem();
 };
 
-// 만약 생 새로고침(F5) 시점에 이미 테마가 주입되어 있다면 즉시 한 번 실행합니다.
+// 새로고침 시점에 이미 다크모드가 선언되어 있다면 즉시 가동
 if (document.documentElement.getAttribute("data-theme")) {
   initWikiChartSystem();
 }
