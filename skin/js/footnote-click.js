@@ -95,7 +95,7 @@ footnoteLinks.forEach((a) => {
      tooltip.style.left = "50%";
      tooltip.style.transform = "translateX(-50%)";
      tooltip.style.width = "calc(100vw - 10px)";
-     tooltip.style.maxWidth = "100vw";
+     tooltip.style.maxWidth = "calc(100vw - 40px)";
      tooltip.style.top = "auto";
    } else {
      // [데스크톱 위치 버그 완전 보정]
