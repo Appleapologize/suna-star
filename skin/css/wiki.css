@@ -269,7 +269,6 @@ img.profile{
 	border: 2px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
 	border-collapse: collapse; 
 	text-align:center;
-	/*display:inline-block;*/
 	font-size: 14.4px; 
 	line-height: 1.5; 
 	margin-bottom: 16px;
@@ -281,6 +280,10 @@ img.profile{
 	background-color: var(--gaara-color, var(--gaara-color, var(--noah-color))); 
 	width: 164.884%;
 	border:1px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
+  }
+
+  table.profile td{
+	  border-bottom:1px solid var(--border-wiki-gray-color);
   }
   table.profile tr.profile-name td{
 	background-color: var(--gaara-color, var(--gaara-color, var(--noah-color)));
