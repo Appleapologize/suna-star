@@ -256,7 +256,8 @@ function initWikiChartSystem() {
       //말풍선 변수 업데이트
     commonOptions.plugins.tooltip.backgroundColor = updated.tooltipBg;
     commonOptions.plugins.tooltip.titleColor = updated.tooltipTitleColor;
-    commonOptions.plugins.tooltip.bodyColor = updated.tooltipBodyColor;    
+    commonOptions.plugins.tooltip.bodyColor = updated.tooltipBodyColor; 
+    commonOptions.plugins.tooltip.borderColor = updated.tooltipBorderColor;    
     
     // 2. 레이더 차트 옵션 업데이트
     radarOptions.scales.r.ticks.color = updated.textColor;
