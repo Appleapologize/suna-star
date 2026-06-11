@@ -149,9 +149,8 @@ h2 span{
 	width: 1em;
 }
 /* ==========================================
-    
+    분류표
    ========================================== */
-/*분류표*/
 h3.classification{
 	width:auto; 
 	height:auto;
@@ -174,9 +173,8 @@ div.profile{
 	display:block;
 }
 /* ==========================================
-    
+    목차 스타일
    ========================================== */
-/*목차 스타일*/
 table.index{
 	border-collapse: collapse;
 	/*display: inline-block;*/
@@ -826,6 +824,7 @@ details:not([open]) h2[class*="-title"] span{
     }
     .tooltip-number {
         font-weight: bold;
+	}
 
     button.tooltip-close {
         width: 100%;
