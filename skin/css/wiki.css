@@ -58,8 +58,8 @@
   --chart-color-3:#ccc; /* 보루토 데이터 색상*/
 
 	/*차트 내에 뜨는 툴팁 텍스트 색상*/	
-  --chart-tooltip-title-color: var(--text-color); /* 💡 '현명함' 같은 제목 글자 색상 */
-  --chart-tooltip-body-color: var(--wiki-tooltip-content);  /* 💡 '15' 같은 숫자나 내용 글자 색상 */	
+  --chart-tooltip-title-color:var(--text-color); /* 💡 '현명함' 같은 제목 글자 색상 */
+  --chart-tooltip-body-color:var(--wiki-tooltip-content);  /* 💡 '15' 같은 숫자나 내용 글자 색상 */	
 }
 
 [data-theme="dark"]{
@@ -77,6 +77,10 @@
   --chart-color-1: #3b62ff; /* 2부 데이터 색상*/         
   --chart-color-2: #78bbff; /* 3부 (the Last) 데이터 색상*/      
   --chart-color-3:#ccc; /* 보루토 데이터 색상*/
+
+	/*차트 내에 뜨는 툴팁 텍스트 색상*/	
+  --chart-tooltip-title-color:var(--text-color); /* 💡 '현명함' 같은 제목 글자 색상 */
+  --chart-tooltip-body-color:var(--wiki-tooltip-content);  /* 💡 '15' 같은 숫자나 내용 글자 색상 */		
 }
 
 br.re-br{
