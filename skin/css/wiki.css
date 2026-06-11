@@ -15,7 +15,6 @@
   --chart-border-opacity: 1;   /* 차트 내부에 그려지는 선은 투명도 없음 */	
 
 	/*차트 내에 뜨는 툴팁*/
-  --chart-tooltip-bg: var(--card-background-color);
   --chart-tooltip-padding: 10; /*px 기준으로 숫자만 적기*/
 
   /* 차트 내에 뜨는 툴팁이 점을 기준으로 나올 방향 설정 */
@@ -57,6 +56,9 @@
   --chart-color-2: #78bbff; /* 3부 (the Last) 데이터 색상*/      
   --chart-color-3:#ccc; /* 보루토 데이터 색상*/
 
+	  
+	--chart-tooltip-bg: color-mix(var(--card-background-color) 60%, #4b4b4b);
+	
 	/*차트 내에 뜨는 툴팁 텍스트 색상*/	
   --chart-tooltip-title-color:var(--text-color); /* 💡 '현명함' 같은 제목 글자 색상 */
   --chart-tooltip-body-color:var(--wiki-tooltip-content);  /* 💡 '15' 같은 숫자나 내용 글자 색상 */	
@@ -78,9 +80,6 @@
   --chart-color-2: #78bbff; /* 3부 (the Last) 데이터 색상*/      
   --chart-color-3:#ccc; /* 보루토 데이터 색상*/
 
-	/*차트 내에 뜨는 툴팁 텍스트 색상*/	
-  --chart-tooltip-title-color:var(--text-color); /* 💡 '현명함' 같은 제목 글자 색상 */
-  --chart-tooltip-body-color:var(--wiki-tooltip-content);  /* 💡 '15' 같은 숫자나 내용 글자 색상 */		
 }
 
 br.re-br{
