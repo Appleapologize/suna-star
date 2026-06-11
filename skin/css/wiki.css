@@ -628,8 +628,8 @@ button.tooltip-close:hover{
 .tooltip:after{
 	content: '';
 	position: absolute;
-	bottom: 0;
-	left: 50%;
+	bottom: -6px;
+	left: var(--arrow-left, 50%);
 	width: 0;
 	height: 0;
 	border: 20px solid transparent;
@@ -637,6 +637,7 @@ button.tooltip-close:hover{
 	border-bottom: 0;
 	margin-left: -20px;
 	margin-bottom: -20px;
+	transform: translateX(-50%);
 }
 
 .tooltip-number {
