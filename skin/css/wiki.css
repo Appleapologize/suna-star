@@ -55,10 +55,10 @@
   --chart-text-color: var(--text-color); /*차트 내 글자 색상*/
   --chart-grid-color: color-mix(in srgb, var(--text-color) 60%, transparent);/*차트 내 그리드 색상*/
 
-  --chart-color-0: #00d2ff; /* 1부 데이터 색상*/      
-  --chart-color-1: #00f5b4; /* 2부 데이터 색상*/         
-  --chart-color-2: #3b62ff; /* 3부 (the Last) 데이터 색상*/      
-  --chart-color-3: #9d4edd; /* 보루토 데이터 색상*/
+  --chart-color-0: #00e5ff; /* 1부 데이터 색상*/      
+  --chart-color-1: #ffea00; /* 2부 데이터 색상*/         
+  --chart-color-2: #00b0ff; /* 3부 (the Last) 데이터 색상*/      
+  --chart-color-3: #ffaa00; /* 보루토 데이터 색상*/
 
 	  
 	--chart-tooltip-bg: var(--card-background-color);
