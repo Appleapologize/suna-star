@@ -124,7 +124,7 @@ td{
 }
 
 .omission{
-	text-align:center;
+	text-align:center !important;
 }
 
 .omission::before,
@@ -133,7 +133,7 @@ td{
   flex-grow: 1;           /* 선이 양옆의 남은 공간을 꽉 채우도록 설정 */
   background-color: color-mix(var(--text-color) 60%, transparent); /* 선의 색상 (원하는 색으로 변경 가능) */
   height: 1px;            /* 선의 두께 */
-  margin: 0 15px;         /* (중략) 글자와 선 사이의 여백 */
+  margin: 0 5px;         /* (중략) 글자와 선 사이의 여백 */
 }
 
 
