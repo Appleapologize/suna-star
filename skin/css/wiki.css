@@ -579,6 +579,10 @@ table[class*="text-"][class$="-line"]{
 	max-width:100%;
 }
 
+table[class*="text-"][class$="-line"] tr {
+	height: auto;
+}
+
 table[class*="text-"][class$="-line"] tr td {
     width: var(--width-100);
     border: 2px dashed var(--border-wiki-gray-color); 
