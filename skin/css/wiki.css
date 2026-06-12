@@ -2,6 +2,8 @@
 
 :root{
   --border-wiki-line:1px solid;
+  --flag-min-width:60px;
+  --flag-gap:5px;
 
 /* ==========================================================================
   차트 관련
@@ -338,6 +340,7 @@ td.country figure img{
 .profile-2 td{
 	border-bottom: none !important;
 	text-align:left;
+	padding: var(--flag-gap);
 }
 
 th.voice{
@@ -345,8 +348,13 @@ th.voice{
 }
 
 .flag-img img {
-    min-width: 60px;
+    min-width: var(--flag-min-width);
     vertical-align: middle;
+}
+
+.flag-img img[src*="US"] {
+  aspect-ratio: 3 / 2; /* 가로 세로 비율을 3:2로 강제 고정 */
+  object-fit: fill;
 }
 
 /*프로필 이미지*/
