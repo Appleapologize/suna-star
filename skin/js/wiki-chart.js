@@ -143,6 +143,17 @@ function initWikiChartSystem() {
     }),
   };
 
+  const customMarginPlugin = {
+  id: 'customMargin',
+  beforeInit(chart, args, options) {
+    const fitValue = chart.legend.fit;
+    chart.legend.fit = function fit() {
+      fitValue.bind(chart.legend)();
+      this.height += options.bottom || 0; // 설정한 값만큼 범례 높이를 강제로 늘림
+    };
+  }
+};
+  
   // 4. 차트 공통 옵션 설정
   const commonOptions = {
     responsive: true, 
@@ -153,19 +164,19 @@ function initWikiChartSystem() {
     plugins: {
       legend: {
         position: "top",
-        
-        // 범례 영역 전체와 아래 차트 그래프 사이의 마진(간격)
-        title: {
-          display: true,
-          padding: 15 // 📏 숫자가 커질수록 범례와 차트 사이가 더 넓어집니다. (기본 10~15 추천)
-        },
         labels: {
           color: settings.textColor, 
           boxWidth: 12,
           padding: 5,
-          font: { size: chartFontSize },
+          font: { 
+            size: chartFontSize,
+            lineHeight: 1.5 
+          },
           usePointStyle: true, //나중에 범례 모양을 기본으로 바꾸고 싶다면 false로 바꾸면 됨. 참고로 기본은 내부가 불투명한 사각형
         },
+      },
+    customMargin: {
+        bottom: 15 // 📏 이 숫자를 키우면 차트가 더 밑으로 내려갑니다!
       },
     tooltip: {
           backgroundColor: settings.tooltipBg,      
@@ -184,10 +195,13 @@ function initWikiChartSystem() {
     }
   };
 
+
   // 5. Radar Chart 옵션
   const radarOptions = {
     ...commonOptions, 
     maintainAspectRatio: true, 
+    maintainAspectRatio: true, 
+    plugins: [...commonOptions.plugins],
     scales: {
       r: {
         beginAtZero: true, 
@@ -216,6 +230,7 @@ function initWikiChartSystem() {
   const barOptions = {
     ...commonOptions, 
     maintainAspectRatio: false, 
+    plugins: [...commonOptions.plugins], 
     scales: {
       x: {
         ticks: { 
