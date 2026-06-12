@@ -318,7 +318,7 @@ tr.profile-name td span.ruby{
 
 td.country{
 	border-right:1px solid var(--border-wiki-gray-color);
-	border-bottom: none !important;
+	/*border-bottom: none !important;*/
 	width:10%;
 }
 
