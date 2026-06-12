@@ -8,7 +8,7 @@
  ========================================================================== */	
   /*차트 폰트 사이즈(무조건 px 기준으로 적기)*/	
   --chart-font-size: 10px;
-  --mobile-chart-font-size: 16px;
+  --mobile-chart-font-size: 12px;
 	
   --chart-point-style: rectRot; /* 레이더 차트의 점 모양 지정 (star, triangle, rect, circle, rectRot 등으로 적기) */
   --chart-point-size: 5; /*px 사이즈 기준*/
