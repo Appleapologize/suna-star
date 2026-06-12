@@ -168,11 +168,10 @@ function initWikiChartSystem() {
           color: settings.textColor, 
           boxWidth: 12,
           // 모바일(1024 미만)일 때는 padding 을 25px로, 데스크톱은 원래대로 5px를 줍니다.
-          padding: window.innerWidth < 1024 ? 25 : 5,
+          padding: window.innerWidth < 1024 ? 30 : 5,
           font: { 
             size: chartFontSize,
-            // 모바일(1024 미만)일 때는 위아래 줄 간격을 2.2배로 넓게 벌리고, 데스크톱은 원래대로 1.5배를 줍니다.
-            lineHeight: window.innerWidth < 1024 ? 2.2 : 1.5 
+            lineHeight: 1.5 
           },
           usePointStyle: true, //나중에 범례 모양을 기본으로 바꾸고 싶다면 false로 바꾸면 됨. 참고로 기본은 내부가 불투명한 사각형
         },
