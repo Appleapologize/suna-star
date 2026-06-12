@@ -262,7 +262,7 @@ img.profile{
 
  /*프로필 상단 이름 란 1번*/
   table.profile{
-	border: 2px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
+	border: 3px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
 	border-collapse: collapse; 
 	text-align:center;
 	font-size: 14.4px; 
