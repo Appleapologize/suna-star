@@ -201,7 +201,7 @@ function initWikiChartSystem() {
     ...commonOptions, 
     maintainAspectRatio: true, 
     maintainAspectRatio: true, 
-    plugins: [...commonOptions.plugins],
+    plugins: ...commonOptions.plugins,
     scales: {
       r: {
         beginAtZero: true, 
@@ -230,7 +230,7 @@ function initWikiChartSystem() {
   const barOptions = {
     ...commonOptions, 
     maintainAspectRatio: false, 
-    plugins: [...commonOptions.plugins], 
+    plugins: ...commonOptions.plugins, 
     scales: {
       x: {
         ticks: { 
@@ -258,12 +258,22 @@ function initWikiChartSystem() {
     if (radarCanvas) {
       const oldRadar = Chart.getChart(radarCanvas);
       if (oldRadar) oldRadar.destroy();
-      new Chart(radarCanvas.getContext("2d"), { type: "radar", data: data, options: radarOptions });
+      new Chart(radarCanvas.getContext("2d"), { 
+        type: "radar", 
+        data: data, 
+        options: radarOptions,
+        plugins: [customMarginPlugin]
+      });
     }
     if (barCanvas) {
       const oldBar = Chart.getChart(barCanvas);
       if (oldBar) oldBar.destroy();
-      new Chart(barCanvas.getContext("2d"), { type: "bar", data: data, options: barOptions });
+      new Chart(barCanvas.getContext("2d"), { 
+        type: "bar",
+        data: data, 
+        options: barOptions,
+        plugins: [customMarginPlugin]
+      });
     }
   }
 
