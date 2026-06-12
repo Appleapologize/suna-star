@@ -152,7 +152,13 @@ function initWikiChartSystem() {
     },
     plugins: {
       legend: {
-        position: "top", 
+        position: "top",
+        
+        // 범례 영역 전체와 아래 차트 그래프 사이의 마진(간격)
+        title: {
+          display: true,
+          padding: 10 // 📏 숫자가 커질수록 범례와 차트 사이가 더 넓어집니다. (기본 10~15 추천)
+        },
         labels: {
           color: settings.textColor, 
           boxWidth: 12,
