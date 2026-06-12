@@ -338,7 +338,7 @@ td.country figure img{
 }
 
 .profile-2 td{
-	border-bottom: none !important;
+	/*border-bottom: none !important;*/
 	text-align:left;
 	padding: calc(var(--flag-gap) / 2) var(--flag-gap);
 }
