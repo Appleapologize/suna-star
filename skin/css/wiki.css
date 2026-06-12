@@ -590,6 +590,11 @@ table[class*="text-"][class$="-line"] tr td {
     text-align: start;
 }
 
+/*대사 2줄짜리*/
+table.text-two-line{
+	word-break: keep-all;
+}
+
 /*대사와 발췌 사이를 가르는 선*/
 table.text-two-line td hr{
 	border: 0; 
