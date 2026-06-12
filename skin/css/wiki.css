@@ -3,7 +3,7 @@
 :root{
   --border-wiki-line:1px solid;
   --flag-min-width:60px;
-  --flag-gap:5px;
+  --flag-gap:8px;
 
 /* ==========================================================================
   차트 관련
@@ -340,7 +340,7 @@ td.country figure img{
 .profile-2 td{
 	border-bottom: none !important;
 	text-align:left;
-	padding: var(--flag-gap);
+	padding: calc(var(--flag-gap) / 2) var(--flag-gap);
 }
 
 th.voice{
