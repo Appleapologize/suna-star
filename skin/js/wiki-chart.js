@@ -161,6 +161,14 @@ function initWikiChartSystem() {
       duration: 2000, 
       easing: "easeInOutBounce", 
     },
+    interaction: {
+      intersect: true // 꼭짓점(데이터 포인트)에 정확히 닿았을 때만 반응
+    },
+    onHover: (event, chartElement) => {
+      const target = event.native.target;
+      // 데이터 포인트 위에 있으면 수집한 CSS 변수 커서 적용, 벗어나면 기본값(default)
+      target.style.cursor = chartElement.length ? settings.overCursor : 'default';
+    },
     plugins: {
       legend: {
         position: "top",
