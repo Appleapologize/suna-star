@@ -577,10 +577,7 @@ table[class*="text-"][class$="-line"]{
 	border-collapse: collapse; 	
 	margin: 1em 0;	
 	max-width:100%;
-}
-
-table[class*="text-"][class$="-line"] tr {
-	height: auto;
+	word-break:normal;
 }
 
 table[class*="text-"][class$="-line"] tr td {
@@ -593,17 +590,7 @@ table[class*="text-"][class$="-line"] tr td {
     text-align: start;
 }
 
-/*대사 1줄*/
-table.text-one-line{
-	word-break:keep-all;
-}
-
-/*대사 2줄*/
-
-table.text-two-line tr{
-	word-break:normal;
-} 
-
+/*대사와 발췌 사이를 가르는 선*/
 table.text-two-line td hr{
 	border: 0; 
 	border-top: 0.0625rem solid var(--border-wiki-gray-color); 
