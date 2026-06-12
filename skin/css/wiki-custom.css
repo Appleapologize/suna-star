@@ -3,7 +3,7 @@
   /*색상 변경 란*/
   --gaara-color: red;
 
-  --chart-color-0: #8c0202 !important; /* 1부 데이터 색상*/      
+  --chart-color-0: #8c0202; /* 1부 데이터 색상*/      
   --chart-color-1: #cc4549; /* 2부 데이터 색상*/         
   --chart-color-2: #ff7f90; /* 3부 (the Last) 데이터 색상*/      
   --chart-color-3: #ffbcdc; /* 보루토 데이터 색상*/
