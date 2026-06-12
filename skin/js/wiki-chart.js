@@ -162,7 +162,9 @@ function initWikiChartSystem() {
       easing: "easeInOutBounce", 
     },
     interaction: {
-      intersect: true // 꼭짓점(데이터 포인트)에 정확히 닿았을 때만 반응
+      mode: 'nearest',
+      intersect: false,
+      axis: 'xy'
     },
     onHover: (event, chartElement) => {
       const target = event.native.target;
