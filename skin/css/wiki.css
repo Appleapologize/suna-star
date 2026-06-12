@@ -374,7 +374,7 @@ table.profile tr td.profil-img figure.profile-img{
    ========================================== */
 #mission{
 	border-collapse: collapse;
-	border:2px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
+	border:3px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
 }
 #mission th{
 	width:17%;
