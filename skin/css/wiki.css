@@ -5,6 +5,8 @@
   --flag-min-width:60px;
   --flag-gap:8px;
 
+  --table-outline-width:3px; /*캐릭터 색이 들어간 테이블 테두리 두께, 3px 이상 적을것*/
+
 /* ==========================================================================
   차트 관련
  ========================================================================== */	
@@ -262,7 +264,7 @@ img.profile{
 
  /*프로필 상단 이름 란 1번*/
   table.profile{
-	border: 3px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
+	border: var(--table-outline-width) solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
 	border-collapse: collapse; 
 	text-align:center;
 	font-size: 14.4px; 
@@ -374,7 +376,7 @@ table.profile tr td.profil-img figure.profile-img{
    ========================================== */
 #mission{
 	border-collapse: collapse;
-	border:3px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
+	border:var(--table-outline-width) solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
 }
 #mission th{
 	width:17%;
@@ -393,7 +395,7 @@ table.profile tr td.profil-img figure.profile-img{
    ========================================== */
 #parameters{
 	border-collapse: collapse;
-	border:2px solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
+	border:var(--table-outline-width) solid var(--gaara-color, var(--gaara-color, var(--noah-color)));
 	margin-bottom:10px;
 	width:var(--width-100);
 }
@@ -732,7 +734,7 @@ div.footnote .text1 {
     width: 100%; 
     margin: 0 0 20px 0;
     text-align: start;
-    border: 3px solid var(--gaara-color, var(--noah-color));
+    border: var(--table-outline-width) solid var(--gaara-color, var(--noah-color));
     height: auto !important; /* 고정 387px 강제 해제 */
 }
 
