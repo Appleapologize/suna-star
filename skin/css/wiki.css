@@ -330,7 +330,6 @@ td.country figure{
 }
 
 td.country figure img{
-	width:10%;
 	padding:0;
 	margin:0; 
 	border:1px solid var(--border-wiki-gray-color);
@@ -343,6 +342,11 @@ td.country figure img{
 
 th.voice{
 	border:none;
+}
+
+.flag-img img {
+    min-width: 60px;
+    vertical-align: middle;
 }
 
 /*프로필 이미지*/
