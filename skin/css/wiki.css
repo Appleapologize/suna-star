@@ -80,12 +80,6 @@
   --wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
   --arrow-color:#a4a4a4;
   --arrow-hover:#ababab; /*detail 닫혀있을때 화살표 hover때 색상*/	
-
-  --chart-color-0: #0300c9; /* 1부 데이터 색상*/      
-  --chart-color-1: #3b62ff; /* 2부 데이터 색상*/         
-  --chart-color-2: #78bbff; /* 3부 (the Last) 데이터 색상*/      
-  --chart-color-3:#ccc; /* 보루토 데이터 색상*/
-
 }
 
 br.re-br{
