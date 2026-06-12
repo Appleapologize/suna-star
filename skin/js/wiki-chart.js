@@ -114,10 +114,11 @@ function initWikiChartSystem() {
       const defaultColors = ["255, 99, 132", "54, 162, 235", "153, 102, 255"];
       const rawColor = rootStyles.getPropertyValue(`--chart-color-${index}`).trim();
       const rgbColor = convertToRgbString(rawColor) || (defaultColors[index] || "128, 128, 128");
-
-      // 데이터를 미리 가져와서 변수에 저장합니다.
-      const parsedData = dataset.getAttribute("data-values").split(",").map(Number);
- 
+      // CSS에서 점 모양과 크기 변수를 실시간으로 읽어옵니다.
+      const cssPointStyle = rootStyles.getPropertyValue('--chart-point-style').trim() || 'circle';
+      const cssPointSize = parseInt(rootStyles.getPropertyValue('--chart-point-size'), 10) || 4;  
+       // 문자열 데이터를 숫자 배열로 변환
+      const parsedData = dataset.getAttribute("data-values").split(",").map(Number); 
       // 모든 값이 0이거나 비어있는지 검사합니다.
       const isAllZeroOrEmpty = parsedData.every(val => val === 0 || isNaN(val));
       
@@ -127,7 +128,10 @@ function initWikiChartSystem() {
         backgroundColor: `rgba(${rgbColor}, ${settings.bgOpacity})`,
         borderColor: `rgba(${rgbColor}, ${settings.borderOpacity})`,
         borderWidth: 2, 
-        hidden: isAllZeroOrEmpty
+        hidden: isAllZeroOrEmpty,
+        pointStyle: cssPointStyle, // 별 모양 등으로 변경
+        radius: cssPointSize,      // 평소 점 크기
+        hoverRadius: cssPointSize + 2 // 마우스 올렸을 때 점 크기
       };
     }),
   };
@@ -146,7 +150,8 @@ function initWikiChartSystem() {
           color: settings.textColor, 
           boxWidth: 12,
           padding: 10,
-          font: { size: chartFontSize } 
+          font: { size: chartFontSize },
+          usePointStyle: true, //나중에 범례 모양을 기본으로 바꾸고 싶다면 false로 바꾸면 됨. 참고로 기본은 내부가 불투명한 사각형
         },
       },
     tooltip: {
