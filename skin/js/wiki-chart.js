@@ -167,7 +167,7 @@ function initWikiChartSystem() {
         labels: {
           color: settings.textColor, 
           boxWidth: 12,
-          padding: 5,
+          padding: window.innerWidth < 1024 ? 25 : 5,
           font: { 
             size: chartFontSize,
             lineHeight: 1.5 
