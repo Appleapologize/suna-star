@@ -127,6 +127,7 @@ function initWikiChartSystem() {
         data: parsedData, 
         backgroundColor: `rgba(${rgbColor}, ${settings.bgOpacity})`,
         borderColor: `rgba(${rgbColor}, ${settings.borderOpacity})`,
+        pointBackgroundColor:`rgba(${rgbColor}, ${settings.borderOpacity})`,
         borderWidth: 2, 
         hidden: isAllZeroOrEmpty,
         pointStyle: cssPointStyle, // 별 모양 등으로 변경
