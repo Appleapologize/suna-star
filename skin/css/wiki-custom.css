@@ -8,3 +8,7 @@
   --chart-color-2: #ff7f90; /* 3부 (the Last) 데이터 색상*/      
   --chart-color-3: #ffbcdc; /* 보루토 데이터 색상*/
 }
+
+[data-theme="dark"]{
+  
+}
