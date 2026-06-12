@@ -122,6 +122,21 @@ td{
 	font-size: 15px;
 	line-height: 1.5;
 }
+
+.omission{
+	text-align:center;
+}
+
+.omission::before,
+.omission::after {
+  content: "";            /* 빈 공간 생성 */
+  flex-grow: 1;           /* 선이 양옆의 남은 공간을 꽉 채우도록 설정 */
+  background-color: color-mix(var(--text-color) 60%, transparent); /* 선의 색상 (원하는 색으로 변경 가능) */
+  height: 1px;            /* 선의 두께 */
+  margin: 0 15px;         /* (중략) 글자와 선 사이의 여백 */
+}
+
+
 a.index{
 	color:var(--wiki-a-color);
 	text-decoration: none;
