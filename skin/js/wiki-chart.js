@@ -167,7 +167,7 @@ function initWikiChartSystem() {
     onHover: (event, chartElement) => {
       const target = event.native.target;
       // 데이터 포인트 위에 있으면 수집한 CSS 변수 커서 적용, 벗어나면 기본값(default)
-      target.style.cursor = chartElement.length ? settings.overCursor : 'default';
+      target.style.cursor = chartElement.length ? 'pointer' : 'default';
     },
     plugins: {
       legend: {
