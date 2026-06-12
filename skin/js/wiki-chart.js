@@ -201,7 +201,9 @@ function initWikiChartSystem() {
     ...commonOptions, 
     maintainAspectRatio: true, 
     maintainAspectRatio: true, 
-    plugins: ...commonOptions.plugins,
+    plugins: {
+      ...commonOptions.plugins
+        },
     scales: {
       r: {
         beginAtZero: true, 
