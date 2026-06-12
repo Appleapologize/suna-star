@@ -9,6 +9,9 @@
   /*차트 폰트 사이즈(무조건 px 기준으로 적기)*/	
   --chart-font-size: 10px;
   --mobile-chart-font-size: 16px;
+	
+  --chart-point-style: star; /* 레이더 차트의 점 모양 지정 (star, triangle, rect, circle 등으로 적기) */
+  --chart-point-size: 5; /*px 사이즈 기준*/
 
     /* 차트 투명도 변수 추가 (0에서 1 사이의 숫자 적기) */
   --chart-bg-opacity: 0.2;     /* 채워지는 면은 20% 투명도 */
