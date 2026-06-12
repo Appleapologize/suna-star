@@ -115,12 +115,19 @@ function initWikiChartSystem() {
       const rawColor = rootStyles.getPropertyValue(`--chart-color-${index}`).trim();
       const rgbColor = convertToRgbString(rawColor) || (defaultColors[index] || "128, 128, 128");
 
+      // 데이터를 미리 가져와서 변수에 저장합니다.
+      const parsedData = dataset.getAttribute("data-values").split(",").map(Number);
+ 
+      // 모든 값이 0이거나 비어있는지 검사합니다.
+      const isAllZeroOrEmpty = parsedData.every(val => val === 0 || isNaN(val));
+      
       return {
         label: dataset.getAttribute("data-label"), 
-        data: dataset.getAttribute("data-values").split(",").map(Number), 
+        data: parsedData, 
         backgroundColor: `rgba(${rgbColor}, ${settings.bgOpacity})`,
         borderColor: `rgba(${rgbColor}, ${settings.borderOpacity})`,
         borderWidth: 2, 
+        hidden: isAllZeroOrEmpty
       };
     }),
   };
