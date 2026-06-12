@@ -121,9 +121,15 @@ function initWikiChartSystem() {
       const parsedData = dataset.getAttribute("data-values").split(",").map(Number); 
       // 모든 값이 0이거나 비어있는지 검사합니다.
       const isAllZeroOrEmpty = parsedData.every(val => val === 0 || isNaN(val));
+
+      // '열린 괄호(' 기호를 기준으로 data-label의 글자를 쪼갭니다.
+      const rawLabel = dataset.getAttribute("data-label") || "";
+      const splitLabel = rawLabel.includes("(") 
+        ? [rawLabel.split("(")[0].trim(), "(" + rawLabel.split("(")[1]] 
+        : rawLabel;
       
       return {
-        label: dataset.getAttribute("data-label"), 
+        label: splitLabel, 
         data: parsedData, 
         backgroundColor: `rgba(${rgbColor}, ${settings.bgOpacity})`,
         borderColor: `rgba(${rgbColor}, ${settings.borderOpacity})`,
