@@ -2,10 +2,12 @@
 
 :root{
   --border-wiki-line:1px solid;
+  --border-table-text-left:6px; /*대사 발췌란 왼쪽 테두리 두께*/	
+  --table-outline-width:3px; /*대사 발췌란 외의 캐릭터 색이 들어간 테이블 테두리 두께, 
+								3px 이상 적을것*/	
+	
   --flag-min-width:60px;
   --flag-gap:8px;
-
-  --table-outline-width:3px; /*캐릭터 색이 들어간 테이블 테두리 두께, 3px 이상 적을것*/
 
 /* ==========================================================================
   차트 관련
@@ -583,7 +585,9 @@ table[class*="text-"][class$="-line"]{
 table[class*="text-"][class$="-line"] tr td {
     width: var(--width-100);
     border: 2px dashed var(--border-wiki-gray-color); 
-    border-left: 5px solid var(--gaara-color, var(--noah-color)); /* 중복되던 var 변수 1개 정리 */
+    border-left: 
+		var(--border-table-text-left)
+		solid var(--gaara-color, var(--noah-color)); /* 중복되던 var 변수 1개 정리 */
     background: var(--wiki-line-background-color); 
     padding: 1em; 
     line-height: 1.5;
