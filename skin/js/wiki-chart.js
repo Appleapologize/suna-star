@@ -156,7 +156,7 @@ function initWikiChartSystem() {
         labels: {
           color: settings.textColor, 
           boxWidth: 12,
-          padding: 10,
+          padding: 5,
           font: { size: chartFontSize },
           usePointStyle: true, //나중에 범례 모양을 기본으로 바꾸고 싶다면 false로 바꾸면 됨. 참고로 기본은 내부가 불투명한 사각형
         },
