@@ -289,9 +289,27 @@ function initWikiChartSystem() {
     const currentIsMobile = window.innerWidth < 1024;
     const nextFontSize = currentIsMobile ? mobileFontSize : desktopFontSize;
 
-    if (Chart.defaults.font.size !== nextFontSize) {
-      Chart.defaults.font.size = nextFontSize;
+    if (chartFontSize !== nextFontSize) {
+      
+      // 1️⃣ [수정] 위의 5번 Radar Chart 옵션 세팅 구역에 적어둔 '눈금 크기 수식 규칙'을 그대로 실시간 복사해 옵니다.
+      // 이렇게 적으면 위에 4를 적었든 2를 적었든 자바스크립트가 알아서 그 비율을 고스란히 복제합니다.
+      const currentRadarTickSize = radarOptions.scales.r.ticks.font ? radarOptions.scales.r.ticks.font.size : (chartFontSize - 4);
+      const tickDiff = chartFontSize - currentRadarTickSize;
+      
+      chartFontSize = nextFontSize; // 실시간 폰트 크기 변수 동기화
+
+      // 범례 및 툴팁 글자 크기 자동 연동
+      commonOptions.plugins.legend.labels.font.size = nextFontSize;
+      commonOptions.plugins.tooltip.titleFont.size = nextFontSize;
+      commonOptions.plugins.tooltip.bodyFont.size = nextFontSize;
+
+      // 레이더 차트 글자 크기 자동 연동 (중복 한 줄 완전히 삭제됨)
       radarOptions.scales.r.pointLabels.font.size = nextFontSize;
+      if (radarOptions.scales.r.ticks.font) {
+        // 위에서 추출한 비율(tickDiff)만큼 알아서 빼서 완벽하게 매핑합니다.
+        radarOptions.scales.r.ticks.font.size = nextFontSize - tickDiff;  
+      }
+      
       if(barOptions.scales.x.ticks.font) barOptions.scales.x.ticks.font.size = nextFontSize;
       if(barOptions.scales.y.ticks.font) barOptions.scales.y.ticks.font.size = nextFontSize;
       
