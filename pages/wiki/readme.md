@@ -103,6 +103,14 @@
               <span>내용<br>(이름으로 친다면 여기에 일본어)</span>
             </td>
           </tr>
+          <tr>
+            <th class="table-title">
+              <span>내용</span>
+            </th>
+            <td colspan='2' colspan='2'>
+              <span>내용</span>
+            </td>
+          </tr>
           <tr class="profile-2">
             <th class="voice">
               <span>성우</span>
