@@ -124,6 +124,8 @@ td{
 }
 
 .omission{
+	display: flex;         /* 양옆 선과 텍스트를 한 줄로 배치 */
+	align-items: center;	
 	text-align:center !important;
 }
 
