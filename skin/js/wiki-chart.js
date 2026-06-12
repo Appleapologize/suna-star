@@ -232,7 +232,9 @@ function initWikiChartSystem() {
   const barOptions = {
     ...commonOptions, 
     maintainAspectRatio: false, 
-    plugins: ...commonOptions.plugins, 
+    plugins: {
+      ...commonOptions.plugins
+    }, 
     scales: {
       x: {
         ticks: { 
