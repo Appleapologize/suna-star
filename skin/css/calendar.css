@@ -32,7 +32,7 @@
   opacity: 0.7;
 }
 
-.month-this.today {
+.month-this .today {
   background-repeat: no-repeat;
   background-position: center;
   font-weight: bold;
