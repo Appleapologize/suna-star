@@ -175,13 +175,13 @@ function getList(date = '', day = true, form = 'month') {
         </div>`;
     datesHtml = datesHtml + 
       `<div class="month-date week">
-      <div class="month-date month-title">일</div>
-      <div class="month-date month-title">월</div>
-      <div class="month-date month-title">화</div>
-      <div class="month-date month-title">수</div>
-      <div class="month-date month-title">목</div>
-      <div class="month-date month-title">금</div>
-      <div class="month-date month-title">토</div>
+        <div class="month-date month-title">일</div>
+        <div class="month-date month-title">월</div>
+        <div class="month-date month-title">화</div>
+        <div class="month-date month-title">수</div>
+        <div class="month-date month-title">목</div>
+        <div class="month-date month-title">금</div>
+        <div class="month-date month-title">토</div>
       </div>`;
     datesHtml = datesHtml + dates.join('');
 
