@@ -84,10 +84,6 @@
   color: var(--sunday-color) !important;
 }
 
-.calendar-mobile-desc { 
-  display: none; 
-} /* 평소(데스크톱)에는 모바일 가이드 창 숨김 */
-
 .anniversary .day-num{
   text-shadow: 
     calc(-1 * var(--day-num-border)) 0px var(--card-background-color), 
@@ -195,6 +191,11 @@
   position: relative; 
   /* z-index를 쓰지 않고 HTML 배치 순서와 포지션 관계로만 무조건 앞으로 띄웁니다 */
 }
+
+
+.calendar-mobile-desc { 
+  display: none; 
+} /* 평소(데스크톱)에는 모바일 가이드 창 숨김 */
 
 /* =======================================================
    모바일 및 태블릿 화면
