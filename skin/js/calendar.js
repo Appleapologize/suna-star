@@ -2,18 +2,20 @@
 // 'YYYY-MM-DD': { text: '말풍선 문구', type: 'css클래스명' }
 const FIXED_ANNIVERSARIES = [
   { name: "신정", month: 1, day: 1, holiday: true, important: false },
-  { name: "가아라님 생일", month: 1, day: 19 , holiday: false, important: true },
+  { name: "가아라님 생일", month: 1, day: 19 , holiday: false, important: true, isBirthday: true }, // [추가]
   { name: "개천절", month: 3, day: 1, holiday: true, important: false },
-  { name: "레이님 생일", month: 3, day: 20 , holiday: false, important: true },
+  { name: "레이님 생일", month: 3, day: 20 , holiday: false, important: true, isBirthday: true }, // [추가]
   { name: "어린이날", month: 5, day: 5, holiday: true, important: false },
-  { name: "칸쿠로님 생일", month: 5, day: 15 , holiday: false, important: true },
-  { name: "바키님 생일", month: 7, day: 4 , holiday: false, important: true },
-  { name: "테마리님 생일", month: 8, day: 23 , holiday: false, important: true },
-  { name: "시카마루님 생일", month: 9, day: 22 , holiday: false, important: true },  
-  { name: "나루토님 생일", month: 10, day: 10 , holiday: false, important: true },    
-  { name: "4차 닌계대전 폐전(전쟁이 끝남)", month: 10, day: 10 , holiday: false, important: true },    
+  { name: "칸쿠로님 생일", month: 5, day: 15 , holiday: false, important: true, isBirthday: true }, // [추가]
+  { name: "바키님 생일", month: 7, day: 4 , holiday: false, important: true, isBirthday: true }, // [추가]
+  { name: "테마리님 생일", month: 8, day: 23 , holiday: false, important: true, isBirthday: true }, // [추가]
+  { name: "시카마루님 생일", month: 9, day: 22 , holiday: false, important: true, isBirthday: true }, // [추가] 
+  { name: "나루토님 생일", month: 10, day: 10 , holiday: false, important: true, isBirthday: true }, // [추가]   
+  // 💡 중요하지만 생일이 아니므로 isBirthday: false를 줍니다.
+  { name: "4차 닌계대전 폐전(전쟁이 끝남)", month: 10, day: 10 , holiday: false, important: true, isBirthday: false }, // [추가]   
   { name: "크리스마스", month: 12, day: 25, holiday: true, important: false }
 ];
+
 
 // 2020년 12월 24일부터 
 const START_YEAR = 2020;
@@ -110,12 +112,15 @@ function getList(date = '', day = true, form = 'month') {
         var isDdayEvent = false;
 
         // [A] 매년 반복 기념일 검사
+        var isBirthdayEvent = false; // 생일인지 판단
+
         FIXED_ANNIVERSARIES.forEach(anni => {
-        if (anni.month === Number(month_text) && anni.day === x) {
-        nameList.push(anni.name);
-        if (anni.holiday) isHoliday = true;
-        if (anni.important) isImportant = true;
-    }
+          if (anni.month === Number(month_text) && anni.day === x) {
+            nameList.push(anni.name);
+            if (anni.holiday) isHoliday = true;
+            if (anni.important) isImportant = true;
+            if (anni.isBirthday) isBirthdayEvent = true; // 생일일 때만 true가 됨
+          }
   });
 
   // [B] 디데이 100일 단위 기념일 검사 (시/분/초 초기화)
@@ -139,7 +144,7 @@ function getList(date = '', day = true, form = 'month') {
   if (nameList.length > 0) {
     var anniType = 'anni-circle'; // 기본 마커: 동그라미
     if (isHoliday) anniType = 'anni-holiday';  // 공휴일 전용 클래스
-    if (isImportant) anniType = 'anni-star';   // 중요 생일: 별모양 클래스
+     if (isImportant && isBirthdayEvent) anniType = 'anni-star';   // 중요 생일: 별모양 클래스
     if (isDdayEvent) anniType = 'anni-heart';  // 100일 디데이: 하트 클래스
 
     anniClass = ' anniversary ' + anniType;
