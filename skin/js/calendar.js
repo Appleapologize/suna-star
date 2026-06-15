@@ -166,10 +166,14 @@ function getList(date = '', day = true, form = 'month') {
      }
 
   // HTML 태그 조립 (기존 구조 유지)
-  dates[i] = `<div class="month-date ${condition}${selected}${istoday}${weekendClass}${anniClass}" id="day_${date_text}"${tooltipAttr}${mobileClickAttr}>
-                <span class="day-num">${x}</span>
-                <span class="anni-marker"></span>
-              </div>`;
+dates[i] = `<div class="month-date ${condition}${selected}${istoday}${weekendClass}${anniClass}" id="day_${date_text}"${tooltipAttr}${mobileClickAttr}>
+              <span class="day-num">${x}</span>
+              <span class="marker-container">
+                <span class="anni-marker marker-star"></span>
+                <span class="anni-marker marker-heart"></span>
+                <span class="anni-marker marker-circle"></span>
+              </span>
+            </div>`;
 }
 
     })
