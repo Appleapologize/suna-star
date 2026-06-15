@@ -142,16 +142,28 @@ function getList(date = '', day = true, form = 'month') {
   var mobileClickAttr = '';
   
   if (nameList.length > 0) {
-    var anniType = 'anni-circle'; // 기본 마커: 동그라미
-    if (isHoliday) anniType = 'anni-holiday';  // 공휴일 전용 클래스
-     if (isImportant && isBirthdayEvent) anniType = 'anni-star';   // 중요 생일: 별모양 클래스
-    if (isDdayEvent) anniType = 'anni-heart';  // 100일 디데이: 하트 클래스
+     // 💡 여러 마커 클래스를 한 번에 담을 수 있도록 문자열을 누적합니다.
+     var anniTypeClasses = ''; 
 
-    anniClass = ' anniversary ' + anniType;
-    var combinedText = nameList.join(', '); // 한 날짜에 기념일이 겹치면 콤마(,)로 연결
-    tooltipAttr = ` data-title="${combinedText}"`;
-    mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;
-  }
+     // 1. 공휴일 판단
+     if (isHoliday) {
+       anniTypeClasses += ' anni-holiday';
+     } else {
+       // 공휴일이 아닐 때 기본적으로 동그라미 마커를 기본 베이스로 깔아줍니다.
+     anniTypeClasses += ' anni-circle'; 
+     }
+
+     // 2. 디데이 100일 판단 (하트 추가)
+     if (isDdayEvent) anniTypeClasses += ' anni-heart';  
+
+     // 3. 중요 캐릭터 생일 판단 (별 추가)
+     if (isImportant && isBirthdayEvent) anniTypeClasses += ' anni-star';   
+
+     anniClass = ' anniversary' + anniTypeClasses;
+       var combinedText = nameList.join(', '); // 한 날짜에 기념일이 겹치면 콤마(,)로 연결
+       tooltipAttr = ` data-title="${combinedText}"`;
+       mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;
+     }
 
   // HTML 태그 조립 (기존 구조 유지)
   dates[i] = `<div class="month-date ${condition}${selected}${istoday}${weekendClass}${anniClass}" id="day_${date_text}"${tooltipAttr}${mobileClickAttr}>
