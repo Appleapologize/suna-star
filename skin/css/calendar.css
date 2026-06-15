@@ -222,7 +222,7 @@
       color:var(--desc-close-btn-text-color);
     }
     .calendar-mobile-desc .desc-close-btn:hover{
-      background:mix-color(var(--desc-close-btn-back-color) 60%, var(--hover-mix));
+      background:color-mix(in srgb, var(--desc-close-btn-back-color) 60%, var(--hover-mix));
       cursor: var(--over-cursor), pointer !important;
     }  
 }
