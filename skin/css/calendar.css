@@ -11,6 +11,9 @@
   min-width:250px;
   margin-bottom:calc(var(--padding-menu) * 2);
 }
+.month-arrow:hover{
+  color:var(--sub-background-color);
+}
 
 .week{
   width: var(--width-100) !important;
