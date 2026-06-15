@@ -93,5 +93,13 @@
                           </div>
                             <!--calender-->
                             <div id="calender">
-                              </div>
+                            </div>
+                            <script>
+                              window.addEventListener('load',function(){
+
+                              document.getElementById('calender').innerHTML = monthdata;
+                              var monthdata = getList();
+                              
+                              });
+                            </script>
                         </div> 
