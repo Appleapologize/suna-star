@@ -155,7 +155,7 @@ function getList(date = '', day = true, form = 'month') {
     else {
       // 💡 질문자님 설계대로 딱 생일(isBirthdayEvent)이 true 일 때만 '별모양'을 줍니다!
       if (isImportant && isBirthdayEvent) {
-        anniTypeClasses += ' anni-star';
+        anniTypeClasses += ' anni-Bday';
       } 
       // 중요(important) 설정이지만 생일이 아닐 때(전쟁 폐전일 등)는 무조건 '노란 원'만 줍니다!
       else if (isImportant && !isBirthdayEvent) {
@@ -164,7 +164,7 @@ function getList(date = '', day = true, form = 'month') {
 
       // 만약 100일 단위 디데이 주기가 겹쳤다면 뒤에 하트 클래스도 함께 묻혀줍니다.
       if (isDdayEvent) {
-        anniTypeClasses += ' anni-heart';
+        anniTypeClasses += ' anni-Dday';
       }
     }
 
@@ -180,8 +180,8 @@ function getList(date = '', day = true, form = 'month') {
   dates[i] = `<div class="month-date ${condition}${selected}${istoday}${weekendClass}${anniClass}" id="day_${date_text}"${tooltipAttr}${mobileClickAttr}>
                 <span class="day-num">${x}</span>
                 <span class="marker-container">
-                  <span class="marker-star"></span>
-                  <span class="marker-heart"></span>
+                  <span class="marker-Bday"></span>
+                  <span class="marker-Dday"></span>
                   <span class="marker-circle"></span>
                 </span>
               </div>`;
