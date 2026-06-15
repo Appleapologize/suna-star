@@ -1,3 +1,10 @@
+// 💡 [기념일 설정 구역] 원하는 기념일을 자유롭게 추가하세요!
+// 'YYYY-MM-DD': { text: '말풍선 문구', type: 'css클래스명' }
+const ANNIVERSARIES = {
+  '2026-01-01': { text: '신정 (새해)', type: 'anni-star' },
+  '2026-05-05': { text: '어린이날 🎉', type: 'anni-circle' },
+  '2026-12-25': { text: '크리스마스 🎄', type: 'anni-star' },
+};
 
 function getList(date = '', day = true, form = 'month') {
   if (date == '') date = new Date();
@@ -73,7 +80,22 @@ function getList(date = '', day = true, form = 'month') {
       var selected = thisDate == x && condition == 'month-this' && day == true ? ' selected' : '';
       var istoday = today.getFullYear() == thisYear && today.getMonth() == thisMonth && today.getDate() == x && condition == 'month-this' ? ' today' : '';
       if (form == 'month') {
-        dates[i] = `<div class="month-date ${condition}${selected}${istoday}" id="day_${date_text}">${x}</div>`;
+               // 주말 계산 (토요일, 일요일 클래스)
+          var weekendClass = (i % 7 === 0) ? ' sunday' : (i % 7 === 6 ? ' saturday' : '');
+          
+          // 기념일 데이터 연결
+          var anniClass = '', tooltipAttr = '', mobileClickAttr = '';
+          if (ANNIVERSARIES[date_text]) {
+            anniClass = ' anniversary ' + ANNIVERSARIES[date_text].type;
+            tooltipAttr = ` data-title="${ANNIVERSARIES[date_text].text}"`;
+            mobileClickAttr = ` onclick="showMobileDesc('${ANNIVERSARIES[date_text].text}')"`;
+          }
+        
+          // 숫자(day-num)와 기호(anni-marker)를 나누어 담은 새로운 태그 구조
+          dates[i] = `<div class="month-date ${condition}${selected}${istoday}${weekendClass}${anniClass}" id="day_${date_text}"${tooltipAttr}${mobileClickAttr}>
+                        <span class="day-num">${x}</span>
+                        <span class="anni-marker"></span>
+                      </div>`;
       }
 
     })
@@ -87,4 +109,30 @@ function getList(date = '', day = true, form = 'month') {
   }
 
   return datesHtml;
+}
+
+// 모든 달력을 동시에 새로고침해 주는 함수
+function updateAllCalendars(dateStr) {
+  var html = getList(dateStr, false);
+  var calendars = document.getElementsByClassName('calendar');
+  for (var i = 0; i < calendars.length; i++) {
+    calendars[i].innerHTML = html;
+  }
+  var mobileDesc = document.getElementById('calendar-mobile-desc');
+  if (mobileDesc) mobileDesc.style.display = 'none';
+}
+
+// 모바일 전용 하단 설명창을 띄워주는 함수
+function showMobileDesc(text) {
+  if (window.innerWidth < 768) {
+    var mobileDesc = document.getElementById('calendar-mobile-desc');
+    if (!mobileDesc) {
+      mobileDesc = document.createElement('div');
+      mobileDesc.id = 'calendar-mobile-desc';
+      mobileDesc.className = 'calendar-mobile-desc';
+      document.querySelector('.calendar').after(mobileDesc);
+    }
+    mobileDesc.innerText = text;
+    mobileDesc.style.display = 'block';
+  }
 }
