@@ -19,6 +19,7 @@
 	--border-radius-l:12px;
 	
 	--clear:transparent;
+	--hover-mix:#4b4b4b;
 	
 	/*모바일 모드에서만 나오는 메뉴 버튼*/
 	--mobile-vwvh:44px;
