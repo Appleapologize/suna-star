@@ -122,30 +122,31 @@
 
 /* 일반 기념일용 (동그라미) */
 .anni-circle .marker-circle::before {
-  content: '';
-  width: 10px;
-  height: 10px;
-  background-color: #910000;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 2px;
-  left: 50%;
-  transform: translateX(-50%);
+    content: '';
+    width: 20px;
+    height: 20px;
+    /* background-color: #910000; */
+    border-radius: 50%;
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid #910000;
 }
 
-/*생일용 (별) */
-.anni-star .marker-star::before {
-  content: '⭐';
+/*생일용 (폭죽) */
+.anni-Bday .marker-Bday::before {
+  content: '🎉';
   font-size: 16px; 
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 30%;
+  left: 60%;
   transform: translate(-50%, -50%);
 }
 
 /* 100일 단위 디데이: 하트 이모지 아이콘 적용 */
-.anni-heart .marker-heart::before {
-  content: '❤️';
+.anni-Dday .marker-Dday::before::before {
+  content: '♥';
   font-size: 16px; 
   position: absolute;
   top: 50%;
@@ -228,5 +229,7 @@
       background:color-mix(in srgb, var(--desc-close-btn-back-color) 60%, var(--hover-mix));
       cursor: var(--over-cursor), pointer !important;
     }  
+
+
 }
 
