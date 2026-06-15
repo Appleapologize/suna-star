@@ -1,10 +1,21 @@
 // 💡 [기념일 설정 구역] 원하는 기념일을 자유롭게 추가하세요!
 // 'YYYY-MM-DD': { text: '말풍선 문구', type: 'css클래스명' }
-const ANNIVERSARIES = {
-  '2026-01-01': { text: '신정 (새해)', type: 'anni-star' },
-  '2026-05-05': { text: '어린이날 🎉', type: 'anni-circle' },
-  '2026-12-25': { text: '크리스마스 🎄', type: 'anni-star' },
-};
+const FIXED_ANNIVERSARIES = [
+  { name: "신정", month: 1, day: 1, holiday: true, important: false },
+  { name: "가아라님 생일", month: 1, day: 19 , holiday: false, important: true },
+  { name: "개천절", month: 3, day: 1, holiday: true, important: false },
+  { name: "레이님 생일", month: 3, day: 20 , holiday: false, important: true },
+  { name: "어린이날", month: 5, day: 5, holiday: true, important: false },
+  { name: "칸쿠로님 생일", month: 5, day: 15 , holiday: false, important: true },
+  { name: "바키님 생일", month: 7, day: 4 , holiday: false, important: true },
+  { name: "테마리님 생일", month: 8, day: 23 , holiday: false, important: true },
+  { name: "시카마루님 생일", month: 9, day: 22 , holiday: false, important: true },  
+  { name: "나루토님 생일", month: 10, day: 10 , holiday: false, important: true },    
+  { name: "4차 닌계대전 폐전(전쟁이 끝남)", month: 10, day: 10 , holiday: false, important: true },    
+  { name: "크리스마스", month: 12, day: 25, holiday: true, important: false }
+];
+
+const START_DATE = new Date(2020, 12, 24); // 예시: 2020년 12월 24일부터 시작인 경우
 
 function getList(date = '', day = true, form = 'month') {
   if (date == '') date = new Date();
@@ -80,29 +91,63 @@ function getList(date = '', day = true, form = 'month') {
       var selected = thisDate == x && condition == 'month-this' && day == true ? ' selected' : '';
       var istoday = today.getFullYear() == thisYear && today.getMonth() == thisMonth && today.getDate() == x && condition == 'month-this' ? ' today' : '';
       if (form == 'month') {
-               // 주말 계산 (토요일, 일요일 클래스)
-          var weekendClass = (i % 7 === 0) ? ' sunday' : (i % 7 === 6 ? ' saturday' : '');
-          
-          // 기념일 데이터 연결
-          var anniClass = '', tooltipAttr = '', mobileClickAttr = '';
-          if (ANNIVERSARIES[date_text]) {
-            anniClass = ' anniversary ' + ANNIVERSARIES[date_text].type;
-            tooltipAttr = ` data-title="${ANNIVERSARIES[date_text].text}"`;
-            mobileClickAttr = ` onclick="showMobileDesc('${ANNIVERSARIES[date_text].text}')"`;
-          }
-        
-          // 숫자(day-num)와 기호(anni-marker)를 나누어 담은 새로운 태그 구조
-          dates[i] = `<div class="month-date ${condition}${selected}${istoday}${weekendClass}${anniClass}" id="day_${date_text}"${tooltipAttr}${mobileClickAttr}>
-                        <span class="day-num">${x}</span>
-                        <span class="anni-marker"></span>
-                      </div>`;
-      }
+        // 주말 계산 (토요일, 일요일 클래스)
+        var weekendClass = (i % 7 === 0) ? ' sunday' : (i % 7 === 6 ? ' saturday' : '');
+  
+        // 현재 처리 중인 칸의 정확한 숫자 날짜 객체 생성
+        var currentCellDate = new Date(yearText, Number(month_text) - 1, x);
+        var nameList = [];
+        var isHoliday = false;
+        var isImportant = false;
+        var isDdayEvent = false;
+
+        // [A] 매년 반복 기념일 검사
+        FIXED_ANNIVERSARIES.forEach(anni => {
+        if (anni.month === Number(month_text) && anni.day === x) {
+        nameList.push(anni.name);
+        if (anni.holiday) isHoliday = true;
+        if (anni.important) isImportant = true;
+    }
+  });
+
+  // [B] 디데이 100일 단위 기념일 검사
+  var timeDiff = currentCellDate.getTime() - START_DATE.getTime();
+  var daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // 시작일로부터 지나온 일수 계산
+  
+  if (daysDiff > 0 && daysDiff % 100 === 0) {
+    nameList.push(`${daysDiff}일째 되는 날 💕`);
+    isDdayEvent = true;
+  }
+
+  // 클래스명 정의 (우선순위별로 마커 종류 분기 가능)
+  var anniClass = '';
+  var tooltipAttr = '';
+  var mobileClickAttr = '';
+  
+  if (nameList.length > 0) {
+    var anniType = 'anni-circle'; // 기본 마커: 동그라미
+    if (isHoliday) anniType = 'anni-holiday';  // 공휴일 전용 클래스
+    if (isImportant) anniType = 'anni-star';   // 중요 생일: 별모양 클래스
+    if (isDdayEvent) anniType = 'anni-heart';  // 100일 디데이: 하트 클래스
+
+    anniClass = ' anniversary ' + anniType;
+    var combinedText = nameList.join(', '); // 한 날짜에 기념일이 겹치면 콤마(,)로 연결
+    tooltipAttr = ` data-title="${combinedText}"`;
+    mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;
+  }
+
+  // HTML 태그 조립 (기존 구조 유지)
+  dates[i] = `<div class="month-date ${condition}${selected}${istoday}${weekendClass}${anniClass}" id="day_${date_text}"${tooltipAttr}${mobileClickAttr}>
+                <span class="day-num">${x}</span>
+                <span class="anni-marker"></span>
+              </div>`;
+}
 
     })
     datesHtml = `<div class="year-text">${thisYear}</div>`;
-    datesHtml = datesHtml + `<div class="month-box"><div class="month-text" onclick="document.getElementsByClassName('calendar')[0].innerHTML=getList('${thisYear}-${thisMonth}-${thisDate}', false);"><</div>`;
+    datesHtml = datesHtml + `<div class="month-box"><div class="month-text" onclick="updateAllCalendars('${thisYear}-${thisMonth}-${thisDate}');"><</div>`;
     datesHtml = datesHtml + `<div class="month-text" style="font-weight:bold;">${thisMonth + 1}</div>`;
-    datesHtml = datesHtml + `<div class="month-text" onclick="document.getElementsByClassName('calendar')[0].innerHTML=getList('${thisYear}-${thisMonth + 2}-${thisDate}', false);">></div></div>`;
+    datesHtml = datesHtml + `<div class="month-text" onclick="updateAllCalendars('${thisYear}-${thisMonth + 2}-${thisDate}');">></div></div>`;
     datesHtml = datesHtml + `<div class="month-date month-title">일</div><div class="month-date month-title">월</div><div class="month-date month-title">화</div><div class="month-date month-title">수</div><div class="month-date month-title">목</div><div class="month-date month-title">금</div><div class="month-date month-title">토</div>`;
     datesHtml = datesHtml + dates.join('');
 
