@@ -933,7 +933,7 @@ img {
     border-radius: var(--button-round); 
     z-index: 1000; 
     padding: 12px;
-    margin: calc(var(--padding-in-body) - var(--container-padding));
+    margin: calc(var(--padding-in-body) - var(--container-padding)) calc(var(--padding-in-body) - var(--container-padding) + 10px);
     background-color: var(--sub-background-color);
     box-shadow: var(--box-shadow);
     gap: 3px;
