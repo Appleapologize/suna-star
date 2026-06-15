@@ -38,6 +38,7 @@
     0px var(--today-num-border) var(--card-background-color), 
     var(--today-num-border) 0px var(--card-background-color), 
     0px calc(-1 * var(--today-num-border)) var(--card-background-color);
+  color:var(--point-color);
 }
 
 .year-text {
