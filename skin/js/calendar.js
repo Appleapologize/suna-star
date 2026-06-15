@@ -137,22 +137,25 @@ function getList(date = '', day = true, form = 'month') {
 
 
   // 클래스명 정의 (우선순위별로 마커 종류 분기 가능)
+  // 클래스명 초기화
   var anniClass = '';
   var tooltipAttr = '';
   var mobileClickAttr = '';
   
   if (nameList.length > 0) {
-     // [1] 공휴일인 경우: 노란 원 없이 오직 글자만 빨갛게 제어합니다.
+    var anniTypeClasses = ''; 
+
+    // [규칙 1] 공휴일인 경우: 노란 원 없이 오직 글자만 빨갛게 제어합니다.
     if (isHoliday) {
       anniTypeClasses += ' anni-holiday';
     } 
-    // [2] 공휴일이 아닌 일반 기념일인 경우
+    // [규칙 2] 공휴일이 아닌 일반 기념일인 경우
     else {
-      // 💡 질문자님 의도대로 딱 생일(isBirthdayEvent)이 true 일 때만 '별모양'을 줍니다!
+      // 💡 질문자님 설계대로 딱 생일(isBirthdayEvent)이 true 일 때만 '별모양'을 줍니다!
       if (isImportant && isBirthdayEvent) {
         anniTypeClasses += ' anni-star';
       } 
-      // 중요(important) 설정이지만 생일이 아닐 때(isBirthdayEvent가 false 일 때)는 무조건 '노란 원'만 줍니다!
+      // 중요(important) 설정이지만 생일이 아닐 때(전쟁 폐전일 등)는 무조건 '노란 원'만 줍니다!
       else if (isImportant && !isBirthdayEvent) {
         anniTypeClasses += ' anni-circle';
       }
@@ -171,16 +174,17 @@ function getList(date = '', day = true, form = 'month') {
     mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;
   }
 
-  // HTML 태그 조립 (기존 구조 유지)
-dates[i] = `<div class="month-date ${condition}${selected}${istoday}${weekendClass}${anniClass}" id="day_${date_text}"${tooltipAttr}${mobileClickAttr}>
-              <span class="day-num">${x}</span>
-              <span class="marker-container">
-                <span class="marker-star"></span>
-                <span class="marker-heart"></span>
-                <span class="marker-circle"></span>
-              </span>
-            </div>`;
+  // ⭕ [복구] 기념일이 있든 없든 모든 날짜가 안전하게 달력 칸으로 그려지도록 정상 위치에 배치 완료!
+  dates[i] = `<div class="month-date ${condition}${selected}${istoday}${weekendClass}${anniClass}" id="day_${date_text}"${tooltipAttr}${mobileClickAttr}>
+                <span class="day-num">${x}</span>
+                <span class="marker-container">
+                  <span class="marker-star"></span>
+                  <span class="marker-heart"></span>
+                  <span class="marker-circle"></span>
+                </span>
+              </div>`;
 }
+
 
     })
     datesHtml = 
