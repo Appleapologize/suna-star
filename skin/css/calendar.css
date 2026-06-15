@@ -9,6 +9,7 @@
 
 #calender{
   min-width:250px;
+  margin-bottom:calc(var(--padding-menu) * 2);
 }
 
 .week{
