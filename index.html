@@ -139,8 +139,28 @@
          <div id="menu">
             <aside>
                <nav>
-                  <div class="navmenu">       
-                  </div>
+                  <div id="mobile-drawer" class="mobile-drawer">   
+                     <div class="menu-all">                  
+                        <div class="navmenu">       
+                        </div>
+                        <div id="calender" class="calendar"></div>
+                        <script>
+                          // 이 코드가 읽히자마자 즉시 실행하여 상자에 달력을 주입합니다.
+                          (function() {
+                            // 1. JS 기계를 돌려 오늘 날짜 기준의 달력 HTML 소스를 만듭니다.
+                            var monthdata = getList(); 
+                            
+                            // 2. id="calender"인 상자를 정확히 조준합니다.
+                            var calElem = document.getElementById('calender');
+                            
+                            // 3. 상자가 벽면에 잘 존재한다면, 그 안에 계산된 달력을 집어넣습니다.
+                            if (calElem) {
+                              calElem.innerHTML = monthdata;
+                            }
+                          })();
+                        </script>
+                     </div> 
+                  </div> 
                </nav>
             </aside>
          </div> 
