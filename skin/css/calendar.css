@@ -19,9 +19,15 @@
 
 
 #calender{
+  border-radius: 10px;
+  background: 
+    color-mix(in srgb, var(--sub-background-color) 30%, transparent);
+    -webkit-backdrop-filter: blur(var(--background-blur));
+    backdrop-filter: blur(var(--background-blur));
   min-width: 250px;
   max-width: 300px;
   margin-bottom:calc(var(--padding-menu) * 2);
+  padding: 10px;
 }
 .month-arrow:hover{
   color:var(--sub-background-color);
