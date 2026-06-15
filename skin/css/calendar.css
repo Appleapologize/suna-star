@@ -79,28 +79,10 @@
   color: var(--saturday-color); 
 }
 
-/* 공휴일: 날짜 글자 자체를 빨간색으로 */
-.month-this.anni-holiday .day-num {
-  color: var(--sunday-color) !important;
-}
-
-.anniversary .day-num{
-  text-shadow: 
-    calc(-1 * var(--day-num-border)) 0px var(--card-background-color), 
-    0px var(--day-num-border) var(--card-background-color), 
-    var(--day-num-border) 0px var(--card-background-color), 
-    0px calc(-1 * var(--day-num-border)) var(--card-background-color);
-}
-
-.anniversary .day-num:hover{
-  cursor: var(--over-cursor), pointer !important;
-}
-
+/* 기념일 표시 (보통은 동그라미) */
 .month-date { 
   position: relative; 
 }
-
-/* 기념일 표시 (보통은 동그라미) */
 .anni-marker {
   position: absolute;
   top: 0;
@@ -114,14 +96,25 @@
   z-index:-1;
 }
 
-.marker-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index:-1;
+/* 공휴일: 날짜 글자 자체를 빨간색으로 */
+.month-this.anni-holiday .day-num {
+  color: var(--sunday-color) !important;
+}
+
+.calendar-mobile-desc { 
+  display: none; 
+} /* 평소(데스크톱)에는 모바일 가이드 창 숨김 */
+
+.anniversary .day-num{
+  text-shadow: 
+    calc(-1 * var(--day-num-border)) 0px var(--card-background-color), 
+    0px var(--day-num-border) var(--card-background-color), 
+    var(--day-num-border) 0px var(--card-background-color), 
+    0px calc(-1 * var(--day-num-border)) var(--card-background-color);
+}
+
+.anniversary .day-num:hover{
+  cursor: var(--over-cursor), pointer !important;
 }
 
 /* 일반 기념일용 (동그라미) */
@@ -137,7 +130,6 @@
   transform: translateX(-50%);
 }
 
-
 /*생일용 (별) */
 .anni-star .marker-star::before {
   content: '⭐';
@@ -147,7 +139,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 
 /* 100일 단위 디데이: 하트 이모지 아이콘 적용 */
 .anni-heart .marker-heart::before {
@@ -191,11 +182,6 @@
   position: relative; 
   /* z-index를 쓰지 않고 HTML 배치 순서와 포지션 관계로만 무조건 앞으로 띄웁니다 */
 }
-
-
-.calendar-mobile-desc { 
-  display: none; 
-} /* 평소(데스크톱)에는 모바일 가이드 창 숨김 */
 
 /* =======================================================
    모바일 및 태블릿 화면
