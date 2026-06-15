@@ -141,6 +141,30 @@
                   <div class="navmenu">       
                   </div>
                </nav>
+                                           <!--calender-->
+                            <div id="calender" class="calendar">
+                            </div>
+                            
+                            <script>
+
+  // load 이벤트로 감싸지 않고 바로 실행합니다.
+  (function() {
+    var monthdata = getList();
+    
+    // 1. ID로 찾아서 채우기 (기존 모바일 메뉴 대응)
+    var calElem = document.getElementById('calender');
+    if (calElem) {
+      calElem.innerHTML = monthdata;
+    }
+
+    // 2. 혹시 모바일/데스크톱 클래스로 뿌릴 경우를 대비해 둘 다 채우기
+    var calendars = document.getElementsByClassName('calendar');
+    for (var i = 0; i < calendars.length; i++) {
+      calendars[i].innerHTML = monthdata;
+    }
+  })();
+
+                            </script>
             </aside>
          </div> 
           <script>
