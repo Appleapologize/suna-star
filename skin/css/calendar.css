@@ -16,7 +16,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
 }
 
 .month-other {
@@ -30,11 +29,11 @@
 }
 
 .year-text {
-  font-size:12px;
+  font-size:;
 }
 
 .month-text {
-  font-size: 24px;
+  font-size: ;
 }
 
 .month-date.month-title {
@@ -166,10 +165,13 @@
     display: none; /* 클릭 전에는 숨김 (JS가 block으로 켬) */
     width: 90%;
     margin: 10px auto 0 auto;
-    background-color: #f5f5f5;
+    background: 
+      color-mix(in srgb, var(--sub-background-color) 30%, transparent);
+      -webkit-backdrop-filter: blur(var(--background-blur));
+      backdrop-filter: blur(var(--background-blur));
     border-radius: 4px;
     font-size: 11px;
-    color: #333333;
+    color: var(--text-color);
     text-align: center;
     font-weight: bold;
 
