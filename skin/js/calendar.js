@@ -15,7 +15,12 @@ const FIXED_ANNIVERSARIES = [
   { name: "크리스마스", month: 12, day: 25, holiday: true, important: false }
 ];
 
-const START_DATE = new Date(2020, 12, 24); // 예시: 2020년 12월 24일부터 시작인 경우
+// 2020년 12월 24일부터 
+const START_YEAR = 2020;
+const START_MONTH = 12;
+const START_DAY = 24;
+const START_DATE = new Date(START_YEAR, START_MONTH - 1, START_DAY); 
+
 
 function getList(date = '', day = true, form = 'month') {
   if (date == '') date = new Date();
@@ -110,14 +115,18 @@ function getList(date = '', day = true, form = 'month') {
     }
   });
 
-  // [B] 디데이 100일 단위 기념일 검사
+  // [B] 디데이 100일 단위 기념일 검사 (시/분/초 초기화)
+  currentCellDate.setHours(0,0,0,0);
+  START_DATE.setHours(0,0,0,0);
+
   var timeDiff = currentCellDate.getTime() - START_DATE.getTime();
-  var daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // 시작일로부터 지나온 일수 계산
+  var daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24)); // 소수점 버림 처리
   
   if (daysDiff > 0 && daysDiff % 100 === 0) {
     nameList.push(`${daysDiff}일째 되는 날 💕`);
     isDdayEvent = true;
   }
+
 
   // 클래스명 정의 (우선순위별로 마커 종류 분기 가능)
   var anniClass = '';
