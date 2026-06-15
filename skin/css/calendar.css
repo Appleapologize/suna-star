@@ -2,6 +2,9 @@
   --sunday-color: #ff4d4d;   /* 일요일 빨간색 */
   --saturday-color: #4d94ff; /* 토요일 파란색 */
 }
+#calender{
+  min-width:300px;
+}
 
 .month-date {
   width: 14%;
