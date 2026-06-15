@@ -511,7 +511,7 @@ details.spoiler:hover{
 }
 
 details.spoiler:hover h4{
-	color:color-mix( var(--spoiler-text-color) 50%, var(--hover-mix);
+	color:color-mix( var(--spoiler-text-color) 50%, var(--hover-mix));
 }
 /* ==========================================
     0.큰 타이틀
