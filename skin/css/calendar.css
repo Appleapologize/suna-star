@@ -182,10 +182,8 @@
 .anniversary:hover::before {
   content: '';
   position: absolute;
-  bottom: calc(120% - 10px);
-  left: 50%;
-  margin-left: -5px; 
-  border-width: 5px;
+  bottom: 15px;
+  border-width: 10px;
   border-style: solid;
   border-color: color-mix(in srgb, var(--text-color) 95%, transparent) transparent transparent transparent;
   z-index: 10;
