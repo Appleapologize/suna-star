@@ -189,7 +189,11 @@ function showMobileDesc(text) {
       mobileDesc.className = 'calendar-mobile-desc';
       document.querySelector('.calendar').after(mobileDesc);
     }
-    mobileDesc.innerText = text;
+    mobileDesc.innerHTML = `
+      <span class="desc-text">${text}</span>
+      <span class="desc-close-btn" onclick="document.getElementById('calendar-mobile-desc').style.display='none';">설명 닫기</span>
+    `;
     mobileDesc.style.display = 'block';
   }
+
 }
