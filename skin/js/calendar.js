@@ -156,11 +156,31 @@ function getList(date = '', day = true, form = 'month') {
 }
 
     })
-    datesHtml = `<div class="year-text">${thisYear}</div>`;
-    datesHtml = datesHtml + `<div class="month-box"><div class="month-text" onclick="updateAllCalendars('${thisYear}-${thisMonth}-${thisDate}');"><</div>`;
-    datesHtml = datesHtml + `<div class="month-text" style="font-weight:bold;">${thisMonth + 1}</div>`;
-    datesHtml = datesHtml + `<div class="month-text" onclick="updateAllCalendars('${thisYear}-${thisMonth + 2}-${thisDate}');">></div></div>`;
-    datesHtml = datesHtml + `<div class="month-date month-title">일</div><div class="month-date month-title">월</div><div class="month-date month-title">화</div><div class="month-date month-title">수</div><div class="month-date month-title">목</div><div class="month-date month-title">금</div><div class="month-date month-title">토</div>`;
+    datesHtml = 
+      `<div class="year-text">${thisYear}</div>`;
+    datesHtml = datesHtml + 
+      `<div class="month-box">
+        <div class="month-text month-arrow month-prev" onclick="updateAllCalendars('${thisYear}-${thisMonth}-${thisDate}');">
+          <
+        </div>`;
+    datesHtml = datesHtml + 
+      `<div class="month-text" style="font-weight:bold;">
+        ${thisMonth + 1}
+      </div>`;
+    datesHtml = datesHtml +
+      `<div class="month-text month-arrow month-next" onclick=
+        "updateAllCalendars('${thisYear}-${thisMonth + 2}-${thisDate}');">
+          >
+        </div>
+        </div>`;
+    datesHtml = datesHtml + 
+      `<div class="month-date month-title">일</div>
+      <div class="month-date month-title">월</div>
+      <div class="month-date month-title">화</div>
+      <div class="month-date month-title">수</div>
+      <div class="month-date month-title">목</div>
+      <div class="month-date month-title">금</div>
+      <div class="month-date month-title">토</div>`;
     datesHtml = datesHtml + dates.join('');
 
   }
