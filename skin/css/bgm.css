@@ -93,7 +93,7 @@
 #bgmBtn #bgmStatus[value="stop"] ~ .stop:hover,
 #bgmBtn #bgmStatus[value="prev"] ~ .prev:hover,
 #bgmBtn #bgmStatus[value="next"] ~ .next:hover{
-    color: color-mix(var(--bad-color) 70%, var(--hover-mix)
+    color: color-mix(var(--bad-color) 70%, var(--hover-mix))
 }
 
 
