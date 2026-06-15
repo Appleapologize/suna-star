@@ -67,26 +67,29 @@ function getList(date = '', day = true, form = 'month') {
     dates.forEach((x, i) => {
       var condition = i >= firstDateIndex && i < lastDateIndex + 1 ? 'month-this' : 'month-other';
       if (x < 10) dayText = '0' + x; else dayText = x;
+      var month_text = '';
+      var yearText = thisYear; // 기본적으로 올해 연도를 베이스로 잡습니다.
+
       if (condition === 'month-this') {
         if (thisMonth < 9) month_text = '0' + (thisMonth + 1);
         else month_text = thisMonth + 1;
         var date_text = thisYear + '-' + month_text + '-' + dayText;
       } else if (i < firstDateIndex) {
         if (thisMonth == 0) {
-          var yearText = Number(thisYear) - 1;
+          yearText = Number(thisYear) - 1;
           month_text = 12;
         } else {
-          var yearText = thisYear;
+          yearText = thisYear;
           month_text = thisMonth;
           if (month_text < 10) month_text = '0' + month_text;
         }
         var date_text = yearText + '-' + month_text + '-' + dayText;
       } else if (i >= lastDateIndex) {
         if (thisMonth == 11) {
-          var yearText = Number(thisYear) + 1;
-          month_text = 1;
+          yearText = Number(thisYear) + 1;
+          month_text = '01'; // 1이 아니라 '01'로 맞춰서 문자열 포맷을 유지합니다.
         } else {
-          var yearText = thisYear;
+          yearText = thisYear;
           month_text = thisMonth + 2;
           if (month_text < 10) month_text = '0' + month_text;
         }
