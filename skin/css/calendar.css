@@ -4,11 +4,16 @@
   --day-num-border: 1px; /*기념일일때 숫자 테두리*/
   --today-num-border:2px;
 
-  --calendar-marker-size:25px;
+  --calendar-marker-size: 25px;
+  --calendar-marker-dday: #ff0000;
 
   /*---- ---- 모바일에서만 뜨는 란(해당 날짜가 무엇에 대한 기념일인지) ---- ----*/
   --desc-close-btn-back-color:red;
   --desc-close-btn-text-color:white;
+
+}
+
+[data-theme="dark"]{
 
 }
 
