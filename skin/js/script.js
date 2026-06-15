@@ -120,9 +120,11 @@ function loadPage(event, relativePath, addHistory = true) {
  if (cleanPath.startsWith('./')) {
    cleanPath = cleanPath.substring(2); // './pages/wiki/...' -> 'pages/wiki/...'
  }
-    if (cleanPath.startsWith('pages/')) {
-        cleanPath = cleanPath.substring(6);
-    }    
+    let pageQueryName = cleanPath.startsWith('pages/') ? cleanPath.substring(6) : cleanPath;
+
+ if (cleanPath.startsWith('pages/')) {
+     cleanPath = cleanPath.substring(6);
+ }       
 
 let finalUrl = '';
     if (cleanPath.startsWith('http') || cleanPath.startsWith('/')) {
@@ -232,7 +234,7 @@ let finalUrl = '';
                 });
 
                 if (addHistory) { 
-                    addQueryString(fileName); 
+                    addQueryString(pageQueryName);
                 }
             }
         })
