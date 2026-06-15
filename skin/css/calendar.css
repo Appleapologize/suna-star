@@ -11,7 +11,7 @@
 }
 
 .week{
-  width: var(--width-100);
+  width: var(--width-100) !important;
 }
 
 .month-date {
