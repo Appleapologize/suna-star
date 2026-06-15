@@ -53,13 +53,17 @@
 /* 기념일 표시 (보통은 동그라미) */
 .month-date { 
   position: relative; 
-  flex-direction: column;
 }
 .anni-marker {
   position: absolute;
-  bottom: 2px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* 마우스 클릭이 숫자에 정상 차단되도록 방지 */
 }
 
 /* 공휴일: 날짜 글자 자체를 빨간색으로 */
@@ -84,21 +88,21 @@
 /* 생일: 별모양 이모지 아이콘 적용 */
 .anni-star .anni-marker::before {
   content: '⭐';
-  font-size: 8px;
+  font-size: 16px; /* 숫자 뒤에 은은하게 배경처럼 보이도록 크기 키움 */
   position: absolute;
-  bottom: -4px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 }
 
 /* 100일 단위 디데이: 하트 이모지 아이콘 적용 */
 .anni-heart .anni-marker::before {
   content: '❤️';
-  font-size: 8px;
+  font-size: 16px; 
   position: absolute;
-  bottom: -4px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 }
 
 .anniversary:hover::after {
@@ -128,6 +132,10 @@
   z-index: 10;
 }
 
+.day-num {
+  position: relative; 
+  /* z-index를 쓰지 않고 HTML 배치 순서와 포지션 관계로만 무조건 앞으로 띄웁니다 */
+}
 
 /* =======================================================
    📱 모바일 및 태블릿 화면 전용 (1024px 이하일 때만 전환)
