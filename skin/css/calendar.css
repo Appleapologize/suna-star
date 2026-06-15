@@ -64,6 +64,7 @@
   align-items: center;
   justify-content: center;
   pointer-events: none; /* 마우스 클릭이 숫자에 정상 차단되도록 방지 */
+  z-index:-1;
 }
 
 /* 공휴일: 날짜 글자 자체를 빨간색으로 */
