@@ -169,9 +169,9 @@ function getList(date = '', day = true, form = 'month') {
 dates[i] = `<div class="month-date ${condition}${selected}${istoday}${weekendClass}${anniClass}" id="day_${date_text}"${tooltipAttr}${mobileClickAttr}>
               <span class="day-num">${x}</span>
               <span class="marker-container">
-                <span class="anni-marker marker-star"></span>
-                <span class="anni-marker marker-heart"></span>
-                <span class="anni-marker marker-circle"></span>
+                <span class="marker-star"></span>
+                <span class="marker-heart"></span>
+                <span class="marker-circle"></span>
               </span>
             </div>`;
 }
