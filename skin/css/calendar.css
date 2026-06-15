@@ -10,6 +10,10 @@
   min-width:250px;
 }
 
+.week{
+  width: var(--width-100);
+}
+
 .month-date {
   width: 14%;
   height: 10%;
