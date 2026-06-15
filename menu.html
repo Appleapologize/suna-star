@@ -92,14 +92,16 @@
                               </ul>
                           </div>
                             <!--calender-->
-                            <div id="calender">
+                            <div id="calender" class="calendar">
                             </div>
+                            
                             <script>
-                              window.addEventListener('load',function(){
-
-                              document.getElementById('calender').innerHTML = monthdata;
-                              var monthdata = getList();
-                              
-                              });
+                                window.addEventListener('load', function() {
+                                  // 1. 함수를 먼저 실행하여 리턴값을 변수에 저장합니다.
+                                  var monthdata = getList(); 
+                                  
+                                  // 2. 값이 담긴 변수를 innerHTML에 대입합니다.
+                                  document.getElementById('calender').innerHTML = monthdata; 
+                                });
                             </script>
                         </div> 
