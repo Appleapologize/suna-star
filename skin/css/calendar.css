@@ -79,23 +79,6 @@
   color: var(--saturday-color); 
 }
 
-/* 기념일 표시 (보통은 동그라미) */
-.month-date { 
-  position: relative; 
-}
-.anni-marker {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none; /* 마우스 클릭이 숫자에 정상 차단되도록 방지 */
-  z-index:-1;
-}
-
 /* 공휴일: 날짜 글자 자체를 빨간색으로 */
 .month-this.anni-holiday .day-num {
   color: var(--sunday-color) !important;
@@ -117,6 +100,33 @@
   cursor: var(--over-cursor), pointer !important;
 }
 
+.month-date { 
+  position: relative; 
+}
+
+/* 기념일 표시 (보통은 동그라미) */
+.anni-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* 마우스 클릭이 숫자에 정상 차단되도록 방지 */
+  z-index:-1;
+}
+
+.marker-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 /* 일반 기념일용 (동그라미) */
 .anni-circle .marker-circle::before {
   content: '';
@@ -130,6 +140,7 @@
   transform: translateX(-50%);
 }
 
+
 /*생일용 (별) */
 .anni-star .marker-star::before {
   content: '⭐';
@@ -139,6 +150,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 
 /* 100일 단위 디데이: 하트 이모지 아이콘 적용 */
 .anni-heart .marker-heart::before {
