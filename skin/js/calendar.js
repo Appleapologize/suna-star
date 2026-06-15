@@ -150,15 +150,15 @@ function getList(date = '', day = true, form = 'month') {
       anniTypeClasses += ' anni-holiday';
     } 
     // [2] 공휴일이 아닌 일반 기념일인 경우
-     if (isImportant && isBirthdayEvent) {
-      // 💡 10월 10일(나루토 생일 및 4차 닌계대전 폐전일) 예외 차단!
-      // 자바스크립트가 내부에서 수집한 month_text 문자열 포맷('10')과 정확하게 일치 비교합니다.
-      if (month_text === '10' && x === 10) {
-        // 나루토 생일 별모양 클래스를 더하지 않고 그대로 패스하여 '노란색 원' 상태를 유지시킵니다!
-      } else {
+    else {
+      // 중요(important)하면서 동시에 진짜 생일(isBirthdayEvent)일 때만 '별모양'을 부여합니다.
+      if (isImportant && isBirthdayEvent) {
         anniTypeClasses += ' anni-star';
+      } 
+      // 중요(important) 설정이지만 생일이 아닌 날(전쟁 폐전일 등)에는 얌전히 '노란 원'만 부여합니다.
+      else if (isImportant && !isBirthdayEvent) {
+        anniTypeClasses += ' anni-circle';
       }
-    }
       // 그 외 100일 단위 디데이 이벤트 주기에는 '하트'를 부여합니다.
       if (isDdayEvent) {
         anniTypeClasses += ' anni-heart'; // 다른 클래스 뒤에 붙을 수 있으므로 한 칸 띄우고 추가
