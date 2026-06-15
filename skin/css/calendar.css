@@ -1,7 +1,11 @@
 :root {
   --sunday-color: #ff4d4d;   /* 일요일 빨간색 */
   --saturday-color: #4d94ff; /* 토요일 파란색 */
+  --day-num-border: 1px; /*기념일일때 숫자 테두리*/
+
 }
+
+
 #calender{
   min-width:250px;
 }
@@ -42,7 +46,7 @@
   justify-content: space-around;
 }
 /* =======================================================
-   추가 css, 
+   추가 css
    ======================================================= */
 
 /* 주말 날짜 색상*/
@@ -88,8 +92,14 @@
   display: none; 
 } /* 평소(데스크톱)에는 모바일 가이드 창 숨김 */
 
+.anniversary {
+  text-shadow: 
+    calc(-1 * var(--day-num-border)) 0px var(--card-background-color), 
+    0px var(--day-num-border) var(--card-background-color), 
+    var(--day-num-border) 0px var(--card-background-color), 
+    0px calc(-1 * var(--day-num-border)) var(--card-background-color);
+}
 
-/* 생일: 별모양 이모지 아이콘 적용 */
 .anni-star .anni-marker::before {
   content: '⭐';
   font-size: 16px; /* 숫자 뒤에 은은하게 배경처럼 보이도록 크기 키움 */
@@ -142,7 +152,7 @@
 }
 
 /* =======================================================
-   📱 모바일 및 태블릿 화면 전용 (1024px 이하일 때만 전환)
+   모바일 및 태블릿 화면
    ======================================================= */
 @media (max-width: 1024px) {
   /* 모바일에서는 마우스 오버 말풍선 가상 요소를 작동하지 못하게 가립니다 */
