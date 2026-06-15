@@ -2,6 +2,7 @@
   --sunday-color: #ff4d4d;   /* 일요일 빨간색 */
   --saturday-color: #4d94ff; /* 토요일 파란색 */
   --day-num-border: 1px; /*기념일일때 숫자 테두리*/
+  --today-num-border:2px;
 
 }
 
@@ -30,6 +31,11 @@
   background-repeat: no-repeat;
   background-position: center;
   font-weight: bold;
+  text-shadow: 
+    calc(-1 * var(--today-num-border)) 0px var(--card-background-color), 
+    0px var(--today-num-border) var(--card-background-color), 
+    var(--today-num-border) 0px var(--card-background-color), 
+    0px calc(-1 * var(--today-num-border)) var(--card-background-color);
 }
 
 .year-text {
