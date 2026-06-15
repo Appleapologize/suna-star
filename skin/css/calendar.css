@@ -13,6 +13,7 @@
 }
 .month-arrow:hover{
   color:var(--sub-background-color);
+  cursor: var(--over-cursor), pointer !important;
 }
 
 .week{
@@ -114,6 +115,10 @@
     0px var(--day-num-border) var(--card-background-color), 
     var(--day-num-border) 0px var(--card-background-color), 
     0px calc(-1 * var(--day-num-border)) var(--card-background-color);
+}
+
+.anniversary .day-num:hover{
+  cursor: var(--over-cursor), pointer !important;
 }
 
 .anni-star .anni-marker::before {
