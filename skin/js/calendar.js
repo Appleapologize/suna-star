@@ -190,8 +190,8 @@ function showMobileDesc(text) {
       document.querySelector('.calendar').after(mobileDesc);
     }
     mobileDesc.innerHTML = `
-      <span class="desc-text">${text}</span>
-      <span class="desc-close-btn" onclick="document.getElementById('calendar-mobile-desc').style.display='none';">설명 닫기</span>
+      <div class="desc-text">${text}</div>
+      <div class="desc-close-btn" onclick="document.getElementById('calendar-mobile-desc').style.display='none';">설명 닫기</div>
     `;
     mobileDesc.style.display = 'block';
   }
