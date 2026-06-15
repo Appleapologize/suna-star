@@ -4,6 +4,10 @@
   --day-num-border: 1px; /*기념일일때 숫자 테두리*/
   --today-num-border:2px;
 
+  /*---- ---- 모바일에서만 뜨는 란(해당 날짜가 무엇에 대한 기념일인지) ---- ----*/
+  --desc-close-btn-back-color:red;
+  --desc-close-btn-text-color:white;
+
 }
 
 
@@ -208,11 +212,12 @@
   }
 
     .calendar-mobile-desc .desc-close-btn{
-      background:red;
-      color:white;
+      background:var(--desc-close-btn-back-color);
+      color:var(--desc-close-btn-text-color);
     }
     .calendar-mobile-desc .desc-close-btn:hover{
-      background:#750000;
+      background:mix-color(var(--desc-close-btn-back-color) 60%, var(--hover-mix));
+      cursor: var(--over-cursor), pointer !important;
     }  
 }
 
