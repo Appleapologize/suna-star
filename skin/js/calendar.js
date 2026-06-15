@@ -1,18 +1,20 @@
 // 💡 [기념일 설정 구역] 원하는 기념일을 자유롭게 추가하세요!
 // 'YYYY-MM-DD': { text: '말풍선 문구', type: 'css클래스명' }
+//  중요하지만 생일이 아닌 날에는 isBirthday: false,
+// 생일과 생일이 아닌 날이 겹치면 생일로 표현됨.
 const FIXED_ANNIVERSARIES = [
   { name: "신정", month: 1, day: 1, holiday: true, important: false },
-  { name: "가아라님 생일", month: 1, day: 19 , holiday: false, important: true, isBirthday: true }, // [추가]
+  { name: "가아라님 생일", month: 1, day: 19 , holiday: false, important: true, isBirthday: true },
   { name: "개천절", month: 3, day: 1, holiday: true, important: false },
-  { name: "레이님 생일", month: 3, day: 20 , holiday: false, important: true, isBirthday: true }, // [추가]
+  { name: "레이님 생일", month: 3, day: 20 , holiday: false, important: true, isBirthday: true },
   { name: "어린이날", month: 5, day: 5, holiday: true, important: false },
-  { name: "칸쿠로님 생일", month: 5, day: 15 , holiday: false, important: true, isBirthday: true }, // [추가]
-  { name: "바키님 생일", month: 7, day: 4 , holiday: false, important: true, isBirthday: true }, // [추가]
-  { name: "테마리님 생일", month: 8, day: 23 , holiday: false, important: true, isBirthday: true }, // [추가]
-  { name: "시카마루님 생일", month: 9, day: 22 , holiday: false, important: true, isBirthday: true }, // [추가] 
-  { name: "나루토님 생일", month: 10, day: 10 , holiday: false, important: true, isBirthday: true }, // [추가]   
-  // 💡 중요하지만 생일이 아니므로 isBirthday: false를 줍니다.
-  { name: "4차 닌계대전 폐전(전쟁이 끝남)", month: 10, day: 10 , holiday: false, important: true, isBirthday: false }, // [추가]   
+  { name: "칸쿠로님 생일", month: 5, day: 15 , holiday: false, important: true, isBirthday: true },
+  { name: "바키님 생일", month: 7, day: 4 , holiday: false, important: true, isBirthday: true }, 
+  { name: "테마리님 생일", month: 8, day: 23 , holiday: false, important: true, isBirthday: true },
+  { name: "시카마루님 생일", month: 9, day: 22 , holiday: false, important: true, isBirthday: true },
+  { name: "나루토님 생일", month: 10, day: 10 , holiday: false, important: true, isBirthday: true },  
+  { name: "4차 닌계대전 개전", month: 10, day: 8 , holiday: false, important: true, isBirthday: false },
+  { name: "4차 닌계대전 폐전(전쟁이 끝남)", month: 10, day: 10 , holiday: false, important: true, isBirthday: false }, 
   { name: "크리스마스", month: 12, day: 25, holiday: true, important: false }
 ];
 
