@@ -507,11 +507,11 @@ details.spoiler summary h4{
 }
 
 details.spoiler:hover{
-	background: color-mix(var(--sub-background-color) 50%, #4b4b4b);
+	background: color-mix(var(--sub-background-color) 50%, var(--hover-mix));
 }
 
 details.spoiler:hover h4{
-	color:color-mix( var(--spoiler-text-color) 50%, #4b4b4b);
+	color:color-mix( var(--spoiler-text-color) 50%, var(--hover-mix);
 }
 /* ==========================================
     0.큰 타이틀
