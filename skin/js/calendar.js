@@ -142,38 +142,28 @@ function getList(date = '', day = true, form = 'month') {
   var mobileClickAttr = '';
   
   if (nameList.length > 0) {
-     // 💡 문자열 누적 버그를 막기 위해 첫 칸을 공백 없이 깔끔하게 초기화합니다.
-    var anniTypeClasses = ''; 
-
-    // [조건 1] 공휴일(신정, 크리스마스 등)인 경우
+     // [1] 공휴일인 경우: 노란 원 없이 오직 글자만 빨갛게 제어합니다.
     if (isHoliday) {
-      // 글씨가 빨개지는 클래스와 기본 노란 원(anni-circle) 클래스를 함께 더해줍니다.
-      anniTypeClasses += ' anni-holiday anni-circle';
+      anniTypeClasses += ' anni-holiday';
     } 
-    // [조건 2] 공휴일이 아닌 일반 기념일인 경우
+    // [2] 공휴일이 아닌 일반 기념일인 경우
     else {
-      // 💡 [핵심] 10월 10일 나루토 생일과 전쟁일이 겹치는 날의 정밀 예외 처리!
-      // 자바스크립트 내부에서 수집한 month_text 문자열 포맷('10')과 일치하는지 검사합니다.
-      if (month_text === '10' && x === 10) {
-        // 별모양 조건을 완전 차단하고 오직 '노란 원'만 부여합니다.
-        anniTypeClasses += ' anni-circle';
-      } 
-      // 중요(important)하면서 동시에 진짜 생일(isBirthdayEvent)일 때만 '별모양' 클래스를 부여합니다.
-      else if (isImportant && isBirthdayEvent) {
+      // 💡 질문자님 의도대로 딱 생일(isBirthdayEvent)이 true 일 때만 '별모양'을 줍니다!
+      if (isImportant && isBirthdayEvent) {
         anniTypeClasses += ' anni-star';
       } 
-      // 그 외의 일반 중요 기념일이나 생일이 아닌 중요일에는 '노란 원'을 부여합니다.
-      else {
+      // 중요(important) 설정이지만 생일이 아닐 때(isBirthdayEvent가 false 일 때)는 무조건 '노란 원'만 줍니다!
+      else if (isImportant && !isBirthdayEvent) {
         anniTypeClasses += ' anni-circle';
       }
 
-      // 만약 100일 단위 디데이 주기가 겹쳤다면 뒤에 한 칸 띄우고 하트 클래스도 함께 추가합니다.
+      // 만약 100일 단위 디데이 주기가 겹쳤다면 뒤에 하트 클래스도 함께 묻혀줍니다.
       if (isDdayEvent) {
         anniTypeClasses += ' anni-heart';
       }
     }
 
-    // 최종 결합 (띄어쓰기 버그와 문법 에러를 차단하는 결합 방식)
+    // 최종 결합 (기존 띄어쓰기 문법 완벽 유지)
     anniClass = ' anniversary' + anniTypeClasses;
     
     var combinedText = nameList.join(', '); 
