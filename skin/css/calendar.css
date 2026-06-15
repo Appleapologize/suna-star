@@ -123,9 +123,9 @@
 /* 일반 기념일용 (동그라미) */
 .anni-circle .marker-circle::before {
   content: '';
-  width: 4px;
-  height: 4px;
-  background-color: #ffcc00;
+  width: 10px;
+  height: 10px;
+  background-color: #910000;
   border-radius: 50%;
   position: absolute;
   bottom: 2px;
