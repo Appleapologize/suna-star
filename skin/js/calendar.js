@@ -145,25 +145,33 @@ function getList(date = '', day = true, form = 'month') {
      // 💡 여러 마커 클래스를 한 번에 담을 수 있도록 문자열을 누적합니다.
      var anniTypeClasses = ''; 
 
-     // 1. 공휴일 판단
-     if (isHoliday) {
-       anniTypeClasses += ' anni-holiday';
-     } else {
-       // 공휴일이 아닐 때 기본적으로 동그라미 마커를 기본 베이스로 깔아줍니다.
-     anniTypeClasses += ' anni-circle'; 
-     }
+     // [1] 공휴일인 경우: 날짜 색상만 빨갛게 제어 (바닥 원 마커 제거)
+    if (isHoliday) {
+      anniTypeClasses += 'anni-holiday';
+    } 
+    // [2] 공휴일이 아닌 일반 기념일인 경우
+    else {
+      // 중요(important)하면서 동시에 진짜 생일(isBirthdayEvent)일 때만 '별모양'을 부여합니다.
+      if (isImportant && isBirthdayEvent) {
+        anniTypeClasses += 'anni-star';
+      } 
+      // 중요(important) 설정이지만 생일이 아닌 날(전쟁 폐전일 등)에는 얌전히 '노란 원'만 부여합니다.
+      else if (isImportant && !isBirthdayEvent) {
+        anniTypeClasses += 'anni-circle';
+      }
+      // 그 외 100일 단위 디데이 이벤트 주기에는 '하트'를 부여합니다.
+      if (isDdayEvent) {
+        anniTypeClasses += ' anni-heart'; // 다른 클래스 뒤에 붙을 수 있으므로 한 칸 띄우고 추가
+      }
+    }
 
-     // 2. 디데이 100일 판단 (하트 추가)
-     if (isDdayEvent) anniTypeClasses += ' anni-heart';  
-
-     // 3. 중요 캐릭터 생일 판단 (별 추가)
-     if (isImportant && isBirthdayEvent) anniTypeClasses += ' anni-star';   
-
-     anniClass = ' anniversary' + anniTypeClasses;
-       var combinedText = nameList.join(', '); // 한 날짜에 기념일이 겹치면 콤마(,)로 연결
-       tooltipAttr = ` data-title="${combinedText}"`;
-       mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;
-     }
+    // 최종 결합 (anniversary 뒤에 완성된 속성값들이 공백을 두고 안착합니다)
+    anniClass = ' anniversary' + anniTypeClasses;
+    
+    var combinedText = nameList.join(', '); 
+    tooltipAttr = ` data-title="${combinedText}"`;
+    mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;
+  }
 
   // HTML 태그 조립 (기존 구조 유지)
 dates[i] = `<div class="month-date ${condition}${selected}${istoday}${weekendClass}${anniClass}" id="day_${date_text}"${tooltipAttr}${mobileClickAttr}>
