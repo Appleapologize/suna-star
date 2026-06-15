@@ -81,7 +81,7 @@
 }
 
 #bgmBtn #bgmStatus[value="play"] ~ .play:hover {
-    color: color-mix(var(--good-color) 70%, #4b4b4b)
+    color: color-mix(var(--good-color) 70%, var(--hover-mix))
 }
 
 #bgmBtn #bgmStatus[value="stop"] ~ .stop,
@@ -93,7 +93,7 @@
 #bgmBtn #bgmStatus[value="stop"] ~ .stop:hover,
 #bgmBtn #bgmStatus[value="prev"] ~ .prev:hover,
 #bgmBtn #bgmStatus[value="next"] ~ .next:hover{
-    color: color-mix(var(--bad-color) 70%, #4b4b4b)
+    color: color-mix(var(--bad-color) 70%, var(--hover-mix)
 }
 
 
