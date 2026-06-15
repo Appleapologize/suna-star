@@ -166,13 +166,12 @@
 .anniversary:hover::after {
   content: attr(data-title);
   position: absolute;
-  bottom: 120%;
-  left: 50%;
+  bottom: 115%;
   transform: translateX(-50%, 100%);
   background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent);
   color: var(--text-color);
   padding: 4px 8px;
-  font-size: 10px;
+  font-size: 16px;
   border: 2px solid var(--text-color);
   border-radius: 4px;
   white-space: nowrap;
