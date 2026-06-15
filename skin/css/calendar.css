@@ -102,12 +102,16 @@
 }
 
 /* 일반 기념일용 (동그라미) */
-.anni-circle .anni-marker {
+.anni-circle .anni-marker::before {
+  content: '';
   width: 4px;
   height: 4px;
   background-color: #ffcc00;
   border-radius: 50%;
+  position: absolute;
   bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .calendar-mobile-desc { 
