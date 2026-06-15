@@ -169,10 +169,11 @@
   bottom: 120%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.85);
-  color: #ffffff;
+  background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent);
+  color: var(--text-color);
   padding: 4px 8px;
   font-size: 10px;
+  border: 2px solid var(--text-color);
   border-radius: 4px;
   white-space: nowrap;
   z-index: 10;
@@ -187,7 +188,7 @@
   transform: translateX(-50%, 100%);
   border-width: 5px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
+  border-color: color-mix(in srgb, var(--text-color) 95%, transparent);
   z-index: 10;
 }
 
