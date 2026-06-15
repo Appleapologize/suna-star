@@ -203,7 +203,7 @@ function updateAllCalendars(dateStr) {
 
 // 모바일 전용 하단 설명창을 띄워주는 함수
 function showMobileDesc(text) {
-  if (window.innerWidth < 768) {
+  if (window.innerWidth < 1025) {
     var mobileDesc = document.getElementById('calendar-mobile-desc');
     if (!mobileDesc) {
       mobileDesc = document.createElement('div');
