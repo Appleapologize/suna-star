@@ -18,7 +18,7 @@ details.details-css{
 }
 
 details.details-css:hover{
-        background:color-mix(var(--sub-background-color) 50%, #4b4b4b);
+        background:color-mix(var(--sub-background-color) 50%, var(--hover-mix));
 }
 
 details.details-css summary{
