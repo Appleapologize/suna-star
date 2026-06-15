@@ -83,6 +83,9 @@
 .month-date { 
   position: relative; 
 }
+.marker-container{
+  z-index:-1;
+}
 .anni-marker {
   position: absolute;
   top: 0;
