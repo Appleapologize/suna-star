@@ -1,0 +1,35 @@
+.month-date {
+  width: 14%;
+  height: 10%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.month-other {
+  opacity: 0.7;
+}
+
+.month-this.today {
+  background-repeat: no-repeat;
+  background-position: center;
+  font-weight: bold;
+}
+
+.year-text {
+  font-size:12px;
+}
+
+.month-text {
+  font-size: 24px;
+}
+
+.month-date.month-title {
+  font-weight: bold;
+}
+
+.month-box {
+  display: flex;
+  justify-content: space-around;
+}
