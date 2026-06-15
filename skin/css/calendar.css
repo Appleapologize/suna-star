@@ -4,6 +4,8 @@
   --day-num-border: 1px; /*기념일일때 숫자 테두리*/
   --today-num-border:2px;
 
+  --calendar-marker-size:25px;
+
   /*---- ---- 모바일에서만 뜨는 란(해당 날짜가 무엇에 대한 기념일인지) ---- ----*/
   --desc-close-btn-back-color:red;
   --desc-close-btn-text-color:white;
@@ -137,7 +139,7 @@
 /*생일용 (폭죽) */
 .anni-Bday .marker-Bday::before {
   content: '🎉';
-  font-size: 16px; 
+  font-size: var(--calendar-marker-size); 
   position: absolute;
   top: 30%;
   left: 60%;
@@ -145,13 +147,14 @@
 }
 
 /* 100일 단위 디데이: 하트 이모지 아이콘 적용 */
-.anni-Dday .marker-Dday::before::before {
+.anni-Dday .marker-Dday::before {
   content: '♥';
-  font-size: 16px; 
+  font-size: var(--calendar-marker-size); 
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color:pink;
 }
 
 
