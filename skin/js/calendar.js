@@ -147,17 +147,17 @@ function getList(date = '', day = true, form = 'month') {
 
      // [1] 공휴일인 경우: 날짜 색상만 빨갛게 제어 (바닥 원 마커 제거)
     if (isHoliday) {
-      anniTypeClasses += 'anni-holiday';
+      anniTypeClasses += ' anni-holiday';
     } 
     // [2] 공휴일이 아닌 일반 기념일인 경우
     else {
       // 중요(important)하면서 동시에 진짜 생일(isBirthdayEvent)일 때만 '별모양'을 부여합니다.
       if (isImportant && isBirthdayEvent) {
-        anniTypeClasses += 'anni-star';
+        anniTypeClasses += ' anni-star';
       } 
       // 중요(important) 설정이지만 생일이 아닌 날(전쟁 폐전일 등)에는 얌전히 '노란 원'만 부여합니다.
       else if (isImportant && !isBirthdayEvent) {
-        anniTypeClasses += 'anni-circle';
+        anniTypeClasses += ' anni-circle';
       }
       // 그 외 100일 단위 디데이 이벤트 주기에는 '하트'를 부여합니다.
       if (isDdayEvent) {
