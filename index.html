@@ -177,30 +177,23 @@
           </a>
       </div>      
         --> 
-                                           <!--calender-->
-                            <div id="calender" class="calendar">
-                            </div>
-                            
-                            <script>
-
-  // load 이벤트로 감싸지 않고 바로 실행합니다.
+<!--calender-->
+<div id="calender" class="calendar"></div>
+<script>
+  // 이 코드가 읽히자마자 즉시 실행하여 상자에 달력을 주입합니다.
   (function() {
-    var monthdata = getList();
+    // 1. JS 기계를 돌려 오늘 날짜 기준의 달력 HTML 소스를 만듭니다.
+    var monthdata = getList(); 
     
-    // 1. ID로 찾아서 채우기 (기존 모바일 메뉴 대응)
+    // 2. id="calender"인 상자를 정확히 조준합니다.
     var calElem = document.getElementById('calender');
+    
+    // 3. 상자가 벽면에 잘 존재한다면, 그 안에 계산된 달력을 집어넣습니다.
     if (calElem) {
       calElem.innerHTML = monthdata;
     }
-
-    // 2. 혹시 모바일/데스크톱 클래스로 뿌릴 경우를 대비해 둘 다 채우기
-    var calendars = document.getElementsByClassName('calendar');
-    for (var i = 0; i < calendars.length; i++) {
-      calendars[i].innerHTML = monthdata;
-    }
   })();
-
-                            </script>   
+</script>
    
 <script>
 document.addEventListener("DOMContentLoaded", () => {
