@@ -168,7 +168,7 @@
   position: absolute;
   bottom: 120%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%, 100%);
   background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent);
   color: var(--text-color);
   padding: 4px 8px;
@@ -188,7 +188,7 @@
   transform: translateX(-50%, 100%);
   border-width: 5px;
   border-style: solid;
-  border-color: color-mix(in srgb, var(--text-color) 95%, transparent);
+  border-color: color-mix(in srgb, var(--text-color) 95%, transparent) transparent transparent transparent;
   z-index: 10;
 }
 
