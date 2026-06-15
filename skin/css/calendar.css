@@ -1,7 +1,7 @@
 :root {
   --sunday-color: #ff4d4d;   /* 일요일 빨간색 */
   --saturday-color: #4d94ff; /* 토요일 파란색 */
-  --day-num-border: 3px; /*기념일일때 숫자 테두리*/
+  --day-num-border: 1px; /*기념일일때 숫자 테두리*/
   --today-num-border:2px;
 
   --calendar-marker-size: 25px;
@@ -17,7 +17,10 @@
 
 }
 
-
+@media (max-width: 1024px) {
+  :root {
+  --day-num-border: 3px; /*기념일일때 숫자 테두리*/
+}
 #calender{
   border-radius: 10px;
   background: 
