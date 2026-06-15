@@ -801,7 +801,7 @@ div.footnote .text1 {
     max-width: 100% !important;
     height: 100% !important;
     max-height: 100% !important;
-    box-sizing: border-box !important; /* */
+    box-sizing: border-box !important;
     padding: 5px;
 }
 
@@ -824,14 +824,14 @@ details[open] h2[class*="-title"] span{
 	transform: rotate(0deg) !important;
 	transition: transform 0.3s ease;
 	display: inline-block !important;
-	transform-origin: center center !important	
+	transform-origin: center center !important;	
 }
 
 details:not([open]) h2[class*="-title"] span{
 	transform: rotate(180deg) !important;
 	transition: transform 0.3s ease;
 	display: inline-block !important;
-	transform-origin: center center !important		
+	transform-origin: center center !important;		
 }
 
 /* ==========================================================================
