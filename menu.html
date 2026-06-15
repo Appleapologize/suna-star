@@ -96,12 +96,23 @@
                             </div>
                             
                             <script>
-                                window.addEventListener('load', function() {
-                                  // 1. 함수를 먼저 실행하여 리턴값을 변수에 저장합니다.
-                                  var monthdata = getList(); 
-                                  
-                                  // 2. 값이 담긴 변수를 innerHTML에 대입합니다.
-                                  document.getElementById('calender').innerHTML = monthdata; 
-                                });
+
+  // load 이벤트로 감싸지 않고 바로 실행합니다.
+  (function() {
+    var monthdata = getList();
+    
+    // 1. ID로 찾아서 채우기 (기존 모바일 메뉴 대응)
+    var calElem = document.getElementById('calender');
+    if (calElem) {
+      calElem.innerHTML = monthdata;
+    }
+
+    // 2. 혹시 모바일/데스크톱 클래스로 뿌릴 경우를 대비해 둘 다 채우기
+    var calendars = document.getElementsByClassName('calendar');
+    for (var i = 0; i < calendars.length; i++) {
+      calendars[i].innerHTML = monthdata;
+    }
+  })();
+
                             </script>
                         </div> 
