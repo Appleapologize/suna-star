@@ -3,7 +3,7 @@
   --saturday-color: #4d94ff; /* 토요일 파란색 */
 }
 #calender{
-  min-width:300px;
+  min-width:250px;
 }
 
 .month-date {
