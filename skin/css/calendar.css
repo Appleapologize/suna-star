@@ -205,5 +205,8 @@
       background:red;
       color:white;
     }
+    .calendar-mobile-desc .desc-close-btn:hover{
+      background:#750000;
+    }  
 }
 
