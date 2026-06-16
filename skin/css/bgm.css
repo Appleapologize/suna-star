@@ -136,6 +136,7 @@
 @media (max-width: 1024px){
       #videoTitle {
             width: 60%;
-                  }
+            margin: 0 5px;
+      }
                                     
 }
