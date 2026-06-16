@@ -12,12 +12,12 @@
   --desc-text-border-radius:4px; /*해당 기념일 설명 박스 꼭짓점 둥굴기*/  
   
   --Bday-emo-calender-num:'🎉'; /*생일때 숫자 뒤에 뜨는 이모지*/
-  --Bday-emo-desc-text: var(--Bday-emo-calender-num); /*생일때 모바일 설명창 배경에 뜨는 이모지*/
-  --Bday-emo-desc-text-font-size:35px; /*생일때 모바일 설명창 배경에 뜨는 이모지 사이즈*/
+  --Bday-emo-desc-text: var(--Bday-emo-calender-num); /*생일때 설명창 배경에 뜨는 이모지*/
+  --Bday-emo-desc-text-font-size:35px; /*생일때 설명창 배경에 뜨는 이모지 사이즈*/
 
   --Dday-emo-calender-num:'♥';/*디데이 때 숫자 뒤에 뜨는 이모지*/
-  --Dday-emo-desc-text:'🌵❤️⭐' ; /*디데이 때 모바일 설명창 배경에 뜨는 이모지*/
-  --Dday-emo-desc-text-cont-size:20px; /*디데이 때 모바일 설명창 배경에 뜨는 이모지 사이즈*/
+  --Dday-emo-desc-text:'🌵❤️⭐' ; /*디데이 때 설명창 배경에 뜨는 이모지*/
+  --Dday-emo-desc-text-cont-size:20px; /*디데이 때 설명창 배경에 뜨는 이모지 사이즈*/
 
   
   /*---- ---- 모바일에서만 뜨는 란(해당 날짜가 무엇에 대한 기념일인지) ---- ----*/
