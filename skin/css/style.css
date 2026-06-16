@@ -526,14 +526,13 @@ nav{
 
 .sub, .ssub { 
   display: block;          /* display: none 대신 block을 써야 애니메이션이 먹힙니다 */
+  max-height: 0;           /* 높이를 0으로 만들어 숨깁니다 */
   overflow: hidden;        /* 넘치는 하위 메뉴 글자들을 가립니다 */
   opacity: 0;              /* 투명하게 만듭니다 */
-  visibility: hidden; 
-  transition: max-height 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
+  transition: max-height 0.4s ease, opacity 0.3s ease; /* 0.4초 동안 부드럽게 변형 */
   list-style: none;
-  padding-top: 0;		
   padding-left: 15px;
-  margin:0;
+  margin: 0;
 }
 
 /* 1단계: 대메뉴 버튼 스타일 */
@@ -567,13 +566,19 @@ a *{
 	cursor: var(--over-cursor), pointer !important;	
 }
 
+/* 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
+ul li:hover > .sub {
+  max-height: 300px;       /* 하위 메뉴들이 다 보일 수 있는 충분한 높이 지정 */
+  opacity: 1;              /* 선명하게 보임 */
+}
+
 /* 2단계: 중메뉴 버튼 스타일 */
 .btn-sub { 
     width: var(--width-100);
     background: var(--btn-sub-color);
     border: none;
     padding: var(--padding-menu);
-    margin: 0;
+    margin: var(--padding-menu) 0 var(--padding-menu) 0;
     border-radius: var(--button-round);
     font-size: 14px;
     display: block;
@@ -588,7 +593,8 @@ a *{
 
 /* 3단계: 소메뉴 스타일 */
 .btn-sub-sub { 
-    cursor: var(--over-cursor), pointer !important;
+    padding: 6px 6px 6px 25px;
+    cursor: var(--over-cursor) pointer;
     background: var(--btn-ssub-color);
     font-size: 13px;
     border-radius: 4px;
@@ -596,7 +602,7 @@ a *{
     text-decoration: none;
     color: var(--btn-text-color);
     padding: var(--padding-menu);
-    margin: 0;
+    margin: var(--padding-menu) 0 var(--padding-menu) 0;
     border-radius: var(--button-round);
     text-align: center;	
 }
@@ -605,92 +611,26 @@ a *{
 	color: var(--btn-text-color) ;
 }
 
-/* 1. [진짜 핵심] 하위 메뉴가 펼쳐지면 부모 li의 영역도 아래로 같이 커지도록 자동 확장 보장 */
-#menu ul > li, 
-.sub > li {
-    position: relative;
-    height: auto !important;
-}
 
-.btn-sub, .btn-sub-sub {
-    width: 100% !important;
-    display: block !important;
-    box-sizing: border-box !important; /* 패딩이 더해져도 가로로 터지지 않게 방지 */
-    margin: 0 !important;
-}
 
-ul > li:hover > .sub {
-    max-height: none !important; 
-    display: block !important;    
-    opacity: 1 !important;  
-    visibility: visible !important;  
-}
 
-.sub > li:hover > .ssub {
-    max-height: none !important;       
-    display: block !important;
-    opacity: 1 !important;    
-    visibility: visible !important;
-}
+/* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
+    ul li:hover > .sub {
+        max-height: 500px !important; /* 하위 메뉴가 다 보일 수 있는 충분한 높이 */
+        opacity: 1 !important;              
+    }
 
-/* 메뉴 열렸을 때 버튼들 사이의 간격을 var(--padding-menu) 마진으로  벌려줍니다 */
-.sub > li {
-    padding-top: var(--padding-menu) !important;
-    padding-bottom: 0 !important;
-}
+/* 3. 중메뉴(li)에 마우스를 올렸을 때(hover) 손자 메뉴(.ssub) 펼치기 */
+    .sub li:hover > .ssub {
+        max-height: 300px !important;       
+        opacity: 1 !important;              
+    }
 
-.ssub > li {
-    padding-top: var(--padding-menu) !important;
-    padding-bottom: 0 !important;
-}
-
-/* 💡 클릭(자바스크립트)으로 열렸을 때도 버튼 간격 패딩이 정상적으로 먹히도록 안전장치를 추가합니다. */
-.sub.open > li,
-.ssub.open > li {
-    padding-top: var(--padding-menu) !important;
-    padding-bottom: 0 !important;
-}
-
-/* 자바스크립트 클릭 기능(.open)이 작동할 때의 연동 규격 유지 */
+/* 💡 [기존 코드 유지 보완] 클릭했을 때 열리는 자바스크립트 기능도 같이 작동하도록 보장 */
 .sub.open, .ssub.open {
-    display: block !important; 
-    opacity: 1 !important;  
-    visibility: visible !important; 
+  max-height: 300px !important;
+  opacity: 1 !important;
 }
-
-/* 5. [자동 정리 스위치] 마우스 커서가 대메뉴 큰 주머니를 완전히 벗어나면 즉시 리셋 */
-ul > li:not(:hover) .sub,
-ul > li:not(:hover) .ssub {
-	display: none !important; 
-    opacity: 0 !important;		
-    visibility: hidden !important;
-}
-
-/* =======================================================
-   [독립 ul 구조 수호] 아래 메뉴 간섭 차단 자석 레이어
-   ======================================================= */
-
-/* 💡 마우스가 특정 메뉴 ul 위에 올라가는 순간, 
-   그 ul 주머니를 전체 화면 레이어 중 가장 최상단으로 붕 띄웁니다. */
-#menu ul:hover {
-    position: relative;
-    z-index: 999 !important;
-}
-
-/* 💡 마우스가 글자 밖으로 나가 버튼 사이의 빈틈을 지나갈 때도 
-   호버 감지막이 0.15초 동안 끈질기게 버텨주도록 여유 시간을 줍니다. */
-.sub, .ssub {
-    transition-delay: 0.15s !important;
-}
-
-/* 마우스가 들어올 때는 지연 시간 전혀 없이 즉시 팝업되도록 보장 */
-ul > li:hover > .sub,
-.sub > li:hover > .ssub {
-    transition-delay: 0s !important;
-}
-
-
-
 
 /* ==========================================
     버튼 안 아이콘 색상
