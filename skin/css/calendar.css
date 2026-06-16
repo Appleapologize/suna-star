@@ -374,7 +374,7 @@
 
   .anniversary.anni-Bday .day-num::after,
   .anniversary.anni-Dday .day-num::after{
-    display: none;
+    display: none !important;
 }
 
 }
