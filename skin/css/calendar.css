@@ -144,6 +144,10 @@
   display: none; 
 } /* 평소(데스크톱)에는 모바일 가이드 창 숨김 */
 
+.anniversary{
+  position: relative;
+}
+
 .anniversary .day-num{
   text-shadow: 
     calc(-1 * var(--day-num-border)) 0px var(--card-background-color), 
@@ -204,6 +208,62 @@
   border-radius: var(--desc-text-border-radius);
   white-space: nowrap;
   z-index: 10;
+}
+
+/* 2. [생일용] 데스크톱 말풍선 글자 박스 내부에 이모지 배치 */
+.anniversary.anni-Bday:hover::after {
+  /* 💡 기존의 글자 표시 가상요소(::after) 자체를 활용하여 
+      글자 박스 배경에 이모지 가상요소를 중첩시키는 효과를 줍니다. */
+}
+
+/* 별도의 가상 요소를 꼬리(::before) 대신 사용할 수 없으므로, 
+   글자 박스 자체를 다중 배경처럼 연출하기 위해 아래 규칙을 새롭게 하단에 추가합니다. */
+
+.anniversary.anni-Bday:hover::after {
+  background-image: linear-gradient(
+    color-mix(in srgb, var(--card-background-color) 95%, transparent),
+    color-mix(in srgb, var(--card-background-color) 95%, transparent)
+  );
+}
+
+
+/* ---- ---- 데스크톱 배경 디자인 설정 ---- ----*/
+.anniversary.anni-Bday .day-num::after,
+.anniversary.anni-Dday .day-num::after{
+  opacity: var(--emo-desc-text-opacity);
+  position: absolute;
+  pointer-events: none;
+  z-index: 11; /* 말풍선 글자판(z-index: 10) 레이어와 정렬 관계 조율 */
+  display: none; /* 평소엔 숨김 */
+}
+
+
+/* [생일용 데스크톱 배경] */
+.anniversary.anni-Bday .day-num::after {
+  content: var(--Bday-emo-desc-text); /* 💡 설정해두신 생일 변수 사용 */
+  font-size: var(--Bday-emo-desc-text-font-size); /* 💡 생일 이모지 크기 변수 */
+   
+  /* 말풍선 본체 위치(bottom: 115%) 근처 정중앙으로 배치 */
+  bottom: 115%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+
+/* [디데이용 데스크톱 배경] */
+.anniversary.anni-Dday .day-num::after {
+  content: var(--Dday-emo-desc-text); 
+  font-size: var(--Dday-emo-desc-text-cont-size);
+  letter-spacing: 3px;
+  
+  bottom: 115%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
+
+
+.anniversary.anni-Bday:hover .day-num::after,
+.anniversary.anni-Dday:hover .day-num::after {
+  display: block;
 }
 
 /*말풍선 꼬리 (삼각형) */
