@@ -7,19 +7,37 @@
   --calendar-marker-size: 25px;
   --calendar-marker-dday: #ff0000;
 
+  --emo-desc-text-opacity:0.5; /*해당 기념일 설명 박스 배경에 뜨는 이모지 투명도(1이 100프로로 선명하게임)*/ 
+  --desc-text-font-size:20px;/*해당 기념일 설명 폰트 사이즈*/
+  --desc-text-border-radius:4px; /*해당 기념일 설명 박스 꼭짓점 둥굴기*/  
+  
+  --Bday-emo-calender-num:'🎉'; /*생일때 숫자 뒤에 뜨는 이모지*/
+  --Bday-emo-desc-text: var(--Bday-emo-calender-num); /*생일때 모바일 설명창 배경에 뜨는 이모지*/
+  --Bday-emo-desc-text-font-size:35px; /*생일때 모바일 설명창 배경에 뜨는 이모지 사이즈*/
+
+  --Dday-emo-calender-num:'♥';/*디데이 때 숫자 뒤에 뜨는 이모지*/
+  --Dday-emo-desc-text:'🌵❤️⭐' ; /*디데이 때 모바일 설명창 배경에 뜨는 이모지*/
+  --Dday-emo-desc-text-cont-size:20px; /*디데이 때 모바일 설명창 배경에 뜨는 이모지 사이즈*/
+
+  
   /*---- ---- 모바일에서만 뜨는 란(해당 날짜가 무엇에 대한 기념일인지) ---- ----*/
   --desc-close-btn-back-color:red;
   --desc-close-btn-text-color:white;
+  
 
 }
 
 [data-theme="dark"]{
 
 }
-
+/* =======================================================
+   모바일에서의 사이즈 정의
+   ======================================================= */
 @media (max-width: 1024px) {
   :root {
   --day-num-border: 2px; /*기념일일때 숫자 테두리*/
+  --desc-text-font-size:15px;    
+  --desc-text-border-radius:10px;    
 }
 }
 
@@ -108,7 +126,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: var(--width-100);
   height: 100%;
   display: flex;
   align-items: center;
@@ -143,7 +161,6 @@
     content: '';
     width: 20px;
     height: 20px;
-    /* background-color: #910000; */
     border-radius: 50%;
     position: absolute;
     bottom: 1px;
@@ -154,7 +171,7 @@
 
 /*생일용 (폭죽) */
 .anni-Bday .marker-Bday::before {
-  content: '🎉';
+  content: var(--Bday-emo-calender-num);
   font-size: var(--calendar-marker-size); 
   position: absolute;
   top: 30%;
@@ -164,7 +181,7 @@
 
 /* 100일 단위 디데이: 하트 이모지 아이콘 적용 */
 .anni-Dday .marker-Dday::before {
-  content: '♥';
+  content: var(--Dday-emo-calender-num);
   font-size: var(--calendar-marker-size); 
   position: absolute;
   top: 50%;
@@ -182,9 +199,9 @@
   background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent);
   color: var(--text-color);
   padding: 4px 8px;
-  font-size: 16px;
+  font-size: var(--desc-text-font-size);
   border: 2px solid var(--text-color);
-  border-radius: 4px;
+  border-radius: var(--desc-text-border-radius);
   white-space: nowrap;
   z-index: 10;
 }
@@ -230,7 +247,7 @@
     text-align: center;
     font-weight: bold;
 
-    border-radius: 10px;
+    border-radius: var(--desc-text-border-radius);
     overflow: hidden;
   }
 
@@ -247,56 +264,50 @@
       background:color-mix(in srgb, var(--desc-close-btn-back-color) 60%, var(--hover-mix));
       cursor: var(--over-cursor), pointer !important;
     }  
+  
   /* 공휴일이나 생일 클래스가 붙었을 때 이모지 배치를 위한 기준점(정렬) 정의 */
   .calendar-mobile-desc.desc-Bday .desc-text,
   .calendar-mobile-desc.desc-Dday .desc-text {
       position: relative;
       overflow: hidden; /* 이모지가 텍스트 영역 밖으로 나가지 못하게 커트 */
-      width: 100%;
+      width: var(--width-100);
   }
-
-  /* [생일용 배경] 폭죽 이모지 디자인 구역 */
-  .calendar-mobile-desc.desc-Bday .desc-text::before {
-    content: '🎉';               /* 💡 원하는 이모지 문자로 변경 가능 */
-    font-size: 35px;             /* 💡 폭죽 이모지 크기 */
-    opacity: 0.2;                /* 💡 투명도 설정 (0에 가까울수록 글자가 잘 보임) */
+  
+  /* 배경에 들어가는 이모지 혹은 텍스트 공통 디자인 */
+  .calendar-mobile-desc.desc-Bday .desc-text::before,
+  .calendar-mobile-desc.desc-Dday .desc-text::before{
     position: absolute;
     pointer-events: none;        /* 이모지 때문에 버튼이 안 눌리는 현상 방지 */
+    opacity: var(--emo-desc-text-opacity);                /* 💡 글자를 가리지 않는 은은한 투명도 */    
+    z-index: -1;   
+    transform: translateY(-50%); /* 정확한 세로 가운데 정렬 유지 */    
+  }
+  
+  /* [생일용 배경] 폭죽 이모지 디자인 구역 */
+  .calendar-mobile-desc.desc-Bday .desc-text::before {
+    content: var(--Bday-emo-desc-text);
+    font-size: var(--Bday-emo-desc-text-font-size); /* 💡 폭죽 이모지 크기 */
     
     /* 💡 이모지 배치 위치 수정 구역 */
-    top: 50%;                    /* 세로축 기준 정중앙 */
-    left: 10%;                   /* 가로축 기준 왼쪽에서 10% 지점 */
-    transform: translateY(-50%); /* 정확한 세로 가운데 정렬 유지 */
+    top: 50%; /* 세로축 기준 정중앙 */
+    left: 10%; /* 가로축 기준 왼쪽에서 10% 지점 */
   }
 
   /* [디데이용 배경] 하트 이모지 디자인 구역 */
   .calendar-mobile-desc.desc-Dday .desc-text::before {
-    content: '🌵❤️⭐';            /* 💡 화면에 띄울 조합 */
-    font-size: 20px;              /* 💡 3개가 다 보이도록 크기 최적화 */
+    content: var(--Dday-emo-desc-text);            /* 💡 화면에 띄울 조합 */
+    font-size: var(--Dday-emo-desc-text-cont-size);              /* 💡 3개가 다 보이도록 크기 최적화 */
     letter-spacing: 3px;          /* 💡 이모지 사이의 가로 간격 */
-    opacity: 0.25;                /* 💡 글자를 가리지 않는 은은한 투명도 */
-    position: absolute;
-    pointer-events: none;
   
   /* 위치 조절 (오른쪽 여백 배치) */
     top: 50%;                    
-    right: 6%;                   /* 텍스트 박스 안쪽 오른쪽에서 6% 지점 */
-    transform: translateY(-50%); 
+    right: 6%;                   /* 텍스트 박스 안쪽 오른쪽에서 6% 지점 */ 
   }
 
 /* [디데이용 배경] 🌵x⭐ 버전 
 .calendar-mobile-desc.desc-Dday .desc-text::before {
-  content: '🌵x⭐';             /* 💡 알파벳 x가 들어간 조합
+  content: '🌵x⭐'; 
   font-size: 22px;              
-  letter-spacing: 2px;          
-  opacity: 0.25;                
-  position: absolute;
-  pointer-events: none;
-  
-  /* 위치 조절 (오른쪽 여백 배치) 
-  top: 50%;                    
-  right: 8%;                   
-  transform: translateY(-50%); 
 }*/
 
 }
