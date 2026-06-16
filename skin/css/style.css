@@ -499,7 +499,7 @@ svg.text-logo:hover #svgGroup {
     }
 }
 
-==========================================
+/*==========================================
     메뉴 버튼
    ========================================== */
 #mobile-drawer{
@@ -572,7 +572,6 @@ a *{
 
 /* 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
 ul li:hover > .sub {
-  max-height: 300px;       /* 하위 메뉴들이 다 보일 수 있는 충분한 높이 지정 */
   opacity: 1;              /* 선명하게 보임 */
 }
 
@@ -618,19 +617,16 @@ ul li:hover > .sub {
 
 /* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
     ul li:hover > .sub {
-        max-height: 500px !important; /* 하위 메뉴가 다 보일 수 있는 충분한 높이 */
-        opacity: 1 !important;              
+         opacity: 1 !important;              
     }
 
 /* 3. 중메뉴(li)에 마우스를 올렸을 때(hover) 손자 메뉴(.ssub) 펼치기 */
-    .sub li:hover > .ssub {
-        max-height: 300px !important;       
+    .sub li:hover > .ssub {    
         opacity: 1 !important;              
     }
 
 /* 💡 [기존 코드 유지 보완] 클릭했을 때 열리는 자바스크립트 기능도 같이 작동하도록 보장 */
 .sub.open, .ssub.open {
-  max-height: 300px !important;
   opacity: 1 !important;
 }
 
