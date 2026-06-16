@@ -654,8 +654,13 @@ ul li:hover > .sub {
     opacity: 1 !important;  
     visibility: visible !important; 
 }
-.sub.open > li, .ssub.open > li {
+
+.menu-all > li:hover > .sub > li,
+.sub > li:hover > .ssub > li,
+.sub.open > li, 
+.ssub.open > li {
     padding-top: var(--padding-menu) !important;
+    padding-bottom: 0 !important;
 }
 
 /* ==========================================
