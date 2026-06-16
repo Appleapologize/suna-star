@@ -1008,21 +1008,19 @@ footer p.bold{
 }
 
 @media (max-width: 1024px) {
-	html, body, * {
-    /*cursor: none !important;*/
-}
-
-	/*body:has(#container)::-webkit-scrollbar-track{
-		background-color: color-mix(in srgb, var(--background-color) 15%, transparent) !important;
-	}*/
-
-    body:has(#container) {
+/* ==========================================
+    모바일에서는 스크롤바 숨김, 기능만 살아있음.
+   ========================================== */
+	
+    body:has(#container), 
+	#mobile-drawer {
         -ms-overflow-style: none !important;  /* IE, 엣지 */
         scrollbar-width: none !important;     /* 파이어폭스 */
     }
 
     /* 크롬, 사파리, 삼성인터넷 등 모바일 웹킷 브라우저에서 스크롤바 완전히 숨기기 */
-    body:has(#container)::-webkit-scrollbar {
+    body:has(#container)::-webkit-scrollbar,
+	#mobile-drawer::-webkit-scrollbar{
         display: none !important;
     }	
 
@@ -1068,6 +1066,9 @@ footer p.bold{
 	}
 
 	
+/* ==========================================
+    모바일에서의 메뉴 보이는 것.
+   ========================================== */
 	#menu{
 		padding: 0;
 		margin:0;
@@ -1141,12 +1142,12 @@ footer p.bold{
     }
 
     /* 모바일에서 메뉴 오픈 전: 왼쪽 화면 밖에서 대기) */
-#menu, 
-#menu aside, 
-#menu nav, 
-#menu .navmenu {
-    backdrop-filter: none !important;
-}
+    #menu, 
+    #menu aside, 
+    #menu nav, 
+    #menu .navmenu {
+    	backdrop-filter: none !important;
+    }
 	
     .mobile-drawer {
         position: fixed;
@@ -1176,10 +1177,11 @@ footer p.bold{
 	}	
 
 	.menu-all{
-        position: relative;		
+    	position: relative;		
         top:calc(var(--mobile-vwvh) + var(--mobile-position));
         padding-bottom: var(--padding-menu);
-}
+    }
+
 	
 	 /* 모바일에서는 마우스 오버 기능을 완전히 끕니다. */
     ul li:hover > .sub,
@@ -1189,8 +1191,12 @@ footer p.bold{
     }
     
 
-      .diary-module {
-        grid-template-columns: auto;
+
+/* ==========================================
+    모바일에서의 모듈 모양
+   ========================================== */	
+    .diary-module {
+    	grid-template-columns: auto;
     }
 
     .pair-module .pair-img img {
