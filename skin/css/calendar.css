@@ -247,6 +247,40 @@
       background:color-mix(in srgb, var(--desc-close-btn-back-color) 60%, var(--hover-mix));
       cursor: var(--over-cursor), pointer !important;
     }  
+  /* 공휴일이나 생일 클래스가 붙었을 때 이모지 배치를 위한 기준점(정렬) 정의 */
+  .calendar-mobile-desc.desc-Bday,
+  .calendar-mobile-desc.desc-Dday {
+    position: relative;
+    overflow: hidden; /* 이모지가 설명창 밖으로 삐져나가지 않도록 커트 */
+  }
+
+  /* [생일용 배경] 폭죽 이모지 디자인 구역 */
+  .calendar-mobile-desc.desc-Bday::before {
+    content: '🎉';               /* 💡 원하는 이모지 문자로 변경 가능 */
+    font-size: 35px;             /* 💡 폭죽 이모지 크기 */
+    opacity: 0.2;                /* 💡 투명도 설정 (0에 가까울수록 글자가 잘 보임) */
+    position: absolute;
+    pointer-events: none;        /* 이모지 때문에 버튼이 안 눌리는 현상 방지 */
+    
+    /* 💡 이모지 배치 위치 수정 구역 */
+    top: 50%;                    /* 세로축 기준 정중앙 */
+    left: 10%;                   /* 가로축 기준 왼쪽에서 10% 지점 */
+    transform: translateY(-50%); /* 정확한 세로 가운데 정렬 유지 */
+  }
+
+  /* [디데이용 배경] 하트 이모지 디자인 구역 */
+  .calendar-mobile-desc.desc-Dday::before {
+    content: '❤️';               /* 💡 원하는 이모지 문자로 변경 가능 */
+    font-size: 30px;             /* 💡 하트 이모지 크기 */
+    opacity: 0.2;                /* 💡 투명도 설정 */
+    position: absolute;
+    pointer-events: none;
+    
+    /* 💡 이모지 배치 위치 수정 구역 */
+    top: 50%;                    /* 세로축 기준 정중앙 */
+    right: 10%;                  /* 가로축 기준 오른쪽에서 10% 지점 */
+    transform: translateY(-50%); /* 정확한 세로 가운데 정렬 유지 */
+  }
 
 
 }
