@@ -582,7 +582,6 @@ ul li:hover > .sub {
     background: var(--btn-sub-color);
     border: none;
     padding: var(--padding-menu);
-    margin: var(--padding-menu) 0 var(--padding-menu) 0;
     border-radius: var(--button-round);
     font-size: 14px;
     display: block;
@@ -606,7 +605,6 @@ ul li:hover > .sub {
     text-decoration: none;
     color: var(--btn-text-color);
     padding: var(--padding-menu);
-    margin: var(--padding-menu) 0 var(--padding-menu) 0;
     border-radius: var(--button-round);
     text-align: center;	
 }
