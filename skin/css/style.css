@@ -605,61 +605,54 @@ a *{
 	color: var(--btn-text-color) ;
 }
 
+/* 큰 메뉴(ul)에 마우스가 올라가 있는 동안 내부의 모든 .sub, .ssub  다 열어두기 */
+#menu ul:hover .sub {
+    max-height: 600px !important; 
+    opacity: 1 !important;  
+    visibility: visible !important; 
+}
 
+#menu ul:hover .ssub {
+    max-height: 400px !important;       
+    opacity: 1 !important;    
+    visibility: visible !important; 
+}
 
-/* 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
-    ul > li:hover > .sub {
-    	max-height: 600px !important; 
-    	opacity: 1 !important;  
-		visibility: visible; 
-		transition-delay: 0s;
-    }
-
-
-/*  중메뉴(li)에 마우스를 올렸을 때(hover) 밑의 메뉴(.ssub) 펼치기 */
-    .sub > li:hover > .ssub {
-    	max-height: 400px !important;       
-    	opacity: 1 !important;    
-		visibility: visible; 
-		transition-delay: 0s;
-    }
-
-    ul > li:hover > .sub > li {
+/* 메뉴 열렸을 때 버튼들 사이의 간격을 var(--padding-menu) 규격으로 딱 맞춤 */
+#menu ul:hover .sub > li,
+#menu ul:hover .ssub > li {
     padding-top: var(--padding-menu);
     padding-bottom: 0;
-    }
-
-    .sub > li:hover > .ssub > li {
-	    padding-top: calc(var(--padding-menu) + 2px); 
-	    padding-bottom: 0;
-    }
-
-    /* 클릭했을 때 열리는 기능도 같이 작동 */
-    .sub.open {
-  max-height: 600px !important; 
-  opacity: 1 !important;  
-  visibility: visible !important; 
 }
 
-.ssub.open {
-  max-height: 400px !important;       
-  opacity: 1 !important;    
-  visibility: visible !important; 
-}
-
-/* 3. 메뉴가 열렸을 때 버튼 간격 패딩 지정 */
-.sub.open > li,
-.ssub.open > li {
-  padding-top: var(--padding-menu);
-  padding-bottom: 0;
-}
-
-ul > li:not(:hover) .sub.open,
-ul > li:not(:hover) .ssub.open{
+/* [안전장치] 마우스가 ul을 완전히 벗어나면 모든 하위 메뉴 즉시 폐쇄 및 초기화 */
+#menu ul:not(:hover) .sub,
+#menu ul:not(:hover) .ssub {
     max-height: 0 !important;
     opacity: 0 !important;
     visibility: hidden !important;
 }
+
+/* 자바스크립트 클릭 기능(.open)이 작동할 때의 연동 규격 유지 */
+.sub.open {
+    max-height: 600px !important; 
+    opacity: 1 !important;  
+    visibility: visible !important; 
+}
+
+.ssub.open {
+    max-height: 400px !important;       
+    opacity: 1 !important;    
+    visibility: visible !important; 
+}
+
+.sub.open > li,
+.ssub.open > li {
+    padding-top: var(--padding-menu);
+    padding-bottom: 0;
+}
+
+
 
 /* ==========================================
     버튼 안 아이콘 색상
