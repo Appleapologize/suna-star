@@ -609,43 +609,42 @@ a *{
 /* 1. 마우스가 '대메뉴 li' 위에 있을 때만 그 직계 자식인 중메뉴판(.sub)을 펼칩니다 */
 ul > li:hover > .sub {
     max-height: 600px !important; 
+    display: block !important;    /* 마우스가 들어오면 무조건 영역 개방 */
     opacity: 1 !important;  
-	overflow: visible !important;
-    visibility: visible !important; 
+    visibility: visible !important;  
 }
 
 /* 3. 중메뉴 항목(li)에 마우스가 올라가면 직계 소메뉴판(.ssub) 열기 */
 .sub > li:hover > .ssub {
     max-height: 400px !important;       
+    display: block !important;
     opacity: 1 !important;    
-	overflow: visible !important;	
-    visibility: visible !important; 
+    visibility: visible !important;
 }
-
-/* ⭕ 지운 자리에 이 코드를 통째로 붙여넣으세요! */
 
 /* 1. [진짜 핵심] 하위 메뉴가 펼쳐지면 부모 li의 영역도 아래로 같이 커지도록 자동 확장 보장 */
 #menu ul > li, 
 .sub > li {
     position: relative;
-    height: auto; 
+    height: auto !important; 
 }
 
-/* 2. 메뉴판이 열렸을 때 버튼들 사이의 간격을 var(--padding-menu) 마진으로 정갈하게 벌려줍니다 */
-/* 💡 마진으로 벌려주어야 li의 실제 마우스 감지 면적이 아래 버튼까지 완전히 끈끈하게 이어집니다 */
+/* 메뉴 열렸을 때 버튼들 사이의 간격을 var(--padding-menu) 마진으로  벌려줍니다 */
 .sub > li {
     margin-top: var(--padding-menu) !important;
+	margin-bottom: 0 !important;
 }
 
 .ssub > li {
     margin-top: var(--padding-menu) !important;
+	margin-bottom: 0 !important;
 }
 
-/* 3. 자바스크립트 클릭 기능(.open)이 작동할 때의 연동 규격 유지 */
+/* 자바스크립트 클릭 기능(.open)이 작동할 때의 연동 규격 유지 */
 .sub.open, .ssub.open {
-    max-height: 600px !important; 
+    max-height: none !important; 
+    display: block !important; 
     opacity: 1 !important;  
-	overflow: visible !important;	
     visibility: visible !important; 
 }
 
@@ -653,8 +652,8 @@ ul > li:hover > .sub {
 ul > li:not(:hover) .sub,
 ul > li:not(:hover) .ssub {
     max-height: 0 !important;
-    opacity: 0 !important;
-	overflow: hidden !important;		
+	display: none !important; 
+    opacity: 0 !important;		
     visibility: hidden !important;
 }
 
