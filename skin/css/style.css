@@ -529,7 +529,8 @@ nav{
   max-height: 0;           /* 높이를 0으로 만들어 숨깁니다 */
   overflow: hidden;        /* 넘치는 하위 메뉴 글자들을 가립니다 */
   opacity: 0;              /* 투명하게 만듭니다 */
-  transition: max-height 0.4s ease, opacity 0.3s ease; /* 0.4초 동안 부드럽게 변형 */
+  visibility: hidden; 
+  transition: opacity 0.2s ease, visibility 0.2s ease; /* 0.2초 동안 부드럽게 변형 */
   list-style: none;
   padding-left: 15px;
   margin: 0;
@@ -588,7 +589,7 @@ a *{
 /* 3단계: 소메뉴 스타일 */
 .btn-sub-sub { 
     padding: 6px 6px 6px 25px;
-    cursor: var(--over-cursor) pointer;
+    cursor: var(--over-cursor), pointer;
     background: var(--btn-ssub-color);
     font-size: 13px;
     border-radius: 4px;
@@ -611,40 +612,43 @@ a *{
 /* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
     ul:hover > li > .sub,
     ul li:hover > .sub {
-    	max-height: 500px !important; 
-    	opacity: 1 !important;              
+    	max-height: 600px !important; 
+    	opacity: 1 !important;  
+		visibility: visible; 
     }
 
 
-/* 3. 중메뉴(li)에 마우스를 올렸을 때(hover) 손자 메뉴(.ssub) 펼치기 */
+/*  중메뉴(li)에 마우스를 올렸을 때(hover) 밑의 메뉴(.ssub) 펼치기 */
     .sub:hover > li > .ssub,
     .sub li:hover > .ssub {
-    	max-height: 300px !important;       
-    	opacity: 1 !important;              
+    	max-height: 400px !important;       
+    	opacity: 1 !important;    
+		visibility: visible; 
     }
 
-/* 3. [핵심] 메뉴가 열렸을 때만 버튼 위아래 간격을 var(--padding-menu)로 지정 */
-ul:hover > li > .sub > li,
-.sub:hover > li {
+ 	/* 메뉴가 열렸을 때만 버튼 위아래 간격을 var(--padding-menu)로 지정 */
+    ul:hover > li > .sub > li,
+    .sub:hover > li {
     padding-top: var(--padding-menu);
     padding-bottom: 0;
-}
+    }
 
-.sub:hover > li > .ssub > li,
-.ssub:hover > li {
-    padding-top: calc(var(--padding-menu) + 2px); /* 💡 약간의 미세조정 예시 */
-    padding-bottom: 0;
-}
+    .sub:hover > li > .ssub > li,
+    .ssub:hover > li {
+	    padding-top: calc(var(--padding-menu) + 2px); /* 💡 약간의 미세조정 예시 */
+	    padding-bottom: 0;
+    }
 
-/* 💡 클릭했을 때 열리는 자바스크립트 기능도 같이 작동하도록 보장 */
-.sub.open, .ssub.open {
-  max-height: 300px !important;
-  opacity: 1 !important;
-}
+    /* 💡 클릭했을 때 열리는 자바스크립트 기능도 같이 작동하도록 보장 */
+    .sub.open, .ssub.open {
+    	max-height: 600px !important;
+	    opacity: 1 !important;
+	    visibility: visible; 
+    }
 
-.sub.open > li, .ssub.open > li {
-    padding-top: var(--padding-menu);
-}
+    .sub.open > li, .ssub.open > li {
+	    padding-top: var(--padding-menu);
+    }
 
 /* ==========================================
     버튼 안 아이콘 색상
