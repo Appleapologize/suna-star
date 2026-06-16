@@ -524,6 +524,10 @@ nav{
 	z-index: 1;
 }
 
+.menu-all li {
+	padding:var(--padding-menu) 0;
+}
+
 .sub, .ssub { 
   display: block;          /* display: none 대신 block을 써야 애니메이션이 먹힙니다 */
   max-height: 0;           /* 높이를 0으로 만들어 숨깁니다 */
