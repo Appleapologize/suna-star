@@ -363,12 +363,19 @@
     top: 50%;                    
     right: 6%;                   /* 텍스트 박스 안쪽 오른쪽에서 6% 지점 */ 
   }
+  
 
 /* [디데이용 배경] 🌵x⭐ 버전 
 .calendar-mobile-desc.desc-Dday .desc-text::before {
   content: '🌵x⭐'; 
   font-size: 22px;              
 }*/
+
+
+  .anniversary.anni-Bday .day-num::after,
+  .anniversary.anni-Dday .day-num::after{
+    display: none;
+}
 
 }
 
