@@ -635,16 +635,31 @@ a *{
     }
 
     /* 클릭했을 때 열리는 기능도 같이 작동 */
-    .sub.open, .ssub.open {
-    	max-height: 600px !important;
-	    opacity: 1 !important;
-	    visibility: visible; 
-		transition-delay: 0s;
-    }
+    .sub.open {
+  max-height: 600px !important; 
+  opacity: 1 !important;  
+  visibility: visible !important; 
+}
 
-    .sub.open > li, .ssub.open > li {
-	    padding-top: var(--padding-menu);
-    }
+.ssub.open {
+  max-height: 400px !important;       
+  opacity: 1 !important;    
+  visibility: visible !important; 
+}
+
+/* 3. 메뉴가 열렸을 때 버튼 간격 패딩 지정 */
+.sub.open > li,
+.ssub.open > li {
+  padding-top: var(--padding-menu);
+  padding-bottom: 0;
+}
+
+ul > li:not(:hover) .sub,
+ul > li:not(:hover) .ssub {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
 
 /* ==========================================
     버튼 안 아이콘 색상
