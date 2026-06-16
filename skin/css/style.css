@@ -631,13 +631,20 @@ ul > li:hover > .sub {
 
 /* 메뉴 열렸을 때 버튼들 사이의 간격을 var(--padding-menu) 마진으로  벌려줍니다 */
 .sub > li {
-    margin-top: var(--padding-menu) !important;
-	margin-bottom: 0 !important;
+    padding-top: var(--padding-menu) !important;
+    padding-bottom: 0 !important;
 }
 
 .ssub > li {
-    margin-top: var(--padding-menu) !important;
-	margin-bottom: 0 !important;
+    padding-top: var(--padding-menu) !important;
+    padding-bottom: 0 !important;
+}
+
+/* 💡 클릭(자바스크립트)으로 열렸을 때도 버튼 간격 패딩이 정상적으로 먹히도록 안전장치를 추가합니다. */
+.sub.open > li,
+.ssub.open > li {
+    padding-top: var(--padding-menu) !important;
+    padding-bottom: 0 !important;
 }
 
 /* 자바스크립트 클릭 기능(.open)이 작동할 때의 연동 규격 유지 */
