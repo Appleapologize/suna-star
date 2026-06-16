@@ -529,7 +529,7 @@ nav{
   overflow: hidden;        /* 넘치는 하위 메뉴 글자들을 가립니다 */
   opacity: 0;              /* 투명하게 만듭니다 */
   visibility: hidden; 
-  transition: max-height 10s ease, opacity 10s ease, visibility 105s ease;
+  transition: max-height 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
   list-style: none;
   padding-top: 0;		
   padding-left: 15px;
@@ -666,6 +666,28 @@ ul > li:not(:hover) .ssub {
     visibility: hidden !important;
 }
 
+/* =======================================================
+   [독립 ul 구조 수호] 아래 메뉴 간섭 차단 자석 레이어
+   ======================================================= */
+
+/* 💡 마우스가 특정 메뉴 ul 위에 올라가는 순간, 
+   그 ul 주머니를 전체 화면 레이어 중 가장 최상단으로 붕 띄웁니다. */
+#menu ul:hover {
+    position: relative;
+    z-index: 999 !important;
+}
+
+/* 💡 마우스가 글자 밖으로 나가 버튼 사이의 빈틈을 지나갈 때도 
+   호버 감지막이 0.15초 동안 끈질기게 버텨주도록 여유 시간을 줍니다. */
+.sub, .ssub {
+    transition-delay: 0.15s !important;
+}
+
+/* 마우스가 들어올 때는 지연 시간 전혀 없이 즉시 팝업되도록 보장 */
+ul > li:hover > .sub,
+.sub > li:hover > .ssub {
+    transition-delay: 0s !important;
+}
 
 
 
