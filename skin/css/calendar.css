@@ -231,7 +231,11 @@
   pointer-events: none;
   z-index: 1; /* 말풍선 글자판(z-index: 10) 레이어와 정렬 관계 조율 */
   display: none; /* 평소엔 숨김 */
-  text-shadow: 0px 0px 5px var(--text-color);
+  text-shadow: 
+    calc(-1 * var(--desc-text-border)) 0px var(--text-color), 
+    0px var(--desc-text-border) var(--text-color), 
+    var(--desc-text-border) 0px var(--text-color), 
+    0px calc(-1 * var(--desc-text-border)) var(--text-color);
   white-space: nowrap;
   transform: translate(-50%, -50%);
 }
