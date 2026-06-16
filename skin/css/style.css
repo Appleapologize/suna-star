@@ -523,17 +523,20 @@ nav{
     border-radius: var(--border-radius-l);
 	z-index: 1;
 }
-
+.sub, .ssub{
+	margin-top: -5px;
+}
 .sub, .ssub { 
   display: block;          /* display: none 대신 block을 써야 애니메이션이 먹힙니다 */
   max-height: 0;           /* 높이를 0으로 만들어 숨깁니다 */
   overflow: hidden;        /* 넘치는 하위 메뉴 글자들을 가립니다 */
   opacity: 0;              /* 투명하게 만듭니다 */
   visibility: hidden; 
-  transition: opacity 0.2s ease, visibility 0.2s ease; /* 0.2초 동안 부드럽게 변형 */
+  transition: opacity 0.2s ease, visibility 0.2s ease, max-height 0s ease 0.15s;; /* 0.2초 동안 부드럽게 변형 */
   list-style: none;
   padding-left: 15px;
   margin: 0;
+  
 }
 
 /* 1단계: 대메뉴 버튼 스타일 */
@@ -614,6 +617,7 @@ a *{
     	max-height: 600px !important; 
     	opacity: 1 !important;  
 		visibility: visible; 
+		transition-delay: 0s;
     }
 
 
@@ -622,6 +626,7 @@ a *{
     	max-height: 400px !important;       
     	opacity: 1 !important;    
 		visibility: visible; 
+		transition-delay: 0s;
     }
 
  	/* 메뉴가 열렸을 때만 버튼 위아래 간격을 var(--padding-menu)로 지정 */
@@ -640,6 +645,7 @@ a *{
     	max-height: 600px !important;
 	    opacity: 1 !important;
 	    visibility: visible; 
+		transition-delay: 0s;
     }
 
     .sub.open > li, .ssub.open > li {
