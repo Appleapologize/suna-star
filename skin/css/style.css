@@ -1055,7 +1055,9 @@ footer p.bold{
 	.theme-icon-button{
 		top: calc(var(--padding-in-body) - 30px);
 	}
-
+	.scroll-btn{
+		bottom: calc(var(--padding-in-body) * 3 + 15px);
+	}
 
 	
 	#menu{
