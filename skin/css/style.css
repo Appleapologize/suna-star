@@ -1053,8 +1053,8 @@ footer p.bold{
 	}
 	
 	.theme-icon-button{
-		top: calc(var(--padding-in-body) - 30px);
-		right: 5%;
+		top: var(--mobile-position);
+		right: var(--mobile-position);
 	}
 	.scroll-btn{
 		bottom: calc(var(--padding-in-body) * 2.5 + 10px);
