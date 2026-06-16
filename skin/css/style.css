@@ -532,6 +532,7 @@ nav{
   visibility: hidden; 
   transition: max-height 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
   list-style: none;
+  padding-top: 0;		
   padding-left: 15px;
   margin:0;
 }
@@ -604,61 +605,51 @@ a *{
 	background: var(--btn-ssub-hover-color); 
 	color: var(--btn-text-color) ;
 }
+
 /* 1. 마우스가 '대메뉴 li' 위에 있을 때만 그 직계 자식인 중메뉴판(.sub)을 펼칩니다 */
-ul > li:hover > .sub,
-ul > li > .sub:hover {
-    max-height: 500px !important; /* 💡 부드럽게 스르륵 내려오는 높이 지정 */
+ul > li:hover > .sub {
+    max-height: 600px !important; 
     opacity: 1 !important;  
     visibility: visible !important; 
 }
 
-/* 2. [핵심 교정] 마우스가 오직 SNS 버튼을 품은 '중메뉴 li' 위에 정확히 올라갔을 때만 소메뉴판(.ssub)을 펼칩니다 */
-/* 💡 주머니 전체가 아니라 마우스가 닿은 그 특정 li 항목으로 범위를 좁혀 옆 동네 간섭을 원천 차단합니다 */
-.sub > li:hover > .ssub,
-.sub > li > .ssub:hover{
-    max-height: 300px !important;       
+/* 3. 중메뉴 항목(li)에 마우스가 올라가면 직계 소메뉴판(.ssub) 열기 */
+.sub > li:hover > .ssub {
+    max-height: 400px !important;       
     opacity: 1 !important;    
     visibility: visible !important; 
 }
 
-/* 3. [예쁜 간격] 메뉴판이 활성화되어 열려 있을 때만 버튼 사이의 간격을 var(--padding-menu)로 지정 */
+/* 💡 [마법의 댄스 구역] 메뉴가 열렸을 때 버튼 간의 가로 줄 공백을 패딩 대신 
+   물리적인 위치 이동 수식(transform)으로 안전하게 벌려줍니다. 
+   영역이 뭉개지지 않으므로 마우스가 아무리 움직여도 호버가 100% 유지됩니다. */
 ul > li:hover > .sub > li {
-    padding-top: var(--padding-menu);
-    padding-bottom: 0;
+    transform: translateY(var(--padding-menu)); /* 💡 원하시던 변수만큼 예쁘게 위치 이동 */
 }
 
-/* 💡 소메뉴(🔒, TALK)가 열릴 때도 그 소메뉴 항목 li들의 간격만 정갈하게 벌려줍니다 */
 .sub > li:hover > .ssub > li {
-    padding-top: var(--padding-menu); 
-    padding-bottom: 0;
+    transform: translateY(var(--padding-menu)); 
 }
 
-/* 4. 자바스크립트 클릭 기능(.open)이 작동할 때도 레이아웃 깨짐 없이 똑같이 부드러운 연동 보장 */
-.sub.open {
-    max-height: 500px !important; 
+/* 4. 자바스크립트 클릭 기능(.open)이 작동할 때도 동일하게 위치 연동 보장 */
+.sub.open, .ssub.open {
+    max-height: 600px !important; 
     opacity: 1 !important;  
     visibility: visible !important; 
 }
 
-.ssub.open {
-    max-height: 300px !important;       
-    opacity: 1 !important;    
-    visibility: visible !important; 
+.sub.open > li, .ssub.open > li {
+    transform: translateY(var(--padding-menu));
 }
 
-.sub.open > li,
-.ssub.open > li {
-    padding-top: var(--padding-menu);
-    padding-bottom: 0;
-}
-
-/* 5. [자동 청소 스위치] 마우스 커서가 대메뉴 큰 주머니(ul > li)를 완전히 완전히 벗어나면 하위 메뉴판 전체 동시 완전 소멸 */
+/* 5. [자동 정리 스위치] 마우스 커서가 대메뉴 큰 주머니를 완전히 벗어나면 즉시 리셋 */
 ul > li:not(:hover) .sub,
 ul > li:not(:hover) .ssub {
     max-height: 0 !important;
     opacity: 0 !important;
     visibility: hidden !important;
 }
+
 
 
 
