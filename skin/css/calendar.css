@@ -248,14 +248,15 @@
       cursor: var(--over-cursor), pointer !important;
     }  
   /* 공휴일이나 생일 클래스가 붙었을 때 이모지 배치를 위한 기준점(정렬) 정의 */
-  .calendar-mobile-desc.desc-Bday,
-  .calendar-mobile-desc.desc-Dday {
-    position: relative;
-    overflow: hidden; /* 이모지가 설명창 밖으로 삐져나가지 않도록 커트 */
+  .calendar-mobile-desc.desc-Bday .desc-text,
+  .calendar-mobile-desc.desc-Dday .desc-text {
+      position: relative;
+      overflow: hidden; /* 이모지가 텍스트 영역 밖으로 나가지 못하게 커트 */
+      width: 100%;
   }
 
   /* [생일용 배경] 폭죽 이모지 디자인 구역 */
-  .calendar-mobile-desc.desc-Bday::before {
+  .calendar-mobile-desc.desc-Bday .desc-text::before {
     content: '🎉';               /* 💡 원하는 이모지 문자로 변경 가능 */
     font-size: 35px;             /* 💡 폭죽 이모지 크기 */
     opacity: 0.2;                /* 💡 투명도 설정 (0에 가까울수록 글자가 잘 보임) */
@@ -269,7 +270,7 @@
   }
 
   /* [디데이용 배경] 하트 이모지 디자인 구역 */
-  .calendar-mobile-desc.desc-Dday::before {
+  .calendar-mobile-desc.desc-Dday .desc-text::before {
     content: '❤️';               /* 💡 원하는 이모지 문자로 변경 가능 */
     font-size: 30px;             /* 💡 하트 이모지 크기 */
     opacity: 0.2;                /* 💡 투명도 설정 */
