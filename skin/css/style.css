@@ -1056,7 +1056,14 @@ footer p.bold{
 		top: calc(var(--padding-in-body) - 30px);
 	}
 	.scroll-btn{
-		bottom: calc(var(--padding-in-body) * 3.5 + 15px);
+		bottom: calc(var(--padding-in-body) * 3.5 + 10px);
+		padding: 6px;
+		border-radius: calc(var(--button-round) / 1.5);
+	}
+
+	#scrollDownBtn, 
+	#scrollUpBtn{
+		font-size: medium;
 	}
 
 	
