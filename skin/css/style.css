@@ -605,25 +605,32 @@ a *{
 	color: var(--btn-text-color) ;
 }
 
-/* 1. 마우스가 '대메뉴 li' 위에 있을 때만 그 직계 자식인 중메뉴판(.sub)을 펼칩니다 */
-ul > li:hover > .sub {
-    display: block !important;    /* 마우스가 들어오면 무조건 영역 개방 */
-    opacity: 1 !important;  
-    visibility: visible !important;  
-}
-
-/* 3. 중메뉴 항목(li)에 마우스가 올라가면 직계 소메뉴판(.ssub) 열기 */
-.sub > li:hover > .ssub {   
-    display: block !important;
-    opacity: 1 !important;    
-    visibility: visible !important;
-}
-
 /* 1. [진짜 핵심] 하위 메뉴가 펼쳐지면 부모 li의 영역도 아래로 같이 커지도록 자동 확장 보장 */
 #menu ul > li, 
 .sub > li {
     position: relative;
-    height: auto !important; 
+    height: auto !important;
+}
+
+.btn-sub, .btn-sub-sub {
+    width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important; /* 패딩이 더해져도 가로로 터지지 않게 방지 */
+    margin: 0 !important;
+}
+
+ul > li:hover > .sub {
+    max-height: none !important; 
+    display: block !important;    
+    opacity: 1 !important;  
+    visibility: visible !important;  
+}
+
+.sub > li:hover > .ssub {
+    max-height: none !important;       
+    display: block !important;
+    opacity: 1 !important;    
+    visibility: visible !important;
 }
 
 /* 메뉴 열렸을 때 버튼들 사이의 간격을 var(--padding-menu) 마진으로  벌려줍니다 */
