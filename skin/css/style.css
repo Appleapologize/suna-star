@@ -529,14 +529,13 @@ nav{
 }
 
 .sub, .ssub { 
-  display: block;          /* display: none 대신 block을 써야 애니메이션이 먹힙니다 */
-  max-height: 0;           /* 높이를 0으로 만들어 숨깁니다 */
-  overflow: hidden;        /* 넘치는 하위 메뉴 글자들을 가립니다 */
-  opacity: 0;              /* 투명하게 만듭니다 */
-  transition: max-height 0.4s ease, opacity 0.3s ease; /* 0.4초 동안 부드럽게 변형 */
+  display: none !important;  /* ⭕ max-height: 0 대신 display: none으로 완전히 숨김 */
+  opacity: 0;              
+  visibility: hidden; 
   list-style: none;
   padding-left: 15px;
   margin: 0;
+  transition: opacity 0.25s ease, visibility 0.25s ease; 
 }
 
 /* 1단계: 대메뉴 버튼 스타일 */
@@ -551,7 +550,9 @@ nav{
 }
 
 button, a.button {
-    display: inline-block;
+    display: block;
+	width: var(--width-100);
+	box-sizing: border-box;
     border: 0;	
     cursor: var(--over-cursor), pointer !important;	
     background-color: var(--point-color);
@@ -612,27 +613,48 @@ ul li:hover > .sub {
 	background: var(--btn-ssub-hover-color); 
 	color: var(--btn-text-color) ;
 }
+/* -------------------------------------------------------
+   [최종 활성화] display 기준 호버 제어 및 간격 지정
+   ======================================================= */
 
-
-
-
-/* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
-    ul li:hover > .sub {
-        max-height: 500px !important; /* 하위 메뉴가 다 보일 수 있는 충분한 높이 */
-        opacity: 1 !important;              
-    }
-
-/* 3. 중메뉴(li)에 마우스를 올렸을 때(hover) 손자 메뉴(.ssub) 펼치기 */
-    .sub li:hover > .ssub {
-        max-height: 300px !important;       
-        opacity: 1 !important;              
-    }
-
-/* 💡 [기존 코드 유지 보완] 클릭했을 때 열리는 자바스크립트 기능도 같이 작동하도록 보장 */
-.sub.open, .ssub.open {
-  max-height: 300px !important;
-  opacity: 1 !important;
+/* 하위 메뉴가 펼쳐지면 부모 li의 영역도 자동으로 같이 커지도록 자동 확장 보장 */
+#menu .menu-all > li, 
+.sub > li {
+    position: relative;
+    height: auto !important;
 }
+
+/* 💡 1. 대메뉴 항목(li)에 마우스가 올라가면 직계 중메뉴판(.sub) 열기 */
+.menu-all > li:hover > .sub {
+    display: block !important;    /* ⭕ 무조건 영역 완전히 개방 */
+    opacity: 1 !important;  
+    visibility: visible !important;  
+}
+
+/* 💡 2. 중메뉴 항목(li)에 마우스가 올라가면 직계 소메뉴판(.ssub) 열기 */
+.sub > li:hover > .ssub {
+    display: block !important;
+    opacity: 1 !important;    
+    visibility: visible !important;
+}
+
+/* 💡 3. 메뉴판 내부 버튼들 사이의 간격을 var(--padding-menu) 패딩으로 채워 센서 유지를 보장합니다. */
+.sub > li,
+.ssub > li {
+    padding-top: var(--padding-menu) !important;
+    padding-bottom: 0 !important;
+}
+
+/* 💡 4. 자바스크립트 클릭 기능(.open)이 작동할 때도 동일하게 display: block 연동 보장 */
+.sub.open, .ssub.open {
+    display: block !important; 
+    opacity: 1 !important;  
+    visibility: visible !important; 
+}
+.sub.open > li, .ssub.open > li {
+    padding-top: var(--padding-menu) !important;
+}
+
 
 /* ==========================================
     글이 보이는 곳
