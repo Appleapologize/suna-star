@@ -530,13 +530,10 @@ nav{
   overflow: hidden;        /* 넘치는 하위 메뉴 글자들을 가립니다 */
   opacity: 0;              /* 투명하게 만듭니다 */
   visibility: hidden; 
-  transition: opacity 0.2s ease, visibility 0.2s ease, max-height 0.2s ease;
-  transition-delay: 0.15s; 
+  transition: max-height 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
   list-style: none;
   padding-left: 15px;
-  margin-top: calc(var(--padding-menu) * -1);
-  margin-bottom: 0;
-  
+  margin:0;
 }
 
 /* 1단계: 대메뉴 버튼 스타일 */
@@ -591,7 +588,7 @@ a *{
 
 /* 3단계: 소메뉴 스타일 */
 .btn-sub-sub { 
-    cursor: var(--over-cursor), pointer;
+    cursor: var(--over-cursor), pointer !important;
     background: var(--btn-ssub-color);
     font-size: 13px;
     border-radius: 4px;
