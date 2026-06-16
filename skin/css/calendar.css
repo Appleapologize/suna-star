@@ -160,13 +160,24 @@
   cursor: var(--over-cursor), pointer !important;
 }
 
+/*---- ---- 공통 css ---- ----*/
+.anni-circle .marker-circle::before,
+.anni-Bday .marker-Bday::before,
+.anni-Dday .marker-Dday::before{
+   position: absolute;
+}
+
+.anni-Bday .marker-Bday::before,
+.anni-Dday .marker-Dday::before{
+  transform: translate(-50%, -50%);  
+}
+
 /* 일반 기념일용 (동그라미) */
 .anni-circle .marker-circle::before {
     content: '';
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    position: absolute;
     bottom: 1px;
     left: 50%;
     transform: translateX(-50%);
@@ -177,22 +188,19 @@
 .anni-Bday .marker-Bday::before {
   content: var(--Bday-emo-calender-num);
   font-size: var(--calendar-marker-size); 
-  position: absolute;
   top: 30%;
   left: 60%;
-  transform: translate(-50%, -50%);
 }
 
 /* 100일 단위 디데이: 하트 이모지 아이콘 적용 */
 .anni-Dday .marker-Dday::before {
   content: var(--Dday-emo-calender-num);
   font-size: var(--calendar-marker-size); 
-  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   color:pink;
 }
+
 
 /*말풍선 본체 (컨텐츠 박스)*/
 .anniversary:hover::after {
@@ -229,7 +237,7 @@
   font-size: var(--Bday-emo-desc-text-font-size); /* 💡 생일 이모지 크기 변수 */
   transform: translate(-100%, -160%);   
   /* 말풍선 본체 위치(bottom: 115%) 근처 정중앙으로 배치 */
-  bottom: 115%;
+  bottom: -50%;
   left: 50%;
 }
 
@@ -238,7 +246,7 @@
   content: var(--Dday-emo-desc-text); 
   font-size: var(--Dday-emo-desc-text-cont-size);
   letter-spacing: 3px;
-  bottom: 115%;
+  bottom: 270%;
   left: 50%;
 }
 
