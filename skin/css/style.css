@@ -523,19 +523,19 @@ nav{
     border-radius: var(--border-radius-l);
 	z-index: 1;
 }
-.sub, .ssub{
-	margin-top: -5px;
-}
+
 .sub, .ssub { 
   display: block;          /* display: none 대신 block을 써야 애니메이션이 먹힙니다 */
   max-height: 0;           /* 높이를 0으로 만들어 숨깁니다 */
   overflow: hidden;        /* 넘치는 하위 메뉴 글자들을 가립니다 */
   opacity: 0;              /* 투명하게 만듭니다 */
   visibility: hidden; 
-  transition: opacity 0.2s ease, visibility 0.2s ease, max-height 0s ease 0.15s;; /* 0.2초 동안 부드럽게 변형 */
+  transition: opacity 0.2s ease, visibility 0.2s ease, max-height 0.2s ease;
+  transition-delay: 0.15s; 
   list-style: none;
   padding-left: 15px;
-  margin: 0;
+  margin-top: calc(var(--padding-menu) * -1);
+  margin-bottom: 0;
   
 }
 
@@ -591,7 +591,6 @@ a *{
 
 /* 3단계: 소메뉴 스타일 */
 .btn-sub-sub { 
-    padding: 6px 6px 6px 25px;
     cursor: var(--over-cursor), pointer;
     background: var(--btn-ssub-color);
     font-size: 13px;
@@ -611,8 +610,7 @@ a *{
 
 
 
-
-/* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
+/* 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
     ul > li:hover > .sub {
     	max-height: 600px !important; 
     	opacity: 1 !important;  
@@ -629,18 +627,17 @@ a *{
 		transition-delay: 0s;
     }
 
- 	/* 메뉴가 열렸을 때만 버튼 위아래 간격을 var(--padding-menu)로 지정 */
     ul > li:hover > .sub > li {
     padding-top: var(--padding-menu);
     padding-bottom: 0;
     }
 
     .sub > li:hover > .ssub > li {
-	    padding-top: calc(var(--padding-menu) + 2px); /* 💡 약간의 미세조정 예시 */
+	    padding-top: calc(var(--padding-menu) + 2px); 
 	    padding-bottom: 0;
     }
 
-    /* 💡 클릭했을 때 열리는 자바스크립트 기능도 같이 작동하도록 보장 */
+    /* 클릭했을 때 열리는 기능도 같이 작동 */
     .sub.open, .ssub.open {
     	max-height: 600px !important;
 	    opacity: 1 !important;
