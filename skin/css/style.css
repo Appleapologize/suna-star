@@ -526,7 +526,6 @@ nav{
 
 .sub, .ssub { 
   display: block;          /* display: none 대신 block을 써야 애니메이션이 먹힙니다 */
-  max-height: 0;           /* 높이를 0으로 만들어 숨깁니다 */
   overflow: hidden;        /* 넘치는 하위 메뉴 글자들을 가립니다 */
   opacity: 0;              /* 투명하게 만듭니다 */
   visibility: hidden; 
@@ -608,15 +607,13 @@ a *{
 
 /* 1. 마우스가 '대메뉴 li' 위에 있을 때만 그 직계 자식인 중메뉴판(.sub)을 펼칩니다 */
 ul > li:hover > .sub {
-    max-height: 600px !important; 
     display: block !important;    /* 마우스가 들어오면 무조건 영역 개방 */
     opacity: 1 !important;  
     visibility: visible !important;  
 }
 
 /* 3. 중메뉴 항목(li)에 마우스가 올라가면 직계 소메뉴판(.ssub) 열기 */
-.sub > li:hover > .ssub {
-    max-height: 400px !important;       
+.sub > li:hover > .ssub {   
     display: block !important;
     opacity: 1 !important;    
     visibility: visible !important;
@@ -649,7 +646,6 @@ ul > li:hover > .sub {
 
 /* 자바스크립트 클릭 기능(.open)이 작동할 때의 연동 규격 유지 */
 .sub.open, .ssub.open {
-    max-height: none !important; 
     display: block !important; 
     opacity: 1 !important;  
     visibility: visible !important; 
@@ -658,7 +654,6 @@ ul > li:hover > .sub {
 /* 5. [자동 정리 스위치] 마우스 커서가 대메뉴 큰 주머니를 완전히 벗어나면 즉시 리셋 */
 ul > li:not(:hover) .sub,
 ul > li:not(:hover) .ssub {
-    max-height: 0 !important;
 	display: none !important; 
     opacity: 0 !important;		
     visibility: hidden !important;
