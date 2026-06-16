@@ -219,6 +219,7 @@
   display: none; /* 평소엔 숨김 */
   transform: translate(-100%, -160%);
   text-shadow: 0px 0px 5px var(--text-color);
+  white-space: nowrap;
 }
 
 
