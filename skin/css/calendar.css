@@ -213,11 +213,12 @@
 /* ---- ---- 데스크톱 배경 디자인 설정 ---- ----*/
 .anniversary.anni-Bday .day-num::after,
 .anniversary.anni-Dday .day-num::after{
-  opacity: var(--emo-desc-text-opacity);
   position: absolute;
   pointer-events: none;
-  z-index: 11; /* 말풍선 글자판(z-index: 10) 레이어와 정렬 관계 조율 */
+  z-index: -1; /* 말풍선 글자판(z-index: 10) 레이어와 정렬 관계 조율 */
   display: none; /* 평소엔 숨김 */
+  transform: translate(-100%, -160%);
+  text-shadow: 0px 0px 5px var(--text-color);
 }
 
 
@@ -229,7 +230,6 @@
   /* 말풍선 본체 위치(bottom: 115%) 근처 정중앙으로 배치 */
   bottom: 115%;
   left: 50%;
-  transform: translate(-50%, -20%);
 }
 
 /* [디데이용 데스크톱 배경] */
@@ -240,7 +240,6 @@
   
   bottom: 115%;
   left: 50%;
-  transform: translate(-50%, -20%);
 }
 
 
