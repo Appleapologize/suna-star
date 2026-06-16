@@ -654,8 +654,8 @@ a *{
   padding-bottom: 0;
 }
 
-ul > li:not(:hover) .sub,
-ul > li:not(:hover) .ssub {
+ul > li:not(:hover) .sub.open,
+ul > li:not(:hover) .ssub.open{
     max-height: 0 !important;
     opacity: 0 !important;
     visibility: hidden !important;
