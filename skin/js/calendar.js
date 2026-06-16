@@ -19,10 +19,10 @@ const FIXED_ANNIVERSARIES = [
 ];
 
 
-// 2020년 12월 24일부터 
+// 2020년 12월 25일부터 
 const START_YEAR = 2020;
 const START_MONTH = 12;
-const START_DAY = 24;
+const START_DAY = 25;
 const START_DATE = new Date(START_YEAR, START_MONTH - 1, START_DAY); 
 
 
