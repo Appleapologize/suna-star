@@ -40,6 +40,9 @@ function onPlayerReady(event) {
 // 플레이어 상태가 변할 때 호출되는 함수
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
+         let status = document.getElementById('bgmStatus');
+        if (status) status.setAttribute("value", "play");
+        
         updateVideoTitle(); 
     }
 }
