@@ -605,7 +605,8 @@ a *{
 	color: var(--btn-text-color) ;
 }
 /* 1. 마우스가 '대메뉴 li' 위에 있을 때만 그 직계 자식인 중메뉴판(.sub)을 펼칩니다 */
-ul > li:hover > .sub {
+ul > li:hover > .sub,
+ul > li > .sub:hover {
     max-height: 500px !important; /* 💡 부드럽게 스르륵 내려오는 높이 지정 */
     opacity: 1 !important;  
     visibility: visible !important; 
@@ -613,7 +614,8 @@ ul > li:hover > .sub {
 
 /* 2. [핵심 교정] 마우스가 오직 SNS 버튼을 품은 '중메뉴 li' 위에 정확히 올라갔을 때만 소메뉴판(.ssub)을 펼칩니다 */
 /* 💡 주머니 전체가 아니라 마우스가 닿은 그 특정 li 항목으로 범위를 좁혀 옆 동네 간섭을 원천 차단합니다 */
-.sub > li:hover > .ssub {
+.sub > li:hover > .ssub,
+.sub > li > .ssub:hover{
     max-height: 300px !important;       
     opacity: 1 !important;    
     visibility: visible !important; 
