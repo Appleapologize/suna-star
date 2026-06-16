@@ -604,44 +604,42 @@ a *{
 	background: var(--btn-ssub-hover-color); 
 	color: var(--btn-text-color) ;
 }
-
-/* 큰 메뉴(ul)에 마우스가 올라가 있는 동안 내부의 모든 .sub, .ssub  다 열어두기 */
-#menu ul:hover .sub {
-    max-height: 600px !important; 
+/* 1. 마우스가 '대메뉴 li' 위에 있을 때만 그 직계 자식인 중메뉴판(.sub)을 펼칩니다 */
+ul > li:hover > .sub {
+    max-height: 500px !important; /* 💡 부드럽게 스르륵 내려오는 높이 지정 */
     opacity: 1 !important;  
     visibility: visible !important; 
 }
 
-#menu ul:hover .ssub {
-    max-height: 400px !important;       
+/* 2. [핵심 교정] 마우스가 오직 SNS 버튼을 품은 '중메뉴 li' 위에 정확히 올라갔을 때만 소메뉴판(.ssub)을 펼칩니다 */
+/* 💡 주머니 전체가 아니라 마우스가 닿은 그 특정 li 항목으로 범위를 좁혀 옆 동네 간섭을 원천 차단합니다 */
+.sub > li:hover > .ssub {
+    max-height: 300px !important;       
     opacity: 1 !important;    
     visibility: visible !important; 
 }
 
-/* 메뉴 열렸을 때 버튼들 사이의 간격을 var(--padding-menu) 규격으로 딱 맞춤 */
-#menu ul:hover .sub > li,
-#menu ul:hover .ssub > li {
+/* 3. [예쁜 간격] 메뉴판이 활성화되어 열려 있을 때만 버튼 사이의 간격을 var(--padding-menu)로 지정 */
+ul > li:hover > .sub > li {
     padding-top: var(--padding-menu);
     padding-bottom: 0;
 }
 
-/* [안전장치] 마우스가 ul을 완전히 벗어나면 모든 하위 메뉴 즉시 폐쇄 및 초기화 */
-#menu ul:not(:hover) .sub,
-#menu ul:not(:hover) .ssub {
-    max-height: 0 !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
+/* 💡 소메뉴(🔒, TALK)가 열릴 때도 그 소메뉴 항목 li들의 간격만 정갈하게 벌려줍니다 */
+.sub > li:hover > .ssub > li {
+    padding-top: var(--padding-menu); 
+    padding-bottom: 0;
 }
 
-/* 자바스크립트 클릭 기능(.open)이 작동할 때의 연동 규격 유지 */
+/* 4. 자바스크립트 클릭 기능(.open)이 작동할 때도 레이아웃 깨짐 없이 똑같이 부드러운 연동 보장 */
 .sub.open {
-    max-height: 600px !important; 
+    max-height: 500px !important; 
     opacity: 1 !important;  
     visibility: visible !important; 
 }
 
 .ssub.open {
-    max-height: 400px !important;       
+    max-height: 300px !important;       
     opacity: 1 !important;    
     visibility: visible !important; 
 }
@@ -651,6 +649,15 @@ a *{
     padding-top: var(--padding-menu);
     padding-bottom: 0;
 }
+
+/* 5. [자동 청소 스위치] 마우스 커서가 대메뉴 큰 주머니(ul > li)를 완전히 완전히 벗어나면 하위 메뉴판 전체 동시 완전 소멸 */
+ul > li:not(:hover) .sub,
+ul > li:not(:hover) .ssub {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
 
 
 
