@@ -620,26 +620,30 @@ ul > li:hover > .sub {
     visibility: visible !important; 
 }
 
-/* 💡 [마법의 댄스 구역] 메뉴가 열렸을 때 버튼 간의 가로 줄 공백을 패딩 대신 
-   물리적인 위치 이동 수식(transform)으로 안전하게 벌려줍니다. 
-   영역이 뭉개지지 않으므로 마우스가 아무리 움직여도 호버가 100% 유지됩니다. */
-ul > li:hover > .sub > li {
-    transform: translateY(var(--padding-menu)); /* 💡 원하시던 변수만큼 예쁘게 위치 이동 */
+/* ⭕ 지운 자리에 이 코드를 통째로 붙여넣으세요! */
+
+/* 1. [진짜 핵심] 하위 메뉴가 펼쳐지면 부모 li의 영역도 아래로 같이 커지도록 자동 확장 보장 */
+#menu ul > li, 
+.sub > li {
+    position: relative;
+    height: auto; 
 }
 
-.sub > li:hover > .ssub > li {
-    transform: translateY(var(--padding-menu)); 
+/* 2. 메뉴판이 열렸을 때 버튼들 사이의 간격을 var(--padding-menu) 마진으로 정갈하게 벌려줍니다 */
+/* 💡 마진으로 벌려주어야 li의 실제 마우스 감지 면적이 아래 버튼까지 완전히 끈끈하게 이어집니다 */
+.sub > li {
+    margin-top: var(--padding-menu) !important;
 }
 
-/* 4. 자바스크립트 클릭 기능(.open)이 작동할 때도 동일하게 위치 연동 보장 */
+.ssub > li {
+    margin-top: var(--padding-menu) !important;
+}
+
+/* 3. 자바스크립트 클릭 기능(.open)이 작동할 때의 연동 규격 유지 */
 .sub.open, .ssub.open {
     max-height: 600px !important; 
     opacity: 1 !important;  
     visibility: visible !important; 
-}
-
-.sub.open > li, .ssub.open > li {
-    transform: translateY(var(--padding-menu));
 }
 
 /* 5. [자동 정리 스위치] 마우스 커서가 대메뉴 큰 주머니를 완전히 벗어나면 즉시 리셋 */
