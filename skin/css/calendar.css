@@ -10,6 +10,7 @@
   --emo-desc-text-opacity:0.5; /*해당 기념일 설명 박스 배경에 뜨는 이모지 투명도(1이 100프로로 선명하게임)*/ 
   --desc-text-font-size:20px;/*해당 기념일 설명 폰트 사이즈*/
   --desc-text-border-radius:4px; /*해당 기념일 설명 박스 꼭짓점 둥굴기*/  
+  --desc-text-border:2px; /*해당 기념일 아이콘 테두리(데스크톱에서만 사용)*/  
   
   --Bday-emo-calender-num:'🎉'; /*생일때 숫자 뒤에 뜨는 이모지*/
   --Bday-emo-desc-text: var(--Bday-emo-calender-num); /*생일때 설명창 배경에 뜨는 이모지*/
@@ -170,6 +171,11 @@
 .anni-Bday .marker-Bday::before,
 .anni-Dday .marker-Dday::before{
   transform: translate(-50%, -50%);  
+  text-shadow:
+    calc(-1 * ar(--desc-text-border)) 0px var(--text-color),     
+    0px var(--desc-text-border) var(--text-color),     
+    var(--desc-text-border) 0px var(--text-color),     
+    0px calc(-1 * var(--desc-text-border)) var(--text-color);
 }
 
 /* 일반 기념일용 (동그라미) */
