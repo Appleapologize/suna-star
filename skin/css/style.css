@@ -610,8 +610,7 @@ a *{
 
 
 /* 2. 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
-    ul:hover > li > .sub,
-    ul li:hover > .sub {
+    ul > li:hover > .sub {
     	max-height: 600px !important; 
     	opacity: 1 !important;  
 		visibility: visible; 
@@ -619,22 +618,19 @@ a *{
 
 
 /*  중메뉴(li)에 마우스를 올렸을 때(hover) 밑의 메뉴(.ssub) 펼치기 */
-    .sub:hover > li > .ssub,
-    .sub li:hover > .ssub {
+    .sub > li:hover > .ssub {
     	max-height: 400px !important;       
     	opacity: 1 !important;    
 		visibility: visible; 
     }
 
  	/* 메뉴가 열렸을 때만 버튼 위아래 간격을 var(--padding-menu)로 지정 */
-    ul:hover > li > .sub > li,
-    .sub:hover > li {
+    ul > li:hover > .sub > li {
     padding-top: var(--padding-menu);
     padding-bottom: 0;
     }
 
-    .sub:hover > li > .ssub > li,
-    .ssub:hover > li {
+    .sub > li:hover > .ssub > li {
 	    padding-top: calc(var(--padding-menu) + 2px); /* 💡 약간의 미세조정 예시 */
 	    padding-bottom: 0;
     }
