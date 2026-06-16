@@ -284,7 +284,20 @@
     transform: translateY(-50%); 
   }
 
-
+/* [디데이용 배경] 🌵x⭐ 버전 
+.calendar-mobile-desc.desc-Dday .desc-text::before {
+  content: '🌵x⭐';             /* 💡 알파벳 x가 들어간 조합
+  font-size: 22px;              
+  letter-spacing: 2px;          
+  opacity: 0.25;                
+  position: absolute;
+  pointer-events: none;
+  
+  /* 위치 조절 (오른쪽 여백 배치) 
+  top: 50%;                    
+  right: 8%;                   
+  transform: translateY(-50%); 
+}*/
 
 }
 
