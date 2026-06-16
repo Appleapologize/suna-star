@@ -271,17 +271,19 @@
 
   /* [디데이용 배경] 하트 이모지 디자인 구역 */
   .calendar-mobile-desc.desc-Dday .desc-text::before {
-    content: '❤️';               /* 💡 원하는 이모지 문자로 변경 가능 */
-    font-size: 30px;             /* 💡 하트 이모지 크기 */
-    opacity: 0.2;                /* 💡 투명도 설정 */
+    content: '🌵❤️⭐';            /* 💡 화면에 띄울 조합 */
+    font-size: 20px;              /* 💡 3개가 다 보이도록 크기 최적화 */
+    letter-spacing: 3px;          /* 💡 이모지 사이의 가로 간격 */
+    opacity: 0.25;                /* 💡 글자를 가리지 않는 은은한 투명도 */
     position: absolute;
     pointer-events: none;
-    
-    /* 💡 이모지 배치 위치 수정 구역 */
-    top: 50%;                    /* 세로축 기준 정중앙 */
-    right: 10%;                  /* 가로축 기준 오른쪽에서 10% 지점 */
-    transform: translateY(-50%); /* 정확한 세로 가운데 정렬 유지 */
+  
+  /* 위치 조절 (오른쪽 여백 배치) */
+    top: 50%;                    
+    right: 6%;                   /* 텍스트 박스 안쪽 오른쪽에서 6% 지점 */
+    transform: translateY(-50%); 
   }
+
 
 
 }
