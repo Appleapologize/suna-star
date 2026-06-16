@@ -21,6 +21,8 @@
   :root {
   --day-num-border: 3px; /*기념일일때 숫자 테두리*/
 }
+}
+
 #calender{
   border-radius: 10px;
   background: 
