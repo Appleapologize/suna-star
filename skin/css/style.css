@@ -610,6 +610,7 @@ a *{
 ul > li:hover > .sub {
     max-height: 600px !important; 
     opacity: 1 !important;  
+	overflow: visible !important;
     visibility: visible !important; 
 }
 
@@ -617,6 +618,7 @@ ul > li:hover > .sub {
 .sub > li:hover > .ssub {
     max-height: 400px !important;       
     opacity: 1 !important;    
+	overflow: visible !important;	
     visibility: visible !important; 
 }
 
@@ -643,6 +645,7 @@ ul > li:hover > .sub {
 .sub.open, .ssub.open {
     max-height: 600px !important; 
     opacity: 1 !important;  
+	overflow: visible !important;	
     visibility: visible !important; 
 }
 
@@ -651,6 +654,7 @@ ul > li:not(:hover) .sub,
 ul > li:not(:hover) .ssub {
     max-height: 0 !important;
     opacity: 0 !important;
+	overflow: hidden !important;		
     visibility: hidden !important;
 }
 
