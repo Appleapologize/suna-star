@@ -553,7 +553,6 @@ nav{
 
 button, a.button {
     display: block;
-	width:var(--width-100);
 	box-sizing: border-box;
     border: 0;	
     cursor: var(--over-cursor), pointer !important;	
