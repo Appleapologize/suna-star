@@ -529,7 +529,7 @@ nav{
   overflow: hidden;        /* 넘치는 하위 메뉴 글자들을 가립니다 */
   opacity: 0;              /* 투명하게 만듭니다 */
   visibility: hidden; 
-  transition: max-height 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
+  transition: max-height 10s ease, opacity 10s ease, visibility 105s ease;
   list-style: none;
   padding-top: 0;		
   padding-left: 15px;
