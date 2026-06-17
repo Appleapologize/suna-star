@@ -171,9 +171,15 @@ function getList(date = '', day = true, form = 'month') {
     // 최종 결합 (기존 띄어쓰기 문법 완벽 유지)
     anniClass = ' anniversary' + anniTypeClasses;
     
-    var combinedText = nameList.join(', '); 
+    var combinedTextForMobile = nameList.join('<br/>'); 
+    /*var combinedText = nameList.join(','); 으로 바꿀거면 
     tooltipAttr = ` data-title="${combinedText}"`;
-    mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;
+    mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;*/
+
+    var combinedTextForDesktop = nameList.join('\n'); 
+
+    tooltipAttr = ` data-title="${combinedTextForDesktop}"`;
+    mobileClickAttr = ` onclick="showMobileDesc('${combinedTextForMobile}')"`;
   }
 
   // ⭕ [복구] 기념일이 있든 없든 모든 날짜가 안전하게 달력 칸으로 그려지도록 정상 위치에 배치 완료!
@@ -244,7 +250,7 @@ function showMobileDesc(text) {
       mobileDesc.className = 'calendar-mobile-desc';
       document.querySelector('.calendar').after(mobileDesc);
     }
-       // 💡 [핵심] 기념일 종류에 따른 추가 클래스 초기화
+       // 기념일 종류에 따른 추가 클래스 초기화
    var typeClass = '';
    
    // 텍스트 문구 안에 '생일'이나 '일째 되는 날'이 들어있는지 체크하여 분기합니다.
@@ -257,8 +263,8 @@ function showMobileDesc(text) {
    // 기존 클래스를 유지하면서 분기된 typeClass를 함께 입혀줍니다.
    mobileDesc.className = 'calendar-mobile-desc' + typeClass;
     mobileDesc.innerHTML = `
-      <div class="desc-text">${text}</div>
-      <div class="desc-close-btn" onclick="document.getElementById('calendar-mobile-desc').style.display='none';">설명 닫기</div>
+    <div class="desc-text">${text}</div>
+    <div class="desc-close-btn" onclick="document.getElementById('calendar-mobile-desc').style.display='none';">설명 닫기</div>
     `;
     mobileDesc.style.display = 'block';
   }
