@@ -240,7 +240,11 @@
   white-space: nowrap;
   transform: translate(-50%, -50%);
 }
-
+/*일요일에 기념일이 들어가면 조금 안으로 들어가게 함.*/
+.sunday.anniversary[data-title]::after {
+    left: 0;
+    transform: translateX(-60px);
+}
 
 /* [생일용 데스크톱 배경] */
 .anniversary.anni-Bday .day-num::after {
@@ -248,7 +252,7 @@
   font-size: var(--Bday-emo-desc-text-font-size); /* 💡 생일 이모지 크기 변수 */
   transform: translate(-100%, -160%);   
   /* 말풍선 본체 위치(bottom: 115%) 근처 정중앙으로 배치 */
-  bottom: -50%;
+  bottom: -40%;
   left: 50%;
 }
 
@@ -257,7 +261,7 @@
   content: var(--Dday-emo-desc-text); 
   font-size: var(--Dday-emo-desc-text-cont-size);
   letter-spacing: 3px;
-  bottom: 270%;
+  bottom: 305%;
   left: 50%;
 }
 
