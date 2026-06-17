@@ -21,7 +21,7 @@
 
 
 .body{
-  padding: 0 var(--box-padding) var(--box-padding) var(--box-padding);
+  padding: 6px var(--box-padding) var(--box-padding) var(--box-padding);
   margin: var(--box-gap) auto;
 }
 
