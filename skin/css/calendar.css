@@ -297,7 +297,7 @@
   .calendar-mobile-desc {
     display: none; /* 클릭 전에는 숨김 (JS가 block으로 켬) */
     width: 90%;
-    margin: 10px auto 0 auto;
+    margin: 10px auto;
     background: 
       color-mix(in srgb, var(--sub-background-color) 30%, transparent);
       -webkit-backdrop-filter: blur(var(--background-blur));
