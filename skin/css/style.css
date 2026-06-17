@@ -981,8 +981,6 @@ img {
     padding: 12px;
     margin: 
 		calc(var(--padding-in-body) - var(--container-padding));
-    margin-right: 
-		calc(var(--padding-in-body) - var(--container-padding) + var(--scroll-width)) ;	
     background-color: var(--sub-background-color);
     box-shadow: var(--box-shadow);
     gap: 3px;
