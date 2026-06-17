@@ -529,6 +529,7 @@ nav{
 	padding:var(--padding-menu) 0;
 	text-align:center;
 	max-height: calc(100vh + 30px);
+	position:relative; /*이게 있어야 나중에 서브 메뉴들을 오른쪽으로 뺄때 맨 위를 이 친구의 가장 위로 봄*/
 }
 
 .sub, .ssub { 
