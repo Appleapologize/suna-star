@@ -387,11 +387,13 @@ h3,
 h4,
 h5,
 h6{
- white-space: nowrap;
+    white-space: nowrap;
+    transform: scale(1.5);
+    text-align: center;	
 }
 
 figcaption{
-	width:var(--width-100);
+    width:var(--width-100);
 }
 
 /* ==========================================
