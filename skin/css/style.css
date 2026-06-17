@@ -1226,7 +1226,7 @@ footer p.bold{
 
 	.menu-all{
     	position: relative;		
-        margin-top: calc(var(--mobile-vwvh) + var(--mobile-position)) !important;
+        margin-top: calc(var(--mobile-vwvh) + var(--mobile-position) + var(--padding-menu)) !important;
         padding-bottom: var(--padding-menu);
     }
 
