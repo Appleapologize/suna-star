@@ -616,27 +616,21 @@ a *{
     visibility: visible !important;  
 }
 
-.sub > li:hover > .ssub {
-    max-height: 0 !important;       
-    opacity: 0 !important;    
-    visibility: hidden !important;
+/* 오직 .ssub바로 위의 버튼 글자 자체에 마우스가 올라갔을 때만 바로 뒤 형제인 소메뉴판(.ssub) 오픈 */
+.sub > li > .btn-sub:hover + .ssub {
+    max-height: 100vh !important;       
+    opacity: 1 !important;    
+    visibility: visible !important;
 }
 
- /*오직 .ssub를 '직계 자식'으로 품고 있는 li 상자에 
-          마우스가 올라갔을 때만 해당 .ssub가 펼쳐지도록 제약을 겁니다. */
-    .sub > li:hover > .btn-sub ~ .ssub,
-    .sub > li:has(> .ssub):hover > .ssub {
-        max-height: 100vh !important;       
-        opacity: 1 !important;    
-        visibility: visible !important;
-    }
+/* 2. 마우스가 버튼을 벗어나서 소메뉴판(.ssub) 내부 영역으로 진입해 있는 동안에는 열린 상태 유지 */
+.sub > li > .ssub:hover,
+.sub > li:has(> .btn-sub:hover) > .ssub {
+    max-height: 100vh !important;       
+    opacity: 1 !important;    
+    visibility: visible !important;
+}
 
-    /* 갤러리나 PlayList에 마우스가 올라갔을 때는 SNS의 ssub가 절대 열리지 않도록 차단 */
-    .sub > li:not(:has(.ssub)):hover ~ li > .ssub {
-        max-height: 0 !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
 
 /* 하위 목록 아이템들 사이의 물리적 공백 여백 제거 및 마우스 인식 패딩 통합 */
 .sub > li,
