@@ -527,6 +527,7 @@ nav{
 .menu-all li {
 	padding:var(--padding-menu) 0;
 	text-align:center;
+	max-height: calc(100vh + 30px);
 }
 
 .sub, .ssub { 
