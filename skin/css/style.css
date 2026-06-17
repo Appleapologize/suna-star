@@ -616,12 +616,27 @@ a *{
     visibility: visible !important;  
 }
 
-/* 중메뉴를 감싸는 li 자체에 마우스를 올렸을 때, .ssub를 전개합니다. */
 .sub > li:hover > .ssub {
-    max-height: 100vh !important;       
-    opacity: 1 !important;    
-    visibility: visible !important;
+    max-height: 0 !important;       
+    opacity: 0 !important;    
+    visibility: hidden !important;
 }
+
+ /*오직 .ssub를 '직계 자식'으로 품고 있는 li 상자에 
+          마우스가 올라갔을 때만 해당 .ssub가 펼쳐지도록 제약을 겁니다. */
+    .sub > li:hover > .btn-sub ~ .ssub,
+    .sub > li:has(> .ssub):hover > .ssub {
+        max-height: 100vh !important;       
+        opacity: 1 !important;    
+        visibility: visible !important;
+    }
+
+    /* 갤러리나 PlayList에 마우스가 올라갔을 때는 SNS의 ssub가 절대 열리지 않도록 차단 */
+    .sub > li:not(:has(.ssub)):hover ~ li > .ssub {
+        max-height: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
 
 /* 하위 목록 아이템들 사이의 물리적 공백 여백 제거 및 마우스 인식 패딩 통합 */
 .sub > li,
