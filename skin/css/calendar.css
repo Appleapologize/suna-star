@@ -157,6 +157,7 @@
     0px calc(-1 * var(--day-num-border)) var(--card-background-color);
 }
 
+.anniversary:hover,
 .anniversary .day-num:hover{
   cursor: var(--over-cursor), pointer !important;
 }
