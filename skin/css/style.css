@@ -618,20 +618,30 @@ a *{
     visibility: visible !important;  
 }
 
-/* 오직 .ssub바로 위의 버튼 글자 자체에 마우스가 올라갔을 때만 바로 뒤 형제인 소메뉴판(.ssub) 오픈 */
+/* .ssub 바로 위의 .btn-sub에 마우스가 정확히 올라갔을 때만 바로 뒤 인접 형제인 .ssub 오픈 */
 .sub > li > .btn-sub:hover + .ssub {
     max-height: 100vh !important;       
     opacity: 1 !important;    
     visibility: visible !important;
 }
 
-/* 2. 마우스가 버튼을 벗어나서 소메뉴판(.ssub) 내부 영역으로 진입해 있는 동안에는 열린 상태 유지 */
-.sub > li > .ssub:hover,
-.sub > li:has(> .btn-sub:hover) > .ssub {
+/* 마우스가 .ssub 내부로 진입했을 때 상태 유지 (타 버튼 간섭 차단)*/
+.sub > li > .ssub:hover {
     max-height: 100vh !important;       
     opacity: 1 !important;    
     visibility: visible !important;
 }
+
+/* .ssub 바로 위의 .btn-sub에서 우측 소메뉴판으로 넘어가는 대각선 찰나의 순간에도 
+   메뉴가 끊기지 않도록, 호버된 .btn-sub 바로 '다음 형제'인 .ssub만 꼭 집어서 상태를 강제 유지시킵니다.
+   이 방식을 쓰면 같은 방(li)을 쓰는 '갤러리'나 'PlayList'를 건드릴 때는 절대 반응하지 않습니다. */
+.sub > li > .btn-sub:hover ~ .ssub {
+    max-height: 100vh !important;       
+    opacity: 1 !important;    
+    visibility: visible !important;
+}
+
+
 
 
 /* 하위 목록 아이템들 사이의 물리적 공백 여백 제거 및 마우스 인식 패딩 통합 */
