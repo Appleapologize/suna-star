@@ -1219,7 +1219,7 @@ footer p.bold{
     }
 
     .mobile-drawer ul{
-		padding-left:var(--padding-menu);
+		/*padding-left:var(--padding-menu);*/
 	}	
 
 	.menu-all{
