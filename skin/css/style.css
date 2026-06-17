@@ -576,7 +576,7 @@ a *{
 
 /* 2단계: 중메뉴 버튼 스타일 */
 .btn-sub { 
-    width: var(--width-100);
+    width: calc(var(--width-100) - 30px);
     background: var(--btn-sub-color);
     border: none;
     padding: var(--padding-menu);
@@ -594,7 +594,7 @@ a *{
 
 /* 3단계: 소메뉴 스타일 */
 .btn-sub-sub { 
-    padding: 6px 6px 6px 25px;
+	width: calc(var(--width-100) - 30px);
     cursor: var(--over-cursor) pointer;
     background: var(--btn-ssub-color);
     font-size: 13px;
