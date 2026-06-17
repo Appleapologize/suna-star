@@ -652,7 +652,7 @@ a *{
 
 /* JS 클릭 호환성 유지 */
 .sub.open, .ssub.open {
-    max-height: 100vh !important; 
+    max-height: calc(100vh + 30px) !important;
     opacity: 1 !important;  
     visibility: visible !important; 
 }
