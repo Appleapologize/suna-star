@@ -395,6 +395,7 @@ h6{
 
 figcaption{
     width:var(--width-100);
+	text-align: center;
 }
 
 /* ==========================================
