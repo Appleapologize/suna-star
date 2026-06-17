@@ -176,7 +176,7 @@ function getList(date = '', day = true, form = 'month') {
     tooltipAttr = ` data-title="${combinedText}"`;
     mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;*/
 
-    var combinedTextForDesktop = nameList.join('\n'); 
+    var combinedTextForDesktop = combinedTextForDesktop.replace(/<br\s*\/?>/gi, '\n');
 
     tooltipAttr = ` data-title="${combinedTextForDesktop}"`;
     mobileClickAttr = ` onclick="showMobileDesc('${combinedTextForMobile}')"`;
