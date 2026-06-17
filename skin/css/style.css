@@ -617,43 +617,19 @@ a *{
 }
 
 /* 1. 대메뉴(li) 호버 시: 하위 메뉴판(.sub) 부드럽게 세로로 전개 */
-.menu-all > li:hover > .sub {
+.menu-all > li a:hover > .sub {
     max-height: 100vh !important; 
     opacity: 1 !important;  
     visibility: visible !important;  
 }
 
 /* 2. 중메뉴(li) 호버 시: 직계 소메뉴판(.ssub)을 아래로 부드럽게 세로로 전개 */
-.sub > li:hover > .ssub {
+.sub > li a.btn-sub:hover > .ssub {
     max-height: 100vh !important;       
     opacity: 1 !important;    
     visibility: visible !important;
 }
 
-/* 3. 버튼들 사이의 빈틈 간격을 마우스 감지 padding-top 면적으로 가득 채움 */
-.sub > li,
-.ssub > li {
-    padding-top: var(--padding-menu) !important;
-    padding-bottom: 0 !important;
-	margin: 0 !important; /* 항목 간 밀어내는 마진을 없애 호버 끊김 원천 차단 */
-}
-
-.btn-sub, .btn-sub-sub {
-    margin-top: 0 !important; /* 하위 버튼 자체의 상단 마진도 제거 */
-}
-
-/* 서브 메뉴판(.sub) 자체의 위쪽 공백 마진 강제 제거 */
-.menu-all .sub,
-.menu-all .ssub {
-    margin-top: 0 !important;
-}
-
-/* 호버 감지 리스트 내부 패딩 정밀 일치화 */
-.menu-all > li:hover > .sub > li,
-.sub > li:hover > .ssub > li {
-    padding-top: var(--padding-menu) !important;
-    padding-bottom: 0 !important;
-}
 
 /* 자바스크립트 클릭 기능(.open)이 작동할 때도 동일한 아코디언 효과 연동 보장 */
 .sub.open, .ssub.open {
@@ -665,18 +641,6 @@ a *{
 .ssub.open > li {
     padding-top: var(--padding-menu) !important;
     padding-bottom: 0 !important;
-}
-
-/*    가운데 메뉴(Profile)에서 아래 메뉴로 마우스가 내려올 때 뚝 끊기며 꺼지던 현상을 차단. */
-.menu-all .sub::after {
-    content: "";
-    position: absolute;
-    bottom: -30px;      /* 아래쪽으로 30px만큼 감지 면적 연장 */
-    left: 0;
-    width: 100%;
-    height: 30px;
-    background: transparent; /* 보이지 않는 투명 안전 영역 */
-    pointer-events: auto;    /* 마우스 움직임을 정상적으로 인식 */
 }
 
 
