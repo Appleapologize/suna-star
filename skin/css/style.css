@@ -609,29 +609,38 @@ a *{
 	color: var(--btn-text-color) ;
 }
 
-#menu .menu-all > li, 
-.sub > li,
-.ssub > li {
-    position: relative;
-    height: auto !important;
-}
-
-/* 1. 대메뉴(li) 호버 시: 하위 메뉴판(.sub) 부드럽게 세로로 전개 */
-.menu-all > li a:hover > .sub {
+.menu-all > li:hover > .sub {
     max-height: 100vh !important; 
     opacity: 1 !important;  
     visibility: visible !important;  
 }
 
-/* 2. 중메뉴(li) 호버 시: 직계 소메뉴판(.ssub)을 아래로 부드럽게 세로로 전개 */
-.sub > li a.btn-sub:hover > .ssub {
+/* 중메뉴를 감싸는 li 자체에 마우스를 올렸을 때, .ssub를 전개합니다. */
+.sub > li:hover > .ssub {
     max-height: 100vh !important;       
     opacity: 1 !important;    
     visibility: visible !important;
 }
 
+/* 하위 목록 아이템들 사이의 물리적 공백 여백 제거 및 마우스 인식 패딩 통합 */
+.sub > li,
+.ssub > li {
+    padding-top: var(--padding-menu) !important;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+}
 
-/* 자바스크립트 클릭 기능(.open)이 작동할 때도 동일한 아코디언 효과 연동 보장 */
+.btn-sub, .btn-sub-sub {
+    margin-top: 0 !important;
+}
+
+.sub > li:first-child,
+.ssub > li:first-child {
+    padding-top: calc(var(--padding-menu) * 1.5) !important;
+}
+
+
+/* JS 클릭 호환성 유지 */
 .sub.open, .ssub.open {
     max-height: 100vh !important; 
     opacity: 1 !important;  
@@ -641,7 +650,7 @@ a *{
 .ssub.open > li {
     padding-top: var(--padding-menu) !important;
     padding-bottom: 0 !important;
-}
+
 
 
 /* ==========================================
