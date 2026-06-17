@@ -536,7 +536,7 @@ nav{
   visibility: hidden;
   transition: max-height 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;  /* 0.4초 동안 부드럽게 변형 */
   list-style: none;
-  padding-left: 15px;
+  padding: 0 15px;
   margin: 0;
   position:relative;
 }
