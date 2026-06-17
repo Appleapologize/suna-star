@@ -101,12 +101,32 @@ function toggleMobileMenu() {
 
 // 다중 드롭다운 메뉴 제어
 function toggleMenu(event, targetId) {
-    if (event) event.stopPropagation(); 
-    const targetMenu = document.getElementById(targetId);
-    if (targetMenu) {
-        targetMenu.classList.toggle('open');
+  // 상위 마크업으로 이벤트가 중첩 전파되는 버블링 차단
+  // 인라인 링크에 걸려있는 본래의 기능(loadPage를 통한 페이지 이동)은 정상 실행
+  if (event) {
+    event.stopPropagation(); 
+  }
+  
+  const targetMenu = document.getElementById(targetId);
+  if (!targetMenu) return;
+
+  // 이미 'open' 클래스가 붙어 열려있는 상태라면 제거하여 닫습니다.
+  if (targetMenu.classList.contains('open')) {
+    targetMenu.classList.remove('open');
+  } else {
+    // (선택사항) Exhibit을 열 때 Profile 등 같은 계층의 다른 열려있던 메뉴를 깔끔하게 먼저 접어줍니다.
+    const parentWrapper = targetMenu.closest('ul');
+    if (parentWrapper) {
+      const siblingMenus = parentWrapper.querySelectorAll('.sub.open, .ssub.open');
+      siblingMenus.forEach(menu => {
+        if (menu !== targetMenu) menu.classList.remove('open');
+      });
     }
+    // 클래스를 추가하여 정상적으로 하위 메뉴를 전개합니다.
+    targetMenu.classList.add('open');
+  }
 }
+
 
 // 외부 HTML을 불러와서 #container에 주입하는 함수
 function loadPage(event, relativePath, addHistory = true) {
@@ -257,3 +277,18 @@ function executePageInit(pageKey) {
         setupMenuLinks();
     }
 }
+
+/* ==========================================================================
+   💻 [클릭 모드 전용 편의성 기능] 메뉴 바깥 영역 클릭 시 활성화된 드롭다운 전체 자동 닫기
+   ========================================================================== */
+document.addEventListener('click', (event) => {
+  const menuContainer = document.getElementById('menu');
+  
+  // 클릭한 마우스 대상 지점이 좌측 #menu 영역 외부일 경우, 열려있는 모든 sub와 ssub 창을 초기화(닫기)합니다.
+  if (menuContainer && !menuContainer.contains(event.target)) {
+    const openActiveMenus = menuContainer.querySelectorAll('.sub.open, .ssub.open');
+    openActiveMenus.forEach(menu => {
+      menu.classList.remove('open');
+    });
+  }
+});
