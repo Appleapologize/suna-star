@@ -2,7 +2,7 @@
 // 'YYYY-MM-DD': { text: '말풍선 문구', type: 'css클래스명' }
 //  중요하지만 생일이 아닌 날에는 isBirthday: false,
 // 생일과 생일이 아닌 날이 겹치면 생일로 표현됨.
-const FIXED_ANNIVERSARIES = [
+var FIXED_ANNIVERSARIES = [
   { name: "신정", month: 1, day: 1, holiday: true, important: false },
   { name: "가아라님 생일", month: 1, day: 19 , holiday: false, important: true, isBirthday: true },
   { name: "개천절", month: 3, day: 1, holiday: true, important: false },
@@ -20,10 +20,10 @@ const FIXED_ANNIVERSARIES = [
 
 
 // 2020년 12월 25일부터 
-const START_YEAR = 2020;
-const START_MONTH = 12;
-const START_DAY = 25;
-const START_DATE = new Date(START_YEAR, START_MONTH - 1, START_DAY); 
+var START_YEAR = 2020;
+var START_MONTH = 12;
+var START_DAY = 25;
+var START_DATE = new Date(START_YEAR, START_MONTH - 1, START_DAY); 
 
 
 function getList(date = '', day = true, form = 'month') {
