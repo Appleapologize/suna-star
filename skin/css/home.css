@@ -10,6 +10,11 @@
         color: var(--point-color);
 }
 
+#home p{
+        text-indent: -25px;
+        padding-left: 30px;        
+}
+
 /*접고 피기*/
 details.details-css{
         padding:10px;
