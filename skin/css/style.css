@@ -526,6 +526,7 @@ nav{
 
 .menu-all li {
 	padding:var(--padding-menu) 0;
+	text-align:center;
 }
 
 .sub, .ssub { 
@@ -581,7 +582,7 @@ a *{
     padding: var(--padding-menu);
     border-radius: var(--button-round);
     font-size: 14px;
-    display: block;
+    display: inline-block;
     color: var(--btn-text-color);
     text-align: center;		
 }
@@ -598,7 +599,7 @@ a *{
     background: var(--btn-ssub-color);
     font-size: 13px;
     border-radius: 4px;
-    display: block;
+    display: inline-block;
     text-decoration: none;
     color: var(--btn-text-color);
     padding: var(--padding-menu);
