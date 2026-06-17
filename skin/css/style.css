@@ -388,10 +388,9 @@ h3,
 h4,
 h5,
 h6{
-    white-space: nowrap;
-    transform: scale(var(--text-sc));
+    /*transform: scale(var(--text-sc));*/
     text-align: center;	
-	letter-spacing:calc(var(--text-sc) * 1px);
+	/*letter-spacing:calc(var(--text-sc) * 1px);*/
 }
 
 figcaption{
