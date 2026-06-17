@@ -646,8 +646,8 @@ a *{
     margin: 0 !important;
 }
 
-.btn-sub, .btn-sub-sub {
-    margin-top: 0 !important;
+.btn-sub:not(:first-child), .btn-sub-sub:not(:first-child) {
+    margin-top: var(--padding-menu) !important;
 }
 
 .sub > li:first-child,
