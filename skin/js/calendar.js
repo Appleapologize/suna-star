@@ -172,8 +172,14 @@ function getList(date = '', day = true, form = 'month') {
     anniClass = ' anniversary' + anniTypeClasses;
     
     var combinedTextForMobile = nameList.join('<br/>'); 
-    var combinedTextForDesktop = nameList.join('\n'); 
-    combinedTextForDesktop = combinedTextForDesktop.replace(/<br\s*\/?>/gi, '\n');
+    var cleanNameList = nameList.map(function(item) {
+        return item.replace(/<br\s*\/?>/gi, '\n');
+    });
+    // 치환된 순수 데이터들을 다시 줄바꿈(\n) 기호로 결합합니다.
+    var combinedTextForDesktop = cleanNameList.join('\n'); 
+    // 혹시 모를 연속 줄바꿈 공백 부피 조절
+    combinedTextForDesktop = combinedTextForDesktop.replace(/\n+/g, '\n').trim();
+    
     /*var combinedText = nameList.join(','); 으로 바꿀거면 
     tooltipAttr = ` data-title="${combinedText}"`;
     mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;*/
