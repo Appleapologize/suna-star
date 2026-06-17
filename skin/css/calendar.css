@@ -216,10 +216,10 @@
   transform: translateX(-50%, 100%);
   background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent);
   color: var(--text-color);
-  padding: 4px 8px;
+  padding: 8px;
   font-size: var(--desc-text-font-size);
   border: 2px solid var(--text-color);
-  border-radius: var(--desc-text-border-radius);
+  border-radius: var(--border-radius-l);
   width: max-content;
   white-space: pre-wrap;
   z-index: 10;
