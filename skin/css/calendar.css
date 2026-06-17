@@ -220,7 +220,8 @@
   font-size: var(--desc-text-font-size);
   border: 2px solid var(--text-color);
   border-radius: var(--desc-text-border-radius);
-  white-space: nowrap;
+  width: max-content;
+  white-space: pre-wrap;
   z-index: 10;
 }
 
