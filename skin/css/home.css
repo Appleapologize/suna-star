@@ -25,7 +25,6 @@ details.details-css summary{
         font-weight:bold;
         margin:10px 0;
         display: block;
-        font-size: calc(var(--text-sc) * 1rem);
 }
 details.details-css summary::-webkit-details-marker { 
         /* Safari 브라우저용 사용자 정의 스타일 */
