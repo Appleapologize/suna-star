@@ -12,6 +12,7 @@
 	--footer-back-opacity:60%; /*footer 유리 질감때 투명도*/
 
 	--button-round: 15px;  /* 버튼들의 기본적인 테두리 둥글기 값*/
+	--btn-sub-LRpx:calc(10px * 2);/*서브 메뉴들이 윗 메뉴보다 좌우에 얼마나 공간을 둘지*/
 	
 	--border-radius-xs:4px;
 	--border-radius-s:6px;
@@ -254,6 +255,13 @@
 
 --box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);			
 }	
+
+
+@media (max-width: 1024px) {
+	:root {
+	--btn-sub-LRpx:calc(15px * 2);/*서브 메뉴들이 윗 메뉴보다 좌우에 얼마나 공간을 둘지*/
+	}
+}
 
 /* ==========================================
 1. 글자/검색창/텍스트 입력 상자 영역 
@@ -577,7 +585,7 @@ a *{
 
 /* 2단계: 중메뉴 버튼 스타일 */
 .btn-sub { 
-    width: calc(var(--width-100) - 30px);
+    width: calc(var(--width-100) - 20px);
     background: var(--btn-sub-color);
     border: none;
     padding: var(--padding-menu);
@@ -595,7 +603,7 @@ a *{
 
 /* 3단계: 소메뉴 스타일 */
 .btn-sub-sub { 
-	width: calc(var(--width-100) - 30px);
+	width: calc(var(--width-100) - 20px);
     cursor: var(--over-cursor) pointer;
     background: var(--btn-ssub-color);
     font-size: 13px;
