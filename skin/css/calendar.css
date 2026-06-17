@@ -1,6 +1,6 @@
 :root {
-  --sunday-color: #ff4d4d;   /* 일요일 빨간색 */
-  --saturday-color: #4d94ff; /* 토요일 파란색 */
+  --sunday-color: #d12121;   /* 일요일 빨간색 */
+  --saturday-color: #005fff; /* 토요일 파란색 */
   --day-num-border: 1px; /*기념일일때 숫자 테두리*/
   --today-num-border:2px;
 
@@ -29,6 +29,8 @@
 }
 
 [data-theme="dark"]{
+  --sunday-color: #ff4d4d;   /* 일요일 빨간색 */
+  --saturday-color: #4d94ff; /* 토요일 파란색 */  
 
 }
 /* =======================================================
