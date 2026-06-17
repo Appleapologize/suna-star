@@ -538,6 +538,7 @@ nav{
   list-style: none;
   padding-left: 15px;
   margin: 0;
+  position:relative;
 }
 
 /* 1단계: 대메뉴 버튼 스타일 */
@@ -571,12 +572,6 @@ a.button *,
 a *{
 	cursor: var(--over-cursor), pointer !important;	
 }
-
-/* 대메뉴(li)에 마우스를 올렸을 때(hover) 서브 메뉴(.sub) 펼치기 */
-ul li:hover > .sub {
-  opacity: 1;              /* 선명하게 보임 */
-}
-
 /* 2단계: 중메뉴 버튼 스타일 */
 .btn-sub { 
     width: var(--width-100);
@@ -614,53 +609,76 @@ ul li:hover > .sub {
 	color: var(--btn-text-color) ;
 }
 
-
-
-
-/* 하위 메뉴가 펼쳐지면 부모 li의 실제 마우스 감지 영역도 자동으로 무한 확장 */
 #menu .menu-all > li, 
-.sub > li {
+.sub > li,
+.ssub > li {
     position: relative;
     height: auto !important;
 }
 
-/* 💡 1. 대메뉴(li) 호버 시: 고정 px 대신 100vh(화면 전체 높이)를 주어 
-      메뉴가 나중에 아무리 늘어나도 자동으로 스르륵 다 펼쳐지게 만듭니다! */
+/* 1. 대메뉴(li) 호버 시: 하위 메뉴판(.sub) 부드럽게 세로로 전개 */
 .menu-all > li:hover > .sub {
     max-height: 100vh !important; 
     opacity: 1 !important;  
     visibility: visible !important;  
 }
 
-/* 💡 2. 중메뉴(li) 호버 시: 직계 소메뉴판(.ssub)을 아래로 스르륵 펼칩니다. */
+/* 2. 중메뉴(li) 호버 시: 직계 소메뉴판(.ssub)을 아래로 부드럽게 세로로 전개 */
 .sub > li:hover > .ssub {
     max-height: 100vh !important;       
     opacity: 1 !important;    
     visibility: visible !important;
 }
 
-/* 💡 3. 버튼들 사이의 간격을 마우스를 감지하는 면적인 padding-top으로 채워 
-      글자 밖 li 빈틈으로 마우스가 이동해도 호버 자석이 절대로 끊기지 않게 보장합니다. */
+/* 3. 버튼들 사이의 빈틈 간격을 마우스 감지 padding-top 면적으로 가득 채움 */
 .sub > li,
 .ssub > li {
     padding-top: var(--padding-menu) !important;
     padding-bottom: 0 !important;
+	margin: 0 !important; /* 항목 간 밀어내는 마진을 없애 호버 끊김 원천 차단 */
 }
 
-/* 💡 4. 자바스크립트 클릭 기능(.open)이 작동할 때도 아코디언 효과 똑같이 연동 보장 */
+.btn-sub, .btn-sub-sub {
+    margin-top: 0 !important; /* 하위 버튼 자체의 상단 마진도 제거 */
+}
+
+/* 서브 메뉴판(.sub) 자체의 위쪽 공백 마진 강제 제거 */
+.menu-all .sub,
+.menu-all .ssub {
+    margin-top: 0 !important;
+}
+
+/* 호버 감지 리스트 내부 패딩 정밀 일치화 */
+.menu-all > li:hover > .sub > li,
+.sub > li:hover > .ssub > li {
+    padding-top: var(--padding-menu) !important;
+    padding-bottom: 0 !important;
+}
+
+/* 자바스크립트 클릭 기능(.open)이 작동할 때도 동일한 아코디언 효과 연동 보장 */
 .sub.open, .ssub.open {
     max-height: 100vh !important; 
     opacity: 1 !important;  
     visibility: visible !important; 
 }
-
-.menu-all > li:hover > .sub > li,
-.sub > li:hover > .ssub > li,
 .sub.open > li, 
 .ssub.open > li {
     padding-top: var(--padding-menu) !important;
     padding-bottom: 0 !important;
 }
+
+/*    가운데 메뉴(Profile)에서 아래 메뉴로 마우스가 내려올 때 뚝 끊기며 꺼지던 현상을 차단. */
+.menu-all .sub::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;      /* 아래쪽으로 30px만큼 감지 면적 연장 */
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: transparent; /* 보이지 않는 투명 안전 영역 */
+    pointer-events: auto;    /* 마우스 움직임을 정상적으로 인식 */
+}
+
 
 /* ==========================================
     버튼 안 아이콘 색상
