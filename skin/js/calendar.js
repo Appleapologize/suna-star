@@ -171,15 +171,13 @@ function getList(date = '', day = true, form = 'month') {
     // 최종 결합 (기존 띄어쓰기 문법 완벽 유지)
     anniClass = ' anniversary' + anniTypeClasses;
     
-    var combinedTextForMobile = nameList.join('<br/>'); 
+    var combinedText = nameList.join('<br/>'); 
     /*var combinedText = nameList.join(','); 으로 바꿀거면 
     tooltipAttr = ` data-title="${combinedText}"`;
     mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;*/
 
-    var combinedTextForDesktop = combinedTextForDesktop.replace(/<br\s*\/?>/gi, '\n');
-
-    tooltipAttr = ` data-title="${combinedTextForDesktop}"`;
-    mobileClickAttr = ` onclick="showMobileDesc('${combinedTextForMobile}')"`;
+    tooltipAttr = ` data-title="${combinedText}"`;
+    mobileClickAttr = ` onclick="showMobileDesc('${combinedText}')"`;
   }
 
   // ⭕ [복구] 기념일이 있든 없든 모든 날짜가 안전하게 달력 칸으로 그려지도록 정상 위치에 배치 완료!
