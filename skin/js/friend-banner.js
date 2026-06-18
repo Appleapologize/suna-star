@@ -10,3 +10,4 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error('배너 로드 실패:', error));
     });
+document.addEventListener("DOMContentLoaded", loadFriendBanner);
