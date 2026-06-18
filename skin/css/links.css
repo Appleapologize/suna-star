@@ -131,6 +131,10 @@ a:has(.tooltip):hover img{
     }	
 
 /*추가 css*/	
+
+	.banner-module .tooltip{
+		right:35%;
+	}
     .banner-module .tooltip p{
   		font-size:10px; 
  	 }	
@@ -143,5 +147,9 @@ a:has(.tooltip):hover img{
     	border-left: 0;
     	margin-left: -10px;  
   	}  
+
+	a:has(.tooltip){
+		width:100%;
+	}
 
 }
