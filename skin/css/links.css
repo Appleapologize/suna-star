@@ -96,7 +96,7 @@ a:has(.tooltip):hover img{
 	margin-bottom: -10px;
 }
 
-#links .banner-module a:hover .tooltip{
+.banner-module a:hover .tooltip{
   visibility:visible;
 }
 
