@@ -1,78 +1,78 @@
 @charset "utf-8";
 
 :root{
-		--border-wiki-line:1px solid;
-		--border-table-text-left:6px; /*대사 발췌란 왼쪽 테두리 두께*/	
-		--table-outline-width:3px; /*대사 발췌란 외의 캐릭터 색이 들어간 테이블 테두리 두께, 
-			3px 이상 적을것*/	
+	--border-wiki-line:1px solid;
+	--border-table-text-left:6px; /*대사 발췌란 왼쪽 테두리 두께*/	
+	--table-outline-width:3px; /*대사 발췌란 외의 캐릭터 색이 들어간 테이블 테두리 두께, 
+		3px 이상 적을것*/	
 	
-		--flag-min-width:60px;
-		--flag-gap:8px;
+	--flag-min-width:60px;
+	--flag-gap:8px;
 
 /* ==========================================================================
   차트 관련
  ========================================================================== */	
-		/*차트 폰트 사이즈(무조건 px 기준으로 적기)*/	
-		--chart-font-size: 10px;
-		--mobile-chart-font-size: 12px;
+	/*차트 폰트 사이즈(무조건 px 기준으로 적기)*/	
+	--chart-font-size: 10px;
+	--mobile-chart-font-size: 12px;
 	
-		--chart-point-style: rectRot; /* 레이더 차트의 점 모양 지정 (star, triangle, rect, circle, rectRot 등으로 적기) */
-		--chart-point-size: 5; /*px 사이즈 기준*/
+	--chart-point-style: rectRot; /* 레이더 차트의 점 모양 지정 (star, triangle, rect, circle, rectRot 등으로 적기) */
+	--chart-point-size: 5; /*px 사이즈 기준*/
 
-		/* 차트 투명도 변수 추가 (0에서 1 사이의 숫자 적기) */
-		--chart-bg-opacity: 0.2;     /* 채워지는 면은 20% 투명도 */
-		--chart-border-opacity: 1;   /* 차트 내부에 그려지는 선은 투명도 없음 */	
+	/* 차트 투명도 변수 추가 (0에서 1 사이의 숫자 적기) */
+	--chart-bg-opacity: 0.2;     /* 채워지는 면은 20% 투명도 */
+	--chart-border-opacity: 1;   /* 차트 내부에 그려지는 선은 투명도 없음 */	
 
-		/*차트 내에 뜨는 툴팁*/
-		--chart-tooltip-padding: 10; /*px 기준으로 숫자만 적기*/
-		--chart-tooltip-border-width: 1;  /* 테두리 두께 (단위 px 없이 숫자만!) */		
+	/*차트 내에 뜨는 툴팁*/
+	--chart-tooltip-padding: 10; /*px 기준으로 숫자만 적기*/
+	--chart-tooltip-border-width: 1;  /* 테두리 두께 (단위 px 없이 숫자만!) */	
 
-		/* 차트 내에 뜨는 툴팁이 점을 기준으로 나올 방향 설정 */
-		--chart-tooltip-x-align: center; /* 💡 left(오른쪽에 뜸), right(왼쪽에 뜸), center(가운데) */
-		--chart-tooltip-y-align: bottom; /* 💡 top(밑에 뜸), bottom(위에 뜸), center(가운데) 	
+	/* 차트 내에 뜨는 툴팁이 점을 기준으로 나올 방향 설정 */
+	--chart-tooltip-x-align: center; /* 💡 left(오른쪽에 뜸), right(왼쪽에 뜸), center(가운데) */
+	--chart-tooltip-y-align: bottom; /* 💡 top(밑에 뜸), bottom(위에 뜸), center(가운데) 	
 
 /* ==========================================================================
  화살표(제목에 있는 화살표) 
  ========================================================================== */	
-		/*화살표 hover 때랑, detail 닫혀있을때 투명도*/
-		--arrow-opacity:0.5;	
+	/*화살표 hover 때랑, detail 닫혀있을때 투명도*/
+	--arrow-opacity:0.5;	
 	
 /* ==========================================================================
  색상 변경 란
  ========================================================================== */	
-		/*---- ---- ----위키 메인 색상 지정(캐릭터 대표 색상) ---- ---- ----*/	
-		--noah-color: #42f5ce; /*드림주 색상*/
+	/*---- ---- ----위키 메인 색상 지정(캐릭터 대표 색상) ---- ---- ----*/	
+	--noah-color: #42f5ce; /*드림주 색상*/
 
-	/*---- ---- ----그 외의 위키 색상 지정 ---- ---- ----*/		
-		--border-wiki-gray-color:#ccc; /*위키 회색 선 색상, 목차 테두리도 이 색상*/
-		--wiki-line-background-color:#eee; /*대사 박스 같은 내부 내용에 들어가는 박스 배경 색상*/
-		--wiki-text-white-color:#ffffff; /*흰색*/
-		--wiki-tooltip-content:#555; /*말풍선 내용 색상*/
-		--wiki-a-color:#0275d8;	/*링크 걸려있는 파란색 글자 색상*/
+	/*---- ---- ----그 외의 위키 색상 지정 ---- ---- ----*/	
+	--border-wiki-gray-color:#ccc; /*위키 회색 선 색상, 목차 테두리도 이 색상*/
+	--wiki-line-background-color:#eee; /*대사 박스 같은 내부 내용에 들어가는 박스 배경 색상*/
+	--wiki-text-white-color:#ffffff; /*흰색*/
+	--wiki-tooltip-content:#555; /*말풍선 내용 색상*/
+	--wiki-a-color:#0275d8;	/*링크 걸려있는 파란색 글자 색상*/
 	
-		--wiki-blacktray-color:#ddd; /*스포일러 안내 박스 테두리 색상*/
-		--spoiler-text-color:#fc6603;	
+	--wiki-blacktray-color:#ddd; /*스포일러 안내 박스 테두리 색상*/
+	--spoiler-text-color:#fc6603;	
 
-	/*---- ---- ----화살표(제목에 있는 화살표) ---- ---- ----*/		
-		--arrow-color:#666;	
-		--arrow-hover:black; /*detail 닫혀있을때 화살표 hover때 색상*/
+	/*---- ---- ----화살표(제목에 있는 화살표) ---- ---- ----*/	
+	--arrow-color:#666;	
+	--arrow-hover:black; /*detail 닫혀있을때 화살표 hover때 색상*/
 
-	/*---- ---- ---- 차트 색상 ---- ---- ----*/		
-		--chart-text-color: var(--text-color); /*차트 내 글자 색상*/
-		--chart-grid-color: color-mix(in srgb, var(--text-color) 60%, transparent);/*차트 내 그리드 색상*/
+	/*---- ---- ---- 차트 색상 ---- ---- ----*/	
+	--chart-text-color: var(--text-color); /*차트 내 글자 색상*/
+	--chart-grid-color: color-mix(in srgb, var(--text-color) 60%, transparent);/*차트 내 그리드 색상*/
 
-		--chart-color-0: #00e5ff; /* 1부 데이터 색상*/      
-		--chart-color-1: #ffea00; /* 2부 데이터 색상*/         
-		--chart-color-2: #00b0ff; /* 3부 (the Last) 데이터 색상*/      
-		--chart-color-3: #ffaa00; /* 보루토 데이터 색상*/
+	--chart-color-0: #00e5ff; /* 1부 데이터 색상*/      
+	--chart-color-1: #ffea00; /* 2부 데이터 색상*/         
+	--chart-color-2: #00b0ff; /* 3부 (the Last) 데이터 색상*/      
+	--chart-color-3: #ffaa00; /* 보루토 데이터 색상*/
 
-		--chart-tooltip-bg: var(--card-background-color);
+	--chart-tooltip-bg: var(--card-background-color);
 	
-		/*차트 내에 뜨는 툴팁 텍스트 색상*/	
-		--chart-tooltip-title-color:var(--text-color); /* '현명함' 같은 제목 글자 색상 */
-		--chart-tooltip-body-color:var(--wiki-tooltip-content);  /* '15' 같은 숫자나 내용 글자 색상 */	
+	/*차트 내에 뜨는 툴팁 텍스트 색상*/	
+	--chart-tooltip-title-color:var(--text-color); /* '현명함' 같은 제목 글자 색상 */
+	--chart-tooltip-body-color:var(--wiki-tooltip-content);  /* '15' 같은 숫자나 내용 글자 색상 */	
 
-		--chart-tooltip-border-color: var(--text-color); /* 테두리 색상 (예: 반투명 흰색) */
+	--chart-tooltip-border-color: var(--text-color); /* 테두리 색상 (예: 반투명 흰색) */
 
 
 	/*캐릭터 테마 색으로 바꾸기*/
@@ -80,248 +80,248 @@
 }
 
 [data-theme="dark"]{
-		--border-wiki-gray-color:#ccc;
-		--wiki-line-background-color:#4a4a52;
-		--wiki-blacktray-color:#ddd;
-		--wiki-text-white-color:#000000; /*흰색*/
-		--wiki-tooltip-content:#eeeeee;
+	--border-wiki-gray-color:#ccc;
+	--wiki-line-background-color:#4a4a52;
+	--wiki-blacktray-color:#ddd;
+	--wiki-text-white-color:#000000; /*흰색*/
+	--wiki-tooltip-content:#eeeeee;
 
-		--wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
-		--arrow-color:#a4a4a4;
-		--arrow-hover:#ababab; /*detail 닫혀있을때 화살표 hover때 색상*/	
+	--wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
+	--arrow-color:#a4a4a4;
+	--arrow-hover:#ababab; /*detail 닫혀있을때 화살표 hover때 색상*/	
 }
 
 #wiki br.re-br{
-		display: none !important;
+	display: none !important;
 }
 
 /*목차와 프로필 칸 좌우로 두기 및 모바일에서는 세로로 두기*/
 #profile-index{
-		float:left;
-		width:50%;
+	float:left;
+	width:50%;
 }
 
 #profile-top div{
-		display:inline-block;
-		width:50%;
+	display:inline-block;
+	width:50%;
 }
 
 table{
-		width:var(--width-100);
-		height:auto;
+	width:var(--width-100);
+	height:auto;
 }
 
 tbody{
-		width:var(--width-100);
+	width:var(--width-100);
 }
 
 tr{
-		width:var(--width-100);
-		height:auto;
+	width:var(--width-100);
+	height:auto;
 }
 
 td{
-		height:auto;
-		text-align: center;
-		padding: 2px 5px;
+	height:auto;
+	text-align: center;
+	padding: 2px 5px;
 }
 
 .text1 {
-		font-size: 15px;
-		line-height: 1.5;
+	font-size: 15px;
+	line-height: 1.5;
 }
 
 .omission{
-		display: flex;         /* 양옆 선과 텍스트를 한 줄로 배치 */
-		align-items: center;	
-		text-align:center !important;
-		margin:0;
+	display: flex;         /* 양옆 선과 텍스트를 한 줄로 배치 */
+	align-items: center;	
+	text-align:center !important;
+	margin:0;
 }
 
 .omission::before,
 .omission::after {
-		content: "";            /* 빈 공간 생성 */
-		flex-grow: 1;           /* 선이 양옆의 남은 공간을 꽉 채우도록 설정 */
-		background-color: 
-			color-mix(var(--text-color) 10%, transparent); /* 선의 색상 (원하는 색으로 변경 가능) */
-		height: 1px;            /* 선의 두께 */
-		margin: 10px;         /* (중략) 글자와 선 사이의 여백 */
+	content: "";            /* 빈 공간 생성 */
+	flex-grow: 1;           /* 선이 양옆의 남은 공간을 꽉 채우도록 설정 */
+	background-color: 
+		color-mix(var(--text-color) 10%, transparent); /* 선의 색상 (원하는 색으로 변경 가능) */
+	height: 1px;            /* 선의 두께 */
+	margin: 10px;         /* (중략) 글자와 선 사이의 여백 */
 }
 
 
 a.index{
-		color:var(--wiki-a-color);
-		text-decoration: none;
+	color:var(--wiki-a-color);
+	text-decoration: none;
 }
 #wiki a{
-		color:var(--wiki-a-color);
-		text-decoration: none;
+	color:var(--wiki-a-color);
+	text-decoration: none;
 }
 
 #wiki a sup{
-		color:var(--wiki-a-color);
-		cursor: var(--over-cursor), pointer !important;
+	color:var(--wiki-a-color);
+	cursor: var(--over-cursor), pointer !important;
 }
 
 #wiki a:hover,
 focus {
-			color: var(--wiki-a-color);
-			text-decoration:underline;
+color: var(--wiki-a-color);
+text-decoration:underline;
 } /*태그 및 링크 색상(주석 옆의 숫자들 색상)*/
 
 span{
-		color:var(--text-color);
-		text-align:start;
+	color:var(--text-color);
+	text-align:start;
 }
 
 th{
-		width:var(--width-100);
-		background:var(--wiki-main-color);
+	width:var(--width-100);
+	background:var(--wiki-main-color);
 }
 
 th * {
-		color:black;
+	color:black;
 }
 
 #wiki p{
-		text-align: left;
+	text-align: left;
 }
 
 #wiki h2{
-		border-bottom: var(--border-wiki-line) var(--border-wiki-gray-color);
-		margin: 1.2em 0 0.7em;
-		padding-bottom: 5px;
+	border-bottom: var(--border-wiki-line) var(--border-wiki-gray-color);
+	margin: 1.2em 0 0.7em;
+	padding-bottom: 5px;
 }
 
 #wiki h2[class*="-title"]{
-		display:flex;
-		align-items: center;
+	display:flex;
+	align-items: center;
 }
 
 #wiki h2 span{
-		color: var(--arrow-color); 
-		float: left; 
-		font-size: 1em; 
-		font-weight: 400; 
-		line-height: 1em; 
-		text-align: left; 
-		width: 1em;
+	color: var(--arrow-color); 
+	float: left; 
+	font-size: 1em; 
+	font-weight: 400; 
+	line-height: 1em; 
+	text-align: left; 
+	width: 1em;
 }
 
 /* ==========================================
     분류표
    ========================================== */
 h3.classification{
-		width:auto; 
-		height:auto;
-		border: var(--border-wiki-line) var(--border-wiki-gray-color); 
-		border-radius: 4px; 
-		font-size: .9rem; 
-		font-weight: normal; 
-		line-height: 1.5; 
-		margin: 0 0 1em; 
-		padding: 0.2rem 0.5rem;
-		text-align:left;
+	width:auto; 
+	height:auto;
+	border: var(--border-wiki-line) var(--border-wiki-gray-color); 
+	border-radius: 4px; 
+	font-size: .9rem; 
+	font-weight: normal; 
+	line-height: 1.5; 
+	margin: 0 0 1em; 
+	padding: 0.2rem 0.5rem;
+	text-align:left;
 }
 
 .classification a{
-		margin-left: 5px;
+	margin-left: 5px;
 }
 
 div.profile{
-		width:var(--width-100);
-		border-line:none;
-		display:block;
+	width:var(--width-100);
+	border-line:none;
+	display:block;
 }
 
 /* ==========================================
     목차 스타일
    ========================================== */
 table.index{
-		border-collapse: collapse;
-		width: auto;
-		heigh: auto; 
-		background:none;
-		margin: 0 0 20px 5px; 
-		line-height: 180%;
+	border-collapse: collapse;
+	width: auto;
+	heigh: auto; 
+	background:none;
+	margin: 0 0 20px 5px; 
+	line-height: 180%;
 }
 
 table.index, 
 td.index{
-		border:var(--border-wiki-line) var(--border-wiki-gray-color);
+	border:var(--border-wiki-line) var(--border-wiki-gray-color);
 }
 
 table.index tr{
-		padding: 0 20px;
-		width:55%;
+	padding: 0 20px;
+	width:55%;
 }
 
 table.index tr td.index {
-		margin-left: 5px; 
-		padding: 12px 20px 18px 20px; 
-		font-size: .95rem; 
-		line-height: 1.5;
-		text-align:left;
+	margin-left: 5px; 
+	padding: 12px 20px 18px 20px; 
+	font-size: .95rem; 
+	line-height: 1.5;
+	text-align:left;
 }
 
 span.index-title{
-		font-size: 1.25em; 
-		margin-left: -5px;
+	font-size: 1.25em; 
+	margin-left: -5px;
 }
 
 a.index{
-		padding-left: 20px;
+	padding-left: 20px;
 }
 
 a.iindex{
-		padding-left: 40px;
+	padding-left: 40px;
 }
 
 /* ==========================================
     프로필 표
    ========================================== */
 .profile th{
-		border-bottom:1px solid var(--wiki-text-white-color);
-		white-space: nowrap;
-		color: black;
-		width:auto;
+	border-bottom:1px solid var(--wiki-text-white-color);
+	white-space: nowrap;
+	color: black;
+	width:auto;
 }
 
 .profile td:not(table.text-one-line td):not(table.text-two-line td):not(.index):not(.profil-img){
-		border-bottom:1px solid var(--border-wiki-gray-color);
+	border-bottom:1px solid var(--border-wiki-gray-color);
 }
 
 figure.profile-img{
-		padding:0;
-		margin:0;
+	padding:0;
+	margin:0;
 }
 
 img.profile{
-		object-fit:contain;
+	object-fit:contain;
 }
 
  /*프로필 상단 이름 란 1번*/
 table.profile{
-		border: var(--table-outline-width) solid var(--wiki-main-color);
-		border-collapse: collapse; 
-		text-align:center;
-		font-size: 14.4px; 
-		line-height: 1.5; 
-		margin-bottom: 16px;
+	border: var(--table-outline-width) solid var(--wiki-main-color);
+	border-collapse: collapse; 
+	text-align:center;
+	font-size: 14.4px; 
+	line-height: 1.5; 
+	margin-bottom: 16px;
 }
 
 table.profile tr.profile-name {
-		text-align:center; 
-		height: 60px; 
-		background-color: var(--wiki-main-color); 
-		width: 164.884%;
-		border:1px solid var(--wiki-main-color);
+	text-align:center; 
+	height: 60px; 
+	background-color: var(--wiki-main-color); 
+	width: 164.884%;
+	border:1px solid var(--wiki-main-color);
 }
 
 table.profile tr.profile-name td{
-		background-color: var(--wiki-main-color);
-		padding: 5px 10px;
-		border: 2px solid var(--wiki-main-color); 
+	background-color: var(--wiki-main-color);
+	padding: 5px 10px;
+	border: 2px solid var(--wiki-main-color); 
 }
 
 tr.profile-name td {
@@ -329,451 +329,452 @@ tr.profile-name td {
 }
 
 tr.profile-name td span{ 
-		color:var(--text-color);
-		font-size: 20px;
-		text-align:center;
-		font-weight:bold;
+	color:var(--text-color);
+	font-size: 20px;
+	text-align:center;
+	font-weight:bold;
 }
 
 /* 내부 표 루비문자 색상 */
 tr.profile-name td span.ruby{
-		font-size: 13px;
-		line-height: 180%;
-		color: var(--wiki-text-white-color);
+	font-size: 13px;
+	line-height: 180%;
+	color: var(--wiki-text-white-color);
 }
 
 /*프로필 상단 이름 란 2번(성우 추가)*/
 #country{
-		border-right:1px solid var(--border-wiki-gray-color);
-		border-bottom: 1px solid var(--wiki-main-color);
-		width:10%;
+	border-right:1px solid var(--border-wiki-gray-color);
+	border-bottom: 1px solid var(--wiki-main-color);
+	width:10%;
 }
 
 #country figure{
-		padding:0;
-		margin:0;
+	padding:0;
+	margin:0;
 }
 
 #country figure img{
-		width:10%;
-		padding:0;
-		margin:0; 
-		border:1px solid var(--border-wiki-gray-color);
+	width:10%;
+	padding:0;
+	margin:0; 
+	border:1px solid var(--border-wiki-gray-color);
 }
 
 td.country{
-		border-right:1px solid var(--border-wiki-gray-color);
-		/*border-bottom: none !important;*/
-		width:10%;
+	border-right:1px solid var(--border-wiki-gray-color);
+	/*border-bottom: none !important;*/
+	width:10%;
 }
 
 td.country:last-child{
-		border-bottom:1px solid var(--wiki-main-color);
+	border-bottom:1px solid var(--wiki-main-color);
 }
 
 td.country figure{
-		padding:0;
-		margin:0;
+	padding:0;
+	margin:0;
 }
 
 td.country figure img{
-		padding:0;
-		margin:0; 
-		border:1px solid var(--border-wiki-gray-color);
+	padding:0;
+	margin:0; 
+	border:1px solid var(--border-wiki-gray-color);
 }
 
 .profile-2 td{
-		/*border-bottom: none !important;*/
-		text-align:left;
-		padding: calc(var(--flag-gap) / 2) var(--flag-gap);
+	/*border-bottom: none !important;*/
+	text-align:left;
+	padding: calc(var(--flag-gap) / 2) var(--flag-gap);
 }
 
 th.voice{
-		border:none;
+	border:none;
 }
 
 .flag-img img {
-		min-width: var(--flag-min-width);
-		vertical-align: middle;
+	min-width: var(--flag-min-width);
+	vertical-align: middle;
 }
 
 .flag-img img[src*="US"] {
-		aspect-ratio: 3 / 2; /* 가로 세로 비율을 3:2로 강제 고정 */
-		object-fit: fill;
+	aspect-ratio: 3 / 2; /* 가로 세로 비율을 3:2로 강제 고정 */
+	object-fit: fill;
 }
 
 /*프로필 이미지*/
 table.profile tr td.profil-img{
-		background-color:var(--wiki-text-white-color);
-		padding: 5px 10px; 
-		border: 1px solid var(--wiki-main-color);
+	background-color:var(--wiki-text-white-color);
+	padding: 5px 10px; 
+	border: 1px solid var(--wiki-main-color);
 }
 table.profile tr td.profil-img figure.profile-img{
-		max-width: 100%;
-		display: flex; 
-		flex-direction: column; 
-		align-items: center;
+	max-width: 100%;
+	display: flex; 
+	flex-direction: column; 
+	align-items: center;
 }
 
 /* ==========================================
     임무 횟수 표
    ========================================== */
 #mission{
-		border-collapse: collapse;
-		border:var(--table-outline-width) solid var(--wiki-main-color);
+	border-collapse: collapse;
+	border:var(--table-outline-width) solid var(--wiki-main-color);
 }
 
 #mission th{
-		width:17%;
-		padding:10px 0;
-		border:1px solid var(--wiki-text-white-color);
+	width:17%;
+	padding:10px 0;
+	border:1px solid var(--wiki-text-white-color);
 }
 
 #mission th.mission-table-title{
-		padding:20px;
+	padding:20px;
 }
 
 #mission td{
-		border:1px solid var(--border-wiki-gray-color);
+	border:1px solid var(--border-wiki-gray-color);
 }
 
 /* ==========================================
     패러미터
    ========================================== */
 #parameters{
-		border-collapse: collapse;
-		border:var(--table-outline-width) solid var(--wiki-main-color);
-		margin-bottom:10px;
-		width:var(--width-100);
+	border-collapse: collapse;
+	border:var(--table-outline-width) solid var(--wiki-main-color);
+	margin-bottom:10px;
+	width:var(--width-100);
 }
 
 #parameters th{
-		width: 10%;
-		padding: 10px 0;
-		border: 1px solid var(--wiki-text-white-color);
+	width: 10%;
+	padding: 10px 0;
+	border: 1px solid var(--wiki-text-white-color);
 }
 #parameters td {
-		text-align:center;
-		border:1px solid var(--border-wiki-gray-color);
-		padding:0;
+	text-align:center;
+	border:1px solid var(--border-wiki-gray-color);
+	padding:0;
 }
 
 /* ==========================================
     접고 피는 때의 스타일
    ========================================== */
 details, details summary *:hover{
-		cursor: var(--over-cursor), pointer !important;
+	cursor: var(--over-cursor), pointer !important;
 }
 
 details h2[class*="-title"] span{
-		margin: 0.2em 0.4em 0 0.2em;
+	margin: 0.2em 0.4em 0 0.2em;
 }
 
 details:open h2[class*="-title"] span ion-icon:hover{
-		opacity: var(--arrow-opacity);
+	opacity: var(--arrow-opacity);
 }
 
 details:not([open]) h2[class*="-title"] span ion-icon:hover{
-		color:var(--arrow-hover);
+	color:var(--arrow-hover);
 }
 
 summary::-webkit-details-marker{
-		display:none
+	display:none
 }
 
 summary { 
-		list-style: none;
+	list-style: none;
 }
 
 summary.text1{
-		list-style-type:none;
-		text-align:left;
+	list-style-type:none;
+	text-align:left;
 }
 
 details > summary:first-of-type {
-		list-style: none;
+	list-style: none;
 }
 
 details[open] > summary:first-of-type {
-		list-style-type: none;
+	list-style-type: none;
 }
 
 summary::-webkit-details-marker {
-		display: none;
-		list-style-type: none;
+	display: none;
+	list-style-type: none;
 }
 
 details:open summary {
-		list-style: none;
-		opacity: 1;
+	list-style: none;
+	opacity: 1;
 }
 
 summary.text1 {list-style: none;
-		font-size: 15px;
-		line-height: 1.5;
+	font-size: 15px;
+	line-height: 1.5;
 }
 
 /* ==========================================
     그 외의 스포일러 접고 피기
    ========================================== */
 details.spoiler{
-		background: var(--sub-background-color);
-		padding: 15px;
-		margin: 5px 0 10px 0;
-		border-radius: 20px;
+	background: var(--sub-background-color);
+	padding: 15px;
+	margin: 5px 0 10px 0;
+	border-radius: 20px;
 }
 
 details.spoiler summary{
-		font-weight:bold;
-		margin:10px 0;
-		color:var(--spoiler-text-color);
+	font-weight:bold;
+	margin:10px 0;
+	color:var(--spoiler-text-color);
 }
 
 details.spoiler summary h4{
-		color:var(--spoiler-text-color);
-		text-align: center;
-		margin:0;
+	color:var(--spoiler-text-color);
+	text-align: center;
+	margin:0;
 }
 
 details.spoiler:hover{
-		background: color-mix(var(--sub-background-color) 50%, var(--hover-mix));
+	background: color-mix(var(--sub-background-color) 50%, var(--hover-mix));
 }
 
 details.spoiler:hover h4{
-		color:color-mix( var(--spoiler-text-color) 50%, var(--hover-mix));
+	color:color-mix( var(--spoiler-text-color) 50%, var(--hover-mix));
 }
 
 /* ==========================================
     0.큰 타이틀
    ========================================== */
 details summary h2.one-title{
-		font-size: 1.8em;
+	font-size: 1.8em;
 }
 
 details:open summary h2.one-title{
-		opacity: 1;
+	opacity: 1;
 }
 
 details:not([open]) summary h2.one-title{
-		opacity: var(--arrow-opacity);
+	opacity: var(--arrow-opacity);
 }
 
 /* ==========================================
     0.0 타이틀
    ========================================== */
 details summary h2.two-title {
-		opacity: 1;
-		font-size: 1.6em;
+	opacity: 1;
+	font-size: 1.6em;
 }
 
 details:not([open]) summary h2.two-title{
-		opacity: var(--arrow-opacity);
+	opacity: var(--arrow-opacity);
 }
 /* ==========================================
    0.0.0 타이틀
    ========================================== */
 details summary h2.three-title{
-		font-size: 1.4em;
+	font-size: 1.4em;
 }
 
 details:not([open]) summary h2.three-title{
-		opacity: var(--arrow-opacity);
+	opacity: var(--arrow-opacity);
 }
 
 /* ==========================================
    스포일러 경고창
    ========================================== */
 #spoiler-coution{
-		text-align:center;
-		font-size: 15px;
-		line-height: 1.5;
-		border-collapse: collapse;
-		background:var(--wiki-text-white-color);
-		border: var(--border-wiki-line) var(--wiki-blacktray-color); 
-		height: auto;
+	text-align:center;
+	font-size: 15px;
+	line-height: 1.5;
+	border-collapse: collapse;
+	background:var(--wiki-text-white-color);
+	border: var(--border-wiki-line) var(--wiki-blacktray-color); 
+	height: auto;
+	margin: 1em 0;
 }
 
 #spoiler-coution td{
-		text-align: start;
-		border-top: 5px solid orange; 
-		padding: 12px;
+	text-align: start;
+	border-top: 5px solid orange; 
+	padding: 12px;
 }
 
 #spoiler-coution td span{
-		font-size: 1.3em;
+	font-size: 1.3em;
 }
 
 #spoiler-coution td a{
-		font-size: 1.3em;
+	font-size: 1.3em;
 }
 
 /* ==========================================
    대사 넣는 칸 (공통 스타일)
    ========================================== */
 table[class*="text-"][class$="-line"]{
-		width: auto; 
-		border-collapse: collapse; 	
-		margin: 1em 0;	
-		max-width:100%;
-		word-break:normal;
+	width: auto; 
+	border-collapse: collapse; 	
+	margin: 1em 0;	
+	max-width:100%;
+	word-break:normal;
 }
 
 table[class*="text-"][class$="-line"] tr td {
-		width: var(--width-100);
-		border: 2px dashed var(--border-wiki-gray-color); 
-		border-left: 
-			var(--border-table-text-left)
-		solid var(--gaara-color, var(--noah-color)); /* 중복되던 var 변수 1개 정리 */
-		background: var(--wiki-line-background-color); 
-		padding: 1em; 
-		line-height: 1.5;
-		text-align: start;
+	width: var(--width-100);
+	border: 2px dashed var(--border-wiki-gray-color); 
+	border-left: 
+		var(--border-table-text-left)
+	solid var(--gaara-color, var(--noah-color)); /* 중복되던 var 변수 1개 정리 */
+	background: var(--wiki-line-background-color); 
+	padding: 1em; 
+	line-height: 1.5;
+	text-align: start;
 }
 
 /*대사 2줄짜리*/
 table.text-two-line{
-		word-break: keep-all;
+	word-break: keep-all;
 }
 
 /*대사와 발췌 사이를 가르는 선*/
 table.text-two-line td hr{
-		border: 0; 
-		border-top: 0.0625rem solid var(--border-wiki-gray-color); 
-		margin: 0.5em 0;
-		max-width:100%;
+	border: 0; 
+	border-top: 0.0625rem solid var(--border-wiki-gray-color); 
+	margin: 0.5em 0;
+	max-width:100%;
 }
 
 .dialogue {
-		display: flex; /* 이름과 대사를 가로로 배치 */
+	display: flex; /* 이름과 대사를 가로로 배치 */
 }
 
 .character-name {
-		margin-right: 5px; /* 이름과 대사 사이 간격 */
-		white-space: nowrap; /* 이름 줄바꿈 방지 */
+	margin-right: 5px; /* 이름과 대사 사이 간격 */
+	white-space: nowrap; /* 이름 줄바꿈 방지 */
 }
 
 /* ==========================================
     순서 나타내기
    ========================================== */
 .ol-number{
-		padding:30px;
-		border:1px solid var(--border-wiki-gray-color);
-		background: var(--wiki-line-background-color);
+	padding:30px;
+	border:1px solid var(--border-wiki-gray-color);
+	background: var(--wiki-line-background-color);
 }
 
 .ol-number li{
-		list-style:decimal;
-		padding:0;
-		margin:0;
-		background:none;
+	list-style:decimal;
+	padding:0;
+	margin:0;
+	background:none;
 }
 
 ul.mark-on-ul{
-		padding:20px;
-		display: block;
-		list-style-type: disc;
-		background:none;
+	padding:20px;
+	display: block;
+	list-style-type: disc;
+	background:none;
 }
 ul.mark-on-ul li{
-		display: list-item;
-		list-style: disclosure-closed;
-		background:none;
-		margin: 0 0 20px  15px;
+	display: list-item;
+	list-style: disclosure-closed;
+	background:none;
+	margin: 0 0 20px  15px;
 }
 
 ul.mark-on-ul li b{
-		margin:0 0 5px 0;
+	margin:0 0 5px 0;
 }
 
 /* ==========================================
     주석 란
    ========================================== */
 #wiki div.footnote{
-		display:block;
-		text-align:left;
-		border-top: var(--border-wiki-line) var(--border-wiki-gray-color);
-		border-radius:0;
-		margin:10px;
-		padding:10px;
+	display:block;
+	text-align:left;
+	border-top: var(--border-wiki-line) var(--border-wiki-gray-color);
+	border-radius:0;
+	margin:10px;
+	padding:10px;
 }
 
 #wiki a + p.text1{
-		display:none;
+	display:none;
 }
 
 /* ==========================================
     말풍선 스타일
    ========================================== */
 .tooltip {
-		margin-bottom:0px;  
-		position: absolute;
-		bottom: auto;
-		background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent); /* 배경색 */
-		color: var(--text-color); /* 글자색 */
-		padding: 10px;
-		font-size: 14px;
-		border: 2px solid var(--border-wiki-gray-color);
-		border-radius: 8px;
-		display: none; /* 기본적으로 숨김 */
-		z-index: 1000;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-		transform: none; /*/ "translateX(-50%)" 넣으면 정중앙 매칭*/
-		width: max-content;
-		max-width: 700px; 	
+	margin-bottom:0px;  
+	position: absolute;
+	bottom: auto;
+	background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent); /* 배경색 */
+	color: var(--text-color); /* 글자색 */
+	padding: 10px;
+	font-size: 14px;
+	border: 2px solid var(--border-wiki-gray-color);
+	border-radius: 8px;
+	display: none; /* 기본적으로 숨김 */
+	z-index: 1000;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transform: none; /*/ "translateX(-50%)" 넣으면 정중앙 매칭*/
+	width: max-content;
+	max-width: 700px; 	
 }
 
 button.tooltip-close{
-		background: transparent;
-		color: black;
-		position: absolute;
-		top: 0;
-		right: 0;
-		margin: 0;
-		padding: 5px;
-		text-align: right;
+	background: transparent;
+	color: black;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 5px;
+	text-align: right;
 }
 
 button.tooltip-close:hover{
-		color:#bdbdbd;
+	color:#bdbdbd;
 }
 
 /*말풍선 꼬리*/
 .tooltip:after{
-		content: '';
-		position: absolute;
-		bottom: -20px;
-		left: var(--arrow-left, 50%);
-		width: 0;
-		height: 0;
-		border: 20px solid transparent;
-		border-top-color: var(--border-wiki-gray-color);
-		border-bottom: 0;
-		margin-left: 0;
-		margin-bottom: 0;
-		transform: translateX(-20px); 
+	content: '';
+	position: absolute;
+	bottom: -20px;
+	left: var(--arrow-left, 50%);
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: var(--border-wiki-gray-color);
+	border-bottom: 0;
+	margin-left: 0;
+	margin-bottom: 0;
+	transform: translateX(-20px); 
 }
 
 .tooltip-number {
-		font-weight: bold;
-		color: var(--wiki-a-color); /* 번호 색상 */
-		margin-bottom: 5px; /* 번호와 내용 간격 */
+	font-weight: bold;
+	color: var(--wiki-a-color); /* 번호 색상 */
+	margin-bottom: 5px; /* 번호와 내용 간격 */
 }
 
 .tooltip-content {
-		color: var(--wiki-tooltip-content); /* 내용 색상 */
-		font-size: 12px; /* 내용 크기 */
+	color: var(--wiki-tooltip-content); /* 내용 색상 */
+	font-size: 12px; /* 내용 크기 */
 }
 
 .tooltip-divider{
-		border: 0;
-		height: 3px;
-		background-color: var(--wiki-main-color); /* hr의 배경색 */
-		margin: 5px 0; /* hr과 내용 사이의 간격 */
+	border: 0;
+	height: 3px;
+	background-color: var(--wiki-main-color); /* hr의 배경색 */
+	margin: 5px 0; /* hr과 내용 사이의 간격 */
 }
 
 div.footnote .text1 {
-		margin:10px;
-		display:block;
+	margin:10px;
+	display:block;
 }
 
 
@@ -783,84 +784,84 @@ div.footnote .text1 {
 
 /* 1. 부모 테이블(#gallery)이 차트를 억지로 밑으로 밀어내지 못하게 auto화 */
 #gallery {
-		border-collapse: collapse;
-		width: var(--width-100); 
-		margin: 0 0 20px 0;
-		text-align: start;
-		border: var(--table-outline-width) solid var(--gaara-color, var(--noah-color));
-		height: auto !important; /* 고정 387px 강제 해제 */
+	border-collapse: collapse;
+	width: var(--width-100); 
+	margin: 0 0 20px 0;
+	text-align: start;
+	border: var(--table-outline-width) solid var(--gaara-color, var(--noah-color));
+	height: auto !important; /* 고정 387px 강제 해제 */
 }
 
 #gallery th {
-		width: 33%;
-		border: 1px solid var(--wiki-text-white-color);
-		height: 20px;
+	width: 33%;
+	border: 1px solid var(--wiki-text-white-color);
+	height: 20px;
 }
 
 #gallery td {
-		width: 33%;
-		border: 1px solid var(--border-wiki-gray-color);
-		height: auto !important; /* 고정 331px 강제 해제 */
-		border-bottom: none;
+	width: 33%;
+	border: 1px solid var(--border-wiki-gray-color);
+	height: auto !important; /* 고정 331px 강제 해제 */
+	border-bottom: none;
 }
 
 /* 2. PC 차트 박스 규격을 정확히 320px로 단단히 밀봉 */
 .chart-container {
-		display: inline-grid !important;
-		grid-template-columns: 1fr 1fr !important; /* 좌우 반반 배치 */
-		gap: 25px;
-		width: 100% !important;
-		margin: 0 auto;
-		position: relative;
+	display: inline-grid !important;
+	grid-template-columns: 1fr 1fr !important; /* 좌우 반반 배치 */
+	gap: 25px;
+	width: 100% !important;
+	margin: 0 auto;
+	position: relative;
     
     /* \가로가 넓어져도 세로 여백이 생기지 않도록 딱 320px로 가두기 */
-		height: 320px !important;
-		min-height: 320px !important;
-		max-height: 320px !important;
-		overflow: visible !important;
+	height: 320px !important;
+	min-height: 320px !important;
+	max-height: 320px !important;
+	overflow: visible !important;
 }
 
 .chart-box {
-		width: var(--width-100) !important;
-		height: 100% !important;
-		max-height: 100% !important;
-		position: relative !important; /* 💡 Chart.js가 이 상자 크기 안에서만 계산하도록 만드는 핵심 기준점 */
-		overflow: hidden;
+	width: var(--width-100) !important;
+	height: 100% !important;
+	max-height: 100% !important;
+	position: relative !important; /* 💡 Chart.js가 이 상자 크기 안에서만 계산하도록 만드는 핵심 기준점 */
+	overflow: hidden;
 }
 
 
 /* 3. 라이브러리가 주입하는 element.style(400px)을 CSS 권력으로 찍어 누름 */
 .chart-box canvas {
-		display: block !important;
-		width: var(--width-100) !important;  /* 자바스크립트가 넣은 1150px을 무시하고 100%로 강제 압착 */
-		max-width: 100% !important;
-		height: 100% !important;
-		max-height: 100% !important;
-		box-sizing: border-box !important;
-		padding: 5px;
+	display: block !important;
+	width: var(--width-100) !important;  /* 자바스크립트가 넣은 1150px을 무시하고 100%로 강제 압착 */
+	max-width: 100% !important;
+	height: 100% !important;
+	max-height: 100% !important;
+	box-sizing: border-box !important;
+	padding: 5px;
 }
 
 /* 5. [원형 차트 전용] 억지로 늘어나서 찌그러지지 않게 정비율 정렬 */
 #radarChart {
-		width: var(--width-100) !important; /* 가로 가득 채우지 말고 예쁜 동그라미 비율 사수 */
-		margin: 0 auto !important;
+	width: var(--width-100) !important; /* 가로 가득 채우지 말고 예쁜 동그라미 비율 사수 */
+	margin: 0 auto !important;
 }
 
 /* ==========================================================================
    details 가 닫혔을 때만 화살표 아이콘 180도 회전 
    ========================================================================== */
 details[open] h2[class*="-title"] span{
-		transform: rotate(0deg) !important;
-		transition: transform 0.3s ease;
-		display: inline-block !important;
-		transform-origin: center center !important;	
+	transform: rotate(0deg) !important;
+	transition: transform 0.3s ease;
+	display: inline-block !important;
+	transform-origin: center center !important;	
 }
 
 details:not([open]) h2[class*="-title"] span{
-		transform: rotate(180deg) !important;
-		transition: transform 0.3s ease;
-		display: inline-block !important;
-		transform-origin: center center !important;		
+	transform: rotate(180deg) !important;
+	transition: transform 0.3s ease;
+	display: inline-block !important;
+	transform-origin: center center !important;	
 }
 
 /* ==========================================================================
@@ -868,102 +869,102 @@ details:not([open]) h2[class*="-title"] span{
    ========================================================================== */
 @media screen and (max-width: 1024px) {
 	
-		th{
-			white-space: unset;
-			word-break: auto-phrase;
-		}
+	th{
+		white-space: unset;
+		word-break: auto-phrase;
+	}
 	
-		#profile-index {
-			float: none;
-			width: var(--width-100);
-		}
+	#profile-index {
+		float: none;
+		width: var(--width-100);
+	}
 	
-		#profile-top div {
-			display: block;
-			width: var(--width-100);
-		}	
+	#profile-top div {
+		display: block;
+		width: var(--width-100);
+	}	
 	
-		table.index {
-			width: var(--width-100);
-		}
+	table.index {
+		width: var(--width-100);
+	}
 	
-		table.profile {
-			width: var(--width-100);
-		}
+	table.profile {
+		width: var(--width-100);
+	}
 	
-		div.footnote .text1 {
-			margin: 5px 0;
-		} 
+	div.footnote .text1 {
+		margin: 5px 0;
+	} 
 
-		.tooltip{
-			position: fixed !important;
-			bottom: 0px !important;
-			left: 50% !important;
-			top: auto !important;
-			transform: translateX(-50%) !important;
-			width: calc(100vw - 10px) !important;
-			max-width: 100vw !important;		
-			background-color:color-mix(in srgb, var(--card-background-color) 90%, transparent);
-			padding:10px;
-		}
+	.tooltip{
+		position: fixed !important;
+		bottom: 0px !important;
+		left: 50% !important;
+		top: auto !important;
+		transform: translateX(-50%) !important;
+		width: calc(100vw - 10px) !important;
+		max-width: 100vw !important;	
+		background-color:color-mix(in srgb, var(--card-background-color) 90%, transparent);
+		padding:10px;
+	}
 	
-		.tooltip:after {
-			display: none !important;
-			border: 0px solid transparent;
-			border-top-color: var(--border-wiki-gray-color);
-		}
+	.tooltip:after {
+		display: none !important;
+		border: 0px solid transparent;
+		border-top-color: var(--border-wiki-gray-color);
+	}
 	
-		.tooltip-number {
-			font-weight: bold;
-		}
+	.tooltip-number {
+		font-weight: bold;
+	}
 
-		button.tooltip-close {
-			width: var(--width-100);
-			position: relative;
-			text-align: center;
-			background: #bdbdbd;
-			border-radius: 0;
-			margin: 10px 0 0;
-			padding: 5px; 
-		}
+	button.tooltip-close {
+		width: var(--width-100);
+		position: relative;
+		text-align: center;
+		background: #bdbdbd;
+		border-radius: 0;
+		margin: 10px 0 0;
+		padding: 5px; 
+	}
 	
-		button.tooltip-close:hover {
-			background: #7a7a7a;
-			color: white;
-		}  
+	button.tooltip-close:hover {
+		background: #7a7a7a;
+		color: white;
+	}  
 
-		/* 💡 모바일 화면 전용 차트 대형 리포맷 */
-		.chart-container {
-			display: flex !important;    /* 세로 정렬 전환 */
-			flex-direction: column !important;
-			height: auto !important;     /* 모바일에선 고정 높이 해제 */
-			max-height: none !important;
-			gap: 30px !important;
-		}
+	/* 💡 모바일 화면 전용 차트 대형 리포맷 */
+	.chart-container {
+		display: flex !important;    /* 세로 정렬 전환 */
+		flex-direction: column !important;
+		height: auto !important;     /* 모바일에선 고정 높이 해제 */
+		max-height: none !important;
+		gap: 30px !important;
+	}
 	
-		.chart-box {
-			height: auto !important;    /* 모바일 환경 맞춤형 세로 규격 */
-		}
+	.chart-box {
+		height: auto !important;    /* 모바일 환경 맞춤형 세로 규격 */
+	}
 	
-		.chart-box canvas {
-			width: var(--width-100) !important;
-			height: 100% !important;
-		}
+	.chart-box canvas {
+		width: var(--width-100) !important;
+		height: 100% !important;
+	}
 
-		#radarChart {
-			margin: 20px 0 10px 0;
-			min-width: 50vw !important;
-			min-height: 50vh !important;
-		}
+	#radarChart {
+		margin: 20px 0 10px 0;
+		min-width: 50vw !important;
+		min-height: 50vh !important;
+	}
 	
-		#barChart {
-			margin: 10px 0 0 0;
-			min-width: 40vw !important;		
-			min-height: 40vh !important;
-		}
+	#barChart {
+		margin: 10px 0 0 0;
+		min-width: 40vw !important;	
+		min-height: 40vh !important;
+	}
 
-		br.re-br{
-			display: inline !important;
-		}
+	br.re-br{
+		display: inline !important;
+	}
 }
 
