@@ -107,7 +107,7 @@
 }
 
 table{
-		width: auto;
+		width:var(--width-100);
 		height:auto;
 }
 
@@ -412,7 +412,6 @@ table.profile tr td.profil-img figure.profile-img{
     임무 횟수 표
    ========================================== */
 #mission{
-		width:var(--width-100);
 		border-collapse: collapse;
 		border:var(--table-outline-width) solid var(--wiki-main-color);
 }
