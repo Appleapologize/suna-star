@@ -801,6 +801,7 @@ div.footnote .text1 {
 		width: 33%;
 		border: 1px solid var(--border-wiki-gray-color);
 		height: auto !important; /* 고정 331px 강제 해제 */
+		border-bottom: none;
 }
 
 /* 2. PC 차트 박스 규격을 정확히 320px로 단단히 밀봉 */
