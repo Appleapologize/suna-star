@@ -2,6 +2,10 @@
 :root{
   /*  설명 글자 사이즈 */
   --p-font-size:x-small;
+
+	/*가장 위의 제목*/
+	--main-name-border-color:var(--card-background-color);
+	--main-name-border-px:2px;
   
   /* 오프닝 엔딩 외곽선 두께 */  
   --border-px-l:3px;
@@ -105,7 +109,11 @@
 
 .main{
 	margin:50px 0px 20px 0;
-	text-shadow: 0px 0px 10px var(--card-background-color);
+	text-shadow: 
+		var(--main-name-border-px) 0px 0px var(--main-name-border-color), 
+		calc(var(--main-name-border-px) * -1) 0px 0px var(--main-name-border-color),
+		0px var(--main-name-border-px) 0px var(--main-name-border-color), 
+		0px calc(var(--main-name-border-px) * -1) 0px var(--main-name-border-color)
 }
 
 .name{
