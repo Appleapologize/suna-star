@@ -221,6 +221,7 @@ h3.classification{
 		line-height: 1.5; 
 		margin: 0 0 1em; 
 		padding: 0.2rem 0.5rem;
+		text-align:left;
 }
 
 .classification a{
