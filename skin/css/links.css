@@ -82,7 +82,7 @@
 	width:100%;	
 }
 
-a:has(.tooltip):hover{
+.banner-module a:has(.tooltip):hover{
   filter: unset !important;
 }
 
