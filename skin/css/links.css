@@ -144,8 +144,9 @@
 }
 
 /*.self의 배너만*/
-.banner-module.self img {
-    
+#links .banner-module.self img {
+	width: 90%;
+	height: auto;
 }
 
 .banner-module.self button {
