@@ -15,8 +15,8 @@
 #links button:hover,
 #links a:hover *,
 #links button:hover *,
-.banner-module a:hover,
-.banner-module a:hover * {
+#menu .banner-module a:hover,
+#menu .banner-module a:hover * {
 	cursor: var(--over-cursor), pointer !important;
 }
 
