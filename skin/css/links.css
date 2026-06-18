@@ -71,6 +71,7 @@
 .banner-module a:has(.tooltip){
 	text-decoration:none;
 	position:relative;	
+	min-width: calc(var(--mobile-drawer-width) - calc(var(--padding-menu) * 4))
 }
 
 #links img{
