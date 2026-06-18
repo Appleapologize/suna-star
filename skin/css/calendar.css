@@ -35,10 +35,10 @@
    모바일에서의 사이즈 정의
    ======================================================= */
 @media (max-width: 1024px) {
-  :root {
-	--day-num-border: 2px; /*기념일일때 숫자 테두리*/
-	--desc-text-font-size:15px;    
-	--desc-text-border-radius:10px;    
+	:root {
+		--day-num-border: 2px; /*기념일일때 숫자 테두리*/
+		--desc-text-font-size:15px;    
+		--desc-text-border-radius:10px;    
 	}
 }
 
@@ -151,10 +151,10 @@
 
 .anniversary .day-num{
 	text-shadow: 
-        calc(-1 * var(--day-num-border)) 0px var(--card-background-color), 
-        0px var(--day-num-border) var(--card-background-color), 
-        var(--day-num-border) 0px var(--card-background-color), 
-        0px calc(-1 * var(--day-num-border)) var(--card-background-color);
+		calc(-1 * var(--day-num-border)) 0px var(--card-background-color), 
+		0px var(--day-num-border) var(--card-background-color), 
+		var(--day-num-border) 0px var(--card-background-color), 
+		0px calc(-1 * var(--day-num-border)) var(--card-background-color);
 }
 
 .anniversary:hover,
@@ -173,22 +173,22 @@
 .anni-Dday .marker-Dday::before{
 	transform: translate(-50%, -50%);  
 	text-shadow:
-        calc(-1 * ar(--desc-text-border)) 0px var(--text-color),     
-        0px var(--desc-text-border) var(--text-color),     
-        var(--desc-text-border) 0px var(--text-color),     
-        0px calc(-1 * var(--desc-text-border)) var(--text-color);
+		calc(-1 * ar(--desc-text-border)) 0px var(--text-color),     
+		0px var(--desc-text-border) var(--text-color),     
+		var(--desc-text-border) 0px var(--text-color),     
+		0px calc(-1 * var(--desc-text-border)) var(--text-color);
 }
 
 /* 일반 기념일용 (동그라미) */
 .anni-circle .marker-circle::before {
 	content: '';
 	width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    bottom: 1px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 5px solid #910000;
+	height: 20px;
+	border-radius: 50%;
+	bottom: 1px;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 5px solid #910000;
 }
 
 /*생일용 (폭죽) */
@@ -234,10 +234,10 @@
 	z-index: 1; /* 말풍선 글자판(z-index: 10) 레이어와 정렬 관계 조율 */
 	display: none; /* 평소엔 숨김 */
 	text-shadow: 
-        calc(-1 * var(--desc-text-border)) 0px var(--text-color), 
-        0px var(--desc-text-border) var(--text-color), 
-        var(--desc-text-border) 0px var(--text-color), 
-        0px calc(-1 * var(--desc-text-border)) var(--text-color);
+		calc(-1 * var(--desc-text-border)) 0px var(--text-color), 
+		0px var(--desc-text-border) var(--text-color), 
+		var(--desc-text-border) 0px var(--text-color), 
+		0px calc(-1 * var(--desc-text-border)) var(--text-color);
 	white-space: nowrap;
 	transform: translate(-50%, -50%);
 }
