@@ -17,7 +17,6 @@
     cursor: var(--over-cursor), pointer !important;
 }
 
-#links button, #links a,
 .banner-module a{
     display: inline-block;
     max-width: 45vw;
