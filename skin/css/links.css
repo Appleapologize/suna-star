@@ -69,6 +69,15 @@ a:has(.tooltip){
 	position:relative;	
 }
 
+#links a:has(.tooltip) img{
+	width:200px;
+	height:40px;
+}
+
+#menu .friend-banner{
+	width:100%;	
+}
+
 a:has(.tooltip):hover{
   filter: unset !important;
 }
