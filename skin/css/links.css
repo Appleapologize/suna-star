@@ -17,29 +17,29 @@
 #links button:hover *,
 .banner-module a:hover,
 .banner-module a:hover * {
-    cursor: var(--over-cursor), pointer !important;
+	cursor: var(--over-cursor), pointer !important;
 }
 
 
 .banner-module a{
-    display: inline-block;
-    max-width: 45vw;
-    padding: 0;
-    background-color: var(--clear);
-    margin: var(--banner-gap) auto;
+	display: inline-block;
+	max-width: 45vw;
+	padding: 0;
+	background-color: var(--clear);
+	margin: var(--banner-gap) auto;
 }
 
 
 .banner-module.self {
-    display: grid;
-    gap: var(--box-gap);
-    grid-template-columns: 1fr 2fr;
+	display: grid;
+	gap: var(--box-gap);
+	grid-template-columns: 1fr 2fr;
 }
 
 .banner-module.self .banner-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .banner-module.group .banner-title {
     margin: 0;
@@ -126,11 +126,11 @@
 ========================================== */
 #links a:hover,
 .banner-module a:hover{
-    filter: contrast(30%) brightness(150%);
+	filter: contrast(30%) brightness(150%);
 }
 
 #links .banner-module a:has(.tooltip) {
-    min-width: auto;
+	min-width: auto;
 }
 
 #links img{
@@ -144,11 +144,11 @@
 }
 
 .banner-module.self button {
-    width: 100%;
-    max-width: 500px;
+	width: 100%;
+	max-width: 500px;
 	background-color: var(--point-color);
-    margin: var(--banner-gap) auto;
-    padding: 10px 20px;
+	margin: var(--banner-gap) auto;
+	padding: 10px 20px;
 }
 
 .banner-module.self button:hover {
@@ -161,20 +161,20 @@
 	========================================== */
 	.banner-module.self {
 		grid-template-columns: auto;
-    }	
+	}	
 	
-    .banner-module .tooltip p{
+	.banner-module .tooltip p{
 		font-size:10px; 
- 	 }	
+	}	
   
-  .banner-module .tooltip p:after{
+	.banner-module .tooltip p:after{
 		border: 15px solid transparent;
 		border-top-color: var(--background-color);  
-    	margin-bottom: -10px;  
-   		border-bottom: 0;
-    	border-left: 0;
-    	margin-left: -10px;  
-  	}  
+		margin-bottom: -10px;  
+		border-bottom: 0;
+		border-left: 0;
+		margin-left: -10px;  
+	}  
 
 	.banner-module a:has(.tooltip){
 		min-width: calc(var(--mobile-drawer-width) - calc(var(--padding-menu) * 2));
