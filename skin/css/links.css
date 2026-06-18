@@ -45,7 +45,7 @@
     margin: 0;
 }
 
-.banner-module a:has(.tooltip){
+.banner-module a:has(.banner-tooltip){
 	text-decoration:none;
 	position:relative;	
 	min-width: calc(var(--mobile-drawer-width) - calc(var(--padding-menu) * 4))
@@ -56,16 +56,16 @@
 }
 
 
-.banner-module a:has(.tooltip):hover{
+.banner-module a:has(.banner-tooltip):hover{
 	filter: unset !important;
 }
 
-.banner-module a:has(.tooltip):hover img{
+.banner-module a:has(.banner-tooltip):hover img{
 	filter: contrast(30%) brightness(150%);
 	cursor: var(--over-cursor), pointer !important;
 }
 
-.banner-module .tooltip{
+.banner-module .banner-tooltip{
 	visibility:hidden;
 	position: absolute;
 	top: -50px;
@@ -75,7 +75,7 @@
 	z-index:1;
 }
 
-.banner-module .tooltip p{
+.banner-module .banner-tooltip p{
 	position: relative;  
 	margin:0;
 	background:var(--background-color); 
@@ -88,7 +88,7 @@
 			drop-shadow(calc(var(--banner-tooltip-border-px) * -1) 0px 1px var(--point-color));	
 }
 
-.banner-module .tooltip p:after{
+.banner-module .banner-tooltip p:after{
 	content: '';
 	position: absolute;
 	bottom: 0;
@@ -103,7 +103,7 @@
 	margin-bottom: -9px;
 }
 
-.banner-module a:hover .tooltip{
+.banner-module a:hover .banner-tooltip{
 	visibility:visible;
 }
 
@@ -129,7 +129,7 @@
 	filter: contrast(30%) brightness(150%);
 }
 
-#links .banner-module a:has(.tooltip) {
+#links .banner-module a:has(.banner-tooltip) {
 	min-width: auto;
 }
 
@@ -163,11 +163,11 @@
 		grid-template-columns: auto;
 	}	
 	
-	.banner-module .tooltip p{
+	.banner-module .banner-tooltip p{
 		font-size:10px; 
 	}	
   
-	.banner-module .tooltip p:after{
+	.banner-module .banner-tooltip p:after{
 		border: 15px solid transparent;
 		border-top-color: var(--background-color);  
 		margin-bottom: -10px;  
@@ -176,7 +176,7 @@
 		margin-left: -10px;  
 	}  
 
-	.banner-module a:has(.tooltip){
+	.banner-module a:has(.banner-tooltip){
 		min-width: calc(var(--mobile-drawer-width) - calc(var(--padding-menu) * 2));
 	}
 
