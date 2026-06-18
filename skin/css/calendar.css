@@ -51,7 +51,7 @@
     -webkit-backdrop-filter: blur(var(--background-blur));
     backdrop-filter: blur(var(--background-blur));
   min-width: 250px;
-  max-width: 300px;
+  max-width: var(--mobile-drawer-width);
   margin-bottom:calc(var(--padding-menu) * 2);
   padding: 10px;
 }
