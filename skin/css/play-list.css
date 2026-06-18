@@ -253,7 +253,7 @@ hr.play-list{
 }
 
 .right{
-	opacity:50%;
+	color: color-mix(var(--text-color) 70%, transparent);
 	font-size:20px;
 	text-shadow: 
 		var(--main-name-border-px) 0px 0px var(--main-name-border-color), 
