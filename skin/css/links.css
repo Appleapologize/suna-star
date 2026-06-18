@@ -111,9 +111,9 @@
   border-radius: 10px;  
   color:var(--text-color);	
   filter: drop-shadow(0px var(--banner-tooltip-border-px) 1px var(--point-color)) 
-          drop-shadow(0px calc(var(--banner-tooltip-border-px) * -1px) 1px var(--point-color)) 
+          drop-shadow(0px calc(var(--banner-tooltip-border-px) * -1) 1px var(--point-color)) 
           drop-shadow(var(--banner-tooltip-border-px) 0px 1px var(--point-color)) 
-          drop-shadow(calc(var(--banner-tooltip-border-px) * -1px) 0px 1px var(--point-color));	
+          drop-shadow(calc(var(--banner-tooltip-border-px) * -1) 0px 1px var(--point-color));	
 }
 
 .banner-module .tooltip p:after{
