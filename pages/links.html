@@ -36,4 +36,13 @@
         </div>
     </div>
     <div class="banner-module module friend-banner"> 
-    </div>    
+    </div>
+
+<script>
+    // links.html이 #container에 들어가서 브라우저에 그려지는 순간, 
+    // 이미 정의되어 있는 loadFriendBanner 함수를 강제로 깨워서 실행시킵니다.
+    if (typeof loadFriendBanner === 'function') {
+        loadFriendBanner();
+    }
+</script>
+
