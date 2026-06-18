@@ -1,165 +1,164 @@
 @charset "utf-8";
 :root{
-  --guest-comment-backcolor:rgba(125, 227, 245,1);
+	--guest-comment-backcolor:rgba(125, 227, 245,1);
 }
 
 [data-theme="dark"] {
-  --guest-comment-backcolor:rgba(49, 26, 84,1);
+	--guest-comment-backcolor:rgba(49, 26, 84,1);
 }
 #guest .module{
-  box-shadow: -1px -2px 6px 3px var(--box-shadow-color);
+	box-shadow: -1px -2px 6px 3px var(--box-shadow-color);
 }
 
 input, textarea{ 
-  border:1px solid black;
-  padding:10px;
+	border:1px solid black;
+	padding:10px;
 }
 
 textarea{
-  resize: none;
+	resize: none;
 }
 .noti{
-  border:5px solid #a6c1ee;
+	border:5px solid #a6c1ee;
 }
 
 .notice{
-  font-size: 15px;
-  justify-items: center;
-  background: red;
-  padding: 7px;
-  text-align: center;
-  border-radius: 10px; 
-  color:white;
+	font-size: 15px;
+	justify-items: center;
+	background: red;
+	padding: 7px;
+	text-align: center;
+	border-radius: 10px; 
+	color:white;
 }
 
 #guest ul, 
 #guest li{
-  background:unset;
+	background:unset;
 }
 
 #guest-content, 
 .comment-form textarea{
-  width:100%;
-  height:50%;
-  scrollbar-color: auto;
-  scrollbar-width: thin;
+	width:100%;
+	height:50%;
+	scrollbar-color: auto;
+	scrollbar-width: thin;
 }
 
 #guest-form *, 
 .comment-form *{
-  margin:10px 0;
+	margin:10px 0;
 }
 
 #guest-form div, 
 .comment-form div{
-  margin:0;
-  display:flex;
-  width:var(--width-100);
+	margin:0;
+	display:flex;
+	width:var(--width-100);
 }
 
 #guest-name, 
 .comment-form div input{
-  height: 30px;
+	height: 30px;
 }
 
 #guest-submit, 
 .comment-form div button{
-  width: 100px;
-  white-space: nowrap;
-  padding: 0 10px;
-
+	width: 100px;
+	white-space: nowrap;
+	padding: 0 10px;
 }
 
 #guest-list{
-  height: 100%;
+	height: 100%;
 }
 
 .guest-li{
-    background: var(--card-background-color);
-    padding: 15px;
-    border-radius: 10px;
+	background: var(--card-background-color);
+	padding: 15px;
+	border-radius: 10px;
 }
 
 .guest-list-content{
-  display:block !important;
+	display:block !important;
 }
 
 .guest-nm-date{
-  display:flex;
-  width:var(--width-100);
-  height: 40px;  
-  color:var(--text-color);
+	display:flex;
+	width:var(--width-100);
+	height: 40px;  
+	color:var(--text-color);
 }
 
 .guest-list-name, 
 .guest-list-created-at{
-  width:var(--width-100);
+	width:var(--width-100);
 }
 
 .guest-list-created-at{
-  color:var(--text-color);
-  text-align:right;
-  word-break: break-word;
+	color:var(--text-color);
+	text-align:right;
+	word-break: break-word;
 }
 
 .guest-list-name{
-  font-size:20px;
-  font-weight:bolder;
-  word-break: break-all;
-  display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-  overflow: hidden;  
+	font-size:20px;
+	font-weight:bolder;
+	word-break: break-all;
+	display: -webkit-box;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
+	overflow: hidden;  
 }
 
 .guest-list-name span{
-  white-space: nowrap;
-  position: relative; 
-  margin: 0 0 0 10px;  
+	white-space: nowrap;
+	position: relative; 
+	margin: 0 0 0 10px;  
 }
 
 .guest-list-content{
-  margin-top:10px;
+	margin-top:10px;
 }
 
 .comment{
-  padding: 10px 0;
+	padding: 10px 0;
 }
 
 .comment li{
-  background: var(--guest-comment-backcolor) !important;
-  padding: 20px;
-  border-radius: 10px;
+	background: var(--guest-comment-backcolor) !important;
+	padding: 20px;
+	border-radius: 10px;
 }
 
 hr.comment-form{
-  background: transparent !important;
-  border-top: 1px dashed gray;
-  border-width: 1px 0 0 0; 
+	background: transparent !important;
+	border-top: 1px dashed gray;
+	border-width: 1px 0 0 0; 
 }
 
 .comment-form{ 
-  background-color: var(--guest-comment-backcolor);
-  margin: 20px 0 0 0;
-  padding: 5px 10px;
-  border-radius: 10px;
+	background-color: var(--guest-comment-backcolor);
+	margin: 20px 0 0 0;
+	padding: 5px 10px;
+	border-radius: 10px;
 }
 
 .comment-form textarea {
-  height:unset;
+	height:unset;
 }
 
 .toggle-comment-form{
-  font-size: 15px;
-  padding: 10px 40px;  
+	font-size: 15px;
+	padding: 10px 40px;  
 }
 
 .toggle-comment-form i{
-  color:white;
+	color:white;
 }
 
 @media (max-width: 1024px) {
-  .toggle-comment-form{
-      padding: 5px 20px;
-  }
+	.toggle-comment-form{
+		padding: 5px 20px;
+	}
 }
