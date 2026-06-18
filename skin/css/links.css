@@ -132,6 +132,9 @@ a:has(.tooltip):hover{
     }	
 
 /*추가 css*/	
+	#menu .friend-banner{
+		padding:0;
+	}
 
 	.banner-module .tooltip{
 		right:35%;
