@@ -298,6 +298,7 @@ figure.profile-img{
 
 img.profile{
 	object-fit:contain;
+	height:auto;
 }
 
  /*프로필 상단 이름 란 1번*/
