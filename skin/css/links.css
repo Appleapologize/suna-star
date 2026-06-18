@@ -85,7 +85,7 @@ a:has(.tooltip):hover{
 
 .banner-module a:has(.tooltip):hover img{
   filter: contrast(30%) brightness(150%);
-  cursor: pointer !important;
+  cursor: var(--over-cursor), pointer !important;
 }
 
 .banner-module .tooltip{
