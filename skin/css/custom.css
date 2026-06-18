@@ -2,7 +2,7 @@
 
 /*상단에 제목 넣기*/
 .text-module:has(.head){
-    padding:0;
+	padding:0;
 }
 
 .head h1,
@@ -10,57 +10,57 @@
 .head h3,
 .head h4,
 .head h5{
-    margin:0;
-    color:white;
+	margin:0;
+	color:white;
 }
 
 .head{
-    background:var(--sub-background-color) ;
-    padding: calc(var(--box-padding) / 2);
+	background:var(--sub-background-color) ;
+	padding: calc(var(--box-padding) / 2);
 }
 
 
 .body{
-    padding: 6px var(--box-padding) var(--box-padding) var(--box-padding);
-    margin: var(--box-gap) auto;
+	padding: 6px var(--box-padding) var(--box-padding) var(--box-padding);
+	margin: var(--box-gap) auto;
 }
 
 .text-module:has(.head) .body {
-    text-align: center;
+	text-align: center;
 }
 
 /*접고 피기*/
 .text-module details{
-    padding:10px;
-    margin:5px 0 10px 0;
-    border-radius:20px;
+	padding:10px;
+	margin:5px 0 10px 0;
+	border-radius:20px;
 }
 
 figure{
-    justify-items: center;
+	justify-items: center;
 }
 
 .text-module .button{
-    display: inline-block;
-    min-width: 0;
-    width: fit-content;        
+	display: inline-block;
+	min-width: 0;
+	width: fit-content;        
 }
 
 .text-module .button:hover *{
-    cursor:var(--over-cursor), pointer !important;
+	cursor:var(--over-cursor), pointer !important;
 }
 
 .text-module .button-icon{
-    padding: 8px 20px;
-    border-radius: 14px;
+	padding: 8px 20px;
+	border-radius: 14px;
 }
 
 
 
 
 @media (max-width: 1024px){
-    .text-module .button{
-        margin-bottom:5px;
-    }
+	.text-module .button{
+		margin-bottom:5px;
+	}
 
 }
