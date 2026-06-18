@@ -255,7 +255,11 @@ hr.play-list{
 .right{
 	opacity:50%;
 	font-size:20px;
-	text-shadow: 0px 0px 10px var(--card-background-color);
+	text-shadow: 
+		var(--main-name-border-px) 0px 0px var(--main-name-border-color), 
+		calc(var(--main-name-border-px) * -1) 0px 0px var(--main-name-border-color),
+		0px var(--main-name-border-px) 0px var(--main-name-border-color), 
+		0px calc(var(--main-name-border-px) * -1) 0px var(--main-name-border-color)
 }
 
 .pl-text details{
