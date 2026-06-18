@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-#menu .banner-module{
+#menu .banner-module {
 	max-width:300px;
 	padding: var(--box-padding);
 }
@@ -15,7 +15,7 @@
 #links a:hover *,
 #links button:hover *,
 .banner-module a:hover,
-.banner-module a:hover ** {
+.banner-module a:hover * {
     cursor: var(--over-cursor), pointer !important;
 }
 
@@ -97,6 +97,7 @@ a:has(.tooltip):hover{
   margin: 0 auto;
   z-index:1;
 }
+
 .banner-module .tooltip p{
   position: relative;  
   margin:0;
