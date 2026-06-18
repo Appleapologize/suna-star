@@ -1,12 +1,15 @@
 @charset "utf-8";
+#links a:hover,
+#links button:hover,
+#links a:hover *,
+#links button:hover *,
 .banner-module a:hover,
-.banner-module button:hover,
-.banner-module a:hover *,
-.banner-module button:hover * {
+.banner-module a:hover ** {
     cursor: var(--over-cursor), pointer !important;
 }
 
-.banner-module button, #links a {
+#links button, #links a,
+.banner-module a{
     display: inline-block;
     max-width: 45vw;
     padding: 0;
@@ -14,11 +17,12 @@
     margin: var(--banner-gap) auto;
 }
 
-.banner-module a:hover {
+#links a:hover,
+.banner-module a:hover{
     filter: contrast(30%) brightness(150%);
 }
 
-.banner-module.self {
+#links .banner-module.self {
     display: grid;
     gap: var(--box-gap);
     grid-template-columns: 1fr 2fr;
