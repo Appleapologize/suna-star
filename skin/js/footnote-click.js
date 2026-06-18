@@ -12,8 +12,11 @@ window.setupMenuLinks = function() {
    ------------------------------------------------------------------------ */
 function initFootnoteSystem() {
   let footnoteCounter = 1;
-  const footnoteLinks = document.querySelectorAll('a[href="#각주"][name="돌아가기"]');
-  const footnotesContainer = document.querySelector("div.footnote");
+   const wikiContainer = document.querySelector('#wiki');
+      if (!wikiContainer) return; // 페이지에 #wiki 영역이 없으면 스크립트 중단
+
+   const footnoteLinks = wikiContainer.querySelectorAll('a[href="#각주"][name="돌아가기"]');
+   const footnotesContainer = document.querySelector("div.footnote");
 
   if (!footnoteLinks || !footnotesContainer) {
     return;
