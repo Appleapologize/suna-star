@@ -91,7 +91,7 @@
 		--arrow-hover:#ababab; /*detail 닫혀있을때 화살표 hover때 색상*/	
 }
 
-br.re-br{
+#wiki br.re-br{
 		display: none !important;
 }
 
@@ -106,7 +106,7 @@ br.re-br{
 		width:50%;
 }
 
-table{
+#wiki table{
 		width: var(--width-100);
 		height:auto;
 }
@@ -120,13 +120,13 @@ table{
 		height:auto;
 }
 
-td{
+#wiki td{
 		height:auto;
 		text-align: center;
 		padding: 2px 5px;
 }
 
-.text1 {
+#wiki .text1 {
 		font-size: 15px;
 		line-height: 1.5;
 }
@@ -149,7 +149,7 @@ td{
 }
 
 
-a.index{
+#wiki a.index{
 		color:var(--wiki-a-color);
 		text-decoration: none;
 }
@@ -157,6 +157,7 @@ a.index{
 		color:var(--wiki-a-color);
 		text-decoration: none;
 }
+
 #wiki a sup{
 		color:var(--wiki-a-color);
 		cursor: var(--over-cursor), pointer !important;
@@ -722,7 +723,7 @@ ul.mark-on-ul li b{
 		text-align: right;
 }
 
-button.tooltip-close:hover{
+#wiki button.tooltip-close:hover{
 		color:#bdbdbd;
 }
 
@@ -742,25 +743,25 @@ button.tooltip-close:hover{
 		transform: translateX(-20px); 
 }
 
-.tooltip-number {
+#wiki .tooltip-number {
 		font-weight: bold;
 		color: var(--wiki-a-color); /* 번호 색상 */
 		margin-bottom: 5px; /* 번호와 내용 간격 */
 }
 
-.tooltip-content {
+#wiki .tooltip-content {
 		color: var(--wiki-tooltip-content); /* 내용 색상 */
 		font-size: 12px; /* 내용 크기 */
 }
 
-.tooltip-divider{
+#wiki .tooltip-divider{
 		border: 0;
 		height: 3px;
 		background-color: var(--wiki-main-color); /* hr의 배경색 */
 		margin: 5px 0; /* hr과 내용 사이의 간격 */
 }
 
-div.footnote .text1 {
+#wiki div.footnote .text1 {
 		margin:10px;
 		display:block;
 }
