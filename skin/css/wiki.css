@@ -283,6 +283,7 @@ a.iindex{
 		border-bottom:1px solid var(--wiki-text-white-color);
 		white-space: nowrap;
 		color: black;
+		width:auto;
 }
 
 .profile td:not(table.text-one-line td):not(table.text-two-line td):not(.index):not(.profil-img){
