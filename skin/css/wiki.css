@@ -111,6 +111,17 @@ table{
 	height:auto;
 }
 
+table h1, 
+table h2, 
+table h3, 
+table h4, 
+table h5, 
+table h6 {
+    padding: 0;
+    border-bottom: none !important;
+    margin: 0 !important;
+}
+
 tbody{
 	width:var(--width-100);
 }
@@ -433,7 +444,7 @@ table.profile tr td.profil-img figure.profile-img{
 #mission th.mission-table-title{
 	padding:20px;
 }
-
+.mission-table-title h2
 #mission td{
 	border:1px solid var(--border-wiki-gray-color);
 }
