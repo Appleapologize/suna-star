@@ -70,7 +70,7 @@
 	position:relative;	
 }
 
-#links a:has(.tooltip) img{
+#links img{
 	width:200px;
 	height:40px;
 }
