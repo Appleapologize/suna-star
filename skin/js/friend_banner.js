@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
         // 새로 정하신 파일명인 friend_banner.html을 로드합니다.
-        fetch('suna-star/pages/friend_banner.html')
+        fetch('./suna-star/pages/friend_banner.html')
             .then(response => response.text())
             .then(data => {
-                const containers = document.querySelectorAll('.banner-module.module');
+                const containers = document.querySelectorAll('.banner-module.module.friend_banner');
                 containers.forEach(container => {
                     container.innerHTML = data;
                 });
