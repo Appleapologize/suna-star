@@ -1,5 +1,6 @@
 @charset "utf-8";
 #menu .banner-module{
+	max-width:300px;
 	padding: var(--box-padding);
 }
 
