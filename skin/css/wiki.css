@@ -179,7 +179,7 @@ th{
 	background:var(--wiki-main-color);
 }
 
-th * {
+th, th * {
 	color:black;
 }
 
