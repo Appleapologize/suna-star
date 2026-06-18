@@ -32,7 +32,7 @@
     filter: contrast(30%) brightness(150%);
 }
 
-#links .banner-module.self {
+.banner-module.self {
     display: grid;
     gap: var(--box-gap);
     grid-template-columns: 1fr 2fr;
@@ -128,7 +128,7 @@ a:has(.tooltip):hover{
 
 @media (max-width: 1024px) {
 	.banner-module.self {
-        grid-template-columns: auto !important;
+        grid-template-columns: auto;
     }	
 
 /*추가 css*/	
