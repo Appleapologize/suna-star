@@ -8,7 +8,11 @@
 ========================================== */
 .friend-banner{
 	padding: 0;
-	overflow: visible;
+}
+
+#links .friend-banner,
+#menu .friend-banner{
+	overflow: visible;	
 }
 
 #links a:hover,
@@ -119,7 +123,6 @@
 #menu .friend-banner{
 	width:100%;	
 	padding:0;
-	overflow: visible;
 }
 
 
