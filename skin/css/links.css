@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 #menu .banner-module {
-	max-width:300px;
+	max-width: var(--mobile-drawer-width);
 	padding: var(--box-padding);
 }
 
@@ -150,7 +150,7 @@ a:has(.tooltip):hover{
   	}  
 
 	.banner-module a:has(.tooltip){
-		min-width: calc(300px - var(--padding-menu) * 2);
+		min-width: calc(var(--mobile-drawer-width) - calc(var(--padding-menu) * 2));
 	}
 
 }
