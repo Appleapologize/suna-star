@@ -106,27 +106,27 @@
 		width:50%;
 }
 
-#wiki table{
-		width: var(--width-100);
+table{
+		width: auto;
 		height:auto;
 }
 
-#wiki tbody{
+tbody{
 		width:var(--width-100);
 }
 
-#wiki tr{
+tr{
 		width:var(--width-100);
 		height:auto;
 }
 
-#wiki td{
+td{
 		height:auto;
 		text-align: center;
 		padding: 2px 5px;
 }
 
-#wiki .text1 {
+.text1 {
 		font-size: 15px;
 		line-height: 1.5;
 }
@@ -149,7 +149,7 @@
 }
 
 
-#wiki a.index{
+a.index{
 		color:var(--wiki-a-color);
 		text-decoration: none;
 }
