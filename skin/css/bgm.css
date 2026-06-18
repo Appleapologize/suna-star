@@ -38,14 +38,14 @@
 #bgmBtn button.play,
 #bgmBtn button.stop,
 #bgmBtn button.next{
-      font-size: 20px;
+    font-size: 20px;
 }
 
 #bgmBtn button.prev:hover,
 #bgmBtn button.play:hover,
 #bgmBtn button.stop:hover,
 #bgmBtn button.next:hover{
-      color: color-mix(var(--disable-color) 70%, black);
+    color: color-mix(var(--disable-color) 70%, black);
 }
 
 #bgmBtn button.play{
