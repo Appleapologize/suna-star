@@ -4,14 +4,14 @@
 	position:relative;
 }
 
-#links a:hover,
-#links button:hover,
-#links a:hover *,
-#links button:hover * {
+.banner-module a:hover,
+.banner-module button:hover,
+.banner-module a:hover *,
+.banner-module button:hover * {
     cursor: var(--over-cursor), pointer !important;
 }
 
-#links button, #links a {
+.banner-module button, #links a {
     display: inline-block;
     max-width: 45vw;
     padding: 0;
@@ -19,27 +19,27 @@
     margin: var(--banner-gap) auto;
 }
 
-#links a:hover {
+.banner-module a:hover {
     filter: contrast(30%) brightness(150%);
 }
 
-#links .banner-module.self {
+.banner-module.self {
     display: grid;
     gap: var(--box-gap);
     grid-template-columns: 1fr 2fr;
 }
 
-#links .banner-module.self .banner-img {
+.banner-module.self .banner-img {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#links .banner-module.self img {
+.banner-module.self img {
     width: auto;
 }
 
-#links .banner-module.self button {
+.banner-module.self button {
     width: 100%;
     max-width: 500px;
     background-color: var(--point-color);
@@ -47,17 +47,18 @@
     padding: 10px 20px;
 }
 
-#links .banner-module.self button:hover {
+.banner-module.self button:hover {
     background-color: var(--point-sub-color);
 }
 
-#links .banner-module.group .banner-title {
+.banner-module.group .banner-title {
     margin: 0;
 }
 
 /*추가 css*/
 a:has(.tooltip){
-  text-decoration:none;
+	text-decoration:none;
+	position:relative;	
 }
 
 a:has(.tooltip):hover{
@@ -69,7 +70,7 @@ a:has(.tooltip):hover img{
   cursor: pointer !important;
 }
 
-.tooltip{
+.banner-module .tooltip{
   visibility:hidden;
   position: relative;
   top: -5px;
@@ -77,7 +78,7 @@ a:has(.tooltip):hover img{
   margin: 0 auto;
   z-index:1;
 }
-.tooltip p{
+.banner-module .tooltip p{
   position: relative;  
   margin:0;
   background:var(--background-color); 
@@ -86,7 +87,7 @@ a:has(.tooltip):hover img{
   color:var(--text-color);	
 }
 
-.tooltip p:after{
+.banner-module .tooltip p:after{
   content: '';
 	position: absolute;
 	bottom: 0;
@@ -106,16 +107,16 @@ a:has(.tooltip):hover img{
 }
 
 @media (max-width: 1024px) {
-	#links .banner-module.self {
+	.banner-module.self {
         grid-template-columns: auto;
     }	
 
 /*추가 css*/	
-    .tooltip p{
+    .banner-module .tooltip p{
   		font-size:10px; 
  	 }	
   
-  .tooltip p:after{
+  .banner-module .tooltip p:after{
     	border: 15px solid transparent;
     	border-top-color: var(--background-color);  
     	margin-bottom: -10px;  
