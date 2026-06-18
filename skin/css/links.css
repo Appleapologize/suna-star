@@ -150,7 +150,7 @@ a:has(.tooltip):hover{
   	}  
 
 	.banner-module a:has(.tooltip){
-		width:100%;
+		min-width: calc(300px - var(--padding-menu) * 2);
 	}
 
 }
