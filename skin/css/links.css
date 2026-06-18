@@ -128,7 +128,7 @@ a:has(.tooltip):hover{
 
 @media (max-width: 1024px) {
 	.banner-module.self {
-        grid-template-columns: auto;
+        grid-template-columns: auto !important;
     }	
 
 /*추가 css*/	
