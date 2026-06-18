@@ -277,7 +277,7 @@ a.iindex{
 #wiki th{
 		background:var(--wiki-main-color);
 		border-bottom:1px solid var(--wiki-text-white-color);
-		width:var(--width-100);
+		width:auto;
 		white-space: nowrap;
 		color: black;
 }
