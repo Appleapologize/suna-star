@@ -121,7 +121,7 @@
 }
 
 .trans{
-	opacity:50%;
+	color: color-mix(var(--text-color) 70%, transparent);
 	letter-spacing: 1px;  
 }
 .left-align{
