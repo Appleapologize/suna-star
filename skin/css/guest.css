@@ -10,9 +10,9 @@
   box-shadow: -1px -2px 6px 3px var(--box-shadow-color);
 }
 
-input, textarea
-{ border:1px solid black;
- padding:10px;
+input, textarea{ 
+  border:1px solid black;
+  padding:10px;
 }
 
 textarea{
@@ -32,32 +32,38 @@ textarea{
   color:white;
 }
 
-#guest ul, #guest li{
+#guest ul, 
+#guest li{
   background:unset;
 }
 
-#guest-content, .comment-form textarea{
+#guest-content, 
+.comment-form textarea{
   width:100%;
   height:50%;
   scrollbar-color: auto;
   scrollbar-width: thin;
 }
 
-#guest-form *, .comment-form *{
+#guest-form *, 
+.comment-form *{
   margin:10px 0;
 }
 
-#guest-form div, .comment-form div{
+#guest-form div, 
+.comment-form div{
   margin:0;
   display:flex;
-  width:100%;
+  width:var(--width-100);
 }
 
-#guest-name, .comment-form div input{
+#guest-name, 
+.comment-form div input{
   height: 30px;
 }
 
-#guest-submit, .comment-form div button{
+#guest-submit, 
+.comment-form div button{
   width: 100px;
   white-space: nowrap;
   padding: 0 10px;
@@ -85,8 +91,9 @@ textarea{
   color:var(--text-color);
 }
 
-.guest-list-name, .guest-list-created-at{
-  width:100%;
+.guest-list-name, 
+.guest-list-created-at{
+  width:var(--width-100);
 }
 
 .guest-list-created-at{
@@ -124,11 +131,13 @@ textarea{
   padding: 20px;
   border-radius: 10px;
 }
+
 hr.comment-form{
   background: transparent !important;
   border-top: 1px dashed gray;
   border-width: 1px 0 0 0; 
 }
+
 .comment-form{ 
   background-color: var(--guest-comment-backcolor);
   margin: 20px 0 0 0;
@@ -151,6 +160,6 @@ hr.comment-form{
 
 @media (max-width: 1024px) {
   .toggle-comment-form{
-  padding: 5px 20px;
-}
+      padding: 5px 20px;
+  }
 }
