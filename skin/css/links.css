@@ -74,6 +74,10 @@
 	min-width: calc(var(--mobile-drawer-width) - calc(var(--padding-menu) * 4))
 }
 
+.banner-module img {
+    border-radius: 10px;
+}
+
 #links .banner-module a:has(.tooltip) {
     min-width: auto;
 }
