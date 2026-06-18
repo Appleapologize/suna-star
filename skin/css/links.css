@@ -80,7 +80,7 @@ a:has(.tooltip):hover img{
 
 .banner-module .tooltip{
   visibility:hidden;
-  position: relative;
+  position: absolute;
   top: -5px;
   width: fit-content;
   margin: 0 auto;
