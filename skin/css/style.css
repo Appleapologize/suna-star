@@ -26,6 +26,7 @@
 	/*모바일 모드에서만 나오는 메뉴 버튼*/
 	--mobile-vwvh:44px;
 	--mobile-position:15px;
+	--mobile-drawer-width:300px; /*모바일 에서 나오는 메뉴 가로 사이즈*/
 	
 	--container-padding:30px; /*글 나오는 곳 사방(전체) 여백*/
 	--padding-in-body:40px;
@@ -1223,8 +1224,8 @@ footer p.bold{
         position: fixed;
         top: 0;
         left: -320px;/*화면 밖으로 빠짐*/
-        width: 300px;
-        max-width: 300px;		
+        width: var(--mobile-drawer-width);
+        max-width: var(--mobile-drawer-width);		
         height: 100vh;
         z-index: 101;
         padding: 70px 20px 20px 20px;
