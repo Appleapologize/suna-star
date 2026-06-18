@@ -1,4 +1,9 @@
 @charset "utf-8";
+
+.banner-module{
+	position:relative;
+}
+
 #links a:hover,
 #links button:hover,
 #links a:hover *,
