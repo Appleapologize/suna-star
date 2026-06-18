@@ -1,40 +1,41 @@
 @charset "utf-8";
 :root{
---sns-profile-margin: 10px;
---sns-profile-img-size:50px;
+	--sns-profile-margin: 10px;
+	--sns-profile-img-size:50px;
 }
 
 .sns-profile{
-            display:flex;
-            margin:var(--sns-profile-margin);
+	display:flex;
+	margin:var(--sns-profile-margin);
 }
 .diary-module {
-            padding: 0;
-            display: block;
-            grid-template-columns: var(--diary-ratio);
-            position: relative;
+	padding: 0;
+	display: block;
+	grid-template-columns: var(--diary-ratio);
+	position: relative;
 }
 .diary-module div.profile-img-sns{
-            display:block;
-            width:var(--sns-profile-img-size);
-            height:var(--sns-profile-img-size);
-            overflow:hidden;
-            border-radius:100%;
-            border:2px solid black;
-            margin:10px;
-            position: relative;}
+	display:block;
+	width:var(--sns-profile-img-size);
+	height:var(--sns-profile-img-size);
+	overflow:hidden;
+	border-radius:100%;
+	border:2px solid black;
+	margin:10px;
+	position: relative;
+}
 
 img{
-            object-fit:cover;
-            position: absolute;
-            width:calc( var(--sns-profile-img-size) + 10px);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+	object-fit:cover;
+	position: absolute;
+	width:calc( var(--sns-profile-img-size) + 10px);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .sns-id{
-            padding:8px 0px;
-            color:gray;
+	padding:8px 0px;
+	color:gray;
 }
 
