@@ -185,6 +185,14 @@
 		min-width: calc(var(--mobile-drawer-width) - calc(var(--padding-menu) * 2));
 	}
 
+	
+	/* ==========================================
+	 #link 안에만 들어가는 스타일
+	========================================== */
+	#links .banner-module.self img {
+		width: 70%;
+		height: auto;
+	}
 }
 
 
