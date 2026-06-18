@@ -1,36 +1,34 @@
 :root {
-  --sunday-color: #d12121;   /* 일요일 빨간색 */
-  --saturday-color: #005fff; /* 토요일 파란색 */
-  --day-num-border: 1px; /*기념일일때 숫자 테두리*/
-  --today-num-border:2px;
+	--sunday-color: #d12121;   /* 일요일 빨간색 */
+	--saturday-color: #005fff; /* 토요일 파란색 */
+	--day-num-border: 1px; /*기념일일때 숫자 테두리*/
+	--today-num-border:2px;
 
-  --calendar-marker-size: 25px;
-  --calendar-marker-dday: #ff0000;
+	--calendar-marker-size: 25px;
+	--calendar-marker-dday: #ff0000;
 
-  --emo-desc-text-opacity:0.5; /*해당 기념일 설명 박스 배경에 뜨는 이모지 투명도(1이 100프로로 선명하게임)*/ 
-  --desc-text-font-size:20px;/*해당 기념일 설명 폰트 사이즈*/
-  --desc-text-border-radius:4px; /*해당 기념일 설명 박스 꼭짓점 둥굴기*/  
-  --desc-text-border:2px; /*해당 기념일 아이콘 테두리(데스크톱에서만 사용)*/  
+	--emo-desc-text-opacity:0.5; /*해당 기념일 설명 박스 배경에 뜨는 이모지 투명도(1이 100프로로 선명하게임)*/ 
+	--desc-text-font-size:20px;/*해당 기념일 설명 폰트 사이즈*/
+	--desc-text-border-radius:4px; /*해당 기념일 설명 박스 꼭짓점 둥굴기*/  
+	--desc-text-border:2px; /*해당 기념일 아이콘 테두리(데스크톱에서만 사용)*/  
   
-  --Bday-emo-calender-num:'🎉'; /*생일때 숫자 뒤에 뜨는 이모지*/
-  --Bday-emo-desc-text: var(--Bday-emo-calender-num); /*생일때 설명창 배경에 뜨는 이모지*/
-  --Bday-emo-desc-text-font-size:35px; /*생일때 설명창 배경에 뜨는 이모지 사이즈*/
+	--Bday-emo-calender-num:'🎉'; /*생일때 숫자 뒤에 뜨는 이모지*/
+	--Bday-emo-desc-text: var(--Bday-emo-calender-num); /*생일때 설명창 배경에 뜨는 이모지*/
+	--Bday-emo-desc-text-font-size:35px; /*생일때 설명창 배경에 뜨는 이모지 사이즈*/
 
-  --Dday-emo-calender-num:'♥';/*디데이 때 숫자 뒤에 뜨는 이모지*/
-  --Dday-emo-desc-text:'🌵❤️⭐' ; /*디데이 때 설명창 배경에 뜨는 이모지*/
-  --Dday-emo-desc-text-cont-size:20px; /*디데이 때 설명창 배경에 뜨는 이모지 사이즈*/
+	--Dday-emo-calender-num:'♥';/*디데이 때 숫자 뒤에 뜨는 이모지*/
+	--Dday-emo-desc-text:'🌵❤️⭐' ; /*디데이 때 설명창 배경에 뜨는 이모지*/
+	--Dday-emo-desc-text-cont-size:20px; /*디데이 때 설명창 배경에 뜨는 이모지 사이즈*/
 
   
   /*---- ---- 모바일에서만 뜨는 란(해당 날짜가 무엇에 대한 기념일인지) ---- ----*/
-  --desc-close-btn-back-color:red;
-  --desc-close-btn-text-color:white;
-  
-
+	--desc-close-btn-back-color:red;
+	--desc-close-btn-text-color:white;
 }
 
 [data-theme="dark"]{
-  --sunday-color: #ff4d4d;   /* 일요일 빨간색 */
-  --saturday-color: #4d94ff; /* 토요일 파란색 */  
+	--sunday-color: #ff4d4d;   /* 일요일 빨간색 */
+	--saturday-color: #4d94ff; /* 토요일 파란색 */  
 
 }
 /* =======================================================
@@ -38,73 +36,73 @@
    ======================================================= */
 @media (max-width: 1024px) {
   :root {
-  --day-num-border: 2px; /*기념일일때 숫자 테두리*/
-  --desc-text-font-size:15px;    
-  --desc-text-border-radius:10px;    
-}
+	--day-num-border: 2px; /*기념일일때 숫자 테두리*/
+	--desc-text-font-size:15px;    
+	--desc-text-border-radius:10px;    
+	}
 }
 
 #calender{
-  border-radius: 10px;
-  background: 
-    color-mix(in srgb, var(--sub-background-color) 30%, transparent);
-    -webkit-backdrop-filter: blur(var(--background-blur));
-    backdrop-filter: blur(var(--background-blur));
-  min-width: 250px;
-  max-width: var(--mobile-drawer-width);
-  margin-bottom:calc(var(--padding-menu) * 2);
-  padding: 10px;
+	border-radius: 10px;
+	background: 
+	    color-mix(in srgb, var(--sub-background-color) 30%, transparent);
+	    -webkit-backdrop-filter: blur(var(--background-blur));
+	    backdrop-filter: blur(var(--background-blur));
+	min-width: 250px;
+	max-width: var(--mobile-drawer-width);
+	margin-bottom:calc(var(--padding-menu) * 2);
+	padding: 10px;
 }
 .month-arrow:hover{
-  color:var(--sub-background-color);
-  cursor: var(--over-cursor), pointer !important;
+	color:var(--sub-background-color);
+	cursor: var(--over-cursor), pointer !important;
 }
 
 .week{
-  width: var(--width-100) !important;
+	width: var(--width-100) !important;
 }
 
 .month-date {
-  width: 14%;
-  height: 10%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding:4px 0;
+	width: 14%;
+	height: 10%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding:4px 0;
 }
 
 .month-other {
-  opacity: 0.7;
+	opacity: 0.7;
 }
 
 .month-this.today .day-num{
-  background-repeat: no-repeat;
-  background-position: center;
-  font-weight: bold;
-  text-shadow: 
-    calc(-1 * var(--today-num-border)) 0px var(--card-background-color), 
-    0px var(--today-num-border) var(--card-background-color), 
-    var(--today-num-border) 0px var(--card-background-color), 
-    0px calc(-1 * var(--today-num-border)) var(--card-background-color);
-  color:var(--point-color);
+	background-repeat: no-repeat;
+	background-position: center;
+	font-weight: bold;
+	text-shadow: 
+	    calc(-1 * var(--today-num-border)) 0px var(--card-background-color), 
+	    0px var(--today-num-border) var(--card-background-color), 
+	    var(--today-num-border) 0px var(--card-background-color), 
+	    0px calc(-1 * var(--today-num-border)) var(--card-background-color);
+	    color:var(--point-color);
 }
 
 .year-text {
-  font-size:;
+	font-size:;
 }
 
 .month-text {
-  font-size: ;
+	font-size: ;
 }
 
 .month-date.month-title {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .month-box {
-  display: flex;
-  justify-content: space-around;
-  font-size:1.5rem;
+	display: flex;
+	justify-content: space-around;
+	font-size:1.5rem;
 }
 /* =======================================================
    추가 css
@@ -112,79 +110,79 @@
 
 /* 주말 날짜 색상*/
 .month-this.sunday .day-num { 
-  color: var(--sunday-color); 
+	color: var(--sunday-color); 
 }
 .month-this.saturday .day-num { 
-  color: var(--saturday-color); 
+	color: var(--saturday-color); 
 }
 
 /* 기념일 표시 (보통은 동그라미) */
 .month-date { 
-  position: relative; 
+	position: relative; 
 }
 .marker-container{
-  z-index:-1;
+	z-index:-1;
 }
 .anni-marker {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: var(--width-100);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none; /* 마우스 클릭이 숫자에 정상 차단되도록 방지 */
-  z-index:-1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: var(--width-100);
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none; /* 마우스 클릭이 숫자에 정상 차단되도록 방지 */
+	z-index:-1;
 }
 
 /* 공휴일: 날짜 글자 자체를 빨간색으로 */
 .month-this.anni-holiday .day-num {
-  color: var(--sunday-color) !important;
+	color: var(--sunday-color) !important;
 }
 
 .calendar-mobile-desc { 
-  display: none; 
+	display: none; 
 } /* 평소(데스크톱)에는 모바일 가이드 창 숨김 */
 
 .anniversary{
-  position: relative;
+	position: relative;
 }
 
 .anniversary .day-num{
-  text-shadow: 
-    calc(-1 * var(--day-num-border)) 0px var(--card-background-color), 
-    0px var(--day-num-border) var(--card-background-color), 
-    var(--day-num-border) 0px var(--card-background-color), 
-    0px calc(-1 * var(--day-num-border)) var(--card-background-color);
+	text-shadow: 
+        calc(-1 * var(--day-num-border)) 0px var(--card-background-color), 
+        0px var(--day-num-border) var(--card-background-color), 
+        var(--day-num-border) 0px var(--card-background-color), 
+        0px calc(-1 * var(--day-num-border)) var(--card-background-color);
 }
 
 .anniversary:hover,
 .anniversary .day-num:hover{
-  cursor: var(--over-cursor), pointer !important;
+	cursor: var(--over-cursor), pointer !important;
 }
 
 /*---- ---- 공통 css ---- ----*/
 .anni-circle .marker-circle::before,
 .anni-Bday .marker-Bday::before,
 .anni-Dday .marker-Dday::before{
-   position: absolute;
+	position: absolute;
 }
 
 .anni-Bday .marker-Bday::before,
 .anni-Dday .marker-Dday::before{
-  transform: translate(-50%, -50%);  
-  text-shadow:
-    calc(-1 * ar(--desc-text-border)) 0px var(--text-color),     
-    0px var(--desc-text-border) var(--text-color),     
-    var(--desc-text-border) 0px var(--text-color),     
-    0px calc(-1 * var(--desc-text-border)) var(--text-color);
+	transform: translate(-50%, -50%);  
+	text-shadow:
+        calc(-1 * ar(--desc-text-border)) 0px var(--text-color),     
+        0px var(--desc-text-border) var(--text-color),     
+        var(--desc-text-border) 0px var(--text-color),     
+        0px calc(-1 * var(--desc-text-border)) var(--text-color);
 }
 
 /* 일반 기념일용 (동그라미) */
 .anni-circle .marker-circle::before {
-    content: '';
-    width: 20px;
+	content: '';
+	width: 20px;
     height: 20px;
     border-radius: 50%;
     bottom: 1px;
@@ -195,99 +193,98 @@
 
 /*생일용 (폭죽) */
 .anni-Bday .marker-Bday::before {
-  content: var(--Bday-emo-calender-num);
-  font-size: var(--calendar-marker-size); 
-  top: 30%;
-  left: 60%;
+	content: var(--Bday-emo-calender-num);
+	font-size: var(--calendar-marker-size); 
+	top: 30%;
+	left: 60%;
 }
 
 /* 100일 단위 디데이: 하트 이모지 아이콘 적용 */
 .anni-Dday .marker-Dday::before {
-  content: var(--Dday-emo-calender-num);
-  font-size: var(--calendar-marker-size); 
-  top: 50%;
-  left: 50%;
-  color:pink;
+	content: var(--Dday-emo-calender-num);
+	font-size: var(--calendar-marker-size); 
+	top: 50%;
+	left: 50%;
+	color:pink;
 }
 
 
 /*말풍선 본체 (컨텐츠 박스)*/
 .anniversary:hover::after {
-  content: attr(data-title);
-  position: absolute;
-  bottom: 115%;
-  transform: translateX(-50%, 100%);
-  background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent);
-  color: var(--text-color);
-  padding: 8px;
-  font-size: var(--desc-text-font-size);
-  border: 2px solid var(--text-color);
-  border-radius: var(--border-radius-l);
-  width: max-content;
-  white-space: pre-wrap;
-  z-index: 10;
+	content: attr(data-title);
+	position: absolute;
+	bottom: 115%;
+	transform: translateX(-50%, 100%);
+	background-color: color-mix(in srgb, var(--card-background-color) 95%, transparent);
+	color: var(--text-color);
+	padding: 8px;
+	font-size: var(--desc-text-font-size);
+	border: 2px solid var(--text-color);
+	border-radius: var(--border-radius-l);
+	width: max-content;
+	white-space: pre-wrap;
+	z-index: 10;
 }
 
 /* ---- ---- 데스크톱 배경 디자인 설정 ---- ----*/
 .anniversary.anni-Bday .day-num::after,
 .anniversary.anni-Dday .day-num::after{
-  position: absolute;
-  pointer-events: none;
-  z-index: 1; /* 말풍선 글자판(z-index: 10) 레이어와 정렬 관계 조율 */
-  display: none; /* 평소엔 숨김 */
-  text-shadow: 
-    calc(-1 * var(--desc-text-border)) 0px var(--text-color), 
-    0px var(--desc-text-border) var(--text-color), 
-    var(--desc-text-border) 0px var(--text-color), 
-    0px calc(-1 * var(--desc-text-border)) var(--text-color);
-  white-space: nowrap;
-  transform: translate(-50%, -50%);
+	position: absolute;
+	pointer-events: none;
+	z-index: 1; /* 말풍선 글자판(z-index: 10) 레이어와 정렬 관계 조율 */
+	display: none; /* 평소엔 숨김 */
+	text-shadow: 
+        calc(-1 * var(--desc-text-border)) 0px var(--text-color), 
+        0px var(--desc-text-border) var(--text-color), 
+        var(--desc-text-border) 0px var(--text-color), 
+        0px calc(-1 * var(--desc-text-border)) var(--text-color);
+	white-space: nowrap;
+	transform: translate(-50%, -50%);
 }
 /*일요일에 기념일이 들어가면 조금 안으로 들어가게 함.*/
 .sunday.anniversary[data-title]::after {
-    left: 0;
-    transform: translateX(-60px);
+	left: 0;
+	transform: translateX(-60px);
 }
 
 /* [생일용 데스크톱 배경] */
 .anniversary.anni-Bday .day-num::after {
-  content: var(--Bday-emo-desc-text); /* 💡 설정해두신 생일 변수 사용 */
-  font-size: var(--Bday-emo-desc-text-font-size); /* 💡 생일 이모지 크기 변수 */
-  transform: translate(-100%, -160%);   
-  /* 말풍선 본체 위치(bottom: 115%) 근처 정중앙으로 배치 */
-  bottom: -40%;
-  left: 50%;
+	content: var(--Bday-emo-desc-text); /* 💡 설정해두신 생일 변수 사용 */
+	font-size: var(--Bday-emo-desc-text-font-size); /* 💡 생일 이모지 크기 변수 */
+	transform: translate(-100%, -160%);   
+	bottom: -40%;
+	left: 50%;
 }
 
 /* [디데이용 데스크톱 배경] */
 .anniversary.anni-Dday .day-num::after {
-  content: var(--Dday-emo-desc-text); 
-  font-size: var(--Dday-emo-desc-text-cont-size);
-  letter-spacing: 3px;
-  bottom: 305%;
-  left: 50%;
+	content: var(--Dday-emo-desc-text); 
+	font-size: var(--Dday-emo-desc-text-cont-size);
+	letter-spacing: 3px;
+	bottom: 305%;
+	left: 50%;
 }
 
 
 .anniversary.anni-Bday:hover .day-num::after,
 .anniversary.anni-Dday:hover .day-num::after {
-  display: block;
+	display: block;
 }
 
 /*말풍선 꼬리 (삼각형) */
 .anniversary:hover::before {
-  content: '';
-  position: absolute;
-  bottom: 15px;
-  border-width: 10px;
-  border-style: solid;
-  border-color: color-mix(in srgb, var(--text-color) 95%, transparent) transparent transparent transparent;
-  z-index: 10;
+	content: '';
+	position: absolute;
+	bottom: 15px;
+	border-width: 10px;
+	border-style: solid;
+	border-color: color-mix(in srgb, var(--text-color) 95%, transparent) transparent transparent transparent;
+	z-index: 10;
 }
 
 .day-num {
-  position: relative; 
-  /* z-index를 쓰지 않고 HTML 배치 순서와 포지션 관계로만 무조건 앞으로 띄웁니다 */
+	position: relative; 
+	/* z-index를 쓰지 않고 HTML 배치 순서와 포지션 관계로만 무조건 앞으로 띄웁니다 */
 }
 
 /* =======================================================
@@ -295,94 +292,91 @@
    ======================================================= */
 @media (max-width: 1024px) {
   /* 모바일에서는 마우스 오버 말풍선 가상 요소를 작동하지 못하게 가립니다 */
-  .anniversary:hover::after,
-  .anniversary:hover::before {
-    display: none !important;
-  }
+	.anniversary:hover::after,
+	.anniversary:hover::before {
+	    display: none !important;
+	}
 
   /* 터치 시 글자가 나타날 모바일 하단 설명창 디자인 */
-  .calendar-mobile-desc {
-    display: none; /* 클릭 전에는 숨김 (JS가 block으로 켬) */
-    width: 90%;
-    margin: 10px auto;
-    background: 
-      color-mix(in srgb, var(--sub-background-color) 30%, transparent);
-      -webkit-backdrop-filter: blur(var(--background-blur));
-      backdrop-filter: blur(var(--background-blur));
-    border-radius: 4px;
-    color: var(--text-color);
-    text-align: center;
-    font-weight: bold;
+	.calendar-mobile-desc {
+	    display: none; /* 클릭 전에는 숨김 (JS가 block으로 켬) */
+	    width: 90%;
+	    margin: 10px auto;
+	    background: 
+	        color-mix(in srgb, var(--sub-background-color) 30%, transparent);
+	        -webkit-backdrop-filter: blur(var(--background-blur));
+	    backdrop-filter: blur(var(--background-blur));
+	    border-radius: 4px;
+	    color: var(--text-color);
+	    text-align: center;
+	    font-weight: bold;
 
-    border-radius: var(--desc-text-border-radius);
-    overflow: hidden;
-  }
+	    border-radius: var(--desc-text-border-radius);
+	    overflow: hidden;
+	}
 
-  .calendar-mobile-desc .desc-text,
-  .calendar-mobile-desc .desc-close-btn{
-    padding:8px;
-  }
+	.calendar-mobile-desc .desc-text,
+	.calendar-mobile-desc .desc-close-btn{
+	    padding:8px;
+	}
 
     .calendar-mobile-desc .desc-close-btn{
-      background:var(--desc-close-btn-back-color);
-      color:var(--desc-close-btn-text-color);
+	    background:var(--desc-close-btn-back-color);
+	    color:var(--desc-close-btn-text-color);
     }
-    .calendar-mobile-desc .desc-close-btn:hover{
-      background:color-mix(in srgb, var(--desc-close-btn-back-color) 60%, var(--hover-mix));
-      cursor: var(--over-cursor), pointer !important;
-    }  
+	.calendar-mobile-desc .desc-close-btn:hover{
+	    background:color-mix(in srgb, var(--desc-close-btn-back-color) 60%, var(--hover-mix));
+	    cursor: var(--over-cursor), pointer !important;
+	}  
   
-  /* 공휴일이나 생일 클래스가 붙었을 때 이모지 배치를 위한 기준점(정렬) 정의 */
-  .calendar-mobile-desc.desc-Bday .desc-text,
-  .calendar-mobile-desc.desc-Dday .desc-text {
-      position: relative;
-      overflow: hidden; /* 이모지가 텍스트 영역 밖으로 나가지 못하게 커트 */
-      width: var(--width-100);
-  }
+	/* 공휴일이나 생일 클래스가 붙었을 때 이모지 배치를 위한 기준점(정렬) 정의 */
+	.calendar-mobile-desc.desc-Bday .desc-text,
+	.calendar-mobile-desc.desc-Dday .desc-text {
+	    position: relative;
+	    overflow: hidden; /* 이모지가 텍스트 영역 밖으로 나가지 못하게 가리기*/
+	    width: var(--width-100);
+	}
   
   /* 배경에 들어가는 이모지 혹은 텍스트 공통 디자인 */
-  .calendar-mobile-desc.desc-Bday .desc-text::before,
-  .calendar-mobile-desc.desc-Dday .desc-text::before{
-    position: absolute;
-    pointer-events: none;        /* 이모지 때문에 버튼이 안 눌리는 현상 방지 */
-    opacity: var(--emo-desc-text-opacity);                /* 💡 글자를 가리지 않는 은은한 투명도 */    
-    z-index: -1;   
-    transform: translateY(-50%); /* 정확한 세로 가운데 정렬 유지 */    
-  }
+	.calendar-mobile-desc.desc-Bday .desc-text::before,
+	.calendar-mobile-desc.desc-Dday .desc-text::before{
+	    position: absolute;
+	    pointer-events: none; /* 이모지 때문에 버튼이 안 눌리는 현상 방지 */
+	    opacity: var(--emo-desc-text-opacity); /* 글자를 가리지 않는 투명도 */    
+	    z-index: -1;   
+	    transform: translateY(-50%); /* 정확한 세로 가운데 정렬 유지 */    
+	}
   
   /* [생일용 배경] 폭죽 이모지 디자인 구역 */
-  .calendar-mobile-desc.desc-Bday .desc-text::before {
-    content: var(--Bday-emo-desc-text);
-    font-size: var(--Bday-emo-desc-text-font-size); /* 💡 폭죽 이모지 크기 */
+	.calendar-mobile-desc.desc-Bday .desc-text::before {
+	    content: var(--Bday-emo-desc-text);
+	    font-size: var(--Bday-emo-desc-text-font-size); /*이모지 크기 */
     
-    /* 💡 이모지 배치 위치 수정 구역 */
-    top: 50%; /* 세로축 기준 정중앙 */
-    left: 10%; /* 가로축 기준 왼쪽에서 10% 지점 */
-  }
+	    /* 이모지 배치 위치 수정 구역 */
+	    top: 50%; /* 세로축 기준 정중앙 */
+	    left: 10%; /* 가로축 기준 왼쪽에서 10% 지점 */
+	}
 
   /* [디데이용 배경] 하트 이모지 디자인 구역 */
-  .calendar-mobile-desc.desc-Dday .desc-text::before {
-    content: var(--Dday-emo-desc-text);            /* 💡 화면에 띄울 조합 */
-    font-size: var(--Dday-emo-desc-text-cont-size);              /* 💡 3개가 다 보이도록 크기 최적화 */
-    letter-spacing: 3px;          /* 💡 이모지 사이의 가로 간격 */
-  
-  /* 위치 조절 (오른쪽 여백 배치) */
-    top: 50%;                    
-    right: 6%;                   /* 텍스트 박스 안쪽 오른쪽에서 6% 지점 */ 
-  }
+	.calendar-mobile-desc.desc-Dday .desc-text::before {
+	    content: var(--Dday-emo-desc-text); 
+	    font-size: var(--Dday-emo-desc-text-cont-size); /* 크기 최적화 */
+	    letter-spacing: 3px; /* 이모지 사이의 가로 간격 */
+	    top: 50%;                    
+	    right: 6%;                   /* 텍스트 박스 안쪽 오른쪽에서 6% 지점 */ 
+	}
   
 
 /* [디데이용 배경] 🌵x⭐ 버전 
-.calendar-mobile-desc.desc-Dday .desc-text::before {
-  content: '🌵x⭐'; 
-  font-size: 22px;              
-}*/
+	calendar-mobile-desc.desc-Dday .desc-text::before {
+    	content: '🌵x⭐'; 
+    	font-size: 22px;              
+	}*/
 
 
-  .anniversary.anni-Bday .day-num::after,
-  .anniversary.anni-Dday .day-num::after{
-    display: none !important;
-}
-
+	.anniversary.anni-Bday .day-num::after,
+	.anniversary.anni-Dday .day-num::after{
+	    display: none !important;
+    }
 }
 
