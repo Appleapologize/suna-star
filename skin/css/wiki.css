@@ -176,6 +176,7 @@ span{
 
 th{
 		width:var(--width-100);
+		background:var(--wiki-main-color);
 }
 
 th * {
@@ -279,7 +280,6 @@ a.iindex{
     프로필 표
    ========================================== */
 .profile th{
-		background:var(--wiki-main-color);
 		border-bottom:1px solid var(--wiki-text-white-color);
 		white-space: nowrap;
 		color: black;
