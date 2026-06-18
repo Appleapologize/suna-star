@@ -91,7 +91,8 @@ a:has(.tooltip):hover img{
 .banner-module .tooltip{
   visibility:hidden;
   position: absolute;
-  top: -5px;
+    top: -50px;
+    right: 60px;
   width: fit-content;
   margin: 0 auto;
   z-index:1;
