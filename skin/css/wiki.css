@@ -698,7 +698,7 @@ ul.mark-on-ul li b{
 /* ==========================================
     말풍선 스타일
    ========================================== */
-#wiki .tooltip {
+.tooltip {
 		margin-bottom:0px;  
 		position: absolute;
 		bottom: auto;
@@ -716,7 +716,7 @@ ul.mark-on-ul li b{
 		max-width: 700px; 	
 }
 
-#wiki button.tooltip-close{
+button.tooltip-close{
 		background: transparent;
 		color: black;
 		position: absolute;
@@ -727,12 +727,12 @@ ul.mark-on-ul li b{
 		text-align: right;
 }
 
-#wiki button.tooltip-close:hover{
+button.tooltip-close:hover{
 		color:#bdbdbd;
 }
 
 /*말풍선 꼬리*/
-#wiki .tooltip:after{
+.tooltip:after{
 		content: '';
 		position: absolute;
 		bottom: -20px;
@@ -747,25 +747,25 @@ ul.mark-on-ul li b{
 		transform: translateX(-20px); 
 }
 
-#wiki .tooltip-number {
+.tooltip-number {
 		font-weight: bold;
 		color: var(--wiki-a-color); /* 번호 색상 */
 		margin-bottom: 5px; /* 번호와 내용 간격 */
 }
 
-#wiki .tooltip-content {
+.tooltip-content {
 		color: var(--wiki-tooltip-content); /* 내용 색상 */
 		font-size: 12px; /* 내용 크기 */
 }
 
-#wiki .tooltip-divider{
+.tooltip-divider{
 		border: 0;
 		height: 3px;
 		background-color: var(--wiki-main-color); /* hr의 배경색 */
 		margin: 5px 0; /* hr과 내용 사이의 간격 */
 }
 
-#wiki div.footnote .text1 {
+div.footnote .text1 {
 		margin:10px;
 		display:block;
 }
