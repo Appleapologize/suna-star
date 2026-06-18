@@ -18,125 +18,129 @@
 
 
 #bgmBtn {
-    position: static;
-    display: flex;
-    justify-content: center;
-    margin:10px 0;
-    width: var(--width-100);
-    height: auto;      
+	position: static;
+	display: flex;
+	justify-content: center;
+	margin:10px 0;
+	width: var(--width-100);
+	height: auto;      
 }
 
 #bgmBtn button {
-    padding: 0;
-    color: var(--disable-color);
-    background-color: var(--clear);
-    min-width: 0;
-    border: none;      
+	padding: 0;
+	color: var(--disable-color);
+	background-color: var(--clear);
+	min-width: 0;
+	border: none;      
 }
 
 #bgmBtn button.prev,
 #bgmBtn button.play,
 #bgmBtn button.stop,
 #bgmBtn button.next{
-    font-size: 20px;
+	font-size: 20px;
 }
 
 #bgmBtn button.prev:hover,
 #bgmBtn button.play:hover,
 #bgmBtn button.stop:hover,
 #bgmBtn button.next:hover{
-    color: color-mix(var(--disable-color) 70%, black);
+	color: color-mix(var(--disable-color) 70%, black);
 }
 
 #bgmBtn button.play{
-      transform: rotate(270deg);
-      padding-left: 5px;
-      padding-top: 8px;
-      margin: 0;
+	transform: rotate(270deg);
+	padding-left: 5px;
+	padding-top: 8px;
+	margin: 0;
 }
 
 #bgmVisual {
-    width: var(--bgm-img-width);
-    height: var(--bgm-img-height);
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-image: var(--bgm-play-img);
-    margin:auto 0;
+	width: var(--bgm-img-width);
+	height: var(--bgm-img-height);
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-image: var(--bgm-play-img);
+	margin:auto 0;
 }
 
 #bgmBtn #bgmStatus[value="stop"] ~ #bgmVisual {
-    background-image: var(--bgm-stop-img);
+	background-image: var(--bgm-stop-img);
 }
 
 #bgmBtn button {
-    padding: 0;
-    margin: 0 3px;
-    color: var(--disable-color);
-    background-color: var(--clear);
-    min-width: 0;
+	padding: 0;
+	margin: 0 3px;
+	color: var(--disable-color);
+	background-color: var(--clear);
+	min-width: 0;
 }
 
 #bgmBtn #bgmStatus[value="play"] ~ .play {
-    color: var(--good-color);
+	color: var(--good-color);
 }
 
 #bgmBtn #bgmStatus[value="play"] ~ .play:hover {
-    color: color-mix(var(--good-color) 70%, var(--hover-mix));
+	color: color-mix(var(--good-color) 70%, var(--hover-mix));
 }
 
 #bgmBtn #bgmStatus[value="stop"] ~ .stop,
 #bgmBtn #bgmStatus[value="prev"] ~ .prev,
 #bgmBtn #bgmStatus[value="next"] ~ .next{
-    color: var(--bad-color);
+	color: var(--bad-color);
 }
 
 #bgmBtn #bgmStatus[value="stop"] ~ .stop:hover,
 #bgmBtn #bgmStatus[value="prev"] ~ .prev:hover,
 #bgmBtn #bgmStatus[value="next"] ~ .next:hover{
-    color: color-mix(var(--bad-color) 70%, var(--hover-mix));
+	color: color-mix(var(--bad-color) 70%, var(--hover-mix));
 }
 
 
 #bgm {
-    display: none;
+	display: none;
 }
 
 #videoTitle {
-    width: 40%;
-    flex: 0 0 auto;
-    position: relative;
-    color: #333;
-    overflow: hidden;
-    text-align: center;
-    margin: 0 10px;
-    background: white;
-    border-radius: 30px;
+	width: 40%;
+	flex: 0 0 auto;
+	position: relative;
+	color: #333;
+	overflow: hidden;
+	text-align: center;
+	margin: 0 10px;
+	background: white;
+	border-radius: 30px;
 }
 
 #videoTitle p {
-      padding: 0;
-      margin: 5px;
-              }
+	padding: 0;
+	margin: 5px;
+}
 
 #marqueeText {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scroll-left 15s linear infinite;
+	display: inline-block;
+	white-space: nowrap;
+	animation: scroll-left 15s linear infinite;
 }
 #playlist{
-      display:none;
+	display:none;
 }
 
 @keyframes scroll-left {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+	0% { 
+		transform: translateX(100%); 
+	}
+	100% { 
+		transform: translateX(-100%); 
+	}
+	
 }
 
 
 @media (max-width: 1024px){
-      #videoTitle {
-            width: 60%;
-            margin: 0 5px;
-      }
-                                    
+	#videoTitle {
+		width: 60%;
+		margin: 0 5px;
+	}
 }
