@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch('.pages/friend-banner.html')
             .then(response => response.text())
             .then(data => {
-                const containers = document.querySelectorAll('.banner-module.module.friend_banner');
+                const containers = document.querySelectorAll('.banner-module.module.friend-banner');
                 containers.forEach(container => {
                     container.innerHTML = data;
                 });
