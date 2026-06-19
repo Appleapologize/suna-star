@@ -3,10 +3,7 @@
   /*  설명 글자 사이즈 */
   --p-font-size:x-small;
 
-	/*가장 위의 제목*/
-	--main-name-border-color:var(--card-background-color);
-	--main-name-border-px:2px;
-  
+
   /* 오프닝 엔딩 외곽선 두께 */  
   --border-px-l:3px;
   /*음악 소개 칸 외곽선 두께*/
