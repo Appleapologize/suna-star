@@ -85,7 +85,7 @@ body:has(#gallery-notice){
 	border-radius: 10px;
 	margin-bottom: var(--gallery-box-between);
 	background:var(--card-background-color);
-	border: 1em solid white;
+	border: var(--gallery-box-padding) solid var(--card-background-color);
 }
 
 .slides {
