@@ -88,6 +88,7 @@ body:has(#gallery-notice){
 	overflow: hidden; /* div가 잘리지 않도록 설정 */
 	margin: 0; /* 필요시 마진 제거 */
 	box-shadow:none;
+	padding-bottom:0;
 }
 
 .gallery-img img {
