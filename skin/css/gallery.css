@@ -12,7 +12,8 @@
     	var(--gallery-box-shadow-blur) 
     	var(--gallery-box-shadow-spread) 
     	var(--box-shadow-color); /* 작은박스 그림자*/
-	--gallery-box-between:1em;/*작은 박스 사이간격*/     
+	--gallery-box-between:1em;/*작은 박스 사이간격*/  
+	--gallery-box-padding:1em;/*작은 박스 내부의 가격*/
 }
 
 [data-theme="dark"] {
@@ -59,6 +60,7 @@ body:has(#gallery-notice){
 .slider h3,
 .gallery-img h3{
 	text-align:left;
+	margin: 0.5em 0 0.2em;
 }
 
 /* ==========================================
@@ -124,6 +126,15 @@ body:has(#gallery-notice){
 	right: 0px;
 }
 
+.slider h3{
+	padding: 0 var(--gallery-box-padding);
+}
+
+.slider p{
+	padding: 0 var(--gallery-box-padding);
+	padding-bottom: var(--gallery-box-padding);
+}
+
 /* ==========================================
 	갤러리
 ========================================== */
@@ -131,7 +142,7 @@ body:has(#gallery-notice){
 	background: var(--card-background-color);
 	margin-bottom: var(--gallery-box-between);
 	border-radius:10px;
-	padding: 1em;
+	padding: var(--gallery-box-padding);
 	break-inside: avoid;
 	overflow: hidden; /* 아이템 잘림 방지 */
 	box-shadow: var(--gallery-box-shadow); /* 그림자 조정 */
@@ -143,10 +154,6 @@ body:has(#gallery-notice){
 	width: var(--width-100);
 	height: auto;
 	display: block;
-}
-
-.gallery-img h3 {
-	margin: 0.5em 0 0.2em;
 }
 
 .gallery-img p {
