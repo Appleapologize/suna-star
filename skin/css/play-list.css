@@ -263,6 +263,10 @@ hr.play-list{
 		0px calc(var(--main-name-border-px) * -1) 0px var(--main-name-border-color)
 }
 
+a:hover p.right {
+	color: color-mix(var(--text-color) 40%, transparent);
+}
+
 .pl-text details{
 	text-align:center;
 }
