@@ -191,7 +191,10 @@
 	--footer-back-color-glass: color-mix(in srgb, var(--sub-background-color) var(--footer-back-opacity), transparent); /*rgba(227, 209, 255, 0.4)*/
 	--footer-border-color-glass:rgba(255, 255, 255, 0.3);
 
---box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);		
+	--box-shadow:var(--box-shadow-X) var(--box-shadow-Y) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);		
+		/*메뉴 외의 contents 안의 pages의 가장 위의 제목*/
+	--main-name-border-color:var(--card-background-color);
+	--main-name-border-px:2px;
 }
 
 /* ==========================================
