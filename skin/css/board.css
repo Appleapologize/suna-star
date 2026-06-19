@@ -37,11 +37,9 @@ img{
 .sns-id{
 	padding:8px 0px;
 	color:gray;
+	white-space: nowrap;	
 }
 
-.sns-di::before{
+.sns-id::before{
 	content: "@suna-star";
-	padding: 0;
-	margin: 0;
-	white-space: nowrap;
 }
