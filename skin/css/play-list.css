@@ -133,6 +133,7 @@
 	margin: 0;
 	margin-top:10px;
 	word-break: keep-all;  
+	line-height: 1rem;
 }
 
 .pl-main{
@@ -313,6 +314,7 @@ hr.play-list{
 
 	#play-list-frame p{
 		font-size: unset;
+		line-height: 1.5rem;
 	}
   
 	#pl-fair-frame{
