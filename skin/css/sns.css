@@ -65,6 +65,16 @@ table.sns-board .date{
 	z-index: -1;
 }
 
+#sns-list h1{
+	color: red;
+    margin: 10px;
+    text-shadow: 
+		var(--main-name-border-px) 0px 0px var(--main-name-border-color), 
+		calc(var(--main-name-border-px) * -1) 0px 0px var(--main-name-border-color), 
+		0px var(--main-name-border-px) 0px var(--main-name-border-color), 
+		0px calc(var(--main-name-border-px) * -1) 0px var(--main-name-border-color);
+}
+
 @media (max-width: 1024px) {
 	.diary-text table{
 		width:var(--width-100);
