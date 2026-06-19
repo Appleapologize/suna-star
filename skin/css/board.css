@@ -39,3 +39,9 @@ img{
 	color:gray;
 }
 
+.sns-di::before{
+	content: "@suna-star";
+	padding: 0;
+	margin: 0;
+	white-space: nowrap;
+}
