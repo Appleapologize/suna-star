@@ -4,6 +4,20 @@
 	overflow: hidden;
 }
 
+#sns-lock h1,
+#sns-lock h4{
+	text-shadow: 
+		var(--main-name-border-px) 0px 0px var(--main-name-border-color), 
+		calc(var(--main-name-border-px) * -1) 0px 0px var(--main-name-border-color), 
+		0px var(--main-name-border-px) 0px var(--main-name-border-color),
+		0px calc(var(--main-name-border-px) * -1) 0px var(--main-name-border-color);
+}
+
+#sns-lock h1{
+	color: red;
+	margin: 10px;
+}
+
 .diary-text table{ 
 	border:1px solid black; 
 	width:50%;
