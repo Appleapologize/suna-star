@@ -30,8 +30,19 @@ body:has(#gallery-notice){
 }
 
 #gallery h1,
-#gallery h4, 
-#gallery h2{
+#gallery h2,
+#gallery h3
+#gallery h4{
+	text-shadow: 
+		var(--main-name-border-px) 0px 0px var(--main-name-border-color), 
+		calc(var(--main-name-border-px) * -1) 0px 0px var(--main-name-border-color), 
+		0px var(--main-name-border-px) 0px var(--main-name-border-color), 
+		0px calc(var(--main-name-border-px) * -1) 0px var(--main-name-border-color);
+}
+
+#gallery h1,
+#gallery h2,
+#gallery h4 {
 	text-align:center;
 	margin: 0 10px;
 	padding: 0;
