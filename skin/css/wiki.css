@@ -1006,7 +1006,11 @@ details:not([open]) h2[class*="-title"] span{
 	
 	.tooltip-number {
 		font-weight: bold;
-		font-size: larger;
+		font-size: 24px;
+	}
+
+	.tooltip-content{
+		font-size: 15px;
 	}
 
 	button.tooltip-close {
