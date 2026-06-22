@@ -125,10 +125,10 @@ body:has(#gallery-notice){
     display: flex;
     justify-content: center;
     align-items: center;
+	background-color: color-mix(in sRGB, var(--card-background-color) 90%, transparent);	
 }
 
 .slider button:hover{
-	background-color: color-mix(in sRGB, var(--card-background-color) 90%, transparent);
 	color: var(--point-color);
 }
 
