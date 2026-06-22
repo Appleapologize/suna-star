@@ -14,6 +14,9 @@
     	var(--box-shadow-color); /* 작은박스 그림자*/
 	--gallery-box-between:1em;/*작은 박스 사이간격*/  
 	--gallery-box-padding:1em;/*작은 박스 내부의 가격*/
+	--gallert-prev-next-button-desk-size:40px;
+	--gallert-prev-next-button-tablet-size:40px;
+	--gallert-prev-next-button-mobile-size:40px;
 }
 
 [data-theme="dark"] {
@@ -113,15 +116,16 @@ body:has(#gallery-notice){
 .slider button{
 	position: absolute;
 	top: 50%;
-	border-radius: 10px 0 0 10px;
 	transform: translateY(-50%);
-	background-color: rgba(115, 115, 115, 0.6);
-	opacity:0.5;
+	background-color: transparent;
 	color:white;
 	opacity:1;
 	border: none;
-	padding: 10px;
-	min-width: fit-content;
+	padding: 0;
+    font-size: var(--gallert-prev-next-button-desk-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slider button:hover{
