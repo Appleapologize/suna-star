@@ -14,6 +14,9 @@
 
 	--mobile-wiki-tooltip-gap:10px;
 
+	--desk-text-line-height:1.5rem;
+	--mobile-text-line-height:calc(var(--desk-text-line-height) - 3);
+
 /* ==========================================================================
   차트 관련
  ========================================================================== */	
@@ -101,7 +104,7 @@ br.re-br{
 }
 
 #wiki *{
-	line-height: 1.5rem;
+	line-height: var(--desk-text-line-height);
 }
 
 #mission *,
@@ -838,6 +841,7 @@ button.tooltip-close:hover{
 .tooltip-content {
 	color: var(--wiki-tooltip-content); /* 내용 색상 */
 	font-size: 12px; /* 내용 크기 */
+	line-height:calc(var(--desk-text-line-height) - 3);
 }
 
 .tooltip-divider{
@@ -1003,6 +1007,7 @@ details:not([open]) h2[class*="-title"] span{
 	
 	.tooltip-number {
 		font-weight: bold;
+		font-size: larger;
 	}
 
 	button.tooltip-close {
