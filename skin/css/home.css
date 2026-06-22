@@ -11,7 +11,7 @@
 }
 
 #home p{
-	text-indent: -25px;
+	text-indent: calc(var(--p-text-indent) * -1);
 	padding-left: 30px;        
 }
 
