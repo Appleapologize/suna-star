@@ -14,8 +14,12 @@
     	var(--box-shadow-color); /* 작은박스 그림자*/
 	--gallery-box-between:1em;/*작은 박스 사이간격*/  
 	--gallery-box-padding:1em;/*작은 박스 내부의 가격*/
-	--gallert-prev-next-button-font-size:40px;
-	--gallert-prev-next-button-border-radius:calc( var(--gallert-prev-next-button-font-size) / 2);
+	--gallery-prnx-btn-padding:2px;
+	--gallery-prnx-btn-font-size:40px;
+	--gallery-prnx-btn-border-radius:
+		calc(calc(
+				var(--gallery-prnx-btn-font-size) + var(--gallery-prnx-btn-padding)) 
+					/ 2);
 }
 
 [data-theme="dark"] {
@@ -120,8 +124,8 @@ body:has(#gallery-notice){
 	color:white;
 	opacity:1;
 	border: none;
-	padding: 0;
-    font-size: var(--gallert-prev-next-button-font-size);
+	padding: 2px;
+    font-size: var(--gallery-prnx-btn-font-size);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,7 +140,7 @@ body:has(#gallery-notice){
 	left: 0px;
 	border-radius:
 		0 
-		var(--gallert-prev-next-button-border-radius) var(--gallert-prev-next-button-border-radius) 
+		var(--gallery-prnx-btn-border-radius) var(--gallery-prnx-btn-border-radius) 
 		0;
 
 }
@@ -144,9 +148,9 @@ body:has(#gallery-notice){
 .slider button.next {
 	right: 0px;
 	border-radius:
-		var(--gallert-prev-next-button-border-radius)
+		var(--gallery-prnx-btn-border-radius)
 		0 0 
-		var(--gallert-prev-next-button-border-radius);
+		var(--gallery-prnx-btn-border-radius);
 }
 
 /*보통은 버튼 숨기기*/
@@ -201,18 +205,19 @@ body:has(#gallery-notice){
 	.slider .next {
 		opacity: 1;
 		visibility: visible;
+		background-color:transparent;
+		text-shadow: 
+			var(--main-name-border-px) 0px 0px var(--main-name-border-color), 
+			calc(var(--main-name-border-px) * -1) 0px 0px var(--main-name-border-color), 
+			0px var(--main-name-border-px) 0px var(--main-name-border-color), 
+			0px calc(var(--main-name-border-px) * -1) 0px var(--main-name-border-color);		
 	}	
+
 }
 
 @media (max-width: 900px) {
 	#masonry-gallery {
 		column-count:2; /* 2열 레이아웃 */
-	}
-	
-	.slider .prev,
-	.slider .next {
-		opacity: 1;
-		visibility: visible;
 	}
 }
 
@@ -225,10 +230,4 @@ body:has(#gallery-notice){
 		padding: 10px;
 		font-size: xx-large;
 	}
-
-	.slider .prev,
-	.slider .next {
-		opacity: 1;
-		visibility: visible;
-	}	
 }
