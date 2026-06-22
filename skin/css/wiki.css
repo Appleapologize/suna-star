@@ -840,7 +840,7 @@ div.footnote .text1 {
 
 
 /* ==========================================================================
-   차트 
+   갤러리 및 차트 
    ========================================================================== */
 
 /* 1. 부모 테이블(#gallery)이 차트를 억지로 밑으로 밀어내지 못하게 auto화 */
@@ -866,7 +866,17 @@ div.footnote .text1 {
 	border-bottom: none;
 }
 
-/* 2. PC 차트 박스 규격을 정확히 320px로 단단히 밀봉 */
+#gallery tr:last-child th:last-child, 
+#gallery tr:nth-child(2n) th:last-child {
+    border-right: var(--sub-table-outline) var(--wiki-main-color);
+}
+#gallery tr:last-child th:first-child, 
+#gallery tr:nth-child(2n) th:first-child {
+    border-left: var(--sub-table-outline) var(--wiki-main-color);
+}
+
+
+/* PC 차트 박스 규격을 정확히 320px로 단단히 밀봉 */
 .chart-container {
 	display: inline-grid !important;
 	grid-template-columns: 1fr 1fr !important; /* 좌우 반반 배치 */
@@ -875,7 +885,7 @@ div.footnote .text1 {
 	margin: 0 auto;
 	position: relative;
     
-    /* \가로가 넓어져도 세로 여백이 생기지 않도록 딱 320px로 가두기 */
+    /* 가로가 넓어져도 세로 여백이 생기지 않도록 딱 320px로 가두기 */
 	height: 320px !important;
 	min-height: 320px !important;
 	max-height: 320px !important;
@@ -891,7 +901,7 @@ div.footnote .text1 {
 }
 
 
-/* 3. 라이브러리가 주입하는 element.style(400px)을 CSS 권력으로 찍어 누름 */
+/* 라이브러리가 주입하는 element.style(400px)을 CSS 권력으로 누름 */
 .chart-box canvas {
 	display: block !important;
 	width: var(--width-100) !important;  /* 자바스크립트가 넣은 1150px을 무시하고 100%로 강제 압착 */
@@ -902,7 +912,7 @@ div.footnote .text1 {
 	padding: 5px;
 }
 
-/* 5. [원형 차트 전용] 억지로 늘어나서 찌그러지지 않게 정비율 정렬 */
+/*[원형 차트 전용] 억지로 늘어나서 찌그러지지 않게 정비율 정렬 */
 #radarChart {
 	width: var(--width-100) !important; /* 가로 가득 채우지 말고 예쁜 동그라미 비율 사수 */
 	margin: 0 auto !important;
