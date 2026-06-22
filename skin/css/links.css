@@ -194,6 +194,32 @@
 		width: 70%;
 		height: auto;
 	}
+
+	
+	/* ==========================================
+		메뉴란에만 들어가는 스타일
+	========================================== */
+	#menu .banner-module .banner-tooltip p {
+		font-size: 10px;
+		filter: none;
+		margin-bottom: 5px;
+		background: color-mix(var(--card-background-color) 50%, transparent);
+		padding:2px;
+		border-radius: 30px;
+	}
+
+
+	#menu .banner-module .banner-tooltip{
+		visibility: visible;
+		position: relative;
+		top: 0;
+		right: 0;
+		width:100%;
+	}
+
+	#menu .banner-module .banner-tooltip p:after{
+		border-top: transparent;
+	}
 }
 
 
