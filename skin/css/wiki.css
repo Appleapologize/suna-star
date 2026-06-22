@@ -199,7 +199,7 @@ th, th * {
 
 #wiki p{
 	text-align: left;
-	text-indent: -25px;
+	text-indent: calc(var(--p-text-indent) * -1);
 	padding-left: 0;
 }
 
@@ -757,8 +757,8 @@ ul.mark-on-ul li b{
 	text-align:left;
 	border-top: var(--border-wiki-line) var(--border-wiki-gray-color);
 	border-radius:0;
-	margin:10px;
-	padding:10px;
+	margin:10px 0;
+	padding:10px var(--p-text-indent);
 }
 
 #wiki a + p.text1{
