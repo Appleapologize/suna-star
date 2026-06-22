@@ -187,8 +187,8 @@ a.index{
 	color:var(--wiki-a-color);
 	cursor: var(--over-cursor), pointer !important;
 	line-height:normal;
-	position: relative;
-	top: 3px;
+	/*position: relative;
+	top: 3px;*/
 }
 
 #wiki a:hover,
