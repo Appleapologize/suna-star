@@ -470,8 +470,9 @@ table.profile tr td.profil-img figure.profile-img{
 	border: var(--sub-table-outline) var(--border-wiki-gray-color);
 }
 
+#mission td:last-child,
 #mission tr td:last-chlid{
-	border-left:none;
+	border-right: none;
 }
 
 #mission tr:last-child td{
