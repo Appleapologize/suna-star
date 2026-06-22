@@ -12,6 +12,8 @@
 	--flag-min-width:60px;
 	--flag-gap:8px;
 
+	--mobile-wiki-tooltip-gap:10px;
+
 /* ==========================================================================
   차트 관련
  ========================================================================== */	
@@ -986,10 +988,11 @@ details:not([open]) h2[class*="-title"] span{
 		left: 50% !important;
 		top: auto !important;
 		transform: translateX(-50%) !important;
-		width: calc(100vw - 10px) !important;
+		width: calc(100vw - var(--mobile-wiki-tooltip-gap)) !important;
 		max-width: 100vw !important;	
 		background-color:color-mix(in srgb, var(--card-background-color) 90%, transparent);
-		padding:10px;
+		padding:var(--mobile-wiki-tooltip-gap);
+		margin-bottom:var(--mobile-wiki-tooltip-gap);
 	}
 	
 	.tooltip:after {
