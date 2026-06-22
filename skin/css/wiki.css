@@ -98,8 +98,7 @@ br.re-br{
 	display: none !important;
 }
 
-#wiki detail *,
-#wiki p{
+#wiki *{
 	line-height: 1.5rem;
 }
 
