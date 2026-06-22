@@ -178,7 +178,6 @@
 	
 	.banner-module .banner-tooltip p{
 		font-size:10px; 
-		filter: none;
 		margin-bottom: 5px;
 		background: color-mix(var(--card-background-color) 50%, transparent);		
 	}	
