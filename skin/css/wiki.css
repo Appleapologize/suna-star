@@ -199,6 +199,8 @@ th, th * {
 
 #wiki p{
 	text-align: left;
+	text-indent: -25px;
+	padding-left: 0;
 }
 
 #wiki h2{
