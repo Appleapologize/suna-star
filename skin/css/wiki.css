@@ -98,6 +98,17 @@ br.re-br{
 	display: none !important;
 }
 
+#wiki detail *,
+#wiki p{
+	line-height: 1.5rem;
+}
+
+#mission *,
+#parameters *,
+#gallery *{
+	line-height: nomal;
+}
+
 /*목차와 프로필 칸 좌우로 두기 및 모바일에서는 세로로 두기*/
 #profile-index{
 	float:left;
@@ -145,6 +156,7 @@ td{
 	line-height: 1.5;
 }
 
+/*중략 관련 시작*/
 .omission{
 	display: flex;         /* 양옆 선과 텍스트를 한 줄로 배치 */
 	align-items: center;	
@@ -161,7 +173,7 @@ td{
 	height: 1px;            /* 선의 두께 */
 	margin: 10px;         /* (중략) 글자와 선 사이의 여백 */
 }
-
+/*중략 관련 끝*/
 
 a.index{
 	color:var(--wiki-a-color);
