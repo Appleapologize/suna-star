@@ -139,7 +139,7 @@ body:has(#gallery-notice){
 	right: 0px;
 }
 
-/*보통은 버튼 숨기기*/
+/*보통은 버튼 숨기기
 .slider .prev,
 .slider .next {
   opacity: 0;
@@ -147,12 +147,12 @@ body:has(#gallery-notice){
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* .slider 영역에 마우스를 올렸을 때(hover) 버튼을 나타나게 합니다. */
+/* .slider 영역에 마우스를 올렸을 때(hover) 버튼을 나타나게 합니다. 
 .slider:hover .prev,
 .slider:hover .next {
   opacity: 1;
   visibility: visible;
-}
+}*/
 
 /* ==========================================
 	갤러리
