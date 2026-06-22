@@ -490,6 +490,12 @@ table.profile tr td.profil-img figure.profile-img{
 	width:var(--width-100);
 }
 
+#parameters tr th{
+	border-left: var(--sub-table-outline) var(--wiki-main-color);
+}
+#parameters tr:first-child th{
+	border-top: var(--sub-table-outline) var(--wiki-main-color);
+}
 #parameters th{
 	width: 10%;
 	padding: 10px 0;
@@ -499,6 +505,15 @@ table.profile tr td.profil-img figure.profile-img{
 	text-align:center;
 	border:var(--sub-table-outline) var(--border-wiki-gray-color);
 	padding:0;
+}
+
+#parameters tr:last-child td {
+    border-bottom: none;
+}
+
+#parameters tr:first-child th:last-child,
+#parameters tr td:last-child {
+    border-right: none;
 }
 
 /* ==========================================
