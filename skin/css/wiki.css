@@ -1,10 +1,13 @@
 @charset "utf-8";
 
 :root{
-	--border-wiki-line:1px solid;
+	--border-wiki-line:1px solid; /*분류표, 목차, 스포일러 경고창, 주석 란,  열고 닫는 제목의 밑의 선 두께와 스타일*/
 	--border-table-text-left:6px; /*대사 발췌란 왼쪽 테두리 두께*/	
 	--table-outline-width:3px; /*대사 발췌란 외의 캐릭터 색이 들어간 테이블 테두리 두께, 
 		3px 이상 적을것*/	
+	--sub-table-outline-width:1px; /*캐릭터 색이 들어간 테이블 내부의 두께*/
+	--sub-table-outline-style:solid;/*캐릭터 색이 들어간 테이블 내부선 스타일*/
+	--sub-table-outline:var(--sub-table-outline-width) var(--sub-table-outline-style);
 	
 	--flag-min-width:60px;
 	--flag-gap:8px;
@@ -292,14 +295,14 @@ a.iindex{
     프로필 표
    ========================================== */
 .profile th{
-	border-bottom:1px solid var(--wiki-text-white-color);
+	border-bottom:var(--sub-table-outline) var(--wiki-text-white-color);
 	white-space: nowrap;
 	color: black;
 	width:auto;
 }
 
 .profile td:not(table.text-one-line td):not(table.text-two-line td):not(.index):not(.profil-img){
-	border-bottom:1px solid var(--border-wiki-gray-color);
+	border-bottom:var(--sub-table-outline) var(--border-wiki-gray-color);
 }
 
 figure.profile-img{
@@ -327,7 +330,7 @@ table.profile tr.profile-name {
 	height: 60px; 
 	background-color: var(--wiki-main-color); 
 	width: 164.884%;
-	border:1px solid var(--wiki-main-color);
+	border:var(--sub-table-outline) var(--wiki-main-color);
 }
 
 table.profile tr.profile-name td{
@@ -356,8 +359,8 @@ tr.profile-name td span.ruby{
 
 /*프로필 상단 이름 란 2번(성우 추가)*/
 #country{
-	border-right:1px solid var(--border-wiki-gray-color);
-	border-bottom: 1px solid var(--wiki-main-color);
+	border-right:var(--sub-table-outline) var(--border-wiki-gray-color);
+	border-bottom: var(--sub-table-outline) var(--wiki-main-color);
 	width:10%;
 }
 
@@ -370,17 +373,17 @@ tr.profile-name td span.ruby{
 	width:10%;
 	padding:0;
 	margin:0; 
-	border:1px solid var(--border-wiki-gray-color);
+	border:var(--sub-table-outline) var(--border-wiki-gray-color);
 }
 
 td.country{
-	border-right:1px solid var(--border-wiki-gray-color);
+	border-right:var(--sub-table-outline) var(--border-wiki-gray-color);
 	/*border-bottom: none !important;*/
 	width:10%;
 }
 
 td.country:last-child{
-	border-bottom:1px solid var(--wiki-main-color);
+	border-bottom:var(--sub-table-outline) var(--wiki-main-color);
 }
 
 td.country figure{
@@ -391,11 +394,11 @@ td.country figure{
 td.country figure img{
 	padding:0;
 	margin:0; 
-	border:1px solid var(--border-wiki-gray-color);
+	border:var(--sub-table-outline) var(--border-wiki-gray-color);
 }
 
 .profile-2 td{
-	border-bottom: 1px solid var(--wiki-main-color) !important;
+	border-bottom: var(--sub-table-outline) var(--wiki-main-color) !important;
 	text-align:left;
 	padding: calc(var(--flag-gap) / 2) var(--flag-gap);
 }
@@ -418,7 +421,7 @@ th.voice{
 table.profile tr td.profil-img{
 	background-color:var(--wiki-text-white-color);
 	padding: 5px 10px; 
-	border: 1px solid var(--wiki-main-color);
+	border: var(--sub-table-outline) var(--wiki-main-color);
 }
 table.profile tr td.profil-img figure.profile-img{
 	max-width: 100%;
@@ -438,19 +441,33 @@ table.profile tr td.profil-img figure.profile-img{
 #mission th{
 	width:17%;
 	padding:10px 0;
-	border:1px solid var(--wiki-text-white-color);
+	border:var(--sub-table-outline) var(--wiki-text-white-color);
 }
 
 #mission th:fiirst-child{
-	border-left:1px solid var(--wiki-text-white-color);
+	border-left:var(--sub-table-outline) var(--wiki-text-white-color);
 }
 
 #mission th.mission-table-title{
 	padding:20px;
+	border-top: var(--sub-table-outline) var(--wiki-main-color);
+	border-left: var(--sub-table-outline) var(--wiki-main-color);
+	border-right: var(--sub-table-outline) var(--wiki-main-color);
+}
+
+#mission tr th:last-child {
+    border-right: var(--sub-table-outline) var(--wiki-main-color);
+}
+#mission tr th:first-child {
+    border-left: var(--sub-table-outline) var(--wiki-main-color);
+}
+
+#mission tr:last-child th:first-child {
+    border-bottom: var(--sub-table-outline) var(--wiki-main-color);
 }
 
 #mission td{
-	border:1px solid var(--border-wiki-gray-color);
+	border: var(--sub-table-outline) var(--border-wiki-gray-color);
 }
 
 #mission tr td:last-chlid{
@@ -475,11 +492,11 @@ table.profile tr td.profil-img figure.profile-img{
 #parameters th{
 	width: 10%;
 	padding: 10px 0;
-	border: 1px solid var(--wiki-text-white-color);
+	border: var(--sub-table-outline) var(--wiki-text-white-color);
 }
 #parameters td {
 	text-align:center;
-	border:1px solid var(--border-wiki-gray-color);
+	border:var(--sub-table-outline) var(--border-wiki-gray-color);
 	padding:0;
 }
 
@@ -683,7 +700,7 @@ table.text-two-line td hr{
    ========================================== */
 .ol-number{
 	padding:30px;
-	border:1px solid var(--border-wiki-gray-color);
+	border:var(--sub-table-outline) var(--border-wiki-gray-color);
 	background: var(--wiki-line-background-color);
 }
 
@@ -819,13 +836,13 @@ div.footnote .text1 {
 
 #gallery th {
 	width: 33%;
-	border: 1px solid var(--wiki-text-white-color);
+	border: var(--sub-table-outline) var(--wiki-text-white-color);
 	height: 20px;
 }
 
 #gallery td {
 	width: 33%;
-	border: 1px solid var(--border-wiki-gray-color);
+	border: var(--sub-table-outline) var(--border-wiki-gray-color);
 	height: auto !important; /* 고정 331px 강제 해제 */
 	border-bottom: none;
 }
