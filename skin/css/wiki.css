@@ -186,7 +186,7 @@ a.index{
 #wiki a sup{
 	color:var(--wiki-a-color);
 	cursor: var(--over-cursor), pointer !important;
-	line-height:normal;
+	line-height:0.7rem;
 	/*position: relative;
 	top: 3px;*/
 }
