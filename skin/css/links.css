@@ -168,14 +168,24 @@
 	.banner-module.self {
 		grid-template-columns: auto;
 	}	
+
+	.banner-module .banner-tooltip{
+		visibility: visible;
+		position: relative;
+		top: 0;
+		right: 0;
+	}	
 	
 	.banner-module .banner-tooltip p{
 		font-size:10px; 
+		filter: none;
+		margin-bottom: 5px;
+		background: color-mix(var(--card-background-color) 50%, transparent);		
 	}	
   
 	.banner-module .banner-tooltip p:after{
 		border: 15px solid transparent;
-		border-top-color: var(--background-color);  
+		border-top-color: transparent;  
 		margin-bottom: -10px;  
 		border-bottom: 0;
 		border-left: 0;
@@ -186,7 +196,6 @@
 		min-width: calc(var(--mobile-drawer-width) - calc(var(--padding-menu) * 2));
 	}
 
-	
 	/* ==========================================
 	 #link 안에만 들어가는 스타일
 	========================================== */
@@ -194,32 +203,26 @@
 		width: 70%;
 		height: auto;
 	}
+	
+	#links .banner-module .banner-tooltip p {
+		padding: 5px 10px;
+		border-radius: 10px;
+	}
 
 	
 	/* ==========================================
 		메뉴란에만 들어가는 스타일
 	========================================== */
 	#menu .banner-module .banner-tooltip p {
-		font-size: 10px;
-		filter: none;
-		margin-bottom: 5px;
-		background: color-mix(var(--card-background-color) 50%, transparent);
 		padding:2px;
 		border-radius: 30px;
 	}
 
 
 	#menu .banner-module .banner-tooltip{
-		visibility: visible;
-		position: relative;
-		top: 0;
-		right: 0;
 		width:100%;
 	}
 
-	#menu .banner-module .banner-tooltip p:after{
-		border-top: transparent;
-	}
 }
 
 
