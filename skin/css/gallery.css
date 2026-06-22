@@ -196,6 +196,7 @@ body:has(#gallery-notice){
 /* ==========================================
     화면 크기에 따라 flex 속성을 조정하여 반응형 레이아웃 구현
 ========================================== */
+
 @media (max-width: 1200px) {
 	#masonry-gallery {
 		column-count: 3;/* 3열 레이아웃 */
@@ -206,11 +207,11 @@ body:has(#gallery-notice){
 		opacity: 1;
 		visibility: visible;
 		background-color:transparent;
-		text-shadow: 
-			var(--main-name-border-px) 0px 0px var(--main-name-border-color), 
-			calc(var(--main-name-border-px) * -1) 0px 0px var(--main-name-border-color), 
-			0px var(--main-name-border-px) 0px var(--main-name-border-color), 
-			0px calc(var(--main-name-border-px) * -1) 0px var(--main-name-border-color);		
+		filter: 
+			drop-shadow(0px var(--banner-tooltip-border-px) 0px var(--point-sub-color)) 
+			drop-shadow(0px calc(var(--banner-tooltip-border-px) * -1) 0px var(--point-sub-color)) 
+			drop-shadow(var(--banner-tooltip-border-px) 0px 0px var(--point-sub-color)) 
+			drop-shadow(calc(var(--banner-tooltip-border-px) * -1) 0px 0px var(--point-sub-color));
 	}	
 
 }
