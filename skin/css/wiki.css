@@ -199,8 +199,6 @@ th, th * {
 
 #wiki p{
 	text-align: left;
-	text-indent: calc(var(--p-text-indent) * -1);
-	padding-left: 0;
 }
 
 #wiki h2{
@@ -750,7 +748,7 @@ ul.mark-on-ul li b{
 }
 
 /* ==========================================
-    주석 란
+    주석, 각주 란
    ========================================== */
 #wiki div.footnote{
 	display:block;
@@ -765,9 +763,7 @@ ul.mark-on-ul li b{
 	display:none;
 }
 
-/* ==========================================
-    말풍선 스타일
-   ========================================== */
+/* 주석, 각주 말풍선 스타일 */
 .tooltip {
 	margin-bottom:0px;  
 	position: absolute;
@@ -838,6 +834,7 @@ button.tooltip-close:hover{
 div.footnote .text1 {
 	margin:10px;
 	display:block;
+	text-indent: calc(var(--p-text-indent) * -1);	
 }
 
 
