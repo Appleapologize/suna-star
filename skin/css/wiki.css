@@ -494,6 +494,11 @@ table.profile tr td.profil-img figure.profile-img{
 #parameters tr:first-child th{
 	border-top: var(--sub-table-outline) var(--wiki-main-color);
 }
+
+#parameters tr:last-child th{
+	border-bottom: var(--sub-table-outline) var(--wiki-main-color);
+}
+
 #parameters th{
 	width: 10%;
 	padding: 10px 0;
