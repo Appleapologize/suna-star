@@ -15,6 +15,7 @@
 	--gallery-box-between:1em;/*작은 박스 사이간격*/  
 	--gallery-box-padding:1em;/*작은 박스 내부의 가격*/
 	--gallert-prev-next-button-font-size:40px;
+	--gallert-prev-next-button-border-radius:calc( var(--gallert-prev-next-button-font-size) / 2);
 }
 
 [data-theme="dark"] {
@@ -127,20 +128,28 @@ body:has(#gallery-notice){
 }
 
 .slider button:hover{
-	background-color: var(--card-background-color);
+	background-color: color-mix(in sRGB, var(--card-background-color) 90%, transparent);
 	color: var(--point-color);
 }
 
 .slider button.prev {
 	left: 0px;
+	border-radius:
+		0 
+		var(--gallert-prev-next-button-border-radius) var(--gallert-prev-next-button-border-radius) 
+		0;
 
 }
 
 .slider button.next {
 	right: 0px;
+	border-radius:
+		var(--gallert-prev-next-button-border-radius)
+		0 0 
+		var(--gallert-prev-next-button-border-radius);
 }
 
-/*보통은 버튼 숨기기
+/*보통은 버튼 숨기기*/
 .slider .prev,
 .slider .next {
   opacity: 0;
@@ -148,12 +157,12 @@ body:has(#gallery-notice){
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* .slider 영역에 마우스를 올렸을 때(hover) 버튼을 나타나게 합니다. 
+/* .slider 영역에 마우스를 올렸을 때(hover) 버튼을 나타나게 합니다. */
 .slider:hover .prev,
 .slider:hover .next {
   opacity: 1;
   visibility: visible;
-}*/
+}
 
 /* ==========================================
 	갤러리
@@ -184,11 +193,21 @@ body:has(#gallery-notice){
     화면 크기에 따라 flex 속성을 조정하여 반응형 레이아웃 구현
 ========================================== */
 @media (max-width: 1200px) {
-	#masonry-gallery {column-count: 3;/* 3열 레이아웃 */}
+	#masonry-gallery {
+		column-count: 3;/* 3열 레이아웃 */
+	}
+	
+	.slider .prev,
+	.slider .next {
+		opacity: 1;
+		visibility: visible;
+	}	
 }
 
 @media (max-width: 900px) {
-	#masonry-gallery {column-count:2; /* 2열 레이아웃 */}
+	#masonry-gallery {
+		column-count:2; /* 2열 레이아웃 */
+	}
 	
 	.slider .prev,
 	.slider .next {
@@ -201,6 +220,7 @@ body:has(#gallery-notice){
 	#masonry-gallery {
 		column-count: 1;/* 1열 레이아웃 */
 	}
+	
 	button{
 		padding: 10px;
 		font-size: xx-large;
