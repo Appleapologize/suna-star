@@ -470,15 +470,13 @@ table.profile tr td.profil-img figure.profile-img{
 	border: var(--sub-table-outline) var(--border-wiki-gray-color);
 }
 
-#mission td:last-child,
-#mission tr td:last-chlid{
-	border-right: none;
-}
-
 #mission tr:last-child td{
 	border-bottom: none;
 }
 
+#mission td:last-child{
+	border-right: none;
+}
 
 /* ==========================================
     패러미터
