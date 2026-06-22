@@ -11,8 +11,18 @@
 }
 
 #home p{
-	text-indent: calc(var(--p-text-indent) * -1);
-	padding-left: 30px;        
+	padding-left: 30px;	
+}
+
+#home div:nth-child(2) p:first-child,
+#home div:nth-child(2) p:nth-child(2){
+	text-align:center;
+	text-indent: unset; 
+}
+
+#home div:nth-child(2) p{
+	text-indent: calc(var(--p-text-indent) * -1);   
+	padding-left: 30px;	
 }
 
 /*접고 피기*/
