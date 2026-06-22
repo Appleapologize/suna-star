@@ -139,6 +139,20 @@ body:has(#gallery-notice){
 	right: 0px;
 }
 
+/*보통은 버튼 숨기기*/
+.slider .prev,
+.slider .next {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* .slider 영역에 마우스를 올렸을 때(hover) 버튼을 나타나게 합니다. */
+.slider:hover .prev,
+.slider:hover .next {
+  opacity: 1;
+  visibility: visible;
+}
 
 /* ==========================================
 	갤러리
@@ -174,6 +188,12 @@ body:has(#gallery-notice){
 
 @media (max-width: 900px) {
 	#masonry-gallery {column-count:2; /* 2열 레이아웃 */}
+	
+	.slider .prev,
+	.slider .next {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
 @media (max-width: 600px) {
@@ -183,5 +203,11 @@ body:has(#gallery-notice){
 	button{
 		padding: 10px;
 		font-size: xx-large;
+	}
+
+	.slider .prev,
+	.slider .next {
+		opacity: 1;
+		visibility: visible;
 	}
 }
