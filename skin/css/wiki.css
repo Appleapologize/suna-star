@@ -395,13 +395,9 @@ td.country figure img{
 }
 
 .profile-2 td{
-	/*border-bottom: none !important;*/
+	border-bottom: 1px solid var(--wiki-main-color) !important;
 	text-align:left;
 	padding: calc(var(--flag-gap) / 2) var(--flag-gap);
-}
-
-.profile-2 td:last-child {
-    border-bottom: 1px solid var(--wiki-main-color) !important;
 }
 
 th.voice{
@@ -456,6 +452,15 @@ table.profile tr td.profil-img figure.profile-img{
 #mission td{
 	border:1px solid var(--border-wiki-gray-color);
 }
+
+#mission tr td:last-chlid{
+	border-left:none;
+}
+
+#mission tr:last-child td{
+	border-bottom: none;
+}
+
 
 /* ==========================================
     패러미터
