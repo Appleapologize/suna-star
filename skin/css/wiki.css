@@ -400,6 +400,10 @@ td.country figure img{
 	padding: calc(var(--flag-gap) / 2) var(--flag-gap);
 }
 
+.profile-2 td:last-child {
+    border-bottom: 1px solid var(--wiki-main-color) !important;
+}
+
 th.voice{
 	border:none;
 }
@@ -439,6 +443,10 @@ table.profile tr td.profil-img figure.profile-img{
 	width:17%;
 	padding:10px 0;
 	border:1px solid var(--wiki-text-white-color);
+}
+
+#mission th:fiirst-child{
+	border-left:1px solid var(--wiki-text-white-color);
 }
 
 #mission th.mission-table-title{
