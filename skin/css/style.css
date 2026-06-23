@@ -545,7 +545,7 @@ nav{
 #menu{
 	position: sticky;
     top: 140px;
-    margin: 0 var(--padding-menu) 0 0;
+    margin: 0 var(--padding-menu) var(--padding-menu) 0;
     background: color-mix(in srgb, var(--sub-background-color) 30%, transparent);
     -webkit-backdrop-filter: blur(var(--background-blur));
     backdrop-filter: blur(var(--background-blur));	
@@ -1105,6 +1105,10 @@ footer p.bold{
 	#head{
 		margin-bottom:0;
 		padding:10px;
+	}
+
+	#menu{
+		margin: 0 var(--padding-menu) 0 0;
 	}
 	
 	#main-wrapper{
