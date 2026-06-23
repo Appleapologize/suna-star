@@ -1106,10 +1106,6 @@ footer p.bold{
 		margin-bottom:0;
 		padding:10px;
 	}
-
-	#menu{
-		margin: 0 var(--padding-menu) 0 0;
-	}
 	
 	#main-wrapper{
 		padding:0 ;
