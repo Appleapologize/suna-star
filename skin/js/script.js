@@ -218,6 +218,9 @@ let finalUrl = '';
                         return new Promise((resolve) => {
                             const newScript = document.createElement('script');
                             newScript.className = 'dynamic-blog-js'; // 대청소용 식별 클래스
+                            if (script.getAttribute('type') === 'module') {
+                                newScript.type = 'module';
+                            }
                             
                             let src = script.getAttribute('src');
                             if (src) {
@@ -299,15 +302,10 @@ function executePageInit(pageKey) {
     if (pageKey === 'gallery' && typeof initGallery === 'function') {
         initGallery();
     }
-    
-    // guest 페이지 진입 시 새 모듈을 안전하게 호출합니다.
-    if (pageKey === 'guest') {
-        import(window.location.origin + '/suna-star/skin/js/guestbook.js')
-            .catch(err => console.error("방명록 스크립트 로드 실패:", err));
-    }
-
+    // 페이지 주소 이름에 관계없이 setupMenuLinks 함수가 로드되었다면 무조건 자동 실행!
     if (typeof setupMenuLinks === 'function') {
         setupMenuLinks();
     }
 }
+
 
