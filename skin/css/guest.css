@@ -293,4 +293,8 @@ hr.comment-form{
 	.guest-list-name input:last-child {
 		margin-bottom: 0 !important;
 	}
+
+	.comment-form div button{
+		padding: 15px;		
+	}
 }
