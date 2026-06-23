@@ -52,6 +52,7 @@ textarea{
 
 #guest-form textarea::-webkit-scrollbar,
 #guest-content::-webkit-scrollbar,
+#guest-form input::-webkit-scrollbar,
 .comment-form textarea::-webkit-scrollbar {
     width: var(--scroll-width); 
     display: block;
@@ -60,6 +61,7 @@ textarea{
 /* 2. 브라우저가 스크롤바 밑바닥에 까는 그림자까지 투명하게 밀어버려 흰색 칸 원천 삭제 */
 #guest-form textarea::-webkit-scrollbar-track,
 #guest-content::-webkit-scrollbar-track,
+#guest-form input::-webkit-scrollbar-track,
 .comment-form textarea::-webkit-scrollbar-track {
     background-color: var(--scroll-back-color) !important;
     box-shadow: inset 0 0 0 transparent !important; /* 미세한 시스템 음영도 투명화 */
@@ -68,6 +70,7 @@ textarea{
 /* 막대 색상 */
 #guest-form textarea::-webkit-scrollbar-thumb,
 #guest-content::-webkit-scrollbar-thumb,
+#guest-form input::-webkit-scrollbar-thumb,
 .comment-form textarea::-webkit-scrollbar-thumb {
     background-color: var(--scroll-bar-color) !important; 
     border-radius: calc(var(--scroll-width) - 6px);
@@ -80,6 +83,7 @@ textarea{
 /* 마우스 올렸을 때 효과 */
 #guest-form textarea::-webkit-scrollbar-thumb:hover,
 #guest-content::-webkit-scrollbar-thumb:hover,
+#guest-form input::-webkit-scrollbar-thumb:hover,
 .comment-form textarea::-webkit-scrollbar-thumb:hover {
     background-color: color-mix(in srgb, var(--sub-background-color) 60%, red) !important;
 }
@@ -87,6 +91,7 @@ textarea{
 /* [공통] 이오니콘즈 아이콘 폰트를 스크롤바 버튼 구조에 강제 주입 */
 #guest-form textarea::-webkit-scrollbar-button,
 #guest-conten::-webkit-scrollbar-button,
+#guest-form input::-webkit-scrollbar-button,
 .comment-form textarea::-webkit-scrollbar-button{
     display: none !important;
 }
