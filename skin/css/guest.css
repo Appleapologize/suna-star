@@ -278,4 +278,19 @@ hr.comment-form{
 	.toggle-comment-form{
 		padding: calc(var(--guest-button-padding-topbotom) / 2) calc(var(--guest-button-padding-leftright) / 2);
 	}
+
+	#guest-form div.guest-list-name,
+	.comment-form div.guest-list-name{
+		display: block;
+		padding-right: var(--box-padding);
+	}
+
+	#guest-password,
+	.comment-form input[type="password"]{
+		margin: 10px 0;
+	}
+
+	.guest-list-name input:last-child {
+		margin-bottom: 0 !important;
+	}
 }
