@@ -93,7 +93,7 @@ async function sendGuest() {
   const content = contentInput.value.trim();
   const password = passwordInput ? passwordInput.value.trim() : "";
 
-  if (!name || !content) {
+  if (!name || !content || !password) {
     alert("이름, 내용, 비밀번호를 모두 입력해주세요.");
     return;
   }
@@ -125,7 +125,7 @@ async function sendComment(guestId) {
   const content = commentContentInput.value.trim();
   const password = commentPasswordInput ? commentPasswordInput.value.trim() : "";
 
-  if (!name || !content) {
+  if (!name || !content || !password) {
     alert("댓글 작성자의 이름과 내용, 비밀번호를 모두 입력해주세요.");
     return;
   }
