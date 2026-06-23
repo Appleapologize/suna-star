@@ -13,6 +13,7 @@
 	--flag-gap:8px;
 
 	--mobile-wiki-tooltip-gap:10px;
+	--mobile-font-size:1.5; /*rem 같은 단위는 calc로 계산하면서 붙이기*/
 
 	--desk-text-line-height:1.5rem;
 	--mobile-text-line-height:calc(var(--desk-text-line-height) - 3);
@@ -21,8 +22,8 @@
   차트 관련
  ========================================================================== */	
 	/*차트 폰트 사이즈(무조건 px 기준으로 적기)*/	
-	--chart-font-size: 10px;
-	--mobile-chart-font-size: 12px;
+	--chart-font-size: 10px;	
+	--mobile-chart-font-size: calc(var(--chart-font-size) * var(--mobile-font-size));
 	
 	--chart-point-style: rectRot; /* 레이더 차트의 점 모양 지정 (star, triangle, rect, circle, rectRot 등으로 적기) */
 	--chart-point-size: 5; /*px 사이즈 기준*/
@@ -957,6 +958,25 @@ details:not([open]) h2[class*="-title"] span{
    1024px 이하 타블렛 및 모바일 대응
    ========================================================================== */
 @media screen and (max-width: 1024px) {
+	/*---- ---- 모바일 내의 텍스트 크기 시작 ---- ----*/
+	
+	#wiki p,
+	#wiki h1,
+	#wiki h2,
+	#wiki h3,
+	#wiki h4,
+	#wiki h5,
+	#wiki b,
+	#wiki a{
+    	font-size: calc(var(--mobile-font-size) * 1rem);		
+	}
+	
+	table * {
+	    line-height: calc(var(--mobile-font-size) * 1rem + 0.5 ) !important;
+    	font-size: calc(var(--mobile-font-size) * 1rem);
+	}
+
+	/*---- ---- 모바일 내의 텍스트 크기 끝---- ----*/	
 	
 	th{
 		white-space: unset;
