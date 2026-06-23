@@ -201,6 +201,13 @@ textarea{
 		-webkit-box-orient: vertical;
 	overflow: hidden;  
 	margin: 0 !important;
+}
+.guest-list-name:not(:has(input)){
+	white-space: nowrap;      
+	text-overflow: ellipsis;
+}
+
+.guest-list-name:has(input){
 	overflow: visible;
 }
 
