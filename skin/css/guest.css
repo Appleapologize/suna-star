@@ -208,6 +208,7 @@ textarea{
 	background: var(--guest-comment-backcolor) !important;
 	padding: var(--guest-li-padding);
 	border-radius: 10px;
+	margin: var(--guest-li-padding) 0;
 }
 
 hr.comment-form{
