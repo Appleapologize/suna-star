@@ -18,6 +18,7 @@
 #guest .module:not(#guest-list .module):first-child {
 	margin: 0;
 	border-radius: unset;
+	border-bottom: 5px solid var(--point-color);	
 }
 
 #guest .module{
@@ -124,15 +125,15 @@ textarea{
 
 #guest-form div, 
 .comment-form div{
-	margin:0;
 	display:flex;
 	width:var(--width-100);
+	margin: 10px 0;
 }
 
 #guest-name, 
 #guest-password,
 .comment-form div input{
-	height: 30px;
+	height: auto;
 }
 
 #guest-password {
@@ -186,6 +187,7 @@ textarea{
 		-webkit-line-clamp: 1;
 		-webkit-box-orient: vertical;
 	overflow: hidden;  
+	margin: 0 !important;
 }
 
 .guest-list-name span{
