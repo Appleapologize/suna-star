@@ -11,11 +11,14 @@
 
     <form id="guest-form">
       
-      <!-- 방명록 작성자명 입력란 -->
+      <!-- 방명록 작성자명, 비밀번호 입력란 -->
       <div>
       <div class="guest-list-name">
         <input type="text" id="guest-name" placeholder="이름을 입력해주세요"/>
       </div>
+      <div class="guest-list-password">
+        <input type="password" id="guest-password" placeholder="비밀번호를 입력해주세요">
+      </div>        
       <!-- 방명록 전송 버튼 -->
         <button type="button" id="guest-submit">Send</button>  
       </div>
@@ -30,8 +33,7 @@
             <div class="guest-list-name">Suna-Star <span class="notice">주의</span></div>
             <div class="guest-list-created-at">2024년 12월 24일 오후 02:02</div>
           </div>
-          <div class="guest-list-content">비공개 기능과 삭제 기능은 구현되어있지 않습니다.
-          <br>방명록 삭제는 디엠이나 멘션 부탁드립니다.
+          <div class="guest-list-content">비공개 기능은 구현되어있지 않습니다.
           </div>
     <hr class="comment-form">
       <div class="comment">
@@ -57,6 +59,9 @@ import {
   getDocs,
   query,
   orderBy,
+  //삭제 기능 추가
+  doc, 
+  deleteDoc,
 } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
 // Firebase 설정
@@ -85,11 +90,13 @@ const q = query(guestRef, orderBy("created_at", "desc"));
 async function sendGuest() {
   const nameInput = document.querySelector("#guest-name");
   const contentInput = document.querySelector("#guest-content");
+  const passwordInput = document.querySelector("#guest-password");
   const name = nameInput.value.trim();
   const content = contentInput.value.trim();
+  const password = passwordInput ? passwordInput.value.trim() : "";
 
   if (!name || !content) {
-    alert("이름과 내용을 모두 입력해주세요.");
+    alert("이름, 내용, 비밀번호를 모두 입력해주세요.");
     return;
   }
 
@@ -97,12 +104,14 @@ async function sendGuest() {
     await addDoc(guestRef, {
       name: name,
       content: content,
+      password: password,
       created_at: new Date(),
     });
 
     console.log("방명록 작성 완료");
     nameInput.value = "";
     contentInput.value = "";
+    if (passwordInput) passwordInput.value = "";
     await getGuestList();
   } catch (error) {
     console.error("방명록 작성 중 오류 발생:", error);
@@ -113,11 +122,13 @@ async function sendGuest() {
 async function sendComment(guestId) {
   const commentNameInput = document.querySelector(`#comment-name-${guestId}`);
   const commentContentInput = document.querySelector(`#comment-content-${guestId}`);
+  const commentPasswordInput = document.querySelector(`#comment-password-${guestId}`);
   const name = commentNameInput.value.trim();
   const content = commentContentInput.value.trim();
+  const password = commentPasswordInput ? commentPasswordInput.value.trim() : "";
 
   if (!name || !content) {
-    alert("댓글 작성자의 이름과 내용을 입력해주세요.");
+    alert("댓글 작성자의 이름과 내용, 비밀번호를 모두 입력해주세요.");
     return;
   }
 
@@ -126,6 +137,7 @@ async function sendComment(guestId) {
     await addDoc(commentRef, {
       name: name,
       content: content,
+      password: password,
       created_at: new Date(),
     });
 
@@ -160,6 +172,7 @@ async function getComments(guestId) {
           <div class="guest-nm-date">
             <div class="guest-list-name">${data.name}</div>
             <div class="guest-list-created-at">${myDate}</div>
+            <button class="delete-comment-btn" data-guest-id="${guestId}" data-comment-id="${commentId}" data-password="${data.password || ''}">삭제</button>
           </div>
           <div class="guest-list-content">${data.content}</div>
         </li>
@@ -185,6 +198,9 @@ function createCommentForm(guestId) {
        <div class="guest-list-name">
         <input type="text" id="comment-name-${guestId}" placeholder="이름을 입력해주세요">
         </div>
+        <div class="guest-list-password">
+        <input type="password" id="guest-password" placeholder="비밀번호를 입력해주세요">
+      </div> 
       <button id="comment-submit-${guestId}">Send</button>
       </div>      
       <textarea id="comment-content-${guestId}" placeholder="내용을 입력해주세요"></textarea>
@@ -215,6 +231,7 @@ async function getGuestList() {
           <div class="guest-nm-date">
             <div class="guest-list-name">${data.name}</div>
             <div class="guest-list-created-at">${myDate}</div>
+            <button class="delete-guest-btn" data-guest-id="${guestId}" data-password="${data.password || ''}">삭제</button>
           </div>
           <div class="guest-list-content">${data.content}</div>
           ${createCommentForm(guestId)}
@@ -229,6 +246,47 @@ async function getGuestList() {
     console.error("방명록 목록 불러오기 중 오류 발생:", error);
   }
 }
+
+
+// 💥 6. 실제 삭제를 처리하는 핵심 함수들 (새로 추가)
+// [A] 방명록 메인 글 삭제
+async function deleteGuest(guestId, originalPassword) {
+  if (originalPassword) {
+    const inputPw = prompt("방명록 삭제 비밀번호를 입력해주세요.");
+    if (inputPw === null) return;
+    if (inputPw !== originalPassword) return alert("비밀번호가 틀렸습니다.");
+  } else {
+    if (!confirm("비밀번호가 없는 이전 글입니다. 삭제할까요?")) return;
+  }
+
+  try {
+    await deleteDoc(doc(db, "guests", guestId));
+    alert("방명록이 삭제되었습니다.");
+    await getGuestList();
+  } catch (error) {
+    console.error("삭제 실패:", error);
+  }
+}
+
+// [B] 대댓글 삭제
+async function deleteComment(guestId, commentId, originalPassword) {
+  if (originalPassword) {
+    const inputPw = prompt("댓글 삭제 비밀번호를 입력해주세요.");
+    if (inputPw === null) return;
+    if (inputPw !== originalPassword) return alert("비밀번호가 틀렸습니다.");
+  } else {
+    if (!confirm("비밀번호가 없는 댓글입니다. 삭제할까요?")) return;
+  }
+
+  try {
+    await deleteDoc(doc(db, `guests/${guestId}/comments`, commentId));
+    alert("댓글이 삭제되었습니다.");
+    await getComments(guestId);
+  } catch (error) {
+    console.error("댓글 삭제 실패:", error);
+  }
+}  
+  
 
 // 댓글 입력 폼 토글 이벤트 처리
 document.addEventListener("click", (event) => {
@@ -253,6 +311,22 @@ document.addEventListener("click", (event) => {
   // C. 메인 방명록 작성 버튼 클릭 감지
   if (event.target && event.target.id === "guest-submit") {
     sendGuest();
+    return;
+  }
+  // D. ✨ [추가] 메인 방명록 삭제 버튼 클릭 감지
+  if (event.target && event.target.classList.contains("delete-guest-btn")) {
+    const guestId = event.target.dataset.guestId;
+    const password = event.target.dataset.password;
+    deleteGuest(guestId, password);
+    return;
+  }
+
+  // E. ✨ [추가] 대댓글 삭제 버튼 클릭 감지
+  if (event.target && event.target.classList.contains("delete-comment-btn")) {
+    const guestId = event.target.dataset.guestId;
+    const commentId = event.target.dataset.commentId;
+    const password = event.target.dataset.password;
+    deleteComment(guestId, commentId, password);
     return;
   }
 });
