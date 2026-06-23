@@ -60,9 +60,18 @@ textarea{
 }
 
 #guest-form input,
-#guest-form textarea {
+#guest-form textarea,
+.comment-form input, 
+.comment-form textarea{
     background: var(--sub-background-color);
     color: var(--text-color);
+	filter: 
+		drop-shadow(0px var(--banner-tooltip-border-px) 1px var(--point-color)) 
+		drop-shadow(0px calc(var(--banner-tooltip-border-px) * -1) 1px var(--point-color)) 
+		drop-shadow(var(--banner-tooltip-border-px) 0px 1px var(--point-color)) 
+		drop-shadow(calc(var(--banner-tooltip-border-px) * -1) 0px 1px var(--point-color));
+	border-radius:10px;
+
 }
 
 #guest-content, 
@@ -192,6 +201,7 @@ textarea{
 		-webkit-box-orient: vertical;
 	overflow: hidden;  
 	margin: 0 !important;
+	overflow: visible;
 }
 
 .guest-list-name span{
@@ -219,6 +229,7 @@ hr.comment-form{
 	background: transparent !important;
 	border-top: 1px dashed gray;
 	border-width: 1px 0 0 0; 
+	border-radius:unset;
 }
 
 .comment-form{ 
@@ -230,6 +241,10 @@ hr.comment-form{
 
 .comment-form textarea {
 	height:unset;
+}
+
+.comment-form input[type="password"] {
+    margin-left: 5px;
 }
 
 .toggle-comment-form{
