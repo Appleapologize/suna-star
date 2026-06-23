@@ -232,23 +232,30 @@ async function getGuestList() {
 
 // 댓글 입력 폼 토글 이벤트 처리
 document.addEventListener("click", (event) => {
-  if (event.target && event.target.classList.contains("toggle-comment-form")) {
-    const guestId = event.target.dataset.guestId;
+  // A. 댓글 입력창 토글 (아이콘 클릭 시 부모 버튼을 찾아내도록 버그 수정)
+  const toggleBtn = event.target.closest(".toggle-comment-form");
+  if (toggleBtn) {
+    const guestId = toggleBtn.dataset.guestId;
     const commentForm = document.querySelector(`#comment-form-${guestId}`);
-
-    if (commentForm.style.display === "none") {
-      commentForm.style.display = "block";
-    } else {
-      commentForm.style.display = "none";
+    if (commentForm) {
+      commentForm.style.display = commentForm.style.display === "none" ? "block" : "none";
     }
-  } else if (event.target && event.target.id.startsWith("comment-submit-")) {
+    return;
+  }
+
+  // B. 댓글 등록 버튼 클릭 감지
+  if (event.target && event.target.id.startsWith("comment-submit-")) {
     const guestId = event.target.id.replace("comment-submit-", "");
     sendComment(guestId);
+    return;
+  }
+
+  // C. 메인 방명록 작성 버튼 클릭 감지
+  if (event.target && event.target.id === "guest-submit") {
+    sendGuest();
+    return;
   }
 });
-
-// 방명록 작성 버튼 이벤트 처리
-document.querySelector("#guest-submit").addEventListener("click", sendGuest);
 
 // 페이지 로드 시 방명록 불러오기
 getGuestList();
