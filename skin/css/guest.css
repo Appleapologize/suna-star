@@ -244,7 +244,7 @@ hr.comment-form{
 }
 
 .comment-form input[type="password"] {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .toggle-comment-form{
