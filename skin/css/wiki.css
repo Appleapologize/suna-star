@@ -970,7 +970,8 @@ details:not([open]) h2[class*="-title"] span{
 	#wiki a,
 	#wiki table *{
 	    line-height: calc(var(--mobile-font-size) * 1rem + 0.5rem ) !important;		
-    	font-size: calc(var(--mobile-font-size) * 1rem);		
+    	font-size: calc(var(--mobile-font-size) * 1rem);	
+		letter-spacing: 0.05rem;
 	}
 
 	#wiki a sup {
