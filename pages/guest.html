@@ -152,7 +152,7 @@ async function sendComment(guestId) {
 async function getComments(guestId) {
   try {
     const commentRef = collection(db, `guests/${guestId}/comments`);
-    const commentQuery = query(commentRef, orderBy("created_at", "asc"));
+    const commentQuery = query(commentRef, orderBy("created_at", "asc")); // "desc" 로 바꾸면 최신순 (위로 갈수록 최신 글), "asc"는 옛날 순(위로갈수록 과거 글)
     const commentList = await getDocs(commentQuery);
 
     let html = `<ul>`;
