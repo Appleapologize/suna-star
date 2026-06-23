@@ -157,6 +157,7 @@ async function getComments(guestId) {
 
     let html = `<ul>`;
     commentList.forEach((doc) => {
+      const commentId = doc.id;
       const data = doc.data();
       const date = new Date(data.created_at.toDate());
       const ampm = date.getHours() >= 12 ? "오후" : "오전";
