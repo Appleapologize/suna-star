@@ -1,15 +1,29 @@
 @charset "utf-8";
 :root{
-	--guest-comment-backcolor:rgba(125, 227, 245,1);
+	--guest-li-padding:15px; /*방명록 padding*/	
+	--guest-button-padding-topbotom:10px;
+	--guest-button-padding-leftright:40px;	
+	
+	--guest-comment-backcolor:#eee4ff;
 }
 
 [data-theme="dark"] {
-	--guest-comment-backcolor:rgba(49, 26, 84,1);
+	--guest-comment-backcolor:#14171f;
 }
 
+#container:has(#guest) {
+	padding: 0;
+}
+
+#guest .module:not(#guest-list .module):first-child {
+	margin: 0;
+	border-radius: unset;
+}
 
 #guest .module{
 	box-shadow: -1px -2px 6px 3px var(--box-shadow-color);
+	width: auto;
+	margin: var(--container-padding);
 }
 
 input, textarea{ 
@@ -22,7 +36,7 @@ textarea{
 }
 
 .noti{
-	border:5px solid #a6c1ee;
+	border:5px solid var(--point-color);
 }
 
 .notice{
@@ -48,7 +62,7 @@ textarea{
 
 #guest-content, 
 .comment-form textarea{
-	width:100%;
+	width:var(--width-100);
 	height:50%;
 }
 
@@ -105,7 +119,7 @@ textarea{
 
 #guest-form *, 
 .comment-form *{
-	margin:10px 0;
+	margin: calc(var(--guest-li-padding) - 5) 0;
 }
 
 #guest-form div, 
@@ -121,11 +135,15 @@ textarea{
 	height: 30px;
 }
 
+#guest-password {
+    margin-left: 10px;
+}
+
 #guest-submit, 
 .comment-form div button{
-	width: 100px;
 	white-space: nowrap;
-	padding: 0 10px;
+	padding: var(--guest-button-padding-topbotom) var(--guest-button-padding-leftright);
+	border-radius:var(--button-round);
 }
 
 #guest-list{
@@ -134,8 +152,8 @@ textarea{
 
 .guest-li{
 	background: var(--card-background-color);
-	padding: 15px;
-	border-radius: 10px;
+	padding: var(--guest-li-padding);
+	border-radius: var(--module-round);
 }
 
 .guest-list-content{
@@ -173,20 +191,20 @@ textarea{
 .guest-list-name span{
 	white-space: nowrap;
 	position: relative; 
-	margin: 0 0 0 10px;  
+	margin: 0 0 0 calc(var(--guest-li-padding) - 5);  
 }
 
 .guest-list-content{
-	margin-top:10px;
+	margin-top:calc(var(--guest-li-padding) - 5);
 }
 
 .comment{
-	padding: 10px 0;
+	padding: calc(var(--guest-li-padding) - 5) 0;
 }
 
 .comment li{
 	background: var(--guest-comment-backcolor) !important;
-	padding: 20px;
+	padding: var(--guest-li-padding);
 	border-radius: 10px;
 }
 
@@ -209,15 +227,24 @@ hr.comment-form{
 
 .toggle-comment-form{
 	font-size: 15px;
-	padding: 10px 40px;  
+	padding: var(--guest-button-padding-topbotom) var(--guest-button-padding-leftright);  
 }
 
 .toggle-comment-form i{
 	color:white;
 }
 
+
+/* 삭제 버튼 */
+.delete-guest-btn, 
+.delete-comment-btn {
+    font-size: 16px;
+    margin: 0 0 0 var(--guest-button-padding-topbotom);
+    padding: calc(var(--guest-button-padding-topbotom) / 2) calc(var(--guest-button-padding-leftright) / 2);
+}
+
 @media (max-width: 1024px) {
 	.toggle-comment-form{
-		padding: 5px 20px;
+		padding: calc(var(--guest-button-padding-topbotom) / 2) calc(var(--guest-button-padding-leftright) / 2);
 	}
 }
