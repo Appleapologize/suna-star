@@ -108,6 +108,7 @@ br.re-br{
 	line-height: var(--desk-text-line-height);
 }
 
+#wiki .profile *,
 #mission *,
 #parameters *,
 #gallery *{
