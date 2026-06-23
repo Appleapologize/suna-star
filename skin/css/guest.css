@@ -116,6 +116,7 @@ textarea{
 }
 
 #guest-name, 
+#guest-password,
 .comment-form div input{
 	height: 30px;
 }
