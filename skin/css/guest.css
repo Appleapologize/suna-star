@@ -239,6 +239,10 @@ hr.comment-form{
 	border-radius: 10px;
 }
 
+div.comment-form{
+	padding:var(--guest-li-padding);
+}
+
 .comment-form textarea {
 	height:unset;
 }
