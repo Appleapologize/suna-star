@@ -292,3 +292,22 @@ document.addEventListener('click', (event) => {
     });
   }
 });
+
+
+// 방명록 js
+function executePageInit(pageKey) {
+    if (pageKey === 'gallery' && typeof initGallery === 'function') {
+        initGallery();
+    }
+    
+    // guest 페이지 진입 시 새 모듈을 안전하게 호출합니다.
+    if (pageKey === 'guest') {
+        import(window.location.origin + '/suna-star/skin/js/guestbook.js')
+            .catch(err => console.error("방명록 스크립트 로드 실패:", err));
+    }
+
+    if (typeof setupMenuLinks === 'function') {
+        setupMenuLinks();
+    }
+}
+
