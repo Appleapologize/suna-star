@@ -84,6 +84,25 @@ const guestRef = collection(db, "guests");
 // 최신순 정렬
 const q = query(guestRef, orderBy("created_at", "desc"));
 
+  // 📅 방명록과 댓글의 날짜를 한 번에 제어하는 공용 포맷 함수
+function formatMyDate(firebaseDate) {
+  if (!firebaseDate) return "";
+  const date = new Date(firebaseDate.toDate());
+  const year = date.getFullYear().toString().slice(-2); // 연도 뒤 2자리 (예: 26)
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");// 월 2자리
+  const day = date.getDate().toString().padStart(2, "0"); // 일 2자리
+  const ampm = date.getHours() >= 12 ? "오후" : "오전";  // 시 2자리 (12시간제)
+  const hours = (date.getHours() % 12 || 12).toString().padStart(2, "0"); // 12시간제 2자리
+  // const hours = date.getHours().toString().padStart(2, "0"); 시 2자리 (24시간제, const ampm 1줄은 필요 없음.)
+  // 만약 24시간으로 바꾼다면 return `${year}.${month}.${day} ${ampm} ${hours}:${minutes}`; 여기서  ${ampm}은 필요 없으므로
+  //return `${year}.${month}.${day} ${hours}:${minutes}`; 이렇게 적으면 된다.
+  const minutes = date.getMinutes().toString().padStart(2, "0");// 분 2자리
+  return `${year}.${month}.${day} ${ampm} ${hours}:${minutes}`;
+}
+
+
+
+  
 // 방명록 작성
 async function sendGuest() {
   const nameInput = document.querySelector("#guest-name");
@@ -159,11 +178,7 @@ async function getComments(guestId) {
     commentList.forEach((doc) => {
       const commentId = doc.id;
       const data = doc.data();
-      const date = new Date(data.created_at.toDate());
-      const ampm = date.getHours() >= 12 ? "오후" : "오전";
-      const hours = (date.getHours() % 12 || 12).toString().padStart(2, "0");
-      const minutes = date.getMinutes().toString().padStart(2, "0");
-      const myDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${ampm} ${hours}:${minutes}`;
+      const myDate = formatMyDate(data.created_at);
 
       html += `
       <div class="comment">
@@ -217,11 +232,7 @@ async function getGuestList() {
     guestList.forEach((doc) => {
       const guestId = doc.id;
       const data = doc.data();
-      const date = new Date(data.created_at.toDate());
-      const ampm = date.getHours() >= 12 ? "오후" : "오전";
-      const hours = (date.getHours() % 12 || 12).toString().padStart(2, "0");
-      const minutes = date.getMinutes().toString().padStart(2, "0");
-      const myDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${ampm} ${hours}:${minutes}`;
+      const myDate = formatMyDate(data.created_at);
 
       html += `
         <div class="guest-li text-module module">
