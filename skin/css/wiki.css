@@ -967,13 +967,10 @@ details:not([open]) h2[class*="-title"] span{
 	#wiki h4,
 	#wiki h5,
 	#wiki b,
-	#wiki a{
+	#wiki a,
+	#wiki table *{
+	    line-height: calc(var(--mobile-font-size) * 1rem + 0.5 ) !important;		
     	font-size: calc(var(--mobile-font-size) * 1rem);		
-	}
-	
-	table * {
-	    line-height: calc(var(--mobile-font-size) * 1rem + 0.5 ) !important;
-    	font-size: calc(var(--mobile-font-size) * 1rem);
 	}
 
 	/*---- ---- 모바일 내의 텍스트 크기 끝---- ----*/	
