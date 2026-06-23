@@ -242,8 +242,14 @@ let finalUrl = '';
                                     resolve(); 
                                 };
                             } else {
-                                newScript.textContent = script.textContent;
-                                resolve(); 
+                                if (script.src) {
+                                    newScript.src = script.src;
+                                    newScript.onload = () => resolve();
+                                    newScript.onerror = () => { newScript.remove(); resolve(); };
+                                } else {
+                                    newScript.textContent = script.textContent;
+                                    resolve(); 
+                                    }
                             }
                             document.body.appendChild(newScript);
                         });
