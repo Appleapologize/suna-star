@@ -40,6 +40,10 @@ textarea{
 	border:5px solid var(--point-color);
 }
 
+.noti .guest-list-name {
+    overflow: visible;
+}
+
 .notice{
 	font-size: 15px;
 	justify-items: center;
@@ -238,12 +242,21 @@ hr.comment-form{
 }
 
 
+.comments-list .comment:first-child li {
+    margin-top: 0;
+}
+
+.comments-list .comment:last-child li {
+    margin-bottom: 0;
+}
+
+
 /* 삭제 버튼 */
 .delete-guest-btn, 
 .delete-comment-btn {
     font-size: 16px;
     margin: 0 0 0 var(--guest-button-padding-topbotom);
-    padding: calc(var(--guest-button-padding-topbotom) / 2) calc(var(--guest-button-padding-leftright) / 2);
+    padding: calc(var(--guest-button-padding-topbotom) / 10) calc(var(--guest-button-padding-leftright) / 3);
 }
 
 @media (max-width: 1024px) {
