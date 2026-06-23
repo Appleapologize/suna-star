@@ -404,6 +404,11 @@ figcaption{
 	text-align: center;
 }
 
+p ion-icon[name="arrow-forward"].md.hydrated {
+    position: relative;
+    top: 3px;
+}
+
 /* ==========================================
 	스크롤바 스타일
    ========================================== */
