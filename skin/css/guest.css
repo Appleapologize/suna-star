@@ -20,6 +20,7 @@ input, textarea{
 textarea{
 	resize: none;
 }
+
 .noti{
 	border:5px solid #a6c1ee;
 }
@@ -39,7 +40,8 @@ textarea{
 	background:unset;
 }
 
-#guest-form input, #guest-form textarea {
+#guest-form input,
+#guest-form textarea {
     background: var(--sub-background-color);
     color: var(--text-color);
 }
@@ -50,6 +52,7 @@ textarea{
 	height:50%;
 }
 
+/*---- ---- 스크롤바 시작 ---- ----*/
 #guest-form textarea::-webkit-scrollbar,
 #guest-content::-webkit-scrollbar,
 #guest-form input::-webkit-scrollbar,
@@ -76,7 +79,7 @@ textarea{
     border-radius: calc(var(--scroll-width) - 6px);
     
     /* 투명 테두리와 padding-box 조화로 막대와 배경 사이 거리 띄우기 */
-    border: calc((var(--scroll-width) - 6px) / 3) solid transparent !important;
+    border: calc((var(--scroll-width) - 6px) / 1.8) solid transparent !important;
     background-clip: padding-box !important;
 }
 
@@ -95,7 +98,7 @@ textarea{
 .comment-form textarea::-webkit-scrollbar-button{
     display: none !important;
 }
-
+/*---- ---- 스크롤바 끝 ---- ----*/
 
 
 
