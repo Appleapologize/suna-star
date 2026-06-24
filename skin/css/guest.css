@@ -161,35 +161,6 @@ textarea{
 	margin: 10px 0;
 }
 
-/* [닫힌 상태] */
-div.comment-form {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  overflow: hidden;
-  max-height: 0; 
-  padding: 0;
-  margin: 0;
-  transition: grid-template-rows 0.35s ease-out, opacity 0.3s, padding 0.35s, margin 0.35s;
-}
-
-div.comment-form > * {
-  overflow: hidden;
-}
-
-/* [열린 상태] */
-div.comment-form.show {
-  grid-template-rows: 1fr;
-  opacity: 1;
-  padding: var(--guest-li-padding);
-  margin: var(--guest-li-padding) 0;
-  max-height: calc(100% + 0px);
-}
-
-div.comment-form.show > * {
-  overflow: visible;
-}
-
 
 #guest-name, 
 #guest-password,
@@ -295,8 +266,33 @@ hr.comment-form{
 	border-radius: var(--border-radius-10px);
 }
 
-div.comment-form{
-	padding:var(--guest-li-padding);
+/* [닫힌 상태] */
+div.comment-form {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  overflow: hidden;
+  max-height: 0; 
+  padding: 0;
+  margin: 0;
+  transition: grid-template-rows 0.35s ease-out, opacity 0.3s, padding 0.35s, margin 0.35s;
+}
+
+div.comment-form > * {
+  overflow: hidden;
+}
+
+/* [열린 상태] */
+div.comment-form.show {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding: var(--guest-li-padding);
+  margin: var(--guest-li-padding) 0;
+  max-height: calc(100% + 0px);
+}
+
+div.comment-form.show > * {
+  overflow: visible;
 }
 
 .comment-form textarea {
