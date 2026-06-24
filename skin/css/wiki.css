@@ -57,7 +57,6 @@
 	--wiki-line-background-color:#eee; /*대사 박스 같은 내부 내용에 들어가는 박스 배경 색상*/
 	--wiki-text-white-color:#ffffff; /*흰색*/
 	--wiki-tooltip-content:#555; /*말풍선 내용 색상*/
-	--wiki-a-color:#0275d8;	/*링크 걸려있는 파란색 글자 색상*/
 	
 	--wiki-blacktray-color:#ddd; /*스포일러 안내 박스 테두리 색상*/
 	--spoiler-text-color:#fc6603;	
@@ -95,7 +94,6 @@
 	--wiki-text-white-color:#000000; /*흰색*/
 	--wiki-tooltip-content:#eeeeee;
 
-	--wiki-a-color:#f99933;	/*링크 걸려있는 파란색 글자 색상*/	
 	--arrow-color:#a4a4a4;
 	--arrow-hover:#ababab; /*detail 닫혀있을때 화살표 hover때 색상*/	
 }
@@ -182,16 +180,16 @@ td{
 /*중략 관련 끝*/
 
 a.index{
-	color:var(--wiki-a-color);
+	color:var(--tages-color);
 	text-decoration: none;
 }
 #wiki a{
-	color:var(--wiki-a-color);
+	color:var(--tages-color);
 	text-decoration: none;
 }
 
 #wiki a sup{
-	color:var(--wiki-a-color);
+	color:var(--tages-color);
 	cursor: var(--over-cursor), pointer !important;
 	line-height:0.7rem;
 	/*position: relative;
@@ -200,7 +198,7 @@ a.index{
 
 #wiki a:hover,
 focus {
-color: var(--wiki-a-color);
+color: var(--tages-color);
 text-decoration:underline;
 } /*태그 및 링크 색상(주석 옆의 숫자들 색상)*/
 
@@ -835,7 +833,7 @@ button.tooltip-close:hover{
 
 .tooltip-number {
 	font-weight: bold;
-	color: var(--wiki-a-color); /* 번호 색상 */
+	color: var(--tages-color); /* 번호 색상 */
 	margin-bottom: 5px; /* 번호와 내용 간격 */
 }
 
