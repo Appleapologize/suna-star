@@ -97,7 +97,7 @@ function formatMyDate(firebaseDate) {
   // 만약 24시간으로 바꾼다면 return `${year}.${month}.${day} ${ampm} ${hours}:${minutes}`; 여기서  ${ampm}은 필요 없으므로
   //return `${year}.${month}.${day} ${hours}:${minutes}`; 이렇게 적으면 된다.
   const minutes = date.getMinutes().toString().padStart(2, "0");// 분 2자리
-  return `${year}.${month}.${day} ${ampm} ${hours}:${minutes}`;
+  return `${year}.${month}.${day} ${ampm}&nbsp;${hours}:${minutes}`;
 }
 
 
