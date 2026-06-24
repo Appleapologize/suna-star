@@ -189,7 +189,7 @@ textarea{
 .guest-list-created-at{
 	color:var(--text-color);
 	text-align:right;
-	word-break: break-word;
+	word-break: keep-all;
 }
 
 .guest-list-name{
