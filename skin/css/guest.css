@@ -299,6 +299,15 @@ div.comments-list.show > *{
   overflow: visible;
 }
 
+div.comments-list.show {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+div.comments-list.show ul {
+    margin-top: 0;
+}
+
 .comment-form textarea {
 	height:unset;
 }
