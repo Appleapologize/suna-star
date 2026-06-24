@@ -285,8 +285,8 @@ div.comment-form{
     margin: 0 0 0 var(--guest-button-padding-topbotom);
     padding: calc(var(--guest-button-padding-topbotom) / 10) calc(var(--guest-button-padding-leftright) / 3);
 	position: relative;
-    top: calc(calc(var(--guest-li-padding) + 1) * -1) ;
-    right: calc(calc(var(--guest-li-padding) + 1) * -1);
+    top: calc(var(--guest-li-padding) * -1) ;
+    right: calc(var(--guest-li-padding) * -1);
     border-radius: 0 0 0 var(--button-round);
 }
 
