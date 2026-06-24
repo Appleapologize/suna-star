@@ -267,7 +267,8 @@ hr.comment-form{
 }
 
 /* [닫힌 상태] */
-div.comment-form {
+div.comment-form,
+div.comments-list{
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
@@ -278,12 +279,14 @@ div.comment-form {
   transition: grid-template-rows 0.35s ease-out, opacity 0.3s, padding 0.35s, margin 0.35s;
 }
 
-div.comment-form > * {
+div.comment-form > *,
+div.comments-list > *{
   overflow: hidden;
 }
 
 /* [열린 상태] */
-div.comment-form.show {
+div.comment-form.show,
+div.comments-list.show{
   grid-template-rows: 1fr;
   opacity: 1;
   padding: var(--guest-li-padding);
@@ -291,7 +294,8 @@ div.comment-form.show {
   max-height: calc(100% + 0px);
 }
 
-div.comment-form.show > * {
+div.comment-form.show > *,
+div.comments-list.show > *{
   overflow: visible;
 }
 
