@@ -306,7 +306,9 @@ document.addEventListener("click", (event) => {
     const guestId = toggleBtn.dataset.guestId;
     const commentForm = document.querySelector(`#comment-form-${guestId}`);
     if (commentForm) {
-      commentForm.style.display = commentForm.style.display === "none" ? "block" : "none";
+      commentForm.classList.toggle("show"); 
+      //display:none 혹은 display:block 으로 와리가리 할려면 commentForm.classList.toggle("show"); 부분을 밑의 코드로 바꾸기
+      //commentForm.style.display = commentForm.style.display === "none" ? "block" : "none";
     }
     return;
   }
