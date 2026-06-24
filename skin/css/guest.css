@@ -241,15 +241,14 @@ textarea{
 }
 
 .comment{
-	padding: calc(var(--guest-li-padding) - 5) 0;
+	margin: var(--guest-li-padding) !important;
 }
 
 .comment li{
 	background: var(--guest-comment-backcolor) !important;
-	padding: var(--guest-li-padding);
+	margin: var(--guest-li-padding) !important;/*padding을 margin으로 바꿈*/
 	border-radius: var(--border-radius-10px);
 	margin: var(--guest-li-padding) 0;
-	overflow: hidden;
 }
 
 hr.comment-form{
@@ -296,16 +295,24 @@ div.comments-list.show{
 
 div.comment-form.show > *,
 div.comments-list.show > *{
-  overflow: visible;
+	overflow: visible;
 }
 
 div.comments-list.show {
-    padding: 0 !important;
-    margin: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	background-color: var(--guest-comment-backcolor);
+	border-radius: var(--border-radius-10px);
+	border: 1px solid var(--point-color) !important;
+	margin-top: var(--guest-li-padding) !important;
 }
 
 div.comments-list.show ul {
     margin-top: 0;
+}
+
+div.comment:not(:last-child) {
+    border-bottom: 4px solid var(--point-color) !important;
 }
 
 .comment-form textarea {
@@ -338,7 +345,7 @@ div.comments-list.show ul {
     padding: calc(var(--guest-button-padding-topbotom) / 10) calc(var(--guest-button-padding-leftright) / 3);
 	position: relative;
     top: calc(var(--guest-li-padding) * -1) ;
-    right: calc(var(--guest-li-padding) * -1);
+    right: calc(var(--guest-li-padding) * -2);
     border-radius: 0 0 0 var(--button-round);
 }
 
