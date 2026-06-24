@@ -145,7 +145,7 @@ async function sendComment(guestId) {
   const password = commentPasswordInput ? commentPasswordInput.value.trim() : "";
 
   if (!name || !content || !password) {
-    alert("댓글 작성자의 이름과 내용, 비밀번호를 모두 입력해주세요.");
+    alert("작성자의 이름과 내용, 비밀번호를 모두 입력해주세요.");
     return;
   }
 
@@ -186,7 +186,9 @@ async function getComments(guestId) {
           <div class="guest-nm-date">
             <div class="guest-list-name">${data.name}</div>
             <div class="guest-list-created-at">${myDate}</div>
-            <button class="delete-comment-btn" data-guest-id="${guestId}" data-comment-id="${commentId}" data-password="${data.password || ''}">삭제</button>
+            <button class="delete-comment-btn" data-guest-id="${guestId}" data-comment-id="${commentId}" data-password="${data.password || ''}">
+              삭제
+            </button>
           </div>
           <div class="guest-list-content">${data.content}</div>
         </li>
@@ -207,7 +209,7 @@ function createCommentForm(guestId) {
   <hr class="comment-form">  
   <div class="comment-toggle">
     <button class="toggle-comment-form" data-guest-id="${guestId}"><i class="fa-solid fa-comment-dots"></i></button>
-    <div class="comment-form" id="comment-form-${guestId}" style="display: none;">
+    <div class="comment-form" id="comment-form-${guestId}">
     <div>
        <div class="guest-list-name">
         <input type="text" id="comment-name-${guestId}" placeholder="이름을 입력해주세요">
