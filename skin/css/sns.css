@@ -32,9 +32,13 @@ img{
 	content: "@suna-star";
 }
 
+.tages {
+    color: var(--tages-color);
+    font-weight: bold;
+}
+
 b.tages{
 	display:flex;
-	color:var(--tages-color);	
 	margin-bottom:var(--p-font-size);
 }
 
