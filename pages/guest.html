@@ -305,10 +305,14 @@ document.addEventListener("click", (event) => {
   if (toggleBtn) {
     const guestId = toggleBtn.dataset.guestId;
     const commentForm = document.querySelector(`#comment-form-${guestId}`);
-    if (commentForm) {
+    const commentsList = document.querySelector(`#comments-${guestId}`);
+    if (commentForm && commentsList) {
       commentForm.classList.toggle("show"); 
+      commentsList.classList.toggle("show");
       //display:none 혹은 display:block 으로 와리가리 할려면 commentForm.classList.toggle("show"); 부분을 밑의 코드로 바꾸기
       //commentForm.style.display = commentForm.style.display === "none" ? "block" : "none";
+      //display:none 혹은 display:block 으로 와리가리 할려면 commentsList.classList.toggle("show"); 부분을 밑의 코드로 바꾸기
+      //commentForm.style.display = commentsList.style.display === "none" ? "block" : "none";      
     }
     return;
   }
