@@ -37,6 +37,7 @@ img{
 }
 
 b.tages{
+	display:flex;
 	color:var(--tages-color);	
 	margin-bottom:var(--p-font-size);
 }
