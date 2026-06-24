@@ -305,6 +305,10 @@ div.comment-form{
 		margin-bottom: 0 !important;
 	}
 
+	#guest-submit, .comment-form div button {
+		padding: var(--guest-button-padding-topbotom) calc(var(--guest-button-padding-leftright) / 1.5);
+	}
+
 	.comment-form div button{
 		padding: 15px;		
 	}
