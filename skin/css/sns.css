@@ -4,6 +4,31 @@
 	--sns-profile-img:
 		url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FVOHZi%2FbtsFoDdG5tI%2FIKykYjKGVuDUPNit6ji5kk%2Fimg.png")
 	;
+	--sns-profile-margin: 10px;
+	--sns-profile-img-size:50px;
+}
+
+.sns-profile{
+	display:flex;
+	margin:var(--sns-profile-margin);
+}
+
+img{
+	object-fit:cover;
+	position: absolute;
+	width:calc( var(--sns-profile-img-size) + 10px);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.sns-id{
+	color:gray;
+	white-space: nowrap;	
+}
+
+.sns-id::before{
+	content: "@suna-star";
 }
 
 #container{
