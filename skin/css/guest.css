@@ -68,7 +68,7 @@ textarea{
 }
 
 .noti .guest-list-name {
-    overflow: visible;
+	overflow: visible;
 }
 
 
@@ -81,8 +81,8 @@ textarea{
 #guest-form textarea,
 .comment-form input, 
 .comment-form textarea{
-    background: var(--sub-background-color);
-    color: var(--text-color);
+	background: var(--sub-background-color);
+	color: var(--text-color);
 	filter: 
 		drop-shadow(0px var(--banner-tooltip-border-px) 1px var(--point-color)) 
 		drop-shadow(0px calc(var(--banner-tooltip-border-px) * -1) 1px var(--point-color)) 
@@ -103,8 +103,8 @@ textarea{
 #guest-content::-webkit-scrollbar,
 #guest-form input::-webkit-scrollbar,
 .comment-form textarea::-webkit-scrollbar {
-    width: var(--scroll-width); 
-    display: block;
+	width: var(--scroll-width); 
+	display: block;
 }
 
 /* 2. 브라우저가 스크롤바 밑바닥에 까는 그림자까지 투명하게 밀어버려 흰색 칸 원천 삭제 */
@@ -112,8 +112,8 @@ textarea{
 #guest-content::-webkit-scrollbar-track,
 #guest-form input::-webkit-scrollbar-track,
 .comment-form textarea::-webkit-scrollbar-track {
-    background-color: var(--scroll-back-color) !important;
-    box-shadow: inset 0 0 0 var(--clear) !important; /* 미세한 시스템 음영도 투명화 */
+	background-color: var(--scroll-back-color) !important;
+	box-shadow: inset 0 0 0 var(--clear) !important; /* 미세한 시스템 음영도 투명화 */
 }
 
 /* 막대 색상 */
@@ -121,12 +121,12 @@ textarea{
 #guest-content::-webkit-scrollbar-thumb,
 #guest-form input::-webkit-scrollbar-thumb,
 .comment-form textarea::-webkit-scrollbar-thumb {
-    background-color: var(--scroll-bar-color) !important; 
-    border-radius: calc(var(--scroll-width) - 6px);
+	background-color: var(--scroll-bar-color) !important; 
+	border-radius: calc(var(--scroll-width) - 6px);
     
-    /* 투명 테두리와 padding-box 조화로 막대와 배경 사이 거리 띄우기 */
-    border: calc((var(--scroll-width) - 6px) / 1.8) solid var(--clear) !important;
-    background-clip: padding-box !important;
+	/* 투명 테두리와 padding-box 조화로 막대와 배경 사이 거리 띄우기 */
+	border: calc((var(--scroll-width) - 6px) / 1.8) solid var(--clear) !important;
+	background-clip: padding-box !important;
 }
 
 /* 마우스 올렸을 때 효과 */
@@ -134,7 +134,7 @@ textarea{
 #guest-content::-webkit-scrollbar-thumb:hover,
 #guest-form input::-webkit-scrollbar-thumb:hover,
 .comment-form textarea::-webkit-scrollbar-thumb:hover {
-    background-color: color-mix(in srgb, var(--sub-background-color) 60%, red) !important;
+	background-color: color-mix(in srgb, var(--sub-background-color) 60%, red) !important;
 }
 
 /* [공통] 이오니콘즈 아이콘 폰트를 스크롤바 버튼 구조에 강제 주입 */
@@ -142,7 +142,7 @@ textarea{
 #guest-conten::-webkit-scrollbar-button,
 #guest-form input::-webkit-scrollbar-button,
 .comment-form textarea::-webkit-scrollbar-button{
-    display: none !important;
+	display: none !important;
 }
 /*---- ---- 스크롤바 끝 ---- ----*/
 
@@ -169,7 +169,7 @@ textarea{
 }
 
 #guest-password {
-    margin-left: 10px;
+	margin-left: 10px;
 }
 
 #guest-submit, 
@@ -177,6 +177,7 @@ textarea{
 	white-space: nowrap;
 	padding: var(--guest-button-padding-topbotom) var(--guest-button-padding-leftright);
 	border-radius:var(--button-round);
+	max-height: min-content;
 }
 
 #guest-list{
@@ -267,29 +268,29 @@ hr.comment-form{
 /* [닫힌 상태] */
 div.comment-form,
 div.comments-list{
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  overflow: hidden;
-  max-height: 0; 
-  padding: 0;
-  margin: 0;
-  transition: grid-template-rows 0.35s ease-out, opacity 0.3s, padding 0.35s, margin 0.35s;
+	display: grid;
+	grid-template-rows: 0fr;
+	opacity: 0;
+	overflow: hidden;
+	max-height: 0; 
+	padding: 0;
+	margin: 0;
+	transition: grid-template-rows 0.35s ease-out, opacity 0.3s, padding 0.35s, margin 0.35s;
 }
 
 div.comment-form > *,
 div.comments-list > *{
-  overflow: hidden;
+	overflow: hidden;
 }
 
 /* [열린 상태] */
 div.comment-form.show,
 div.comments-list.show{
-  grid-template-rows: 1fr;
-  opacity: 1;
-  padding: var(--guest-li-padding);
-  margin: var(--guest-li-padding) 0;
-  max-height: calc(100% + 0px);
+	grid-template-rows: 1fr;
+	opacity: 1;
+	padding: var(--guest-li-padding);
+	margin: var(--guest-li-padding) 0;
+	max-height: calc(100% + 0px);
 }
 
 div.comment-form.show > *,
@@ -310,11 +311,11 @@ div.comments-list.show {
 }
 
 div.comments-list.show ul {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 div.comment:not(:last-child) {
-    border-bottom: 4px solid var(--point-color) !important;
+	border-bottom: 4px solid var(--point-color) !important;
 }
 
 .comment-form textarea {
@@ -322,7 +323,7 @@ div.comment:not(:last-child) {
 }
 
 .comment-form input[type="password"] {
-    margin-left: 10px;
+	margin-left: 10px;
 }
 
 .toggle-comment-form{
@@ -331,24 +332,24 @@ div.comment:not(:last-child) {
 }
 
 .comments-list .comment:first-child li {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 .comments-list .comment:last-child li {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 
 /* 삭제 버튼 */
 .delete-guest-btn, 
 .delete-comment-btn {
-    font-size: var(--delete-btn-font-size);
-    /*margin: 0 0 0 var(--guest-button-padding-topbotom);*/
-    padding: calc(var(--guest-button-padding-topbotom) / 10) calc(var(--guest-button-padding-leftright) / 3);
+	font-size: var(--delete-btn-font-size);
+	/*margin: 0 0 0 var(--guest-button-padding-topbotom);*/
+	padding: calc(var(--guest-button-padding-topbotom) / 10) calc(var(--guest-button-padding-leftright) / 3);
 	position: relative;
-    top: calc(var(--guest-li-padding) * -1) ;
-    right: calc(var(--guest-li-padding) * -1);
-    border-radius: 0 0 0 var(--button-round);
+	top: calc(var(--guest-li-padding) * -1) ;
+	right: calc(var(--guest-li-padding) * -1);
+	border-radius: 0 0 0 var(--button-round);
 }
 
 @media (max-width: 1024px) {
@@ -371,7 +372,8 @@ div.comment:not(:last-child) {
 		margin-bottom: 0 !important;
 	}
 
-	#guest-submit, .comment-form div button {
+	#guest-submit, 
+	.comment-form div button {
 		padding: var(--guest-button-padding-topbotom) calc(var(--guest-button-padding-leftright) / 1.5);
 	}
 
