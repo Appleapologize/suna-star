@@ -297,12 +297,15 @@ div.comments-list.show > *{
 	overflow: visible;
 }
 
+div.comment-form.show{
+	border: 1px solid var(--point-color);
+}
+
 div.comments-list.show {
 	padding: 0 !important;
 	margin: 0 !important;
 	background-color: var(--guest-comment-backcolor);
 	border-radius: var(--border-radius-10px);
-	border: 1px solid var(--point-color) !important;
 	margin-top: var(--guest-li-padding) !important;
 }
 
