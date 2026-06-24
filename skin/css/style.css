@@ -24,6 +24,7 @@
 	--hover-mix:#4b4b4b;
 
 	--p-text-indent:25px;/*마이너스가 붙으면 내어쓰기(첫줄이 좀더 안으로 들어감), 플러스는 들여쓰기(첫줄이 좀더 안으로 들어감)*/
+	--p-font-size:16px;/*코드 p는 16px가 기본 사이즈*/
 	
 	/*모바일 모드에서만 나오는 메뉴 버튼*/
 	--mobile-vwvh:44px;
@@ -386,6 +387,7 @@ p{
 	margin: 0;
     padding: 0;
     line-height: 1.5rem;
+	font-size:var(--p-font-size);
 }
 
 h1,
