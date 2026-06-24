@@ -1,4 +1,11 @@
 @charset "utf-8";
+
+:root{
+	--sns-profile-img: url("
+		https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FVOHZi%2FbtsFoDdG5tI%2FIKykYjKGVuDUPNit6ji5kk%2Fimg.png
+						");
+}
+
 #container{
 	position: relative;
 	overflow: hidden;
@@ -92,6 +99,15 @@ table.sns-board .date{
 		calc(var(--main-name-border-px) * -1) 0px 0px var(--main-name-border-color), 
 		0px var(--main-name-border-px) 0px var(--main-name-border-color), 
 		0px calc(var(--main-name-border-px) * -1) 0px var(--main-name-border-color);
+}
+
+div.profile-img-sns img {
+    content: var(--sns-profile-img);
+}
+
+.sns-profile div:has(.sns-id) {
+    position: relative;
+    top: var(--box-padding);
 }
 
 /*
