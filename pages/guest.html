@@ -34,15 +34,31 @@
           <div class="guest-list-content">비공개 기능은 구현되어있지 않습니다.
           </div>
     <hr class="comment-form">
-      <div class="comment">
-        <li>
-          <div class="guest-nm-date">
-            <div class="guest-list-name">Suna-Star</div>
-            <div class="guest-list-created-at">2025년 01월 06일 오전 11:49</div>
+      <button class="toggle-comment-form"><i class="fa-solid fa-comment-dots"></i></button>
+        <div class="comment">
+          <li>
+            <div class="guest-nm-date">
+              <div class="guest-list-name">Suna-Star</div>
+              <div class="guest-list-created-at">2025년 01월 06일 오전 11:49</div>
           </div>
-          <div class="guest-list-content">참고로 댓글은 이렇게 작성됩니다.</div>
-        </li>
-       </div>  
+            <div class="comments-list show">
+              <ul>
+                <div class="comment">
+                  <li>
+                    <div class="guest-nm-date">
+                      <div class="guest-list-name">Suna-Star</div>
+                      <div class="guest-list-created-at">25.01.06 오전&nbsp;11:49</div>
+                      <button class="delete-comment-btn" data-comment-id="comments" >
+                        삭제
+                      </button>
+                    </div>
+                    <div class="guest-list-content">참고로 댓글은 이렇게 작성됩니다.</div>
+                  </li>
+                </div> 
+              </ul>
+            </div>
+          </li>
+          </div>  
         </div>
       <div id="guest-list" ></div> 
 
