@@ -91,15 +91,15 @@ table.sns-board{
 table.sns-board tr td{
 	text-align:center;
 	border:none;
-	border-bottom:1px solid gray;
+	border-bottom:1px solid #ccc;
 	width:20%;
 }
 
 table.sns-board tr th{
 	text-align: left;
-	border-bottom:1px solid gray;
-	border-left:1px solid gray;
-	border-right:1px solid gray;
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
 	padding:0 0 0 10px;
 	overflow:hidden;
 }
@@ -118,22 +118,23 @@ table.sns-board .date{
 }
 
 .sns-board{
-border: 5px solid var(--point-color);
+	border: 5px solid var(--point-color);
 }
 
 .sns-board tr:first-child {
-    background: var(--point-color);
+	background: var(--point-color);
 }
 
 .sns-board tr:first-child * {
-    color: var(--text-color);
-text-align: center;
-padding: 0;
-letter-spacing: 0.5rem;
+	color: var(--text-color);
+	text-align: center;
+	padding: 0;
+	letter-spacing: 0.5rem;
 }
 
-.sns-board tr:first-child th:first-child, .sns-board tr:first-child th:nth-child(even) {
-    border-right: 1px solid var(--card-background-color);
+.sns-board tr:first-child th:first-child, 
+.sns-board tr:first-child th:nth-child(even) {
+	border-right: 1px solid var(--card-background-color);
 }
 
 
@@ -153,8 +154,8 @@ letter-spacing: 0.5rem;
 
 #sns-list h1{
 	color: red;
-    margin: 10px;
-    text-shadow: 
+	margin: 10px;
+	text-shadow: 
 		var(--main-name-border-px) 0px 0px var(--main-name-border-color), 
 		calc(var(--main-name-border-px) * -1) 0px 0px var(--main-name-border-color), 
 		0px var(--main-name-border-px) 0px var(--main-name-border-color), 
@@ -162,12 +163,12 @@ letter-spacing: 0.5rem;
 }
 
 div.profile-img-sns img {
-    content: var(--sns-profile-img);
+	content: var(--sns-profile-img);
 }
 
 .sns-profile div:has(.sns-id) {
-    position: relative;
-    top: var(--box-padding);
+	position: relative;
+	top: var(--box-padding);
 }
 
 /*
