@@ -142,6 +142,8 @@
 	--text-color:black;
 	--svgroup-stroke:#aa98ff; /*상단 로고(?) 평소 색상*/
 
+	--tages-color:#0275d8; /*wiki 에서의 a태그(파란 글자)와 sns에서 tages (파란 글자) 색상*/
+
 	/* 주요 포인트 색상을 지정합니다. */	
 	--point-color: #ff9494;
 	--point-sub-color: #8c0000;
@@ -213,6 +215,8 @@
 
 	    /* 버튼 텍스트 색상을 지정합니다. */	
 		--btn-text-color: #fff;
+
+		--tages-color:#f99933; /*wiki 에서의 a태그(파란 글자)와 sns에서 tages (파란 글자) 색상*/
 
 	/* 주요 포인트 색상을 지정합니다. */	
 		--point-color: #aca9f3;
