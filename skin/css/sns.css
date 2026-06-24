@@ -31,6 +31,10 @@ img{
 	content: "@suna-star";
 }
 
+b.tages{
+	color:#52bdff;	
+	margin-bottom:var(--p-font-size);
+}
 #container{
 	position: relative;
 	overflow: hidden;
