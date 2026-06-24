@@ -7,6 +7,7 @@
 	--sns-profile-margin: 10px;
 	--sns-profile-img-size:50px;
 	--tages-color:#52bdff;
+	--tages-mark:'@';
 }
 
 [data-theme="dark"]{
@@ -41,6 +42,11 @@ b.tages{
 	color:var(--tages-color);	
 	margin-bottom:var(--p-font-size);
 }
+
+b.tages:before {
+    content: var(--tages-mark);
+}
+
 #container{
 	position: relative;
 	overflow: hidden;
