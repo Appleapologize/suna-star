@@ -246,7 +246,6 @@ textarea{
 
 .comment li{
 	background: var(--guest-comment-backcolor) !important;
-	margin: var(--guest-li-padding) !important;/*padding을 margin으로 바꿈*/
 	border-radius: var(--border-radius-10px);
 	margin: var(--guest-li-padding) 0;
 }
@@ -345,7 +344,7 @@ div.comment:not(:last-child) {
     padding: calc(var(--guest-button-padding-topbotom) / 10) calc(var(--guest-button-padding-leftright) / 3);
 	position: relative;
     top: calc(var(--guest-li-padding) * -1) ;
-    right: calc(var(--guest-li-padding) * -2);
+    right: calc(var(--guest-li-padding) * -1);
     border-radius: 0 0 0 var(--button-round);
 }
 
