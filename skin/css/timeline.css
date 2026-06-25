@@ -4,22 +4,22 @@
 	--title-text-color:white;/*좌측 설명란색상*/
 
 	--timeline-box-position:30px;/*타임라인 내부 박스 위치를 선과 가깝게 */
-  /*타임라인 내부 박스 배경*/
+	/*타임라인 내부 박스 배경*/
 	--left-background-color:black;/*좌측 칸의 색*/
 	--right-background-color:white;/*우측 칸의 색*/
   
-/*내부 박스의 제목 테두리*/  
+	/*내부 박스의 제목 테두리*/  
 	--left-text-border-color:white;/*좌측 제목의 테두리*/
 	--right-text-border-color:white;/*우측 제목의 테두리*/
-  /*캐릭터 이름의 텍스트 색상*/
+	/*캐릭터 이름의 텍스트 색상*/
 	--left-title-color:#c21515;
 	--right-title-color:#45ffcd;
   
-  /*제목의 테두리 두께*/
+	/*제목의 테두리 두께*/
 	--text-border-weight-top-right :2px;/*우측 좌측 함께 들어갑니다.*/
 	--text-border-weight-bottom-left:-2px;/*우측 좌측 함께 들어갑니다. 마이너스로 넣어주세요*/
   
-/*상세설명 텍스트 색상*/
+	/*상세설명 텍스트 색상*/
 	--left-text-color:white;/*좌측 하단의 상세설명 텍스트 색상*/
 	--right-text-color:#242424;/*우측 하단의 상세설명 텍스트 색상*/
 }
@@ -41,6 +41,7 @@
 	width:50%;
 	margin:0 10 0 0;
 }
+
 #timeline-title .right-title{
 	background:green;
 	width:50%;
@@ -74,18 +75,6 @@
 }
 
 /*타임라인 선*/
-/*#conference-timeline .conference-center-line {
-	position: absolute;
-	width: 10px;
-	height: 100%;
-	top: 0;
-	left: 50%;
-	margin-left: -2px;
-	background: var(	--timeline-color);
-	z-index: -1;
-}*/
-
-/* 기존 요소를 찾아서 아래 코드로 완전히 교체해 주세요 */
 #conference-timeline .conference-timeline-content {
 	position: relative;
 	display: flow-root; /* ★ 중요: 내부 float 요소들의 높이를 정상 인식하게 만듦 */
@@ -93,7 +82,7 @@
 	padding-bottom: 67px;
 }
 
-/* ★ 추가: 부모 컨테이너 정중앙에 선 그리기 */
+/* 정중앙에 선 그리기 */
 #conference-timeline .conference-timeline-content::before {
 	content: '';
 	position: absolute;
@@ -114,6 +103,7 @@
 	padding: 10px;
 	z-index:1;
 }
+
 .timeline-article .content-left-container,
 .timeline-article .content-right-container {
 	max-width: 44%;
@@ -152,6 +142,7 @@
 .timeline-article .content-left{
 	background:var(--left-background-color);
 }
+
 .timeline-article .content-left h1{
 	text-shadow: var(--text-border-weight-bottom-left) 0px var(--left-text-border-color), /*상단*/
 				0px var(--text-border-weight-top-right) var(--left-text-border-color), /*우측*/
@@ -166,6 +157,7 @@
 .timeline-article .content-right {
 	background:var(--right-background-color);
 }
+
 .timeline-article .content-right h1 {
 	text-shadow: var(--text-border-weight-bottom-left) 0px var(--right-text-border-color), /*상단*/
 				0px var(--text-border-weight-top-right) var(--right-text-border-color), /*우측*/
@@ -177,12 +169,12 @@
 	color:var(--right-text-color);
 }
                              
-/* 1. 기본적으로 타임라인 내의 모든 p 태그는 완전히 숨김 */
+/* 기본적으로 타임라인 내의 모든 p 태그는 완전히 숨김 */
 .timeline-article p {
 	display: none ;
 }
 
-/* 2. 자바스크립트로 인해 .active 클래스가 붙으면 무조건 화면에 표시 */
+/* .active 클래스가 붙으면 무조건 화면에 표시 */
 .timeline-article p.active {
 	display: block !important;
 	visibility: visible !important;
@@ -239,7 +231,6 @@
     cursor:var(--over-cursor), pointer !important;
 }
 
-/* CSS 맨 아래에 복사해서 붙여넣으세요 */
 .timeline-article p.active {
     display: block !important;
 }
