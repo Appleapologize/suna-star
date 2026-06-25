@@ -19,7 +19,7 @@
 	margin:0 var(--sns-profile-margin);
 }
 
-img{
+.sns-profile img{
 	object-fit:cover;
 	position: absolute;
 	width:calc( var(--sns-profile-img-size) + 10px);
