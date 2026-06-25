@@ -6,6 +6,7 @@
 	grid-template-columns: var(--diary-ratio);
 	position: relative;
 }
+
 .diary-module div.profile-img-sns{
 	display:block;
 	width:var(--sns-profile-img-size);
