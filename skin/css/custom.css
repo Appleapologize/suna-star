@@ -33,7 +33,7 @@
 .text-module details{
 	padding:10px;
 	margin:5px 0 10px 0;
-	border-radius:20px;
+	border-radius:var(--module-inside-round);
 }
 
 figure{
