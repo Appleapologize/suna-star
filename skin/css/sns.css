@@ -61,7 +61,7 @@ b.tages:before {
 div:has(> .sns-board){
 	margin: 10px 0;
 	border: 5px solid var(--point-color);
-	border-radius: 10px;
+	border-radius: calc(var(--module-round) - 5px);
 }
 
 table.sns-board{
