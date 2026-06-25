@@ -236,7 +236,7 @@
 }
 
 .timeline-article h1.timeline-who{
-    cursor:var(--over-cursor), pointer;
+    cursor:var(--over-cursor), pointer !important;
 }
 
 /* CSS 맨 아래에 복사해서 붙여넣으세요 */
