@@ -16,7 +16,8 @@
                 function copy(type) {
                     let copyUrl = '';
                     let imgSrc = document.getElementById('myBanner').src;
-                    let domain = window.location.protocol+'//'+window.location.hostname;
+                    let domain = window.location.origin + window.location.pathname; 
+                    //let domain = window.location.protocol+'//'+window.location.hostname;
                     let siteTitle = top.document.title;
                     let bannerTag = '<a href="'+domain+'" target="_blank"><img src="'+imgSrc+'" alt="'+siteTitle+'" style="width:100%; height:auto;"></a>';
 
