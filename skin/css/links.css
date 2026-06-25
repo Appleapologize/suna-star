@@ -166,6 +166,11 @@
 	/* ==========================================
 	공통
 	========================================== */
+	
+	.banner-module img {
+		width: var(--width-100);
+	}
+	
 	.banner-module.self {
 		grid-template-columns: auto;
 	}	
