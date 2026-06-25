@@ -751,6 +751,7 @@ a *{
 	padding: var(--container-padding);
 	z-index:0;	
 	margin-bottom:var(--box-gap-out-margin);
+	overflow: hidden;
 }
 
 /* ==========================================
