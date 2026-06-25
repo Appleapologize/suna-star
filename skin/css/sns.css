@@ -58,7 +58,7 @@ b.tages:before {
 }
 
 /*여기부터가 sns lock*/
-div:has(.sns-board){
+div:has(> .sns-board){
 	margin: 10px 0;
 	border: 5px solid var(--point-color);
 	border-radius: 10px;
