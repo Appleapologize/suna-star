@@ -1,44 +1,42 @@
 @charset "utf-8";
 :root{
-  /*  설명 글자 사이즈 */
-  --p-font-size:x-small;
+	/*  설명 글자 사이즈 */
+	--p-font-size:x-small;
 
-
-  /* 오프닝 엔딩 외곽선 두께 */  
-  --border-px-l:3px;
-  /*음악 소개 칸 외곽선 두께*/
-  --border-px-s:2px;  
-  /*내부 사각형 꼭짓점 둥굴기*/
-  --in-border-radius:10px;
-  /* 칸 외곽선 색상 */
-  --border-color:black;
-  /*라인 하단의 빈 공간*/
-  --hr-margin-bottom:30px;  
+	/* 오프닝 엔딩 외곽선 두께 */  
+	--border-px-l:3px;
+	/*음악 소개 칸 외곽선 두께*/
+	--border-px-s:2px;  
+	/*내부 사각형 꼭짓점 둥굴기*/
+	--in-border-radius:10px;
+	/* 칸 외곽선 색상 */
+	--border-color:black;
+	/*라인 하단의 빈 공간*/
+	--hr-margin-bottom:30px;  
+	
+	/* 썸네일 이미지 사이즈 */
+	--sumnail-img:150px;
+	/*프로필 이미지 사이즈*/
+	--profile-img:150px;
   
-  /* 썸네일 이미지 사이즈 */
-  --sumnail-img:150px;
-  /*프로필 이미지 사이즈*/
-  --profile-img:150px;
+	/*점선 색상*/
+	--dash-color:gray;
+	
+	/*하트 색상*/ 
+	--heart-color:red;
+	/*open 하트*/
+	--heart-open-cont:'♥';  
+	/*close 하트*/
+	--heart-close-cont:'❥';  
   
-  /*점선 색상*/
-  --dash-color:gray;
-
-  
-  /*하트 색상*/ 
-  --heart-color:red;
-  /*open 하트*/
-  --heart-open-cont:'♥';  
-  /*close 하트*/
-  --heart-close-cont:'❥';  
-  
-  /*별 색상*/
-  --star-color:yellow;
-  /*별 뒤의 후광 색상*/
-  --star-shadow-color:#a8f7de;
-  /*open 별*/
-  --star-open-cont:'★';
-  /*close 별*/
-  --star-close-cont:'✦';
+	/*별 색상*/
+	--star-color:yellow;
+	/*별 뒤의 후광 색상*/
+	--star-shadow-color:#a8f7de;
+	/*open 별*/
+	--star-open-cont:'★';
+	/*close 별*/
+	--star-close-cont:'✦';
 }
 
 [data-theme="dark"]{
@@ -121,6 +119,7 @@
 	color: color-mix(var(--text-color) 70%, transparent);
 	letter-spacing: 1px;  
 }
+
 .left-align{
 	text-align:left;
 }
@@ -167,6 +166,7 @@ hr.main-ce{
 	margin-bottom: var(--hr-margin-bottom);  
 	width: 60%;  
 }
+
 #pl-one-frame{
 	display:block;
 	margin-top: 40px;
@@ -237,6 +237,7 @@ hr.main-ce{
 .pl-profile-img iframe, .pl-profile iframe{
 	border-radius: var(--in-border-radius);
 }
+
 .pl-img img{
 	width:var(--sumnail-img);
 	height:var(--sumnail-img);
@@ -340,9 +341,11 @@ a:hover p.right {
 	.pl-frame .left-align{
 		text-align:center;
 	}  
+	
 	.pl-img{
 		width: auto;
 	}
+	
 	.trans{
 		letter-spacing: 3px;  
 	}  
