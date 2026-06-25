@@ -58,10 +58,14 @@ b.tages:before {
 }
 
 /*여기부터가 sns lock*/
+div:has(.sns-board){
+	margin: 10px 0;
+	border: 5px solid var(--point-color);
+	border-radius: 10px;
+}
 
 table.sns-board{
-	margin: 10px 0;
-	border: 5px solid var(--point-sub-color);
+	border: none;
 }
 
 #sns-lock h1,
@@ -79,7 +83,6 @@ table.sns-board{
 }
 
 .diary-text table{ 
-	border:1px solid black; 
 	width:50%;
 	border-collapse: collapse;
 }
@@ -92,7 +95,6 @@ table.sns-board{
 
 table.sns-board{
 	width:var(--width-100);
-	border: 5px solid var(--point-color);
 }
 
 table.sns-board tr:last-child * {
