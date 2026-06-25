@@ -130,6 +130,7 @@
 
 .timeline-article .content-left .timeline-who{
 	color:var(--left-title-color);
+	text-align:right;
 }
 .timeline-article .content-right .timeline-who{
 	color:var(--right-title-color);
@@ -162,9 +163,7 @@
 .timeline-article .content-right p{
 	color:var(--right-text-color);
 }
-
-                                
-
+                             
 /* 1. 기본적으로 타임라인 내의 모든 p 태그는 완전히 숨김 */
 .timeline-article p {
 	display: none ;
@@ -185,6 +184,7 @@
 	color: var(--timeline-color);
 	margin:0;
 	cursor:var(--over-cursor), pointer; !important;
+	text-align:left;
 }
 
 .timeline-article .content-left-container {
@@ -297,6 +297,11 @@
     .timeline-article .content-right {
 	    padding: 10px 25px;
 	    min-height: 65px;
+    }
+
+    .timeline-article .content-left .timeline-who{
+    	color:var(--left-title-color);
+    	text-align:left;
     }
 }
 
