@@ -42,7 +42,7 @@
                     <div class="guest-nm-date">
                       <div class="guest-list-name">Suna-Star</div>
                       <div class="guest-list-created-at">25.01.06 오전&nbsp;11:49</div>
-                      <button class="delete-comment-btn" data-comment-id="comments" >
+                      <button class="delete-comment-btn">
                         삭제
                       </button>
                     </div>
@@ -266,8 +266,8 @@ async function getGuestList() {
 }
 
 
-// 💥 6. 실제 삭제를 처리하는 핵심 함수들 (새로 추가)
-// [A] 방명록 메인 글 삭제
+// 실제 삭제를 처리
+// 방명록 메인 글 삭제
 async function deleteGuest(guestId, originalPassword) {
   if (originalPassword) {
     const inputPw = prompt("방명록 삭제 비밀번호를 입력해주세요.");
@@ -286,7 +286,7 @@ async function deleteGuest(guestId, originalPassword) {
   }
 }
 
-// [B] 대댓글 삭제
+// 댓글 삭제
 async function deleteComment(guestId, commentId, originalPassword) {
   if (originalPassword) {
     const inputPw = prompt("댓글 삭제 비밀번호를 입력해주세요.");
