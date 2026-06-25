@@ -95,6 +95,18 @@ table.sns-board{
 	border: 5px solid var(--point-color);
 }
 
+table.sns-board tr:last-child * {
+    border-bottom: none;
+}
+
+table.sns-board tr *:last-child {
+    border-right: none;
+}
+
+table.sns-board tr *:first-child {
+    border-left: none;
+}
+
 table.sns-board tr td{
 	text-align:center;
 	border:none;
