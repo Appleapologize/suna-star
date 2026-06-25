@@ -92,7 +92,7 @@ table.sns-board{
 
 table.sns-board{
 	width:var(--width-100);
-	border:none;
+	border: 5px solid var(--point-color);
 }
 
 table.sns-board tr td{
@@ -122,10 +122,6 @@ table.sns-board tr th a{
 
 table.sns-board .date{
 	position: static;
-}
-
-.sns-board{
-	border: 5px solid var(--point-color);
 }
 
 .sns-board tr:first-child {
