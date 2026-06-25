@@ -131,10 +131,9 @@ table.sns-board .date{
 .sns-board tr:first-child * {
 	color: var(--btn-text-color);
 	text-align: center;
-	padding: 0;
+	padding: 10px 0;
 	letter-spacing: 0.5rem;
-	border-right-color: white;
-	border-left-color: white;
+	border-bottom: unset;
 }
 
 .sns-board tr:first-child th:first-child, 
