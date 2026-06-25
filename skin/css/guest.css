@@ -26,7 +26,7 @@
 	--guest-comment-backcolor:#14171f;
 }
 
-/*주의 딱지 스타일*/
+/*주의 딱지 스타일 시작*/
 .notice{
 	font-size: 15px;
 	justify-items: center;
@@ -36,6 +36,7 @@
 	border-radius: var(--module-inside-round); 
 	color:white;
 }
+/*주의 딱지 스타일 끝 */
 
 #container:has(#guest) {
 	padding: 0;
@@ -140,8 +141,6 @@ textarea{
 /*---- ---- 스크롤바 끝 ---- ----*/
 
 
-
-
 #guest-form *, 
 .comment-form *{
 	margin: calc(var(--guest-li-padding) - 5) 0;
@@ -215,6 +214,7 @@ textarea{
 	overflow: hidden;  
 	margin: 0 !important;
 }
+
 .guest-list-name:not(:has(input)){
 	white-space: nowrap;      
 	text-overflow: ellipsis;
