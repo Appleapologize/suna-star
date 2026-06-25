@@ -257,8 +257,8 @@
 
     /* 모바일 700px 이하일 때 선 위치 조정 */
     #conference-timeline .conference-timeline-content::before {
-    left: 20px; /* 좌측 마크 날짜 영역 옆으로 이동 */
-    margin-left: 0;
+	    left: 20px; /* 좌측 마크 날짜 영역 옆으로 이동 */
+	    margin-left: 0;
     }
 
     .timeline-article .meta-date {
@@ -310,6 +310,7 @@
     .timeline-article .content-right {
 	    padding: 10px 25px;
 	    min-height: 65px;
+		min-width: calc(100% + calc(var(--timeline-box-position) * 2));
     }
 
     .timeline-article .content-left{
