@@ -53,6 +53,7 @@
 	margin-bottom:calc(var(--padding-menu) * 2);
 	padding: 10px;
 }
+
 .month-arrow:hover{
 	color:var(--sub-background-color);
 	cursor: var(--over-cursor), pointer !important;
@@ -86,15 +87,6 @@
 	    0px calc(-1 * var(--today-num-border)) var(--card-background-color);
 	    color:var(--point-color);
 }
-
-.year-text {
-	font-size:;
-}
-
-.month-text {
-	font-size: ;
-}
-
 .month-date.month-title {
 	font-weight: bold;
 }
@@ -112,6 +104,7 @@
 .month-this.sunday .day-num { 
 	color: var(--sunday-color); 
 }
+
 .month-this.saturday .day-num { 
 	color: var(--saturday-color); 
 }
@@ -120,9 +113,11 @@
 .month-date { 
 	position: relative; 
 }
+
 .marker-container{
 	z-index:-1;
 }
+
 .anni-marker {
 	position: absolute;
 	top: 0;
