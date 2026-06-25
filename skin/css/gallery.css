@@ -88,7 +88,7 @@ body:has(#gallery-notice){
 	width: 100%;
 	position: relative;
 	box-shadow:var(--gallery-box-shadow);
-	border-radius: calc(var(--module-round) - 5px);
+	border-radius: var(--module-inside-round);
 	margin-bottom: var(--gallery-box-between);
 	background:var(--card-background-color);
 	border: var(--gallery-box-padding) solid var(--card-background-color);
@@ -110,7 +110,7 @@ body:has(#gallery-notice){
 }
 
 .gallery-img img {
-	border-radius: calc(var(--module-round) - 5px);
+	border-radius: var(--module-inside-round);
 	width: 100%;
 	height: auto;
 	display: block;
