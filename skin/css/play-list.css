@@ -184,14 +184,16 @@ hr.main-ce{
 	margin-top:50px;
 	max-width: 100vw;  
 }
+
 .pl-left-frame, .pl-right-frame{
 	width:100%;
 }
+
 .pl-frame{
 	display:flex;
 	padding:10px;
 	border:var(--border-px-s) solid var(--border-color);
-	border-radius:20px;
+	border-radius:calc(var(--module-round) - 5px);
 	margin-bottom: 10px;  
 	overflow:hidden;
 }
