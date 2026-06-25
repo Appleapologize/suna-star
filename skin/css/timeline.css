@@ -310,9 +310,15 @@
     .timeline-article .content-right {
 	    padding: 10px 25px;
 	    min-height: 65px;
-		position: relative;
-		right:var(--timeline-box-position);
     }
+
+    .timeline-article .content-left{
+		left:calc(var(--timeline-box-position) * 2);
+	}
+	
+    .timeline-article .content-right{
+		right:calc(var(--timeline-box-position) * 2);
+	}
 
     .timeline-article .content-left .timeline-who{
     	color:var(--left-title-color);
