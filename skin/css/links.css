@@ -33,7 +33,6 @@
 	margin: var(--banner-gap) auto;
 }
 
-
 .banner-module.self {
 	display: grid;
 	gap: var(--box-gap);
@@ -60,7 +59,6 @@
 	border-radius: var(--module-inside-round);
 	width: 300px;
 }
-
 
 .banner-module a:has(.banner-tooltip):hover{
 	filter: unset !important;
@@ -125,7 +123,6 @@
 	width:100%;	
 	padding:0;
 }
-
 
 /* ==========================================
  #link 안에만 들어가는 스타일
