@@ -57,7 +57,7 @@
 }
 
 .banner-module img {
-	border-radius: calc(var(--module-round) - 5px);
+	border-radius: var(--module-inside-round);
 }
 
 
