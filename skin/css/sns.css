@@ -9,6 +9,11 @@
 	--sns-tages-mark:'@';
 }
 
+.diary-module .diary-text{
+	padding-top:0;
+}
+
+
 .sns-profile{
 	display:flex;
 	margin:var(--sns-profile-margin);
