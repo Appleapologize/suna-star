@@ -10,10 +10,6 @@
 	color: var(--point-color);
 }
 
-#home p{
-
-}
-
 #home div:nth-child(2) p{
 	text-indent: calc(var(--p-text-indent) * -1);   
 	padding-left: 30px;	
