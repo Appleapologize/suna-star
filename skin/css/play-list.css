@@ -193,7 +193,7 @@ hr.main-ce{
 	display:flex;
 	padding:10px;
 	border:var(--border-px-s) solid var(--border-color);
-	border-radius:calc(var(--module-round) - 5px);
+	border-radius:var(--module-inside-round);
 	margin-bottom: 10px;  
 	overflow:hidden;
 }
