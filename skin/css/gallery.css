@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-
 :root{ 
 	--gallery-box-shadow-X:0px; /*양수는 오른쪽, 음수는 왼쪽*/
 	--gallery-box-shadow-Y:4px; /*양수는 위쪽, 음수는 아래쪽*/
@@ -37,7 +36,7 @@ body:has(#gallery-notice){
 
 #gallery h1,
 #gallery h2,
-#gallery h3
+#gallery h3,
 #gallery h4{
 	text-shadow: 
 		var(--main-name-border-px) 0px 0px var(--main-name-border-color), 
