@@ -58,6 +58,7 @@
 
 .banner-module img {
 	border-radius: var(--module-inside-round);
+	width: 300px;
 }
 
 
