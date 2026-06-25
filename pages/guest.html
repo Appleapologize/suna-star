@@ -88,6 +88,10 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
+// HTML 대신 js가 비밀번호를 기억할 곳.
+const guestPasswords = {};
+const commentPasswords = {};
+
 // guests 컬렉션 참조
 const guestRef = collection(db, "guests");
 
@@ -190,13 +194,16 @@ async function getComments(guestId) {
       const data = doc.data();
       const myDate = formatMyDate(data.created_at);
 
+      // 댓글 id를 기준으로 사용하여 비밀번호를 상자에 저장합니다.
+      commentPasswords[commentId] = data.password || '';
+      
       html += `
       <div class="comment">
         <li>
           <div class="guest-nm-date">
             <div class="guest-list-name">${data.name}</div>
             <div class="guest-list-created-at">${myDate}</div>
-            <button class="delete-comment-btn" data-guest-id="${guestId}" data-comment-id="${commentId}" data-password="${data.password || ''}">
+            <button class="delete-comment-btn" data-guest-id="${guestId}" data-comment-id="${commentId}">
               삭제
             </button>
           </div>
@@ -246,12 +253,15 @@ async function getGuestList() {
       const data = doc.data();
       const myDate = formatMyDate(data.created_at);
 
+      // 방명록 id를 기준으로 사용하여 비밀번호를 저장합니다.
+      guestPasswords[guestId] = data.password || '';
+
       html += `
         <div class="guest-li text-module module">
           <div class="guest-nm-date">
             <div class="guest-list-name">${data.name}</div>
             <div class="guest-list-created-at">${myDate}</div>
-            <button class="delete-guest-btn" data-guest-id="${guestId}" data-password="${data.password || ''}">삭제</button>
+            <button class="delete-guest-btn" data-guest-id="${guestId}">삭제</button>
           </div>
           <div class="guest-list-content">${data.content}</div>
           ${createCommentForm(guestId)}
@@ -310,7 +320,7 @@ async function deleteComment(guestId, commentId, originalPassword) {
 
 // 댓글 입력 폼 토글 이벤트 처리
 document.addEventListener("click", (event) => {
-  // A. 댓글 입력창 토글 (아이콘 클릭 시 부모 버튼을 찾아내도록 버그 수정)
+  // 댓글 입력창 토글 (아이콘 클릭 시 부모 버튼을 찾아내도록 함)
   const toggleBtn = event.target.closest(".toggle-comment-form");
   if (toggleBtn) {
     const guestId = toggleBtn.dataset.guestId;
@@ -327,31 +337,31 @@ document.addEventListener("click", (event) => {
     return;
   }
 
-  // B. 댓글 등록 버튼 클릭 감지
+  // 댓글 등록 버튼 클릭 감지
   if (event.target && event.target.id.startsWith("comment-submit-")) {
     const guestId = event.target.id.replace("comment-submit-", "");
     sendComment(guestId);
     return;
   }
 
-  // C. 메인 방명록 작성 버튼 클릭 감지
+  // 방명록 작성 버튼 클릭 감지
   if (event.target && event.target.id === "guest-submit") {
     sendGuest();
     return;
   }
-  // D. ✨ [추가] 메인 방명록 삭제 버튼 클릭 감지
+  // 방명록 삭제 버튼 클릭 감지
   if (event.target && event.target.classList.contains("delete-guest-btn")) {
     const guestId = event.target.dataset.guestId;
-    const password = event.target.dataset.password;
+    const password = guestPasswords[guestId];
     deleteGuest(guestId, password);
     return;
   }
 
-  // E. ✨ [추가] 대댓글 삭제 버튼 클릭 감지
+  // 댓글 삭제 버튼 클릭 감지
   if (event.target && event.target.classList.contains("delete-comment-btn")) {
     const guestId = event.target.dataset.guestId;
     const commentId = event.target.dataset.commentId;
-    const password = event.target.dataset.password;
+    const password = commentPasswords[commentId];
     deleteComment(guestId, commentId, password);
     return;
   }
