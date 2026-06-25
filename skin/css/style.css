@@ -493,6 +493,7 @@ details, details summary:hover {
 	width:var(--width-100);
 	display:flex;
 	padding:0 var(--padding-in-body);
+	justify-content: center;
 }
 
 ul, li{
