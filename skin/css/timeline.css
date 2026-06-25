@@ -2,6 +2,8 @@
 :root{
 	--timeline-color:purple;/*타임라인 전체적인 색상*/
 	--title-text-color:white;/*좌측 설명란색상*/
+
+	--timeline-box-position:30px;/*타임라인 내부 박스 위치를 선과 가깝게 */
   /*타임라인 내부 박스 배경*/
 	--left-background-color:black;/*좌측 칸의 색*/
 	--right-background-color:white;/*우측 칸의 색*/
@@ -66,7 +68,7 @@
 	width: var(--width-100);
 	text-align: center;
 	margin: 0 auto;
-	border-radius: 20PX;
+	border-radius: 20px;
 	z-index: 1;
 	position: relative;
 }
@@ -127,6 +129,16 @@
 	padding: 10px;
 	margin: 20px 0 0 0;
 	border-radius: 10px;
+}
+
+.timeline-article .content-left{
+	position: relative;
+	left: var(--timeline-box-position);
+}
+
+.timeline-article .content-right{
+	position: relative;
+	right: var(--timeline-box-position);
 }
 
 .timeline-article .content-left .timeline-who{
@@ -298,6 +310,8 @@
     .timeline-article .content-right {
 	    padding: 10px 25px;
 	    min-height: 65px;
+		position: relative;
+		right:var(--timeline-box-position);
     }
 
     .timeline-article .content-left .timeline-who{
