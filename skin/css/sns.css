@@ -16,7 +16,7 @@
 
 .sns-profile{
 	display:flex;
-	margin:var(--sns-profile-margin);
+	margin:0 var(--sns-profile-margin);
 }
 
 img{
