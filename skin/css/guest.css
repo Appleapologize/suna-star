@@ -75,10 +75,10 @@ textarea{
 	background:unset;
 }
 
-#guest-form input,
-#guest-form textarea,
-.comment-form input, 
-.comment-form textarea{
+#guest-form input, #guest-form textarea, 
+.comment-form input, .comment-form textarea, 
+#guest-form input::placeholder, #guest-form textarea::placeholder, 
+.comment-form input::placeholder, .comment-form textarea::placeholder{
 	background: var(--sub-background-color);
 	color: var(--text-color);
 	border-radius:var(--module-inside-round);
