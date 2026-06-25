@@ -42,6 +42,7 @@ details.details-css summary{
 	margin:10px 0;
 	display: block;
 }
+
 details.details-css summary::-webkit-details-marker { 
 		/* Safari 브라우저용 사용자 정의 스타일 */
 	content: var(--summary-mark);
@@ -54,6 +55,3 @@ details.details-css summary::before{
 	color:var(--summary-mark-color);
 	margin-right:5px;
 }
-
-
-
