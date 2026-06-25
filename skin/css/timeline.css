@@ -313,7 +313,7 @@
     }
 
     .timeline-article .content-left{
-		left:calc(var(--timeline-box-position) * 2);
+		left:calc(var(--timeline-box-position) * -2);
 	}
 	
     .timeline-article .content-right{
