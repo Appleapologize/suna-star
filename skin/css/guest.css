@@ -70,7 +70,6 @@ textarea{
 	overflow: visible;
 }
 
-
 #guest ul, 
 #guest li{
 	background:unset;
@@ -152,7 +151,6 @@ textarea{
 	width:var(--width-100);
 	margin: 10px 0;
 }
-
 
 #guest-name, 
 #guest-password,
