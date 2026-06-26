@@ -323,6 +323,10 @@ div.comment:not(:last-child) {
 	padding: var(--guest-button-padding-topbotom) var(--guest-button-padding-leftright);  
 }
 
+.inline-comment-btn{
+	display:inline-block;
+}
+
 .comments-list .comment:first-child li {
 	margin-top: 0;
 }
