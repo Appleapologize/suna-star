@@ -416,9 +416,12 @@ td.country figure img{
 }
 
 .profile-2 td{
-	border-bottom: var(--sub-table-outline) var(--wiki-main-color) !important;
 	text-align:left;
 	padding: calc(var(--flag-gap) / 2) var(--flag-gap);
+}
+
+.profile-2:last-child td {
+	border-bottom: var(--sub-table-outline) var(--wiki-main-color) !important;
 }
 
 th.voice{
