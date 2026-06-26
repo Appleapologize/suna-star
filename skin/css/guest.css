@@ -317,7 +317,8 @@ div.comment:not(:last-child) {
 	margin-left: 10px;
 }
 
-.toggle-comment-form{
+.toggle-comment-form, 
+.inline-comment-btn{
 	font-size: var(--toggle-comment-form-font-size);
 	padding: var(--guest-button-padding-topbotom) var(--guest-button-padding-leftright);  
 }
@@ -346,7 +347,8 @@ div.comment:not(:last-child) {
 }
 
 @media (max-width: 1024px) {
-	.toggle-comment-form{
+	.toggle-comment-form, 
+	.inline-comment-btn{
 		padding: calc(var(--guest-button-padding-topbotom) / 2) calc(var(--guest-button-padding-leftright) / 2);
 	}
 
