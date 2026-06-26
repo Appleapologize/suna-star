@@ -7,7 +7,7 @@
 <div id="guest">
   <div class="text-module module">
 
-      <h1>방명록</h1>
+    <h1>방명록</h1>
 
     <form id="guest-form">
       
@@ -25,7 +25,7 @@
         <textarea id="guest-content" placeholder="내용을 입력해주세요"></textarea>
       </div>
     </form>
-</div>
+  </div>
           <div class="guest-li text-module module noti">
           <div class="guest-nm-date">
             <div class="guest-list-name">Suna-Star <span class="notice">주의</span></div>
@@ -377,5 +377,47 @@ document.addEventListener("click", (event) => {
 // 페이지 로드 시 방명록 불러오기
 getGuestList();
 </script>
+<!-- 버튼 클릭시 댓글 입력 폼만 나오게, 나머지는 보이게 하기
+  // 댓글 입력 폼 토글 이벤트 처리
+document.addEventListener("click", (event) => {
+  const toggleBtn = event.target.closest(".toggle-comment-form");
+  if (toggleBtn) {
+    const guestId = toggleBtn.dataset.guestId;
+    const commentForm = document.querySelector(`#comment-form-${guestId}`);
+    const commentsList = document.querySelector(`#comments-${guestId}`); // ◀ 기존: 목록 찾기
+
+    if (commentForm && commentsList) {
+      commentForm.classList.toggle("show");
+      commentsList.classList.toggle("show"); // ◀ 기존: 목록도 같이 토글
+    }
+    return;
+  }
+  // ... 생략
+});
+
+
+// 댓글 입력 폼 토글 이벤트 처리
+document.addEventListener("click", (event) => {
+  const toggleBtn = event.target.closest(".toggle-comment-form");
+  if (toggleBtn) {
+    const guestId = toggleBtn.dataset.guestId;
+    const commentForm = document.querySelector(`#comment-form-${guestId}`);
+    // ◀ 변수 commentsList를 선언하던 줄을 통째로 삭제
+
+    if (commentForm) { // ◀ 조건문에서 && commentsList 부분을 삭제
+      commentForm.classList.toggle("show"); // ◀ 입력란만 토글하도록 이 줄만 남김
+    }
+    return;
+  }
+  // ... 생략
+});
+
+// 1. commentsList 찾던 줄 삭제
+if (commentForm) { // 2. && commentsList 조건만 삭제
+  commentForm.classList.toggle("show");
+  // 3. commentsList 토글하던 줄 삭제
+}
+  -->
+
 
 </div>
