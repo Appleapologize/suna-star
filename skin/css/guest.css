@@ -23,7 +23,7 @@
 }
 
 [data-theme="dark"] {
-	--guest-comment-backcolor:#14171f;
+	--guest-comment-backcolor:var(--sub-card-background-color);
 }
 
 /*주의 딱지 스타일 시작*/
