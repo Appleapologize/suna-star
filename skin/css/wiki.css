@@ -57,7 +57,6 @@
 	--wiki-line-background-color:#eee; /*대사 박스 같은 내부 내용에 들어가는 박스 배경 색상*/
 	--wiki-text-white-color:#ffffff; /*흰색*/
 	--wiki-tooltip-content:#555; /*말풍선 내용 색상*/
-	--wiki-profile-img-back:white;/*프로필 이미지 뒤쪽 배경색상*/
 	
 	--wiki-blacktray-color:#ddd; /*스포일러 안내 박스 테두리 색상*/
 	--spoiler-text-color:#fc6603;	
@@ -94,7 +93,6 @@
 	--wiki-blacktray-color:#ddd;
 	--wiki-text-white-color:#000000; /*흰색*/
 	--wiki-tooltip-content:#eeeeee;
-	--wiki-profile-img-back:#14171f;/*프로필 이미지 뒤쪽 배경색상*/
 
 	--arrow-color:#a4a4a4;
 	--arrow-hover:#ababab; /*detail 닫혀있을때 화살표 hover때 색상*/	
@@ -439,7 +437,7 @@ th.voice{
 
 /*프로필 이미지*/
 table.profile tr td.profil-img{
-	background-color:var(--wiki-profile-img-back);
+	background-color:var(--sub-card-background-color);
 	padding: 5px 10px; 
 	border: var(--sub-table-outline) var(--wiki-main-color);
 }
