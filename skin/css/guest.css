@@ -327,6 +327,7 @@ div.comment:not(:last-child) {
 	display: inline-block;
 	font-size: calc(var(--toggle-comment-form-font-size) / 1.5);
 	margin: calc(var(--toggle-comment-form-font-size) / 3) 0;
+	padding: calc(var(--guest-button-padding-topbotom) / 3) calc(var(--guest-button-padding-leftright) / 3);
 }
 
 .comments-list .comment:first-child li {
