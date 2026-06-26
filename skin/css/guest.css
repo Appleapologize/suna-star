@@ -324,7 +324,9 @@ div.comment:not(:last-child) {
 }
 
 .inline-comment-btn{
-	display:inline-block;
+	display: inline-block;
+	font-size: calc(var(--toggle-comment-form-font-size) / 1.5);
+	margin: calc(var(--toggle-comment-form-font-size) / 3) 0;
 }
 
 .comments-list .comment:first-child li {
