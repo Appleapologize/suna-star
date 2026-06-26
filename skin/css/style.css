@@ -138,6 +138,7 @@
 	--background-color: white;
 	--sub-background-color: #e3d1ff;	
 	--card-background-color: #fff;  
+	--sub-card-background-color:white;
 	--box-shadow-color:rgba(0,0,0,.5); /*card 그림자 색상*/
 	--line-color:#eee; /*하단 라인 색상*/
 	--text-color:black;
@@ -209,7 +210,8 @@
 [data-theme="dark"] {
     --background-color: #0b0a21;    
     --sub-background-color: #2E236C;		              
-    --card-background-color: #232733;     
+    --card-background-color: #232733; 
+	--sub-card-background-color:#14171f;	
     --box-shadow-color: rgba(255,255,255,.5);        
 		--line-color:  #475569;       
 		--text-color: white;
