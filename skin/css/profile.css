@@ -1,5 +1,5 @@
 :root {
-   --profile-btn-size:140%;
+   --profile-btn-size:200%;
 }
 
 /* 상위 레이아웃 초기화 및 중앙 정렬 */
@@ -64,8 +64,6 @@
 /* [최종 해결] 실제 내부 이미지 설정: 중심축을 기준으로 고정 */
 #profile-main .text-module.module img {
     position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%); /* 무조건 마름모 정중앙 기준 고정 */
     width: var(--profile-btn-size);
     height: var(--profile-btn-size);
@@ -73,6 +71,17 @@
     object-fit: cover;
     pointer-events: none;
 }
+
+#profile-main .text-module.module .left-char img{
+    top: 100%;
+    left: 55%;
+}
+
+#profile-main .text-module.module .right-char img{
+    top: 85%;
+    left: 30%;
+}
+
 
 /* 마름모 위치 설정 (기존 구도 완벽 유지) */
 #profile-main .left-char-box {
