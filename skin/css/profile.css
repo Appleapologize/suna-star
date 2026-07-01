@@ -114,12 +114,7 @@
     object-position: 85% center;
 }
 
-
-#profile-main .text-module.module:hover img {
-    filter: contrast(30%) brightness(150%);
-}
-
-/* 1. 마우스 올렸을 때(hover) 이미지 필터 처리 (전체에 일괄 적용) */
+/* 마우스 올렸을 때(hover) 이미지 필터 처리 (전체에 일괄 적용) */
 #profile-main .text-module.module:hover img {
     filter: contrast(30%) brightness(150%);
 }
