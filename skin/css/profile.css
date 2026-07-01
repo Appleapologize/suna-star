@@ -14,7 +14,7 @@
     padding: 0 !important;
 }
 
-#profile-main .text-module.module * {
+#profile-main .text-module * {
     cursor: var(--over-cursor), pointer !important;
 }
 
@@ -126,6 +126,7 @@
 
 /* 2. hover 시 나타날 흰색 덮개판과 글자 레이어 생성 (기본 상태: 투명) */
 #profile-main .text-module.module::after {
+    cursor: var(--over-cursor), pointer !important;
     position: absolute;
     top: var(--box-padding);
     left: var(--box-padding);
