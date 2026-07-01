@@ -11,67 +11,73 @@
 
 /* 2. 위아래가 길쭉한 마름모 프레임 설정 */
 #profile-main .text-module.module {
-  position: absolute; /* [간격 해결] 부모 기준 절대 좌표로 배치 */
-  width: 220px;  /* 마름모 가로 폭 */
-  height: 340px; /* 마름모 세로 높이 (길쭉한 모양) */
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent;
-  
-  /* 마름모 모양으로 정교하게 커팅 */
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  
-  /* [테두리 해결] clip-path 환경에서 선명한 흰색 테두리를 만드는 4방향 drop-shadow */
-  filter: drop-shadow(2px 0px 0px #ffffff) 
-          drop-shadow(-2px 0px 0px #ffffff) 
-          drop-shadow(0px 2px 0px #ffffff) 
-          drop-shadow(0px -2px 0px #ffffff)
-          drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.2)); /* 부드러운 하단 그림자 추가 */
-          
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
+    position: absolute;
+    width: 220px;
+    height: 340px;
+    margin: 0 !important;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    
+    /* [수정] 자르는 기능(clip-path)을 여기에서 지우고, 대신 테두리를 위한 진짜 마름모를 그립니다. */
+    /* border가 아닌 가상 요소(before)로 완벽한 마름모 선을 만들어 줍니다. */
 }
 
-/* 3. [정밀 좌표 지정] 예시처럼 서로 살짝 교차하며 예쁘게 어긋나도록 설정 */
-/* 왼쪽 남자 캐릭터 박스 (왼쪽에 배치, 위로 올림) */
-#profile-main .left-char-box {
-  left: 10px;
-  top: 10px;
+/* [추가] 마름모 형태의 선명한 흰색 테두리선을 만들어주는 핵심 코드 */
+#profile-main .text-module.module::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: transparent;
+    /* 3px 두께의 선명한 흰색 테두리 생성 (더 두껍게 원하시면 3px을 4px, 5px로 변경) */
+    border: 3px solid #ffffff; 
+    /* 위아래가 긴 마름모 모양으로 테두리선을 자릅니다 */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    z-index: 2; /* 이미지보다 위로 올려서 테두리가 덮이게 설정 */
+    pointer-events: none;
 }
 
-/* 오른쪽 여자 캐릭터 박스 (오른쪽에 배치, 아래로 내림) */
-#profile-main .right-char-box {
-  /* 두 마름모가 가로로 겹치는 정도를 조절합니다 */
-  /* 가로폭이 220px일 때, left를 170px 정도로 주면 두 마름모가 예시처럼 찰떡같이 겹칩니다 */
-  left: 170px; 
-  top: 110px; /* 아래로 100px 어긋나게 배치 */
+/* 부드러운 하단 그림자 효과는 부모 박스에 안전하게 적용 */
+#profile-main .text-module.module {
+    filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.25));
 }
 
-/* 4. 마우스를 올렸을 때 살짝 위로 뜨는 효과 */
-#profile-main .left-char-box:hover {
-  transform: translateY(-8px);
-}
-#profile-main .right-char-box:hover {
-  transform: translateY(-8px);
-}
-
-/* 5. 내부 이미지 설정 */
+/* [수정] 내부 이미지만 마름모 모양으로 쏙 잘라내기 */
 #profile-main .text-module.module img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    pointer-events: none;
+    /* 테두리 안쪽에서 이미지가 마름모 모양으로 깔끔하게 잘리도록 여기에 clip-path 배치 */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    z-index: 1;
 }
 
-/* 왼쪽 박스: 남자 캐릭터가 중심으로 오도록 미세 조정 */
+/* --- 기존에 정밀 튜닝하신 좌표 설정 그대로 유지 --- */
+#profile-main .left-char-box {
+    left: 10px;
+    top: 10px;
+}
+
+#profile-main .right-char-box {
+    left: 130px;
+    top: 190px;
+}
+
+/* 마우스 올렸을 때 효과 */
+#profile-main .left-char-box:hover,
+#profile-main .right-char-box:hover {
+    transform: translateY(-8px);
+}
+
+/* 이미지 캐릭터별 좌우 위치 맞춤 */
 #profile-main .left-char-box img {
-  object-position: 25% center;
+    object-position: 25% center;
+}
+#profile-main .right-char-box img {
+    object-position: 75% center;
 }
 
-/* 오른쪽 박스: 여자 캐릭터가 중심으로 오도록 미세 조정 */
-#profile-main .right-char-box img {
-  object-position: 75% center;
-}
