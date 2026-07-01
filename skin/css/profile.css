@@ -4,10 +4,9 @@
   display: block;    /* 기존 flex 성질 제거하여 강제 간격 벌어짐 방지 */
   width: 100%;
   max-width: 450px;  /* 두 마름모가 배치될 전체 영역 너비 */
-  height: 460px;     /* 위아래 어긋난 배치를 수용할 전체 영역 높이 */
+  height: 560px;     /* [수정] 아래쪽 마름모가 완전히 잘 담기도록 높이 확보 */
   margin: 0 auto !important; /* 화면 중앙 정렬 및 상하 마진 제거 */
   padding: 0 !important;
-  
 }
 
 /* 2. 위아래가 길쭉한 마름모 프레임 설정 */
@@ -16,69 +15,49 @@
     width: 220px;
     height: 340px;
     margin: 0 !important;
+    padding: 0 !important;
 
+    /* 기존 스킨의 불필요한 스타일 완전 박멸 */
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    filter: none !important; 
 
     cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: transform 0.3s ease;
     
-    /* [수정] 자르는 기능(clip-path)을 여기에서 지우고, 대신 테두리를 위한 진짜 마름모를 그립니다. */
-    /* border가 아닌 가상 요소(before)로 완벽한 마름모 선을 만들어 줍니다. */
+    /* 마름모 바깥쪽에만 깔끔하게 도는 그림자 효과 */
+    filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.3));
 }
 
-/* [추가] 마름모 형태의 선명한 흰색 테두리선을 만들어주는 핵심 코드 */
+/* 3. [테두리 완벽 해결] 이미지보다 3px 작게 마름모 구멍을 뚫는 배경판 생성 */
 #profile-main .text-module.module::before {
     content: "";
     position: absolute;
-    top: -1px; 
-    left: -1px; 
-    right: -1px; 
-    bottom: -1px;
-  
-    /* 가상 요소 자체를 마름모로 자른 뒤, 안쪽에 선명한 테두리 주입 */
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    background: #ffffff; /* 테두리 색상 */
-  
-    /* 마스크 기법을 사용해 가운데를 파내고 외곽선만 남기는 방식 (가장 확실하게 선이 나옵니다) */
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    padding: 3px; /* 이 숫자가 테두리 두께입니다. 더 두껍게 원하시면 4px, 5px로 변경 가능 */
-    
-    z-index: 2; /* 이미지보다 무조건 위로 배치 */
-    pointer-events: none;
-}
-
-/* 부드러운 하단 그림자 효과는 부모 박스에 안전하게 적용 */
-#profile-main .text-module.module {
-    filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.25));
-}
-
-/* [수정] 내부 이미지만 마름모 모양으로 쏙 잘라내기 */
-#profile-main .text-module.module img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    pointer-events: none;
-    /* 테두리 안쪽에서 이미지가 마름모 모양으로 깔끔하게 잘리도록 여기에 clip-path 배치 */
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ffffff; /* 이 색상이 테두리 선 색상이 됩니다 */
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     z-index: 1;
 }
 
-/* 4. 마름모 형태에만 이쁘게 안착하는 그림자 효과 부여 */
-#profile-main .left-char-box,
-#profile-main .right-char-box {
-    filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.3));
+/* 4. 내부 이미지 설정 */
+#profile-main .text-module.module img {
+    position: absolute;
+    /* [핵심 포인트] 테두리 두께(3px)만큼 사방 여백을 주어 흰색 배경판이 테두리처럼 보이게 유도 */
+    top: 3px;
+    left: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    
+    object-fit: cover;
+    pointer-events: none;
+    
+    /* 이미지도 흰색 배경판과 일치하도록 마름모로 컷팅 */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    z-index: 2; /* 흰색 배경판(before)보다 위에 배치 */
 }
 
-/* --- 기존에 정밀 튜닝하신 좌표 설정 그대로 유지 --- */
+/* 5. 정밀 튜닝하신 좌표 설정 완벽 유지 */
 #profile-main .left-char-box {
     left: 10px;
     top: 10px;
@@ -89,17 +68,16 @@
     top: 190px;
 }
 
-/* 마우스 올렸을 때 효과 */
+/* 6. 마우스 올렸을 때 효과 (그림자 충돌 버그 방지를 위해 깔끔하게 수정) */
 #profile-main .left-char-box:hover,
 #profile-main .right-char-box:hover {
     transform: translateY(-8px);
 }
 
-/* 이미지 캐릭터별 좌우 위치 맞춤 */
+/* 7. 이미지 캐릭터별 좌우 위치 맞춤 */
 #profile-main .left-char-box img {
     object-position: 25% center;
 }
 #profile-main .right-char-box img {
     object-position: 75% center;
 }
-
