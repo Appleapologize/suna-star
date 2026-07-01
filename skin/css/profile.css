@@ -136,7 +136,7 @@
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     
     /* 반투명한 흰색 덮개 레이어 */
-    background-color: color-mix(in srgb, var(--background-color) 20%, var(--clear)); 
+    background-color: color-mix(in srgb, var(--card-background-color) 20%, var(--clear)); 
     
     /* 글자 정중앙 정렬을 위한 설정 */
     display: flex;
