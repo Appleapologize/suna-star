@@ -25,7 +25,7 @@
     height: 340px;
     margin: 0 !important;
     padding: 0 !important;
-    background: transparent !important;
+    background: var(--clear) !important;
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
@@ -119,6 +119,10 @@
     filter: contrast(30%) brightness(150%);
 }
 
+[data-theme="dark"] #profile-main .text-module.module:hover img {
+    filter: contrast(70%) brightness(50%);
+}
+
 /* 2. hover 시 나타날 흰색 덮개판과 글자 레이어 생성 (기본 상태: 투명) */
 #profile-main .text-module.module::after {
     cursor: var(--over-cursor), pointer !important;
@@ -132,7 +136,7 @@
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     
     /* 반투명한 흰색 덮개 레이어 */
-    background-color: rgba(255, 255, 255, 0.2); 
+    background-color: color-mix(in srgb, var(--background-color) 20%, var(--clear)); 
     
     /* 글자 정중앙 정렬을 위한 설정 */
     display: flex;
@@ -152,12 +156,12 @@
 
 /* 3. [왼쪽 캐릭터] 마우스 올렸을 때 나올 글자 입력 */
 #profile-main .left-char-box:hover::after {
-    content: "CHARACTER A"; /* 👈 여기에 왼쪽 캐릭터 이름을 적으세요 */
+    content: "가아라"; 
     opacity: 1; /* 마우스 올리면 투명도 해제 */
 }
 
 /* 4. [오른쪽 캐릭터] 마우스 올렸을 때 나올 글자 입력 */
 #profile-main .right-char-box:hover::after {
-    content: "CHARACTER B"; /* 👈 여기에 오른쪽 캐릭터 이름을 적으세요 */
+    content: "레이";
     opacity: 1; /* 마우스 올리면 투명도 해제 */
 }
