@@ -13,6 +13,10 @@
     padding: 0 !important;
 }
 
+#profile-main .text-module.module * {
+    cursor: var(--over-cursor), pointer !important;
+}
+
 /* 위아래가 길쭉한 마름모 프레임 설정 */
 #profile-main .text-module.module {
     position: absolute;
@@ -24,7 +28,6 @@
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    cursor: var(--over-cursor), pointer !important;
     transition: transform 0.3s ease;
     
     /* 마름모 바깥쪽에만 깔끔하게 도는 그림자 효과 */
