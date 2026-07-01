@@ -1,5 +1,6 @@
 :root {
    --profile-btn-size:200%;
+   --profile-polygon: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 
 /* 상위 레이아웃 초기화 및 중앙 정렬 */
@@ -45,7 +46,7 @@
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: var(--background-color); /* 테두리 선 색상 */
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    clip-path: var(--profile-polygon);
     z-index: 1;
 }
 
@@ -59,7 +60,7 @@
     bottom: var(--box-padding);
     
     /* 내부 공간도 마름모로 깔끔하게 커팅 */
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    clip-path: var(--profile-polygon);
     z-index: 2;
     overflow: hidden;
 }
@@ -111,4 +112,56 @@
 #profile-main .right-char-box img {
     /* 오른쪽 박스 (여자 캐릭터): 가로% 세로% */
     object-position: 85% center;
+}
+
+
+#profile-main .text-module.module:hover img {
+    filter: contrast(30%) brightness(150%);
+}
+
+/* 1. 마우스 올렸을 때(hover) 이미지 필터 처리 (전체에 일괄 적용) */
+#profile-main .text-module.module:hover img {
+    filter: contrast(30%) brightness(150%);
+}
+
+/* 2. hover 시 나타날 흰색 덮개판과 글자 레이어 생성 (기본 상태: 투명) */
+#profile-main .text-module.module::after {
+    position: absolute;
+    top: var(--box-padding);
+    left: var(--box-padding);
+    right: var(--box-padding);
+    bottom: var(--box-padding);
+    
+    /* 이미지 모양과 똑같이 마름모로 컷팅 */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    
+    /* 반투명한 흰색 덮개 레이어 */
+    background-color: rgba(255, 255, 255, 0.2); 
+    
+    /* 글자 정중앙 정렬을 위한 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 글자 기본 스타일 (원하는 대로 커스텀 가능) */
+    color: var(--text-color);             /* 글자 색상 (하얗게 질린 배경 위에 보일 색상) */
+    font-weight: bold;          /* 글자 두께 */
+    text-shadow: var(--box-shadow); /* 글자가 선명하게 보이도록 그림자 추가 */
+    
+    /* 처음에는 안 보이다가 hover 시 부드럽게 나타나도록 설정 */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3; /* 이미지(2)보다 위, 테두리(1)보다 위에 배치 */
+}
+
+/* 3. [왼쪽 캐릭터] 마우스 올렸을 때 나올 글자 입력 */
+#profile-main .left-char-box:hover::after {
+    content: "CHARACTER A"; /* 👈 여기에 왼쪽 캐릭터 이름을 적으세요 */
+    opacity: 1; /* 마우스 올리면 투명도 해제 */
+}
+
+/* 4. [오른쪽 캐릭터] 마우스 올렸을 때 나올 글자 입력 */
+#profile-main .right-char-box:hover::after {
+    content: "CHARACTER B"; /* 👈 여기에 오른쪽 캐릭터 이름을 적으세요 */
+    opacity: 1; /* 마우스 올리면 투명도 해제 */
 }
