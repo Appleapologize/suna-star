@@ -2,64 +2,68 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 500px; /* 위아래로 어긋나기 때문에 충분한 세로 공간 확보 */
-  background: transparent; /* 배경을 완전히 투명하게 설정 */
-  gap: 10px; /* 두 다이아몬드가 가로로 살짝 교차하거나 맞물리도록 간격 조정 (필요시 조절) */
+  min-height: 500px; /* 위아래로 어긋나기 위한 최소 높이 */
+  background: transparent;
+  gap: -40px; /* [간격 해결] 마름모가 서로 착 맞물리도록 마이너스 간격 지정 */
+  margin: 0;
+  padding: 0;
 }
 
-/* 2. 다이아몬드 프레임 설정 (기존 div를 버튼 형태로 변환) */
+/* 2. 위아래가 길쭉한 마름모 프레임 설정 */
 #profile-main .text-module.module {
   position: relative;
-  width: 250px;  /* 마름모의 너비 (정사각형이어야 완벽한 다이아몬드가 됩니다) */
-  height: 250px; /* 마름모의 높이 */
-  overflow: hidden;
-  background: transparent; /* 배경 투명 */
-  transform-style: preserve-3d;
-  border: 4px solid #ffffff; /* 깔끔한 흰색 테두리 선 */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* 마름모 형태에 생기는 그림자 */
+  width: 200px;  /* 마름모의 가로 폭 */
+  height: 320px; /* 마름모의 세로 높이 (가로보다 길게 설정하여 길쭉한 모양 생성) */
+  margin: 0 !important; /* 외부 마진 강제 초기화 */
+  padding: 0 !important;
+  background: transparent;
+  
+  /* 위아래가 긴 마름모 모양으로 정교하게 커팅 (순서: 상, 우, 하, 좌) */
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  
+  /* 마름모 형태에 맞는 흰색 테두리 효과 (clip-path 사용 시 border 대용) */
+  filter: drop-shadow(0px 0px 4px #ffffff); 
+  
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* 3. [위치 어긋나게 배치] 및 [45도 회전] 동시에 적용 */
-/* 왼쪽 남자 캐릭터 박스: 45도 회전 + 위로 70px 이동 */
+/* 3. [위치 어긋나게 배치] 왼쪽은 위로, 오른쪽은 아래로 */
+/* 왼쪽 남자 캐릭터 박스 */
 #profile-main .left-char-box {
-  transform: rotate(45deg) translateY(-70px) translateX(-70px);
+  transform: translateY(-60px); /* 위로 60px 이동 */
 }
 
-/* 오른쪽 여자 캐릭터 박스: 45도 회전 + 아래로 70px 이동 */
+/* 오른쪽 여자 캐릭터 박스 */
 #profile-main .right-char-box {
-  transform: rotate(45deg) translateY(70px) translateX(70px);
+  transform: translateY(60px); /* 아래로 60px 이동 */
 }
 
 /* 4. 마우스를 올렸을 때 살짝 커지는 효과 */
 #profile-main .left-char-box:hover {
-  transform: rotate(45deg) translateY(-70px) translateX(-70px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transform: translateY(-60px) scale(1.05);
 }
 #profile-main .right-char-box:hover {
-  transform: rotate(45deg) translateY(70px) translateX(70px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transform: translateY(60px) scale(1.05);
 }
 
-/* 5. 내부 이미지 설정 (인물이 똑바로 보이도록 -45도 역회전 및 위치 맞춤) */
+/* 5. 내부 이미지 설정 (회전을 쓰지 않으므로 원본 그대로 똑바로 보입니다) */
 #profile-main .text-module.module img {
   position: absolute;
-  width: 142%;  /* 45도 회전 시 모서리가 빈 공간으로 남지 않도록 크기 확장 */
-  height: 142%;
-  top: -21%;    /* 정중앙 정렬 */
-  left: -21%;
-  transform: rotate(-45deg); /* 이미지는 기울어지지 않게 역회전 */
-  object-fit: cover;
-  pointer-events: none; /* 이미지 때문에 클릭이 방해받지 않도록 설정 */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover; /* 마름모 영역에 꽉 차게 조절 */
+  pointer-events: none;
 }
 
-/* 왼쪽 박스 안의 이미지는 남자 캐릭터(왼쪽)가 중심으로 오도록 조정 */
+/* 왼쪽 박스: 이미지의 왼쪽(남자 캐릭터) 중심으로 배치 */
 #profile-main .left-char-box img {
-  object-position: 30% center;
+  object-position: 25% center; /* 숫자를 줄일수록 왼쪽이 더 보입니다 */
 }
 
-/* 오른쪽 박스 안의 이미지는 여자 캐릭터(오른쪽)가 중심으로 오도록 조정 */
+/* 오른쪽 박스: 이미지의 오른쪽(여자 캐릭터) 중심으로 배치 */
 #profile-main .right-char-box img {
-  object-position: 70% center;
+  object-position: 75% center; /* 숫자를 늘릴수록 오른쪽이 더 보입니다 */
 }
