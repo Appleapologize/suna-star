@@ -45,7 +45,7 @@
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: var(--background-color); /* 테두리 선 색상 */
+    background-color: var(--card-background-color); /* 테두리 선 색상 */
     clip-path: var(--profile-polygon);
     z-index: 1;
 }
