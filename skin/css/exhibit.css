@@ -5,6 +5,7 @@
 #exhibit{
 	display:flex;
 }
+
 #exhibit .module {
 	position: relative;
 	margin: 0 calc(var(--box-gap) / 2);
