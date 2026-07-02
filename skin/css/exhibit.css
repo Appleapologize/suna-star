@@ -38,12 +38,11 @@
 }
 
 svg.gallery-text{
-	width: 160%; /* 숫자를 키우면 글자가 더 커지고, 줄이면 작아집니다 */
 	height: auto;
 	position: absolute;
 	top: 30%;
 	left: -70%;
-	transform: translate(-50%, -50%) rotate(-60deg);
+	transform: rotate(-60deg);
 	pointer-events: none;
 	color: 
 		color-mix(in srgb, var(--text-color) 50%, var(--clear));
