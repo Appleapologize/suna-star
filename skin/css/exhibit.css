@@ -1,3 +1,7 @@
+:root{
+	--exhibit-back-text-scale:1.5;
+}
+
 #exhibit{
 	display:flex;
 }
@@ -42,7 +46,7 @@ svg.gallery-text{
 	position: absolute;
 	top: 30%;
 	left: -70%;
-	transform: rotate(-60deg);
+	transform: rotate(-60deg) scale(var(--exhibit-back-text-scale));
 	pointer-events: none;
 	color: 
 		color-mix(in srgb, var(--text-color) 50%, var(--clear));
