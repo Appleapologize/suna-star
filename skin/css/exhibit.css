@@ -46,7 +46,7 @@
 /* 호버 시 p 태그 배경이 조금 더 선명해지거나 변하게 처리 (선택사항) */
 #exhibit .module a:hover p.gallery-text {
 	display: block;
-	background-color: color-mix(in srgb, var(--card-background-color) 30%, var(--clear));
+	background-color: color-mix(in srgb, var(--card-background-color) 80%, var(--clear));
 }
 
 svg.gallery-text{
