@@ -13,7 +13,6 @@
 	padding-top:0;
 }
 
-
 .sns-profile{
 	display:flex;
 	margin:0 var(--sns-profile-margin);
@@ -196,23 +195,6 @@ div.profile-img-sns img {
 	position: relative;
 	top: var(--box-padding);
 }
-
-/*
-.table-top * {
-	text-align: center !important;
-	font-weight: bolder;
-	color: var(--btn-text-color) !important;
-}
-
-.table-top th {
-	border-left: 1px solid white !important;
-	border-right: 1px solid white !important;
-}
-
-table.sns-board tr:last-child * {
-	border-bottom: none;
-}
-*/
 
 @media (max-width: 1024px) {
 	.diary-text table{
