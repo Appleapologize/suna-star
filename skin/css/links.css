@@ -73,7 +73,6 @@
 	visibility:hidden;
 	position: absolute;
 	top: -70px;
-	right: 25%;
 	width: fit-content;
 	margin: 0 auto;
 	z-index:1;
@@ -124,6 +123,10 @@
 	padding:0;
 }
 
+#menu .banner-module .banner-tooltip {
+    right: 40%;
+}
+
 /* ==========================================
  #link 안에만 들어가는 스타일
 ========================================== */
@@ -139,6 +142,10 @@
 #links img{
 	width:200px;
 	height:40px;
+}
+
+#links .banner-module .banner-tooltip{
+	right: 25%;
 }
 
 /*.self의 배너만*/
