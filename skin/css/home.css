@@ -22,6 +22,14 @@
 	padding-left: 0;
 }
 
+figure + h4{
+	 margin-top: 0;
+}
+
+.module > *:first-child, .diary-text > *:first-child{
+	margin-bottom: 10px;
+}
+
 /*접고 피기*/
 details.details-css{
 	padding:10px;
