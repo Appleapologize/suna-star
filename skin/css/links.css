@@ -163,6 +163,9 @@
 	/* ==========================================
 	공통
 	========================================== */
+	#menu .friend-banner {
+		font-size: unset;
+	}
 	
 	.banner-module img {
 		width: var(--width-100);
