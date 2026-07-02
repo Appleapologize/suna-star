@@ -55,7 +55,7 @@
 }
 
 .month-arrow:hover{
-	color:var(--sub-background-color);
+	color:var(--point-color);
 	cursor: var(--over-cursor), pointer !important;
 }
 
