@@ -164,7 +164,6 @@
 	공통
 	========================================== */
 	#menu .friend-banner,
-	#menu .banner-module .banner-tooltip p,
 	#links .banner-module .banner-tooltip p{
 		font-size: unset;
 	}
@@ -185,7 +184,6 @@
 	}	
 	
 	.banner-module .banner-tooltip p{
-		font-size:10px; 
 		margin-bottom: 5px;
 		background: color-mix(var(--card-background-color) 50%, transparent);		
 	}	
