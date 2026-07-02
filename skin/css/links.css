@@ -164,7 +164,8 @@
 	공통
 	========================================== */
 	#menu .friend-banner,
-	#menu .banner-module .banner-tooltip p{
+	#menu .banner-module .banner-tooltip p,
+	#links .banner-module .banner-tooltip p{
 		font-size: unset;
 	}
 	
