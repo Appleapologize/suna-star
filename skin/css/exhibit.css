@@ -1,16 +1,16 @@
 /* 글자수가 길어서 조금 작게 나와야 하는 갤러리 */
 svg.gallery-text {
-    --exhibit-back-text-scale: calc(100vw / 2); /* 700 숫자가 커질수록 글자가 작아집니다 */
+    --exhibit-back-text-scale: 1.5; /* 700 숫자가 커질수록 글자가 작아집니다 */
 }
 
 /* 글자수가 3글자라 엄청 커야 하는 SNS */
 svg.sns-text {
-    --exhibit-back-text-scale: calc(100vw / 2); /* 450 숫자가 작아질수록 글자가 커집니다 */
+    --exhibit-back-text-scale: 1.5; /* 450 숫자가 작아질수록 글자가 커집니다 */
 }
 
 /* 적당한 크기의 플레이리스트 */
 svg.play-list-text {
-    --exhibit-back-text-scale: calc(100vw / 2);
+    --exhibit-back-text-scale: 1.5;
 }
 
 
