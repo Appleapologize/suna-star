@@ -63,10 +63,10 @@ svg.sns-text,
 svg.play-list-text{
 	height: auto;
 	position: absolute;
-	top: 30%;
-	left: 0%;
+	top: 40%;
+	left: -5%;
 	transform: rotate(-60deg) scale(var(--exhibit-back-text-scale));
 	pointer-events: none;
 	color: 
-		color-mix(in srgb, var(--text-color) 50%, var(--clear));
+		color-mix(in srgb, var(--point-color) 50%, var(--clear));
 }
