@@ -9,6 +9,8 @@ svg.sns-text {
 
 #exhibit{
 	display:flex;
+	width: 100%;
+    height: 100%;
 }
 
 #exhibit .module {
@@ -73,6 +75,6 @@ svg.play-list-text{
 
 @media (max-width: 1024px) {
 	#exhibit .module {
-		height: 50vh;
+		height: 65vh;
 	}
 }
