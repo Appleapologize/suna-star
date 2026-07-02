@@ -3,7 +3,7 @@
 :root{
 	--border-wiki-line:1px solid; /*분류표, 목차, 스포일러 경고창, 주석 란,  열고 닫는 제목의 밑, 차트 테두리의 선 두께와 스타일*/
 	--border-table-text-left:6px; /*대사 발췌란 왼쪽 테두리 두께*/	
-	--table-outline-width:3px; /*대사 발췌란 외의 캐릭터 색이 들어간 테이블 테두리 두께, 
+	--table-outline-width:3px; /*대사 발췌란, 말풍선 중간의 라인 같이 캐릭터 색이 들어간 테이블 테두리나 라인 두께, 
 		3px 이상 적을것*/	
 	--sub-table-outline-width:1px; /*캐릭터 색이 들어간 테이블 내부의 두께*/
 	--sub-table-outline-style: solid;/*캐릭터 색이 들어간 테이블 내부선 스타일*/
@@ -849,7 +849,7 @@ button.tooltip-close:hover{
 
 .tooltip-divider{
 	border: 0;
-	height: 3px;
+	height: var(--table-outline-width);
 	background-color: var(--wiki-main-color); /* hr의 배경색 */
 	margin: 5px 0; /* hr과 내용 사이의 간격 */
 }
