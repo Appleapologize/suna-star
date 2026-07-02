@@ -1,11 +1,11 @@
 :root{
 	--exhibit-back-text-scale: 2.5;
 }
-
 /*sns 글자만 크기가 달라서 */
 svg.sns-text {
     --exhibit-back-text-scale: 1.5;
 }
+
 
 #exhibit{
 	display:flex;
