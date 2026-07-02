@@ -388,36 +388,6 @@ body:has(#container) {
     background-color: var(--select);
     color: var(--select-color);
 }
-/* ==========================================
-	텍스트 스타일
-   ========================================== */
-p{
-	margin: 0;
-    padding: 0;
-    line-height: 1.5rem;
-	font-size:var(--p-font-size);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6{
-    /*transform: scale(var(--text-sc));*/
-    text-align: center;	
-	/*letter-spacing:calc(var(--text-sc) * 1px);*/
-}
-
-figcaption{
-    width:var(--width-100);
-	text-align: center;
-}
-
-p ion-icon[name="arrow-forward"].md.hydrated {
-    position: relative;
-    top: 3px;
-}
 
 /* ==========================================
 	스크롤바 스타일
@@ -448,6 +418,7 @@ body:has(#container)::-webkit-scrollbar-thumb {
 /* 마우스 올렸을 때 효과 */
 body:has(#container)::-webkit-scrollbar-thumb:hover {
     background-color: color-mix(in srgb, var(--scroll-bar-color) 60%, var(--hover-mix)) !important;
+	cursor:var(--over-cursor), pointer !important;
 }
 
 /* [공통] 이오니콘즈 아이콘 폰트를 스크롤바 버튼 구조에 강제 주입 */
@@ -455,7 +426,36 @@ body:has(#container)::-webkit-scrollbar-button{
     display: none !important;
 }
 
+/* ==========================================
+	텍스트 스타일
+   ========================================== */
+p{
+	margin: 0;
+    padding: 0;
+    line-height: 1.5rem;
+	font-size:var(--p-font-size);
+}
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    /*transform: scale(var(--text-sc));*/
+    text-align: center;	
+	/*letter-spacing:calc(var(--text-sc) * 1px);*/
+}
+
+figcaption{
+    width:var(--width-100);
+	text-align: center;
+}
+
+p ion-icon[name="arrow-forward"].md.hydrated {
+    position: relative;
+    top: 3px;
+}
 
 a{
 	margin: 0;
