@@ -9,7 +9,7 @@
 	align-content: center;
 }
 
-.gallery-text{
+svg.gallery-text{
 	position: absolute;
 	top: 30%;
 	left: -70%;
