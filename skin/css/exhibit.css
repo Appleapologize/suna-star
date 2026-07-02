@@ -1,5 +1,7 @@
-#exhibit .module {
+#exhibit{
 	display:flex;
+}
+#exhibit .module {
 	margin: 0 calc(var(--box-gap) / 2);
 	height: 50vh;
 	text-align: center;
