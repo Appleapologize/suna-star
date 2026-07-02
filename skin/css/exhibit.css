@@ -27,7 +27,9 @@
 	text-decoration: none;
 }
 
-#exhibit .module p.gallery-text {
+#exhibit .module p.gallery-text,
+#exhibit .module p.sns-text,
+#exhibit .module p.play-list-text{
 	display: none;
 	width: 100%;
 	height: 100%;
@@ -44,12 +46,16 @@
 }
 
 /* 호버 시 p 태그 배경이 조금 더 선명해지거나 변하게 처리 (선택사항) */
-#exhibit .module a:hover p.gallery-text {
+#exhibit .module a:hover p.gallery-text,
+#exhibit .module a:hover p.sns-text,
+#exhibit .module a:hover p.play-list-text{
 	display: block;
 	background-color: color-mix(in srgb, var(--card-background-color) 80%, var(--clear));
 }
 
-svg.gallery-text{
+svg.gallery-text,
+svg.sns-text,
+svg.play-list-text{
 	height: auto;
 	position: absolute;
 	top: 30%;
