@@ -6,14 +6,45 @@
 	margin: 0 calc(var(--box-gap) / 2);
 	height: 50vh;
 	text-align: center;
-	align-content: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden; 	
+}
+
+#exhibit .module a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+}
+
+#exhibit .module p.gallery-text {
+	position: relative;
+	z-index: 10; /* SVG보다 앞으로 오게 설정 */
+	margin: 0;
+	padding: 6px 14px; /* 글자 주변 배경의 얇은 두께(여백) 조절 */
+	border-radius: 4px; /* 배경 모서리 살짝 둥글게 */
+	color: var(--text-color);
+	background-color: color-mix(in srgb, var(--card-background-color) 15%, var(--clear)); 
+	transition: all 0.3s ease;
+}
+
+/* 호버 시 p 태그 배경이 조금 더 선명해지거나 변하게 처리 (선택사항) */
+#exhibit .module a:hover p.gallery-text {
+	background-color: color-mix(in srgb, var(--card-background-color) 30%, var(--clear));
 }
 
 svg.gallery-text{
+	width: 160%; /* 숫자를 키우면 글자가 더 커지고, 줄이면 작아집니다 */
+	height: auto;
 	position: absolute;
 	top: 30%;
 	left: -70%;
-	transform: rotate(-60deg);
+	transform: translate(-50%, -50%) rotate(-60deg);
+	pointer-events: none;
 	color: 
 		color-mix(in srgb, var(--text-color) 50%, var(--clear));
 }
