@@ -30,7 +30,12 @@
 
 .sns-id{
 	color:gray;
-	white-space: nowrap;	
+	/*white-space: nowrap;*/
+	word-break: break-all;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 
 .sns-id::before{
