@@ -26,18 +26,24 @@
 }
 
 #exhibit .module p.gallery-text {
+	display: none;
+	width: 100%;
+	height: 100%;
 	position: relative;
-	z-index: 10; /* SVG보다 앞으로 오게 설정 */
-	margin: 0;
-	padding: 6px 14px; /* 글자 주변 배경의 얇은 두께(여백) 조절 */
-	border-radius: 4px; /* 배경 모서리 살짝 둥글게 */
+	z-index: 10;
+	margin: auto 0;
+	padding: 6px 14px;
+	border-radius: 4px;
 	color: var(--text-color);
-	background-color: color-mix(in srgb, var(--card-background-color) 15%, var(--clear)); 
+	background-color: 
+		color-mix(in srgb, var(--card-background-color) 15%, var(--clear));
 	transition: all 0.3s ease;
+	align-content: center;
 }
 
 /* 호버 시 p 태그 배경이 조금 더 선명해지거나 변하게 처리 (선택사항) */
 #exhibit .module a:hover p.gallery-text {
+	display: block;
 	background-color: color-mix(in srgb, var(--card-background-color) 30%, var(--clear));
 }
 
