@@ -163,7 +163,8 @@
 	/* ==========================================
 	공통
 	========================================== */
-	#menu .friend-banner {
+	#menu .friend-banner,
+	#menu .banner-module .banner-tooltip p{
 		font-size: unset;
 	}
 	
