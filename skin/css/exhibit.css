@@ -7,3 +7,12 @@
 	text-align: center;
 	align-content: center;
 }
+
+.gallery-text{
+	position: absolute;
+	top: 30%;
+	left: -70%;
+	transform: rotate(-60deg);
+	color: 
+		color-mix(in srgb, var(--text-color) 50%, var(--clear));
+}
