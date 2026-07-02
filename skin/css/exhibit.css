@@ -2,6 +2,7 @@
 	display:flex;
 }
 #exhibit .module {
+	position: relative;
 	margin: 0 calc(var(--box-gap) / 2);
 	height: 50vh;
 	text-align: center;
