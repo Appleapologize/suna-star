@@ -59,7 +59,7 @@ svg.play-list-text{
 	height: auto;
 	position: absolute;
 	top: 30%;
-	left: -70%;
+	left: 0%;
 	transform: rotate(-60deg) scale(var(--exhibit-back-text-scale));
 	pointer-events: none;
 	color: 
