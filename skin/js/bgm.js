@@ -49,6 +49,10 @@ function onPlayerStateChange(event) {
 
 // 현재 재생 중인 동영상의 제목을 업데이트하는 함수
 function updateVideoTitle() {
+    if (player && typeof player.getPlaylistIndex === 'function') {
+        currentIndex = player.getPlaylistIndex();
+    }
+    
     let titleElement = document.querySelector(`#bgmTitles span[data-video-index="${currentIndex}"]`);
     let title = titleElement ? titleElement.getAttribute('data-title') : null;
     let marqueeText = document.getElementById('marqueeText');
